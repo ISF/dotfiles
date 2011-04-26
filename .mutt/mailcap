@@ -1,0 +1,5 @@
+text/html ; w3m -I %{charset} -T text/html ; copiousoutput;
+application/pdf ; zathura %s ; copiousoutput;
+image/jpeg ; display %s
+image/gif ; display %s
+image/png ; display %s
