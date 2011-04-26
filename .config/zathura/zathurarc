@@ -1,0 +1,5 @@
+set adjust_open width
+
+map + zoom in
+map - zoom out
+map <C-q> quit
