@@ -1,0 +1,18 @@
+color normal	white default
+color attachment brightyellow default
+color hdrdefault cyan default
+color indicator default cyan
+color markers	brightred default
+color quoted	green default
+color signature cyan default
+color status	black white
+color tilde	blue default
+color tree	red default
+color index	red default ~D
+color index	magenta default ~T
+color index 	brightyellow default ~F
+color header	brightgreen default ^From:
+color header	brightcyan default ^To:
+color header	brightcyan default ^Reply-To:
+color header	brightcyan default ^Cc:
+color header	brightblue default ^Subject:

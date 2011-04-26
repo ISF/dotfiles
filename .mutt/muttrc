@@ -1,0 +1,114 @@
+set realname = "Ivan Sichmann Freitas"
+set from = "ivansichfreitas@gmail.com" 
+
+# Setting gmail account
+
+source ~/.mutt/muttrc.gmail
+
+set imap_keepalive = 200
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "=INBOX"
+set postponed = "=[Gmail]/Drafts"
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/cert
+mailboxes =INBOX =Archlinux =AVR =CACO =CC010 =Cerva-LAS =dojo-campinas \
+=EC010 =EC09 =GPSL =GSoC =Haskell =Librix-LAS =Misc =Newsletter =Programação \
+=Software\ Livre =Unicamp =VIM =EC011 =CC011 =Git
+
+# General settings
+
+set abort_nosubject = ask-yes
+set abort_unmodified = ask-yes
+set alias_file = "~/.mutt/alias"
+set attach_split
+set auto_tag = yes
+set charset = utf-8
+set collapse_unread
+set envelope_from =yes
+set fast_reply # No waiting after send
+set followup_to = yes
+set forward_format="Fwd: %s"
+set imap_check_subscribed = yes
+set ispell="aspell -e -c"
+set mail_check = 30
+set mailcap_path = ~/.mutt/mailcap
+set markers = no
+set move = no
+set pager_context=5 # Retain 5 lines of previous page when scrolling.
+set pager_format = "%Z %-20.20n %s"
+set pager_index_lines = 15
+set pager_stop
+set print = yes
+set print_command="muttprint"
+set query_command="goobook query '%s'"
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set sendmail_wait = -1
+set smart_wrap # Don't wrap mid-word
+set sort=threads
+set sort_alias=alias
+set sort_aux=reverse-last-date-received
+set sort_browser=reverse-date
+set sort_re
+set ssl_starttls = yes
+set status_on_top # Status bar on top.
+set strict_threads = no
+set tilde
+set thorough_search   # strip headers and eval mimes before searching
+set use_from
+unset mark_old
+unset uncollapse_jump
+auto_view text/html
+mime_lookup application/octet-stream
+
+# Macros & Bindings
+
+source ~/.mutt/muttrc.binds
+source ~/.mutt/muttrc.macros
+
+# Sourcing alias
+
+source $alias_file
+
+# Lists
+
+subscribe mutt-users ec09unicamp ec010unicamp cc010_unicamp arch-general \
+aur-general arch-dev-public pacman-dev arch-mirrors  caco@ic.unicamp.br \
+gestao@caco.ic.unicamp.br gpsl haskell-cafe arch-haskell beginners@haskell.org \
+comp.lang.c@groups.google.com comp.lang.c++ comp.lang.python dojo-unicamp \
+weechat-dev epiclulz vim_use vim-use vim_dev tmux-users haskell@haskell.org \
+ec011unicamp cc011_unicamp libgit2 git
+
+# Hooks
+
+folder-hook . "exec collapse-all" # collapses all threads
+
+# Editing
+
+set editor="vim -c 'set tw=79 et'"
+set edit_headers=yes # See the headers when editing
+set include # include original message
+
+# Signature
+
+source /etc/Muttrc.gpg.dist
+set sig_dashes
+set signature = "~/.mutt/signature"
+set pgp_autosign = yes
+set pgp_sign_as=FEBE1140
+set pgp_replyencrypt = yes
+set pgp_timeout = 1800 # half hour
+set my_header="X-PGP-Key: http://www.students.ic.unicamp.br/~ra093887/files/pubkey.asc"
+#set pgp_mime_signature_filename="signature.asc"
+#set pgp_mime_signature_description="Digital signature"
+
+# Headers
+
+ignore *
+unignore Date: From: User-Agent: X-Mailer X-Operating-System To: \
+Cc: Reply-To: Subject: Mail-Followup-To: X-PGP-Key:
+hdr_order From: Date: To: Cc: Reply-To: User-Agent: X-Mailer X-Operating-System Subject: X-PGP-Key:
+
+# Colors
+ 
+source ~/.mutt/muttrc.colors

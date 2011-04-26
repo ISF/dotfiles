@@ -1,0 +1,15 @@
+[user]
+	name = Ivan Sichmann Freitas
+	email = ivansichfreitas@gmail.com
+
+[alias]
+	ci = commit
+	br = branch
+	ck = checkout
+	st = status
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[core]
+	editor = vim
