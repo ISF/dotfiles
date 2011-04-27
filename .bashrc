@@ -53,7 +53,6 @@ alias mk_vimcfg="tar cJvf vim_config-$(date +%F | sed 's/-//g').tar.xz ~/.vim --
 alias mk_weecfg="tar cJvf weechat_config-$(date +%F | sed 's/-//g').tar.xz ~/.weechat --exclude ~/.weechat/logs"
 alias mk_opbcfg="tar cJvf openbox_config-$(date +%F | sed 's/-//g').tar.xz ~/.config/openbox"
 alias mk_muttcfg="tar cJvf mutt_config-$(date +%F | sed 's/-//g').tar.xz ~/.mutt --exclude ~/.mutt/cache"
-alias get_gpl3="wget http://www.gnu.org/licenses/gpl.txt"
 alias beye='TERM=xterm biew'
 alias info='info --vi-keys'
 alias less='less -R'

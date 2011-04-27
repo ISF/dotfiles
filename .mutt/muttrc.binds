@@ -1,0 +1,12 @@
+# Bindings
+bind index - collapse-thread
+bind index _ collapse-all
+bind index,pager M next-unread-mailbox
+bind editor <space> noop
+
+bind pager q exit
+bind pager / search
+bind pager gg top
+bind pager G bottom
+bind index gg first-entry
+bind index G last-entry
