@@ -8,6 +8,7 @@ hi DefinedByUser ctermfg=lightgrey guifg=blue
 hi cBraces ctermfg=lightgreen guifg=lightgreen
 hi link cUserFunction DefinedByUser
 hi link cUserFunctionPointer DefinedByUser
+hi ColorColumn ctermbg=lightcyan guibg=lightcyan
 
 " C syntax options (see :help c.vim)
 let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
@@ -111,7 +112,7 @@ set ttyfast  " Smooth editing
 set showmode
 set number
 set hidden
-set wrap   " don't visually breaks long lines
+set nowrap   " don't visually breaks long lines
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set t_Co=256        " setting the number of colors
