@@ -274,7 +274,7 @@
     <!-- Keybindings for running applications -->
     <keybind key="W-space">
       <action name="Execute">
-        <execute>gmrun</execute>
+        <execute>kupfer</execute>
       </action>
     </keybind>
     <!-- Custom keybindings -->
