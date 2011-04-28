@@ -56,6 +56,8 @@ xscreensaver -no-splash &
 
 kupfer --no-splash &
 
+neap &
+
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
 	terminal --hide-menubar &
