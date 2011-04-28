@@ -49,11 +49,12 @@ feh --bg-scale $WALLPAPER_PATH
 #start_if_exist cairo-compmgr
 xcompmgr &
 
-# starting tint2, terminal emulator daemon, screensaver, conky
-# using tint2 instead of lxpanel
+# starting misc apps
 start_if_exist tint2 wicd-gtk xfce4-power-manager
 
 xscreensaver -no-splash &
+
+kupfer --no-splash &
 
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
