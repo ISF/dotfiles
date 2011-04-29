@@ -2,6 +2,7 @@
 # Options
 ################################################################################
 
+shopt -s histappend # append history file instead of rewriting
 history -a # keeping the same history on all sessions
 shopt -s extglob # better shell expansion capability
 ulimit -c unlimited
