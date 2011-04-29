@@ -1,51 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu>
 	<menu id="root-menu" label="OpenBox 3">
-		<menu id="1" label="Development">
-			<item label="BlueFish">
-				<action name="Execute">
-					<execute>
-						bluefish
-					</execute>
-				</action>
-			</item>
-			<item label="Eclipse">
-				<action name="Execute">
-					<execute>
-						eclipse
-					</execute>
-				</action>
-			</item>
-			<item label="Nemiver">
-				<action name="Execute">
-					<execute>
-						nemiver
-					</execute>
-				</action>
-			</item>
-			<item label="OpenJDK Monitoring &amp; Management Console">
-				<action name="Execute">
-					<execute>
-						jconsole
-					</execute>
-				</action>
-			</item>
-			<item label="Qt Designer">
-				<action name="Execute">
-					<execute>
-						designer
-					</execute>
-				</action>
-			</item>
-			<item label="Winpdb">
-				<action name="Execute">
-					<execute>
-						winpdb
-					</execute>
-				</action>
-			</item>
-		</menu>
-		<menu id="devices" label="Devices" execute="/usr/bin/obdevicemenu" />
+		<item label="File Manager">
+			<action name="Execute">
+				<execute>
+					pcmanfm
+				</execute>
+			</action>
+		</item>
+		<item label="Terminal">
+			<action name="Execute">
+				<execute>
+					terminal
+				</execute>
+			</action>
+		</item>
+		<menu id="devices" label="Devices" execute="/usr/bin/obdevicemenu"/>
 		<menu id="2" label="Editors">
 			<item label="GVim">
 				<action name="Execute">
@@ -54,22 +24,24 @@
 					</execute>
 				</action>
 			</item>
-			<item label="Leafpad">
+			<item label="Mousepad">
 				<action name="Execute">
 					<execute>
-						leafpad
-					</execute>
-				</action>
-			</item>
-			<item label="Zim Desktop Wiki">
-				<action name="Execute">
-					<execute>
-						zim
+						mousepad
 					</execute>
 				</action>
 			</item>
 		</menu>
 		<menu id="18" label="Games">
+			<menu id="9" label="Adventure">
+				<item label="NetHack">
+					<action name="Execute">
+						<execute>
+							xterm -e nethack
+						</execute>
+					</action>
+				</item>
+			</menu>
 			<menu id="10" label="Arcade">
 				<item label="Hedgewars">
 					<action name="Execute">
@@ -78,10 +50,31 @@
 						</execute>
 					</action>
 				</item>
-				<item label="Wormux">
+				<item label="PacMan">
 					<action name="Execute">
 						<execute>
-							wormux
+							pacman
+						</execute>
+					</action>
+				</item>
+				<item label="Redeclipse">
+					<action name="Execute">
+						<execute>
+							redeclipse
+						</execute>
+					</action>
+				</item>
+				<item label="Warmux">
+					<action name="Execute">
+						<execute>
+							warmux
+						</execute>
+					</action>
+				</item>
+				<item label="Warmux folder for replays, teams and maps">
+					<action name="Execute">
+						<execute>
+							xdg-open &quot;.local/share/wormux&quot;
 						</execute>
 					</action>
 				</item>
@@ -101,13 +94,6 @@
 						</execute>
 					</action>
 				</item>
-				<item label="Freeciv">
-					<action name="Execute">
-						<execute>
-							freeciv-gtk2
-						</execute>
-					</action>
-				</item>
 				<item label="Warzone 2100">
 					<action name="Execute">
 						<execute>
@@ -116,10 +102,38 @@
 					</action>
 				</item>
 			</menu>
-			<item label="Nexuiz (SDL)">
+			<item label="DeSmuME (Gtk)">
+				<action name="Execute">
+					<execute>
+						desmume
+					</execute>
+				</action>
+			</item>
+			<item label="Nexuiz">
 				<action name="Execute">
 					<execute>
 						nexuiz-sdl
+					</execute>
+				</action>
+			</item>
+			<item label="DeSmuME (Gtk-Glade)">
+				<action name="Execute">
+					<execute>
+						desmume-glade
+					</execute>
+				</action>
+			</item>
+			<item label="Fceux">
+				<action name="Execute">
+					<execute>
+						fceux
+					</execute>
+				</action>
+			</item>
+			<item label="Dwarf Fortress">
+				<action name="Execute">
+					<execute>
+						dwarffortress
 					</execute>
 				</action>
 			</item>
@@ -130,26 +144,26 @@
 					</execute>
 				</action>
 			</item>
+			<item label="PlayOnLinux">
+				<action name="Execute">
+					<execute>
+						playonlinux
+					</execute>
+				</action>
+			</item>
+			<item label="Snes9x">
+				<action name="Execute">
+					<execute>
+						snes9x-gtk
+					</execute>
+				</action>
+			</item>
 		</menu>
 		<menu id="6" label="Graphics">
-			<item label="Apvlv">
+			<item label="Blender">
 				<action name="Execute">
 					<execute>
-						apvlv
-					</execute>
-				</action>
-			</item>
-			<item label="Zathura">
-				<action name="Execute">
-					<execute>
-						zathura
-					</execute>
-				</action>
-			</item>
-			<item label="Comix">
-				<action name="Execute">
-					<execute>
-						comix
+						blender
 					</execute>
 				</action>
 			</item>
@@ -160,28 +174,21 @@
 					</execute>
 				</action>
 			</item>
-			<item label="Inkscape">
+			<item label="GNU Image Manipulation Program">
 				<action name="Execute">
 					<execute>
-						inkscape
+						gimp-2.6
 					</execute>
 				</action>
 			</item>
-			<item label="Mirage">
+			<item label="LibreOffice Draw">
 				<action name="Execute">
 					<execute>
-						mirage
+						lodraw
 					</execute>
 				</action>
 			</item>
-			<item label="Scribus">
-				<action name="Execute">
-					<execute>
-						scribus
-					</execute>
-				</action>
-			</item>
-			<item label="GIMP">
+			<item label="The GIMP">
 				<action name="Execute">
 					<execute>
 						gimp
@@ -193,35 +200,14 @@
 			<item label="Audacious">
 				<action name="Execute">
 					<execute>
-						audacious2
+						audacious
 					</execute>
 				</action>
 			</item>
-			<item label="DVD Encoder OGMRip">
+			<item label="Clementine">
 				<action name="Execute">
 					<execute>
-						ogmrip
-					</execute>
-				</action>
-			</item>
-			<item label="HandBrake">
-				<action name="Execute">
-					<execute>
-						ghb
-					</execute>
-				</action>
-			</item>
-			<item label="mkvinfo">
-				<action name="Execute">
-					<execute>
-						mkvinfo -g
-					</execute>
-				</action>
-			</item>
-			<item label="mkvmerge GUI">
-				<action name="Execute">
-					<execute>
-						mmg
+						clementine
 					</execute>
 				</action>
 			</item>
@@ -232,17 +218,17 @@
 					</execute>
 				</action>
 			</item>
-			<item label="Sound Converter">
-				<action name="Execute">
-					<execute>
-						soundconverter
-					</execute>
-				</action>
-			</item>
 			<item label="VLC media player">
 				<action name="Execute">
 					<execute>
 						vlc
+					</execute>
+				</action>
+			</item>
+			<item label="XBMC Media Center">
+				<action name="Execute">
+					<execute>
+						xbmc
 					</execute>
 				</action>
 			</item>
@@ -262,6 +248,20 @@
 					</execute>
 				</action>
 			</item>
+			<item label="Ettercap GTK">
+				<action name="Execute">
+					<execute>
+						ettercap-gtk --gtk
+					</execute>
+				</action>
+			</item>
+			<item label="Wireshark">
+				<action name="Execute">
+					<execute>
+						wireshark
+					</execute>
+				</action>
+			</item>
 			<item label="FireFox">
 				<action name="Execute">
 					<execute>
@@ -273,34 +273,6 @@
 				<action name="Execute">
 					<execute>
 						pidgin
-					</execute>
-				</action>
-			</item>
-			<item label="Qwit">
-				<action name="Execute">
-					<execute>
-						qwit
-					</execute>
-				</action>
-			</item>
-			<item label="Transmission">
-				<action name="Execute">
-					<execute>
-						transmission-gtk
-					</execute>
-				</action>
-			</item>
-			<item label="Wicd">
-				<action name="Execute">
-					<execute>
-						wicd-client
-					</execute>
-				</action>
-			</item>
-			<item label="Ettercap GTK">
-				<action name="Execute">
-					<execute>
-						ettercap-gtk --gtk
 					</execute>
 				</action>
 			</item>
@@ -318,54 +290,54 @@
 					</execute>
 				</action>
 			</item>
-			<item label="Wireshark">
+		</menu>
+		<menu id="3" label="Office">
+			<item label="LibreOffice">
 				<action name="Execute">
 					<execute>
-						wireshark
+						libreoffice
 					</execute>
 				</action>
 			</item>
-		</menu>
-		<menu id="3" label="Office">
 			<item label="LibreOffice Base">
 				<action name="Execute">
 					<execute>
-						oobase
+						lobase
 					</execute>
 				</action>
 			</item>
 			<item label="LibreOffice Calc">
 				<action name="Execute">
 					<execute>
-						oocalc
-					</execute>
-				</action>
-			</item>
-			<item label="LibreOffice Draw">
-				<action name="Execute">
-					<execute>
-						oodraw
+						localc
 					</execute>
 				</action>
 			</item>
 			<item label="LibreOffice Impress">
 				<action name="Execute">
 					<execute>
-						ooimpress
+						loimpress
 					</execute>
 				</action>
 			</item>
 			<item label="LibreOffice Writer">
 				<action name="Execute">
 					<execute>
-						oowriter
+						lowriter
 					</execute>
 				</action>
 			</item>
-			<item label="Openoffice.org Math">
+			<item label="Orage Calendar">
 				<action name="Execute">
 					<execute>
-						oomath
+						orage
+					</execute>
+				</action>
+			</item>
+			<item label="Orage Globaltime">
+				<action name="Execute">
+					<execute>
+						globaltime
 					</execute>
 				</action>
 			</item>
@@ -376,10 +348,61 @@
 					</execute>
 				</action>
 			</item>
-			<item label="Orage">
+		</menu>
+		<menu id="39" label="Other">
+			<item label="Fritzing">
 				<action name="Execute">
 					<execute>
-						orage
+						fritzing
+					</execute>
+				</action>
+			</item>
+			<item label="Logisim">
+				<action name="Execute">
+					<execute>
+						logisim
+					</execute>
+				</action>
+			</item>
+			<item label="OpenTTD">
+				<action name="Execute">
+					<execute>
+						openttd
+					</execute>
+				</action>
+			</item>
+			<item label="Virtual Machine Manager">
+				<action name="Execute">
+					<execute>
+						virt-manager
+					</execute>
+				</action>
+			</item>
+			<item label="Wicd">
+				<action name="Execute">
+					<execute>
+						wicd-client
+					</execute>
+				</action>
+			</item>
+			<item label="Winpdb">
+				<action name="Execute">
+					<execute>
+						winpdb
+					</execute>
+				</action>
+			</item>
+			<item label="Dosbox">
+				<action name="Execute">
+					<execute>
+						dosbox
+					</execute>
+				</action>
+			</item>
+			<item label="Zathura">
+				<action name="Execute">
+					<execute>
+						zathura
 					</execute>
 				</action>
 			</item>
@@ -392,6 +415,13 @@
 					</execute>
 				</action>
 			</item>
+			<item label="gEDA Schematic -&gt; PCB Project">
+				<action name="Execute">
+					<execute>
+						xgsch2pcb
+					</execute>
+				</action>
+			</item>
 			<item label="gEDA Schematic Editor">
 				<action name="Execute">
 					<execute>
@@ -399,71 +429,134 @@
 					</execute>
 				</action>
 			</item>
-			<item label="QtiPlot">
+			<item label="Gerbv Gerber File Viewer">
 				<action name="Execute">
 					<execute>
-						qtiplot
+						gerbv
 					</execute>
 				</action>
 			</item>
-		</menu>
-		<menu id="19" label="Shells">
-			<item label="dosbox Emulator">
+			<item label="GSpiceUI">
 				<action name="Execute">
 					<execute>
-						dosbox
+						gspiceui
 					</execute>
 				</action>
 			</item>
-			<item label="File Manager">
+			<item label="PCB Designer">
 				<action name="Execute">
 					<execute>
-						pcmanfm
+						pcb
 					</execute>
 				</action>
 			</item>
-			<item label="Terminal">
+			<item label="QtOctave">
 				<action name="Execute">
 					<execute>
-						terminal
+						qtoctave
 					</execute>
 				</action>
 			</item>
 		</menu>
 		<menu id="37" label="System">
-			<item label="Screen layout editor">
+			<item label="Cairo Composite Manager">
 				<action name="Execute">
 					<execute>
-						arandr
+						cairo-compmgr
 					</execute>
 				</action>
 			</item>
 			<menu id="36" label="Settings">
-				<item label="Monitor Settings">
+				<menu id="35" label="Xfce">
+					<item label="Accessibility">
+						<action name="Execute">
+							<execute>
+								xfce4-accessibility-settings
+							</execute>
+						</action>
+					</item>
+					<item label="Appearance">
+						<action name="Execute">
+							<execute>
+								xfce4-appearance-settings
+							</execute>
+						</action>
+					</item>
+					<item label="Display">
+						<action name="Execute">
+							<execute>
+								xfce4-display-settings
+							</execute>
+						</action>
+					</item>
+					<item label="Keyboard">
+						<action name="Execute">
+							<execute>
+								xfce4-keyboard-settings
+							</execute>
+						</action>
+					</item>
+					<item label="Mouse">
+						<action name="Execute">
+							<execute>
+								xfce4-mouse-settings
+							</execute>
+						</action>
+					</item>
+					<item label="Notifications">
+						<action name="Execute">
+							<execute>
+								xfce4-notifyd-config
+							</execute>
+						</action>
+					</item>
+					<item label="Orage preferences">
+						<action name="Execute">
+							<execute>
+								orage -p
+							</execute>
+						</action>
+					</item>
+					<item label="Panel">
+						<action name="Execute">
+							<execute>
+								xfce4-panel -p
+							</execute>
+						</action>
+					</item>
+					<item label="Preferred Applications">
+						<action name="Execute">
+							<execute>
+								exo-preferred-applications
+							</execute>
+						</action>
+					</item>
+					<item label="Settings Editor">
+						<action name="Execute">
+							<execute>
+								xfce4-settings-editor
+							</execute>
+						</action>
+					</item>
+					<item label="Settings Manager">
+						<action name="Execute">
+							<execute>
+								xfce4-settings-manager
+							</execute>
+						</action>
+					</item>
+					<item label="Xfce 4 Printing System Settings">
+						<action name="Execute">
+							<execute>
+								xfprint-settings
+							</execute>
+						</action>
+					</item>
+				</menu>
+				<item label="ObTheme">
 					<action name="Execute">
 						<execute>
-							lxrandr
-						</execute>
-					</action>
-				</item>
-				<item label="Preferred Applications">
-					<action name="Execute">
-						<execute>
-							exo-preferred-applications
-						</execute>
-					</action>
-				</item>
-				<item label="Configure Menu">
-					<action name="Execute">
-						<execute>
-							obmenu
-						</execute>
-					</action>
-				</item>
-				<item label="Notifications">
-					<action name="Execute">
-						<execute>
-							xfce4-notifyd-config
+							obtheme
 						</execute>
 					</action>
 				</item>
@@ -474,10 +567,10 @@
 						</execute>
 					</action>
 				</item>
-				<item label="Keyboard and Mouse">
+				<item label="NVIDIA X Server Settings">
 					<action name="Execute">
 						<execute>
-							lxinput
+							nvidia-settings
 						</execute>
 					</action>
 				</item>
@@ -503,17 +596,12 @@
 					</action>
 				</item>
 			</menu>
-			<item label="Task Manager">
+		</menu>
+		<menu id="38" label="Utilities">
+			<item label="Xfce 4 Print Manager">
 				<action name="Execute">
 					<execute>
-						lxtask
-					</execute>
-				</action>
-			</item>
-			<item label="GParted">
-				<action name="Execute">
-					<execute>
-						gksu /usr/sbin/gparted
+						xfprint4-manager
 					</execute>
 				</action>
 			</item>
@@ -526,36 +614,8 @@
 			</item>
 			<separator/>
 			<item label="Exit">
-				<action name="Exit">
-					<execute>
-						oblogout
-					</execute>
-				</action>
+				<action name="Exit"/>
 			</item>
 		</menu>
-		<item label="Halt">
-			<action name="Execute">
-				<execute>
-					sudo shutdown -h now
-				</execute>
-			</action>
-		</item>
-		<item label="Reboot">
-			<action name="Execute">
-				<execute>
-					sudo shutdown -r now
-				</execute>
-			</action>
-		</item>
-		<item label="Logout">
-			<action name="Exit"/>
-		</item>
-		<item label="Suspend">
-			<action name="Execute">
-				<execute>
-					sudo pm-suspend
-				</execute>
-			</action>
-		</item>
 	</menu>
 </openbox_menu>

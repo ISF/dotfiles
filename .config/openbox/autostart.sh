@@ -4,11 +4,11 @@
 
 # functoon to star a given process without specific options
 function start_if_exist {
-	for process in $@; do
-		if which $process > /dev/null; then
-			$process &
-		fi
-	done
+    for process in $@; do
+        if which $process > /dev/null; then
+            $process &
+        fi
+    done
 }
 
 ########## Start of default settings ###########
