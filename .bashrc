@@ -59,6 +59,7 @@ alias beye='TERM=xterm biew'
 alias info='info --vi-keys'
 alias less='less -R'
 alias callgrind='valgrind --tool=callgrind'
+alias tmux='tmux -2'
 
 ################################################################################
 # Misc
@@ -86,14 +87,17 @@ export GPG_AGENT_INFO
 if [[ -z $(tty | grep /dev/tty) ]]; then # check if is not running on a terminal
 	if tmux has-session -t system > /dev/null 2>&1; then
 		if [[ -z $TMUX ]]; then
-			tmux attach -t system
+			tmux -2 attach -t system
+		else
+			# exporting correct terminal, fixes some mutt glitches
+			export TERM=screen-256color
 		fi
 	else
 		# create new session (and detach)
 		tmux -2 new-session -d -s system
 		# create windows
-		tmux new-window -t system:1 -n 'weechat' 'weechat-curses' # starting weechat
+		tmux -2 new-window -t system:1 -n 'weechat' 'weechat-curses' # starting weechat
 		# attach
-		tmux attach -t system
+		tmux -2 attach -t system
 	fi
 fi
