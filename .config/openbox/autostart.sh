@@ -45,10 +45,6 @@ xmodmap /home/ivan/.config/openbox/keys
 WALLPAPER_PATH=/home/ivan/images/wallpaper
 feh --bg-scale $WALLPAPER_PATH
 
-# starting compositing
-#start_if_exist cairo-compmgr
-xcompmgr &
-
 # starting misc apps
 start_if_exist tint2 wicd-gtk xfce4-power-manager
 
