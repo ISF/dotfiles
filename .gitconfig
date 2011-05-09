@@ -7,6 +7,7 @@
 	br = branch
 	ck = checkout
 	st = status
+	unstage = reset HEAD
 [merge]
 	tool = vimdiff
 [color]
