@@ -33,10 +33,10 @@ fi
 eval $(ssh-agent)
 
 # setting correct keymap
-setxkbmap br
+setxkbmap br &
 
 # activating numlock key
-#numlockx on &
+numlockx on &
 
 # fixing fn keys
 xmodmap /home/ivan/.config/openbox/keys
@@ -53,6 +53,20 @@ xscreensaver -no-splash &
 kupfer --no-splash &
 
 neap &
+
+# starting ssh-agent
+if [[ -z $(pidof ssh-agent) ]]; then
+	eval $(ssh-agent)
+fi
+
+# starting gpg-agent
+envfile="${HOME}/.gnupg/gpg-agent.env"
+if test -f "$envfile" && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
+	eval "$(cat "$envfile")"
+else
+	eval "$(gpg-agent --daemon --write-env-file "$envfile")"
+fi
+export GPG_AGENT_INFO
 
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
