@@ -65,24 +65,6 @@ alias tmux='tmux -2'
 # Misc
 ################################################################################
 
-# starting ssh-agent
-if [[ -z $(pidof ssh-agent) ]]; then
-	eval $(ssh-agent)
-fi
-
-# starting gpg-agent
-envfile="${HOME}/.gnupg/gpg-agent.env"
-if test -f "$envfile" && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
-	eval "$(cat "$envfile")"
-else
-	eval "$(gpg-agent --daemon --write-env-file "$envfile")"
-fi
-export GPG_AGENT_INFO
-
-# Using vim as a manpage reader
-#export PAGER="/usr/bin/vimpager"
-#alias less=$PAGER
-
 # automatically entering tmux
 if [[ -z $(tty | grep /dev/tty) ]]; then # check if is not running on a terminal
 	if tmux has-session -t system > /dev/null 2>&1; then
