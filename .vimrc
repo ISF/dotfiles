@@ -254,9 +254,6 @@ nmap <Leader>ev :edit $MYVIMRC<CR>
 " Calling :Dox (needs DoxygenToolkit)
 nmap <Leader>do :Dox<CR>
 
-" Remapping :ls to execute a shell ls, not :buffer
-cno ls !ls
-
 " jumping between items in quickfix list
 nmap <Leader>n :cnext<CR>
 nmap <Leader>p :cprevious<CR>
