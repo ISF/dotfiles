@@ -51,15 +51,15 @@ pacman -Qs        # Search for package(s) in the local database"'
 alias disk-record='echo "growisofs -Z /dev/dvd -allow-limited-size -speed=4 -R -J <arquivos>";echo "cdrecord -v -dev=/dev/scd0 speed=16 <iso>"'
 alias oka='echo valeu'
 alias bandeco='links -dump http://www.prefeitura.unicamp.br/servicos.php?servID=119 | head -n 23 | tail -n 14 | sed "s/.\{0,35\}[ ]*//" | grep -v ^$ | sed -e "s/\//./g"'
-alias mk_vimcfg="tar cJvf vim_config-$(date +%F | sed 's/-//g').tar.xz ~/.vim --exclude ~/.vim/undodir"
-alias mk_weecfg="tar cJvf weechat_config-$(date +%F | sed 's/-//g').tar.xz ~/.weechat --exclude ~/.weechat/logs"
-alias mk_opbcfg="tar cJvf openbox_config-$(date +%F | sed 's/-//g').tar.xz ~/.config/openbox"
-alias mk_muttcfg="tar cJvf mutt_config-$(date +%F | sed 's/-//g').tar.xz ~/.mutt --exclude ~/.mutt/cache"
+alias mk_vimcfg="cd ~; tar cJvf vim_config-$(date +%F | sed 's/-//g').tar.xz .vim --exclude=.vim/undodir --exclude=.vim/view; cd -"
+alias mk_weecfg="cd ~; tar cJvf weechat_config-$(date +%F | sed 's/-//g').tar.xz .weechat --exclude=.weechat/logs; cd -"
+alias mk_muttcfg="cd ~; tar cJvf mutt_config-$(date +%F | sed 's/-//g').tar.xz .mutt --exclude=.mutt/cache; cd -"
 alias beye='TERM=xterm biew'
 alias info='info --vi-keys'
 alias less='less -R'
 alias callgrind='valgrind --tool=callgrind'
 alias tmux='tmux -2'
+alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
 
 ################################################################################
 # Misc
