@@ -2,10 +2,24 @@
 # Options
 ################################################################################
 
+shopt -s autocd
+shopt -s cmdhist # better history handling of multi-line commands
 shopt -s histappend # append history file instead of rewriting
-history -a # keeping the same history on all sessions
 shopt -s extglob # better shell expansion capability
+shopt -s cdspell # correct mispelled directory names when using cd
 ulimit -c unlimited
+
+set -o vi
+
+# control L to clear screen
+bind -m vi-insert "\C-l":clear-screen
+# vi-style completion
+bind -m vi-insert "\C-p":dynamic-complete-history
+bind -m vi-insert "\C-n":menu-complete
+
+
+PROMPT_COMMAND='history -a' # always append history between sessions
+HISTCONTROL='ignoreboth'
 
 ################################################################################
 # Variables
