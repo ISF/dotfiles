@@ -84,6 +84,9 @@ let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup 
 " tex support
 let g:tex_flavor="pdflatex"
 
+" ManPageView
+let g:manpageview_winopen = "hsplit="
+
 set synmaxcol=200
 set showmatch     " Show matching brackets (briefly jump to it)
 set splitright
@@ -189,6 +192,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
+
+    autocmd FileType man set colorcolumn=0
 
     autocmd BufEnter *.mkd set ft=markdown
     autocmd BufEnter *.md set ft=markdown
