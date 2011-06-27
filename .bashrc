@@ -43,7 +43,6 @@ fi
 
 export EDITOR=$(which vim)
 export BROWSER=chromium
-#export PAGER=$(which most)
 export TERM=xterm-256color
 
 
