@@ -4,10 +4,10 @@
 
 # Background definitions
 # ID 1
-rounded = 7
+rounded = 0
 border_width = 2
-background_color = #000000 80
-border_color = #FFFFFF 0
+background_color = #000000 100
+border_color = #000000 100
 
 # ID 2
 rounded = 5
@@ -19,12 +19,12 @@ border_color = #FFFFFF 40
 rounded = 5
 border_width = 0
 background_color = #FFFFFF 40
-border_color = #FFFFFF 32
+border_color = #FFFFFF 100
 
 # Panel
 panel_monitor = all
 panel_position = bottom center horizontal
-panel_size = 100% 35
+panel_size = 100% 30
 panel_margin = 0 0
 panel_padding = 7 0 5
 panel_dock = 0
@@ -87,8 +87,7 @@ time2_font = DejaVu Sans Semi-Condensed 6
 clock_font_color = #FFFFFF 100
 clock_padding = 1 0
 clock_background_id = 1
-clock_lclick_command = gsimplecal
-clock_rclick_command = orage
+clock_lclick_command = orage
 
 # Tooltips
 tooltip = 0
