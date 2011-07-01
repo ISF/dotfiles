@@ -27,7 +27,7 @@ HISTCONTROL='ignoreboth'
 
 # Setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
-	export CFLAGS="-march=core2 -O2 -pipe"
+	export CFLAGS="-march=amdfam10 -O2 -pipe"
 fi
 
 if [[ -z $CXXFLAGS ]]; then
