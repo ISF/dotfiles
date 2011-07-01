@@ -31,7 +31,7 @@ if [[ -z $CFLAGS ]]; then
 fi
 
 if [[ -z $CXXFLAGS ]]; then
-	CXXFLAGS="$CFLAGS"
+	export CXXFLAGS="$CFLAGS"
 fi
 
 # Colorful PS1 variable taken from gentoo's bashrc
