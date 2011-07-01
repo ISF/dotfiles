@@ -9,6 +9,7 @@ shopt -s extglob # better shell expansion capability
 shopt -s cdspell # correct mispelled directory names when using cd
 ulimit -c unlimited
 
+# vi style on command line editor
 set -o vi
 
 # control L to clear screen
@@ -44,7 +45,7 @@ fi
 export EDITOR=$(which vim)
 export BROWSER=chromium
 export TERM=xterm-256color
-
+eval $(dircolors -b) # LS_COLORS
 
 ################################################################################
 # Alias
