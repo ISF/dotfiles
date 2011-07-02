@@ -23,6 +23,7 @@ bind -m vi-insert "\C-l":clear-screen
 # vi-style completion
 bind -m vi-insert "\C-p":dynamic-complete-history
 bind -m vi-insert "\C-n":menu-complete
+#bind -m vi-insert "\e\C-y":yank-nth-arg
 
 # Setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
