@@ -8,7 +8,6 @@ hi DefinedByUser ctermfg=lightgrey guifg=blue
 hi cBraces ctermfg=lightgreen guifg=lightgreen
 hi link cUserFunction DefinedByUser
 hi link cUserFunctionPointer DefinedByUser
-hi ColorColumn ctermbg=lightcyan guibg=lightcyan
 
 " C syntax options (see :help c.vim)
 let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
@@ -101,7 +100,6 @@ set ul=1000                  " Max undo levels
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
 set textwidth=80              " don't break long lines
-set colorcolumn=85
 set formatoptions=qrn1
 
 " list chars
@@ -192,8 +190,6 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
-
-    autocmd FileType man set colorcolumn=0
 
     autocmd BufEnter *.mkd set ft=markdown
     autocmd BufEnter *.md set ft=markdown
