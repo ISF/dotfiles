@@ -6,28 +6,22 @@ setopt appendhistory
 setopt autocd
 setopt extendedglob
 setopt cdablevars
+setopt nobanghist
+setopt interactivecomments
+setopt nohup
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
 unsetopt beep
 bindkey -v
 
-# used for completion
 autoload -Uz compinit && compinit
-
-# helps selecting a prompt theme
 autoload -U promptinit && promptinit
+autoload -U colors && colors
 
 # color settings
 eval $(dircolors -b)
-autoload -U colors && colors
-
-# Colorful PS1 variable taken from gentoo's bashrc
-if [[ ${EUID} == 0 ]] ; then
-else
-    PROMPT="%{$fg[green]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}"
-fi
-
-export EDITOR=$(which vim)
-export BROWSER=chromium
-export TERM=xterm-256color
 
 # completion's configuration
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
@@ -42,6 +36,19 @@ zstyle :compinstall filename '/home/ivan/.zshrc'
 # converting inputrc configuration for zsh
 eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
 eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
+
+# Colorful PS1 variable taken from gentoo's bashrc
+if [[ ${EUID} == 0 ]] ; then
+    PROMPT="%{$fg[red]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}"
+else
+    PROMPT="%{$fg[green]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}"
+fi
+
+export EDITOR=$(which vim)
+export BROWSER=chromium
+export TERM=xterm-256color
+export PAGER='less -iR'
+export MANPAGER='less -iR'
 
 # Setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
@@ -70,3 +77,12 @@ if [[ -z $(tty | grep /dev/tty) ]]; then # check if is not running on a terminal
         tmux -2 attach -t system
     fi
 fi
+
+# alias
+alias ls="ls --color=auto"
+alias less='less -iR'
+alias callgrind='valgrind --tool=callgrind'
+alias tmux='tmux -2'
+alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
+alias oka='echo valeu'
+alias beye='TERM=xterm biew'
