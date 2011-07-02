@@ -4,3 +4,4 @@ set show-all-if-ambiguous on
 set match-hidden-files off
 set expand-tilde on
 set convert-meta off
+set echo-control-characters off
