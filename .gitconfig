@@ -8,9 +8,31 @@
 	ck = checkout
 	st = status
 	unstage = reset HEAD
+
 [merge]
 	tool = vimdiff
-[color]
-	ui = true
+
 [core]
 	editor = vim
+
+[push]
+	default = current
+
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpencrytion = tls
+	smtpuser = ivansichfreitas@gmail.com
+
+[color]
+	ui = true
+
+[color "branch"]
+	current = green
+	local = blue
+	remote = yellow
+
+[color "status"]
+	added = green
+	changed = blue
+	untracked = red
