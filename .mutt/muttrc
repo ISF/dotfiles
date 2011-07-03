@@ -68,7 +68,7 @@ source ~/.mutt/muttrc.macros
 
 # Sourcing alias
 
-source $alias_file
+#source $alias_file
 
 # Lists
 
