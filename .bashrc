@@ -17,7 +17,6 @@ HISTCONTROL='ignoreboth'
 
 # vi style on command line editor
 set -o vi
-
 # control L to clear screen
 bind -m vi-insert "\C-l":clear-screen
 # vi-style completion
