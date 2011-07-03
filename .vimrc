@@ -272,6 +272,20 @@ vnoremap / /\v
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
 
+" Proper behavior for arrow keys
+vnoremap <S-Up> <Up>
+inoremap <S-Up> <Up>
+nnoremap <S-Up> <Up>
+vnoremap <S-Down> <Down>
+inoremap <S-Down> <Down>
+nnoremap <S-Down> <Down>
+
+" Better window movement
+nnoremap <M-Right> <C-W><Right>
+nnoremap <M-Left> <C-W><Left>
+nnoremap <M-Up> <C-W><Up><C-W>_
+nnoremap <M-Down> <C-W><Down><C-W>_
+
 "" FN mappings
 " Taglist's hotkeys
 nnoremap <silent> <F2> :TagbarToggle<CR>
