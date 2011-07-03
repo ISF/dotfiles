@@ -82,6 +82,10 @@ bindkey -v
 eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
 eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
 
+# use backspace over everythin on vi mode
+bindkey -M viins '' backward-delete-char
+bindkey -M viins '' backward-delete-char
+
 ################################################################################
 # variables
 ################################################################################
