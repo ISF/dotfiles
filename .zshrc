@@ -4,28 +4,31 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+setopt alwaystoend
 setopt appendhistory
 setopt autocd
+setopt autolist
 setopt autopushd
-setopt pushdignoredups
 setopt cdablevars
 setopt completeinword
-setopt alwaystoend
+setopt correct
 setopt extendedglob
 setopt histignoredups
 setopt histignorespace
 setopt histreduceblanks
-setopt interactivecomments
 setopt incappendhistory
-setopt sharehistory
-setopt nobanghist
-setopt nobeep
-setopt nocheckjobs
+setopt interactivecomments
+setopt listambiguous
+setopt listtypes
 setopt nohup
 setopt notify
 setopt prompt_subst
-setopt autolist
-setopt listtypes
+setopt pushdignoredups
+setopt sharehistory
+unsetopt banghist
+unsetopt beep
+unsetopt checkjobs
 
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
@@ -41,7 +44,7 @@ eval $(dircolors -b)
 
 # do not chang the order of vcs below, otherwise it won't detect non-git repos
 # in home (there exists a git repo with dotfiles)
-zstyle ':vcs_info:*' enable hg svn git
+zstyle ':vcs_info:*' enable hg git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '[%s@%b]'
 zstyle ':vcs_info:git:*' actionformats '[%s@%b|%a]'
@@ -86,6 +89,23 @@ eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
 bindkey -M viins '' backward-delete-char
 bindkey -M viins '' backward-delete-char
 
+bindkey "" vi-up-line-or-history
+bindkey "" vi-down-line-or-history
+
+bindkey "^[[1~" vi-beginning-of-line   # Home
+bindkey "^[[4~" vi-end-of-line         # End
+bindkey '^[[2~' beep                   # Insert
+bindkey '^[[3~' delete-char            # Del
+bindkey '^[[5~' vi-backward-blank-word # Page Up
+bindkey '^[[6~' vi-forward-blank-word  # Page Down
+
+# normal C-R for history search
+bindkey -M viins '^r' history-incremental-search-backward
+bindkey -M vicmd '^r' history-incremental-search-backward
+
+# alt+. to complete previous args
+bindkey -M viins '\e.' insert-last-word
+
 ################################################################################
 # variables
 ################################################################################
@@ -94,7 +114,7 @@ if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}'
 else
     PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}'
-    RPROMPT='%{$fg_bold[green]%}${vcs_info_msg_0_}%{$reset_color%}'
+    RPROMPT='${vcs_info_msg_0_}'
 fi
 
 export EDITOR=$(which vim)
