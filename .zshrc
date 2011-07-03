@@ -44,7 +44,7 @@ eval $(dircolors -b)
 
 # do not chang the order of vcs below, otherwise it won't detect non-git repos
 # in home (there exists a git repo with dotfiles)
-zstyle ':vcs_info:*' enable hg git
+zstyle ':vcs_info:*' enable hg svn git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:git:*' formats '[%s@%b]'
 zstyle ':vcs_info:git:*' actionformats '[%s@%b|%a]'
@@ -137,6 +137,7 @@ fi
 ################################################################################
 
 # common
+alias ls="ls --color=auto"
 alias l="ls -Bh --color=auto"
 alias la="ls -Ah --color=auto"
 alias ll="ls -lh --color=auto"
