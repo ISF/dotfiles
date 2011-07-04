@@ -171,12 +171,17 @@ alias tmux='tmux -2'
 alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
 alias oka='echo valeu'
 alias beye='TERM=xterm biew'
+alias cp='nocorrect cp'
+alias mv='nocorrect mv'
+alias rm='nocorrect rm'
+alias mkdir='nocorrect mkdir'
 
 # suffix
 alias -s html=$BROWSER
 alias -s png='display'
 alias -s jpg='display'
 alias -s txt=$EDITOR
+alias -s pdf='zathura'
 
 ################################################################################
 # automatically entering tmux (this must be the last section)
