@@ -67,6 +67,29 @@ zstyle ':completion:*' cache-path ~/.zsh_cache
 zstyle :compinstall filename '/home/ivan/.zshrc'
 
 ################################################################################
+# functions
+################################################################################
+
+# source .zshrc
+function src_zshrc() {
+    source ${HOME}/.zshrc
+}
+
+# taken from oh_my_zsh git plugin
+function git_current_branch() {
+    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+    echo ${ref#refs/heads/}
+}
+
+# taken and modified from http://zshwiki.org/home/examples/zlewidgets
+function zle-line-init zle-keymap-select {
+    VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+################################################################################
 # hooks
 ################################################################################
 
@@ -111,9 +134,9 @@ bindkey -M viins '\e.' insert-last-word
 ################################################################################
 
 if [[ ${EUID} == 0 ]] ; then
-    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}'
+    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
 else
-    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}%1~ %# %{$reset_color%}'
+    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
     RPROMPT='${vcs_info_msg_0_}'
 fi
 
