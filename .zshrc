@@ -108,6 +108,10 @@ function src_zshrc() {
     source ${HOME}/.zshrc
 }
 
+function ed_zshrc {
+    $EDITOR $HOME/.zshrc
+}
+
 # taken from oh_my_zsh git plugin
 function git_current_branch() {
     ref=$(git symbolic-ref HEAD 2> /dev/null) || return
