@@ -30,6 +30,13 @@ unsetopt banghist
 unsetopt beep
 unsetopt checkjobs
 
+fpath=($HOME/.zsh/functions/ $fpath)
+
+# my functions
+
+autoload kernel_symbol
+
+# global functions
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
