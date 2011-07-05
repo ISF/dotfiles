@@ -46,6 +46,32 @@ autoload -Uz vcs_info
 eval $(dircolors -b)
 
 ################################################################################
+# variables
+################################################################################
+
+if [[ ${EUID} == 0 ]] ; then
+    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
+else
+    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
+    RPROMPT='${vcs_info_msg_0_}'
+fi
+
+export EDITOR=$(which vim)
+export BROWSER=chromium
+export TERM=xterm-256color
+export PAGER='less -iR'
+export MANPAGER='less -iR'
+
+# setting CFLAGS and CXXFLAGS if none of them are already defined
+if [[ -z $CFLAGS ]]; then
+    export CFLAGS="-march=amdfam10 -O2 -pipe"
+fi
+
+if [[ -z $CXXFLAGS ]]; then
+    export CXXFLAGS="$CFLAGS"
+fi
+
+################################################################################
 # vcs_info configuration
 ################################################################################
 
@@ -135,32 +161,6 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 
 # alt+. to complete previous args
 bindkey -M viins '\e.' insert-last-word
-
-################################################################################
-# variables
-################################################################################
-
-if [[ ${EUID} == 0 ]] ; then
-    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
-else
-    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
-    RPROMPT='${vcs_info_msg_0_}'
-fi
-
-export EDITOR=$(which vim)
-export BROWSER=chromium
-export TERM=xterm-256color
-export PAGER='less -iR'
-export MANPAGER='less -iR'
-
-# setting CFLAGS and CXXFLAGS if none of them are already defined
-if [[ -z $CFLAGS ]]; then
-    export CFLAGS="-march=amdfam10 -O2 -pipe"
-fi
-
-if [[ -z $CXXFLAGS ]]; then
-    export CXXFLAGS="$CFLAGS"
-fi
 
 ################################################################################
 # alias
