@@ -56,24 +56,24 @@ neap &
 
 # starting ssh-agent
 if [[ -z $(pidof ssh-agent) ]]; then
-	eval $(ssh-agent)
+    eval $(ssh-agent)
 fi
 
 # starting gpg-agent
 envfile="${HOME}/.gnupg/gpg-agent.env"
 if test -f "$envfile" && kill -0 $(grep GPG_AGENT_INFO "$envfile" | cut -d: -f 2) 2>/dev/null; then
-	eval "$(cat "$envfile")"
+    eval "$(cat "$envfile")"
 else
-	eval "$(gpg-agent --daemon --write-env-file "$envfile")"
+    eval "$(gpg-agent --daemon --write-env-file "$envfile")"
 fi
 export GPG_AGENT_INFO
 
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
-	terminal --hide-menubar &
+    terminal --hide-menubar &
 fi
 
 # starting conky
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
-	conky -c /home/ivan/.conkyrc_$(hostname) &
+    conky -c /home/ivan/.conkyrc_$(hostname) &
 fi
