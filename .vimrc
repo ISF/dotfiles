@@ -17,6 +17,9 @@ let c_no_comment_fold = 1 " disable syntax based folding for comments
 let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
 
+" Screen
+let g:ScreenImpl = 'Tmux'
+
 " Doxygen syntax
 let g:load_doxygen_syntax=1
 
