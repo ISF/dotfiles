@@ -43,7 +43,7 @@ autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info
 autoload -Uz zsh-mime-setup && zsh-mime-setup
 
-# color settings
+# color settings for ls
 eval $(dircolors -b)
 
 ################################################################################
@@ -175,9 +175,28 @@ bindkey '^[[6~' vi-forward-blank-word  # Page Down
 # normal C-R for history search
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey -M viins '^e' history-incremental-pattern-search-backward
+bindkey -M vicmd '^e' history-incremental-pattern-search-backward
+
+# control+u erase entire line on vicmd
+bindkey -M vicmd '^u' kill-whole-line # dd can be used also
 
 # alt+. to complete previous args
 bindkey -M viins '\e.' insert-last-word
+bindkey -M viins '\e,' take_nth_arg
+
+# ensure that arrow keys work as they should
+bindkey '\e[A' up-line-or-history
+bindkey '\e[B' down-line-or-history
+
+bindkey '\eOA' up-line-or-history
+bindkey '\eOB' down-line-or-history
+
+bindkey '\e[C' forward-char
+bindkey '\e[D' backward-char
+
+bindkey '\eOC' forward-char
+bindkey '\eOD' backward-delete-charward-char
 
 ################################################################################
 # alias
