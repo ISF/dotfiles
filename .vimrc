@@ -316,6 +316,12 @@ nnoremap <M-Left> <C-W><Left>
 nnoremap <M-Up> <C-W><Up><C-W>_
 nnoremap <M-Down> <C-W><Down><C-W>_
 
+" EnhancedCommentify
+vmap <Leader>c <Plug>VisualComment
+nmap <Leader>c <Plug>Comment
+vmap <Leader>d <Plug>VisualDeComment
+nmap <Leader>d <Plug>DeComment
+
 "" FN mappings
 " Taglist's hotkeys
 nnoremap <silent> <F2> :TagbarToggle<CR>
