@@ -64,6 +64,14 @@ set undofile
 set undolevels=1000
 set undoreload=1000
 
+" Status line options
+set laststatus=2 " always show statusline
+set statusline=%t\ %m\ buffer:%n\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ %{GitBranch()}\ \ %l,%v
+
+set showcmd
+
+command! -nargs=0 UpdateHelp helptags ~/.vim/doc
+
 " Defining a command to use :silent with programs that print to the terminal
 " Uses :silent and :redraw! after running the command
 command! -nargs=1 Silent
