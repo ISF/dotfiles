@@ -3,92 +3,6 @@
 set nocompatible  " VIM POWER!!!!
 set encoding=utf8
 
-" C highlighting
-hi DefinedByUser ctermfg=lightgrey guifg=blue
-hi cBraces ctermfg=lightgreen guifg=lightgreen
-hi link cUserFunction DefinedByUser
-hi link cUserFunctionPointer DefinedByUser
-
-" C syntax options (see :help c.vim)
-let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
-let c_space_errors    = 0 " trailing whitespave or spaces before tabs
-let c_comment_strings = 0 " highligh numbers and strings insede comments
-let c_no_comment_fold = 1 " disable syntax based folding for comments
-let c_gnu             = 1 " highlight gnu extensions
-let c_minlines        = 100
-
-" Screen
-let g:ScreenImpl = 'Tmux'
-
-" Doxygen syntax
-let g:load_doxygen_syntax=1
-
-" python indenting options (see :help ft-python-indent)
-let g:pyindent_open_paren   = '&sw'
-let g:pyindent_nested_paren = '&sw'
-let g:pyindent_continue     = '&sw *2'
-
-" python syntax
-let g:python_highlight_all   = 1
-let python_print_as_function = 1
-
-" vhdl syntax configuration
-let g:vhdl_indent_genportmap = 0
-let g:vhdl_indent_rhsassign = 1
-
-" pylint configuration
-let g:pylint_onwrite = 0
-let g:pylint_cwindow = 0
-
-" eclim configuration
-let g:EclimPythonValidate = 0
-let g:EclimCValidate      = 0
-let g:EclimDisabled       = 1
-
-" haskell syntax highlighting configuration
-let hs_highlight_types      = 1
-let hs_highlight_more_types = 1
-let hs_highlight_boolean    = 1
-
-" Tagbar configurations
-let g:tagbar_left = 1
-
-" TaskList configuration
-let g:tlTokenList = ['TODO', 'FIXME', 'NOTE', 'HACK']
-
-" Variable settings for SingleCompile
-let g:SingleCompile_usedialog   = 0
-let g:SingleCompile_usequickfix = 1
-" Setting the compiler options in SingleCompiler
-call SingleCompile#SetCompilerTemplate('c', 'gcc', 'GNU C Compiler', 'gcc', '-Wall -Wextra -std=c99 -pedantic -ggdb3 -lm -o "%<"', './"%<"')
-call SingleCompile#SetCompilerTemplate('c++', 'g++', 'GNU C++ Compiler', 'g++', '-Wall -Wextra -pedantic -ggdb3 -lm -o "%<"', './"%<"')
-call SingleCompile#SetCompilerTemplate('python', 'python', 'Python Interpreter', 'python', '', '')
-" Setting the default compilers
-call SingleCompile#ChooseCompiler('c', 'gcc')
-call SingleCompile#ChooseCompiler('c++', 'g++')
-call SingleCompile#ChooseCompiler('python', 'python')
-
-" Defines line limit for yaifa scanning
-let yaifa_max_lines = 1024
-
-" omnicppcomplete options
-let OmniCpp_GlobalScopeSearch   = 1 " searches in the global scope
-let OmniCpp_NamespaceSearch     = 2 " search in included files also
-let OmniCpp_DisplayMode         = 1 " always show all class members
-let OmniCpp_ShowScopeInAbbr     = 0 " don't show scope in abbreviations
-let OmniCpp_ShowPrototypeInAbbr = 1 " display prototype in abbreviations
-let OmniCpp_ShowAccess          = 1 " show access
-let OmniCpp_MayCompleteDot      = 1 " automatically completes after a '.'
-let OmniCpp_MayCompleteArrow    = 1 " automatically completes after a '->'
-let OmniCpp_MayCompleteScope    = 1 " automatically completes afer a '::'
-let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup menu
-
-" tex support
-let g:tex_flavor="pdflatex"
-
-" ManPageView
-let g:manpageview_winopen = "hsplit="
-
 set synmaxcol=200
 set showmatch     " Show matching brackets (briefly jump to it)
 set splitright
@@ -178,11 +92,116 @@ function! RunSplint()
     compiler gcc
 endfunction
 
-" Status line options
-set laststatus=2 " always show statusline
-set statusline=%t\ %m\ buffer:%n\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ %{GitBranch()}\ \ %l,%v
+" C syntax options (see :help c.vim)
+let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
+let c_space_errors    = 0 " trailing whitespave or spaces before tabs
+let c_comment_strings = 0 " highligh numbers and strings insede comments
+let c_no_comment_fold = 1 " disable syntax based folding for comments
+let c_gnu             = 1 " highlight gnu extensions
+let c_minlines        = 100
 
-set showcmd
+" AutoComplPop
+let g:acp_completeoptPreview    = 1
+let g:acp_behaviorKeywordLength = 4
+let g:acp_mappingDriven         = 1
+
+" Screen
+let g:ScreenImpl = 'Tmux'
+
+" EnhancedCommentify
+let g:EnhCommentifyMultiPartBlocks = 'yes'
+let g:EnhCommentifyAlignRight      = 'yes'
+let g:EnhCommentifyPretty          = 'yes'
+let g:EnhCommentifyFirstLineMode   = 'yes'
+let g:EnhCommentifyRespectIndent   = 'yes'
+let g:EnhCommentifyUseBlockIndent  = 'yes'
+let g:EnhCommentifyBindInNormal    = 'no'
+let g:EnhCommentifyBindInVisual    = 'no'
+let g:EnhCommentifyBindInInsert    = 'no'
+
+" Lua
+let g:lua_complete_omni     = 1
+let g:lua_compiler_name     = '/usr/bin/luac'
+let g:lua_check_syntax      = 1
+let g:lua_complete_keywords = 1
+let g:lua_complete_globals  = 1
+let g:lua_complete_library  = 1
+let g:lua_complete_dynamic  = 1
+
+" Doxygen syntax
+let g:load_doxygen_syntax=1
+
+" python indenting options (see :help ft-python-indent)
+let g:pyindent_open_paren   = '&sw'
+let g:pyindent_nested_paren = '&sw'
+let g:pyindent_continue     = '&sw *2'
+
+" python syntax
+let g:python_highlight_all   = 1
+let python_print_as_function = 1
+
+" vhdl syntax configuration
+let g:vhdl_indent_genportmap = 0
+let g:vhdl_indent_rhsassign = 1
+
+" pylint configuration
+let g:pylint_onwrite = 0
+let g:pylint_cwindow = 0
+
+" eclim configuration
+let g:EclimPythonValidate = 0
+let g:EclimCValidate      = 0
+let g:EclimDisabled       = 1
+
+" haskell syntax highlighting configuration
+let hs_highlight_types      = 1
+let hs_highlight_more_types = 1
+let hs_highlight_boolean    = 1
+
+" Tagbar configurations
+let g:tagbar_left = 1
+
+" TaskList configuration
+let g:tlTokenList = ['TODO', 'FIXME', 'NOTE', 'HACK']
+
+" Variable settings for SingleCompile
+let g:SingleCompile_usedialog   = 0
+let g:SingleCompile_usequickfix = 1
+" Setting the compiler options in SingleCompiler
+call SingleCompile#SetCompilerTemplate('c', 'gcc', 'GNU C Compiler', 'gcc', '-Wall -Wextra -std=c99 -pedantic -ggdb3 -lm -o "%<"', './"%<"')
+call SingleCompile#SetCompilerTemplate('c++', 'g++', 'GNU C++ Compiler', 'g++', '-Wall -Wextra -pedantic -ggdb3 -lm -o "%<"', './"%<"')
+call SingleCompile#SetCompilerTemplate('python', 'python', 'Python Interpreter', 'python', '', '')
+" Setting the default compilers
+call SingleCompile#ChooseCompiler('c', 'gcc')
+call SingleCompile#ChooseCompiler('c++', 'g++')
+call SingleCompile#ChooseCompiler('python', 'python')
+
+" Defines line limit for yaifa scanning
+let yaifa_max_lines = 1024
+
+" omnicppcomplete options
+let OmniCpp_GlobalScopeSearch   = 1 " searches in the global scope
+let OmniCpp_NamespaceSearch     = 2 " search in included files also
+let OmniCpp_DisplayMode         = 1 " always show all class members
+let OmniCpp_ShowScopeInAbbr     = 0 " don't show scope in abbreviations
+let OmniCpp_ShowPrototypeInAbbr = 1 " display prototype in abbreviations
+let OmniCpp_ShowAccess          = 1 " show access
+let OmniCpp_MayCompleteDot      = 1 " automatically completes after a '.'
+let OmniCpp_MayCompleteArrow    = 1 " automatically completes after a '->'
+let OmniCpp_MayCompleteScope    = 1 " automatically completes afer a '::'
+let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup menu
+
+" tex support
+let g:tex_flavor="pdflatex"
+
+" ManPageView
+let g:manpageview_winopen = "hsplit="
+
+" C highlighting
+hi DefinedByUser ctermfg=lightgrey guifg=blue
+hi cBraces ctermfg=lightgreen guifg=lightgreen
+hi link cUserFunction DefinedByUser
+hi link cUserFunctionPointer DefinedByUser
 
 if has("syntax")
   syntax on
