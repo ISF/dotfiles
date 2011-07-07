@@ -218,6 +218,8 @@ alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'
 alias mkdir='nocorrect mkdir'
+alias sz='source ~/.zshrc'
+alias ez="$EDITOR ~/.zshrc"
 
 # suffix
 alias -s html=$BROWSER
