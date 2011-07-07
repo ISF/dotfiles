@@ -41,6 +41,7 @@ autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info
+autoload -Uz zsh-mime-setup && zsh-mime-setup
 
 # color settings
 eval $(dircolors -b)
