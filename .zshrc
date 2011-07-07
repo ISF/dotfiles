@@ -104,14 +104,7 @@ zstyle :compinstall filename '/home/ivan/.zshrc'
 # functions
 ################################################################################
 
-# source .zshrc
-function src_zshrc() {
-    source ${HOME}/.zshrc
-}
-
-function ed_zshrc {
-    $EDITOR $HOME/.zshrc
-}
+ARG=1 # variable used to emulate readline's alt+control+y
 
 # taken from oh_my_zsh git plugin
 function git_current_branch() {
@@ -119,19 +112,38 @@ function git_current_branch() {
     echo ${ref#refs/heads/}
 }
 
+function take_nth_arg {
+    zle insert-last-word -- -1 $ARG -
+    ARG=$(($ARG+1))
+}
+zle -N take_nth_arg
+
 # taken and modified from http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
     VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
     zle reset-prompt
+    ARG=1
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
-################################################################################
-# hooks
-################################################################################
+# needed for mode changing (viins and vicmd)
+function zle-line-finish {
+    VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
+    zle reset-prompt
+}
 
-precmd () {
+zle-isearch-update() {
+    zle -M "Line $HISTNO"
+}
+zle -N zle-isearch-update
+
+zle-isearch-exit() {
+    zle -M ""
+}
+zle -N zle-isearch-exit
+
+function precmd {
     vcs_info
 }
 
