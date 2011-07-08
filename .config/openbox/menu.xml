@@ -475,6 +475,9 @@
                 <execute>
                     ~/.config/openbox/shutdown.sh
                 </execute>
+                <prompt>
+                    Shutdown?
+                </prompt>
             </action>
         </item>
         <item label="Reboot">
@@ -482,6 +485,9 @@
                 <execute>
                     ~/.config/openbox/reboot.sh
                 </execute>
+                <prompt>
+                    Reboot?
+                </prompt>
             </action>
         </item>
         <item label="Suspend">
@@ -489,6 +495,9 @@
                 <execute>
                     ~/.config/openbox/suspend.sh
                 </execute>
+                <prompt>
+                    Suspend?
+                </prompt>
             </action>
         </item>
     </menu>
