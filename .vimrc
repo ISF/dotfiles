@@ -220,8 +220,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
-    autocmd BufEnter *.mkd set ft=markdown
-    autocmd BufEnter *.md set ft=markdown
+    autocmd BufEnter *.mkd setl ft=markdown
+    autocmd BufEnter *.md setl ft=markdown
 
     " Useful general options
     filetype plugin indent on
@@ -230,22 +230,22 @@ if has("autocmd")
     autocmd VimEnter * nohl
 
     " Makefile sanity
-    autocmd FileType make  set noet ts=4 sw=4
+    autocmd FileType make  setl noet ts=4 sw=4
 
     " Gettext file compiler (msgfmt)
     autocmd FileType po compiler po
 
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
-    autocmd FileType python set cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
-    autocmd FileType python set nosmartindent noautoindent keywordprg=pydoc2 textwidth=79
-    autocmd FileType python set omnifunc=pythoncomplete#Complete                                  " setting the omnifuncion for python
-    autocmd FileType python set expandtab completeopt-=preview
+    autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
+    autocmd FileType python setl nosmartindent noautoindent keywordprg=pydoc2 textwidth=79
+    autocmd FileType python setl omnifunc=pythoncomplete#Complete                                  " setting the omnifuncion for python
+    autocmd FileType python setl expandtab completeopt-=preview
     autocmd FileType python nmap <F12> :Pylint<CR>
     autocmd FileType python compiler pylint
 
     " Haskell options
-    autocmd FileType haskell set expandtab nocindent nosmartindent
+    autocmd FileType haskell setl expandtab nocindent nosmartindent
     function! HaskellIncrementCols()
         let qflist = getqflist()
         for i in qflist
@@ -259,8 +259,8 @@ if has("autocmd")
 
     " C and CPP options
     autocmd FileType c,cpp let g:compiler_gcc_ignore_unmatched_lines = 1
-    autocmd FileType c,cpp set nosmartindent noautoindent cindent cinoptions=(0
-    autocmd FileType c,cpp set completeopt-=preview               " disable omnicppcomplete scratch buffer
+    autocmd FileType c,cpp setl nosmartindent noautoindent cindent cinoptions=(0
+    autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
 
