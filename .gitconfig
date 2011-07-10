@@ -8,6 +8,8 @@
 	ck = checkout
 	st = status
 	unstage = reset HEAD
+	adp = add --patch
+	amend = commit --amend
 
 [merge]
 	tool = vimdiff
