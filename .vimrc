@@ -13,7 +13,6 @@ set backspace=indent,eol,start
 " Backup and history options
 set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another directory
 set history=1000             " Increase history size
-set ul=1000                  " Max undo levels
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
 set textwidth=80              " don't break long lines
