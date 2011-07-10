@@ -15,7 +15,7 @@ set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another di
 set history=1000             " Increase history size
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
-set textwidth=80              " don't break long lines
+set textwidth=80             " don't break long lines
 set formatoptions=qrn1
 
 " list chars
