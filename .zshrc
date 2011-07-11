@@ -50,6 +50,14 @@ eval $(dircolors -b)
 # variables
 ################################################################################
 
+# for reference while compiling vim
+VIMCFG="./configure --prefix=/usr --localstatedir=/var/lib/vim \
+--mandir=/usr/share/man --with-compiledby=ArchLinux \
+--with-features=huge --enable-gpm --enable-acl --with-x=yes \
+--disable-gui --enable-multibyte --enable-cscope \
+--enable-netbeans --disable-perlinterp --enable-pythoninterp \
+--disable-rubyinterp --enable-luainterp"
+
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
 else
