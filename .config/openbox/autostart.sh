@@ -41,19 +41,6 @@ numlockx on &
 # fixing fn keys
 xmodmap /home/ivan/.config/openbox/keys
 
-# wallpaper with feh
-WALLPAPER_PATH=/home/ivan/images/wallpaper
-feh --bg-scale $WALLPAPER_PATH
-
-# starting misc apps
-start_if_exist tint2 wicd-gtk xfce4-power-manager
-
-xscreensaver -no-splash &
-
-kupfer --no-splash &
-
-neap &
-
 # starting ssh-agent
 if [[ -z $(pidof ssh-agent) ]]; then
     eval $(ssh-agent)
@@ -68,6 +55,8 @@ else
 fi
 export GPG_AGENT_INFO
 
+sleep 2 # ensure that the next applications start after openbox
+
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
     terminal --hide-menubar &
@@ -77,3 +66,16 @@ fi
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -c /home/ivan/.conkyrc_$(hostname) &
 fi
+
+# wallpaper with feh
+WALLPAPER_PATH=/home/ivan/images/wallpaper
+feh --bg-scale $WALLPAPER_PATH
+
+# starting misc apps
+start_if_exist tint2 wicd-gtk xfce4-power-manager
+
+xscreensaver -no-splash &
+
+kupfer --no-splash &
+
+neap &
