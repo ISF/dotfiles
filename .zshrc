@@ -70,6 +70,7 @@ export BROWSER=chromium
 export TERM=xterm-256color
 export PAGER='less -iR'
 export MANPAGER='less -iR'
+export PYTHONSTARTUP="$HOME/.pystartup"
 
 # setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
