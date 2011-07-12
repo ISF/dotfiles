@@ -220,8 +220,12 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
+    " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
+
+    " conkyrc syntax
+    autocmd BufEnter .conkyrc* setl ft=conkyrc
 
     " Useful general options
     filetype plugin indent on
