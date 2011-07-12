@@ -62,9 +62,9 @@ if [[ -z $(pidof terminal) ]]; then
     terminal --hide-menubar &
 fi
 
-# starting conky
+# starting conky, use ~/.conkyrc as a link to the correct conky configuration
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
-    conky -c /home/ivan/.conkyrc_$(hostname) &
+    conky -d
 fi
 
 # wallpaper with feh
