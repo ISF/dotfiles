@@ -2,15 +2,6 @@
 # Environment variables set here are passed to the Openbox session.
 
 
-# functoon to star a given process without specific options
-function start_if_exist {
-    for process in $@; do
-        if which $process > /dev/null; then
-            $process &
-        fi
-    done
-}
-
 ########## Start of default settings ###########
 
 # D-bus
@@ -71,8 +62,11 @@ fi
 WALLPAPER_PATH=/home/ivan/images/wallpaper
 feh --bg-scale $WALLPAPER_PATH
 
-# starting misc apps
-start_if_exist tint2 wicd-gtk xfce4-power-manager
+tint2 &
+
+wicd-gtk &
+
+xfce4-power-manager &
 
 xscreensaver -no-splash &
 
