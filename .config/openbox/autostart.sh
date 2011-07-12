@@ -72,4 +72,8 @@ xscreensaver -no-splash &
 
 kupfer --no-splash &
 
+volumeicon &
+
+xcompmgr -c &
+
 neap &
