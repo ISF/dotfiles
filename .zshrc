@@ -115,12 +115,6 @@ zstyle :compinstall filename '/home/ivan/.zshrc'
 
 ARG=1 # variable used to emulate readline's alt+control+y
 
-# taken from oh_my_zsh git plugin
-function git_current_branch() {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo ${ref#refs/heads/}
-}
-
 function take_nth_arg {
     zle insert-last-word -- -1 $ARG -
     ARG=$(($ARG+1))
