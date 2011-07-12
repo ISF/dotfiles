@@ -59,9 +59,9 @@ VIMCFG="./configure --prefix=/usr --localstatedir=/var/lib/vim \
 --disable-rubyinterp --enable-luainterp"
 
 if [[ ${EUID} == 0 ]] ; then
-    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
+    PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
 else
-    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}[${VIMODE}] %1~ %# %{$reset_color%}'
+    PROMPT='%{$fg_bold[green]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
     RPROMPT='${vcs_info_msg_0_}'
 fi
 
