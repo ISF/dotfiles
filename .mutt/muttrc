@@ -144,7 +144,7 @@ folder-hook . "exec collapse-all" # collapses all threads
 
 # Editing
 
-set editor="vim -c 'set tw=79 et'"
+set editor="vim -c 'set tw=79 et ft=mail' -c '+/^$'"
 set edit_headers=yes # See the headers when editing
 set include # include original message
 
@@ -164,9 +164,9 @@ set my_header="X-PGP-Key: http://www.students.ic.unicamp.br/~ra093887/files/pubk
 # Headers
 
 ignore *
-unignore Date: From: User-Agent: X-Mailer X-Operating-System To: \
+unignore Date: From: User-Agent: X-Mailer: X-Operating-System: To: \
 Cc: Reply-To: Subject: Mail-Followup-To: X-PGP-Key:
-hdr_order From: Date: To: Cc: Reply-To: User-Agent: X-Mailer X-Operating-System Subject: X-PGP-Key:
+hdr_order From: Date: To: Cc: Reply-To: User-Agent: X-Mailer: X-Operating-System: Subject: X-PGP-Key:
 
 # Colors
  
