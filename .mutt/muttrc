@@ -25,6 +25,7 @@ mailboxes =INBOX \
 =EC010 \
 =EC011 \
 =EC09 \
+=gdb \
 =GPSL \
 =GSoC \
 =git \
@@ -35,8 +36,11 @@ mailboxes =INBOX \
 =Newsletter \
 =Programação \
 =Software\ Livre \
+=systemd \
+=tmux \
 =Unicamp \
 =vim \
+=weechat \
 =zsh
 
 # General settings
