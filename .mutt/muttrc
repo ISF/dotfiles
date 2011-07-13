@@ -12,9 +12,32 @@ set postponed = "=[Gmail]/Drafts"
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/cert
-mailboxes =INBOX =Archlinux =AVR =CACO =CC010 =Cerva-LAS =dojo-campinas \
-=EC010 =EC09 =GPSL =GSoC =Haskell =Librix-LAS =Misc =Newsletter =Programação \
-=Software\ Livre =Unicamp =VIM =EC011 =CC011 =Git
+mailboxes =INBOX \
+=AVR \
+=Archlinux \
+=CACO \
+=CC010 \
+=CC011 \
+=CC_Unicamp \
+=Cerva-LAS \
+=coreutils \
+=Disciplinas \
+=EC010 \
+=EC011 \
+=EC09 \
+=GPSL \
+=GSoC \
+=git \
+=Haskell \
+=LFS \
+=Librix-LAS \
+=Misc \
+=Newsletter \
+=Programação \
+=Software\ Livre \
+=Unicamp \
+=vim \
+=zsh
 
 # General settings
 
