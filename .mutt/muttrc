@@ -95,12 +95,37 @@ source ~/.mutt/muttrc.macros
 
 # Lists
 
-subscribe mutt-users ec09unicamp ec010unicamp cc010_unicamp arch-general \
-aur-general arch-dev-public pacman-dev arch-mirrors  caco@ic.unicamp.br \
-gestao@caco.ic.unicamp.br gpsl haskell-cafe arch-haskell beginners@haskell.org \
-comp.lang.c@groups.google.com comp.lang.c++ comp.lang.python dojo-unicamp \
-weechat-dev epiclulz vim_use vim-use vim_dev tmux-users haskell@haskell.org \
-ec011unicamp cc011_unicamp libgit2 git
+subscribe \
+arch-dev-public \
+arch-general \
+arch-haskell \
+arch-mirrors \
+aur-general \
+beginners@haskell.org \
+caco@ic.unicamp.br \
+cc010_unicamp \
+cc011_unicamp \
+comp.lang.c++ \
+comp.lang.c@groups.google.com \
+comp.lang.python \
+dojo-unicamp \
+ec010unicamp \
+ec011unicamp \
+ec09unicamp \
+epiclulz \
+gestao@caco.ic.unicamp.br \
+git \
+gpsl \
+haskell-cafe \
+haskell@haskell.org \
+libgit2 \
+mutt-users \
+pacman-dev \
+tmux-users \
+vim-use \
+vim_dev \
+vim_use \
+weechat-dev \
 
 # Hooks
 
