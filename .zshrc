@@ -5,27 +5,30 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
-setopt alwaystoend
-setopt appendhistory
-setopt autocd
-setopt autolist
-setopt autopushd
+setopt always_to_end
+setopt append_history
+setopt auto_cd
+setopt auto_list
+setopt auto_menu
+setopt auto_name_dirs
+setopt auto_pushd
 setopt cdablevars
 setopt completeinword
 setopt correct
-setopt extendedglob
-setopt histignoredups
-setopt histignorespace
-setopt histreduceblanks
-setopt incappendhistory
-setopt interactivecomments
-setopt listambiguous
-setopt listtypes
+setopt extended_glob
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt inc_append_history
+setopt interactive_comments
+setopt list_ambiguous
+setopt list_types
 setopt nohup
 setopt notify
 setopt prompt_subst
-setopt pushdignoredups
-setopt sharehistory
+setopt pushd_ignore_dups
+setopt share_history
 unsetopt banghist
 unsetopt beep
 unsetopt checkjobs
@@ -100,14 +103,37 @@ zstyle ':vcs_info:hg:*' actionformats '[%s@%b|%a]'
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' menu select=long
+zstyle ':completion:*' menu select
 zstyle ':completion:*' original true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh_cache
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 zstyle :compinstall filename '/home/ivan/.zshrc'
+
+# Don't complete uninteresting users
+zstyle ':completion:*:*:*:users' ignored-patterns \
+        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
+        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
+        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
+        mailman mailnull mldonkey mysql nagios \
+        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
+        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
+        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
+
+# use /etc/hosts and known_hosts for hostname completion
+[ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
+[ -r /etc/hosts ] && : ${(A)_etc_hosts:=${(s: :)${(ps:\t:)${${(f)~~"$(</etc/hosts)"}%%\#*}##[:blank:]#[^[:blank:]]#}}} || _etc_hosts=()
+hosts=(
+  "$_ssh_hosts[@]"
+  "$_etc_hosts[@]"
+  `hostname`
+  localhost
+)
+zstyle ':completion:*:hosts' hosts $hosts
 
 ################################################################################
 # functions
@@ -224,6 +250,7 @@ alias beye='TERM=xterm biew'
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'
+alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
