@@ -48,6 +48,8 @@ export GPG_AGENT_INFO
 
 sleep 2 # ensure that the next applications start after openbox
 
+cairo-compmgr &
+
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
     terminal --hide-menubar &
@@ -56,24 +58,19 @@ fi
 # starting conky, use ~/.conkyrc as a link to the correct conky configuration
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -d
+    conky -c /home/ivan/.conkyrc_cal -d
 fi
 
 # wallpaper with feh
 WALLPAPER_PATH=/home/ivan/images/wallpaper
 feh --bg-scale $WALLPAPER_PATH
 
-tint2 &
-
 wicd-gtk &
-
-xfce4-power-manager &
-
-xscreensaver -no-splash &
 
 kupfer --no-splash &
 
 volumeicon &
 
-xcompmgr -c &
-
 neap &
+
+sleep 3 && tint2 &
