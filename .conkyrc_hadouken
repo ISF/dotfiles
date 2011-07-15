@@ -5,24 +5,24 @@ text_buffer_size 2048
 update_interval 1
 total_run_times 0
 own_window yes
-own_window_argb_visual yes
 own_window_transparent yes
 own_window_type desktop
-#own_window_class
+own_window_class conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-background no
+background yes
 
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
 
-minimum_size 240 200
+minimum_size 140 200
 maximum_width 300
 draw_shades no
 draw_outline no
 draw_borders no
 stippled_borders 0
-border_inner_margin 5
-default_color white
+border_inner_margin 0
+border_outer_margin 0
+default_color black
 default_shade_color black
 default_outline_color black
 own_window_colour black
@@ -37,17 +37,14 @@ net_avg_samples 2
 override_utf8_locale yes
 
 # Add spaces to keep things from moving about?  This only affects certain objects.
-use_spacer none
+use_spacer right
 
 TEXT
 
-${hr 3}
 ${alignc}${offset -35}${font OpenLogos:size=56}A${font} # archlinux
 
-${hr 3}
 ${font StyleBats:size=16}i${font}   Kernel:  ${alignr}${kernel}
 ${font StyleBats:size=16}q${font}   Uptime: ${alignr}${uptime}
-${hr 3}
 
 ${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${freq_g 1} GHz
 ${cpugraph cpu1 20}
@@ -55,11 +52,6 @@ ${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${freq_g 2} GHz
 ${cpugraph cpu2 20}
 ${font StyleBats:size=16}g${font}   RAM: $memperc% $mem/$memmax ${alignr}${membar 8,60}
 ${font StyleBats:size=16}j${font}   SWAP: $swapperc% $swap/$swapmax ${alignr}${swapbar 8,60}
-${font StyleBats:size=16}l${font}   Temperature: ${alignr}${acpitemp}C
-
-${hr 2}
-${font StyleBats:size=16}j${font}  HD
-${hr 2}
 
 ROOT: $alignr ${fs_free /} / ${fs_size /}
 ${fs_bar 3 /}
@@ -67,8 +59,3 @@ HOME: $alignr ${fs_free /home} / ${fs_size /home}
 ${fs_bar 3 /home}
 bugigangas: $alignr ${fs_free /mnt/bugigangas} / ${fs_size /mnt/bugigangas}
 ${fs_bar 3 /mnt/bugigangas}
-
-${hr 3}
-$alignc ${time %H:%M:%S}
-$alignc ${time %d %b. %Y}
-$alignc ${time %A}
