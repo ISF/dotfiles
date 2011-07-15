@@ -16,7 +16,7 @@ set history=1000             " Increase history size
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
 set textwidth=80             " don't break long lines
-set formatoptions=qrn1
+set formatoptions=cqrn1
 
 " list chars
 set list
@@ -49,6 +49,7 @@ set expandtab
 set hlsearch   " highlight search results
 set incsearch  " incremental search
 set ignorecase
+set infercase
 set smartcase
 set gdefault " use global as default in substitutions
 
@@ -68,6 +69,8 @@ set laststatus=2 " always show statusline
 set statusline=%t\ %m\ buffer:%n\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
 
 set showcmd
+
+set showfulltag
 
 command! -nargs=0 UpdateHelp helptags ~/.vim/doc
 
@@ -134,6 +137,9 @@ let g:lua_complete_keywords = 1
 let g:lua_complete_globals  = 1
 let g:lua_complete_library  = 1
 let g:lua_complete_dynamic  = 1
+
+" Lisp
+let g:lisp_rainbow = 1
 
 " Doxygen syntax
 let g:load_doxygen_syntax=1
@@ -225,7 +231,7 @@ if has("autocmd")
     autocmd BufEnter *.md setl ft=markdown
 
     " conkyrc syntax
-    autocmd BufEnter .conkyrc* setl ft=conkyrc
+    autocmd BufEnter *conkyrc* setl ft=conkyrc
 
     " Useful general options
     filetype plugin indent on
