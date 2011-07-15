@@ -274,6 +274,9 @@ if has("autocmd")
     autocmd FileType c,cpp syn keyword cType off64_t
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
 
+    " Tex, LaTeX
+    autocmd FileType tex,latex setl smartindent
+
     " Save folds automatically on close, and load them on opening the file
     au BufWinLeave *.* mkview
     au BufWinEnter *.* silent loadview
