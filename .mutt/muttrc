@@ -1,8 +1,7 @@
 set realname = "Ivan Sichmann Freitas"
-set from = "ivansichfreitas@gmail.com" 
+set from = "ivansichfreitas@gmail.com"
 
 # Setting gmail account
-
 source ~/.mutt/muttrc.gmail
 
 set imap_keepalive = 200
@@ -83,6 +82,7 @@ set strict_threads = no
 set tilde
 set thorough_search   # strip headers and eval mimes before searching
 set use_from
+unset imap_passive
 unset mark_old
 unset uncollapse_jump
 auto_view text/html
@@ -150,7 +150,7 @@ set include # include original message
 
 # Signature
 
-source /etc/Muttrc.gpg.dist
+source ~/.mutt/muttrc.gpg
 set sig_dashes
 set signature = "~/.mutt/signature"
 set pgp_autosign = yes
@@ -171,3 +171,6 @@ hdr_order From: Date: To: Cc: Reply-To: User-Agent: X-Mailer: X-Operating-System
 # Colors
  
 source ~/.mutt/muttrc.colors
+
+# Sidebar
+source ~/.mutt/muttrc.sidebar
