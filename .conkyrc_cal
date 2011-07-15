@@ -1,0 +1,43 @@
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+background no
+use_xft yes
+xftfont DejaVu Sans:size=8
+xftalpha 0.8
+update_interval 10
+total_run_times 0
+double_buffer yes
+minimum_size 200
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+border_width 1
+default_color white
+default_shade_color black
+default_outline_color black
+alignment bottom_left
+gap_x 35
+gap_y 35
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+net_avg_samples 2
+override_utf8_locale yes
+use_spacer none
+show_graph_scale no
+show_graph_range no
+text_buffer_size 1024
+#colour
+default_color 000000
+color2 FFFFFF
+short_units yes
+pad_percents 2
+
+
+TEXT
+
+${font DejaVu Sans Mono :bold:size=10}${execpi 60 DJS=`date +%_d`; cal | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color blue}'"$DJS"'$color'/}
