@@ -73,4 +73,4 @@ volumeicon &
 
 neap &
 
-sleep 3 && tint2 &
+sleep 4 && tint2 &
