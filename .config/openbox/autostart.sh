@@ -58,7 +58,7 @@ fi
 # starting conky, use ~/.conkyrc as a link to the correct conky configuration
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -d
-    conky -c /home/ivan/.conkyrc_cal -d
+    conky -c /home/ivan/.conkyrc_ethereal -d
 fi
 
 # wallpaper with feh
