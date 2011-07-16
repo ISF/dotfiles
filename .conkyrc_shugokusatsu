@@ -42,13 +42,10 @@ use_spacer none
 
 TEXT
 
-${hr 3}
 ${alignc}${offset -35}${font OpenLogos:size=56}A${font} # archlinux
 
-${hr 3}
 ${font StyleBats:size=16}i${font}   Kernel:  ${alignr}${kernel}
 ${font StyleBats:size=16}q${font}   Uptime: ${alignr}${uptime}
-${hr 3}
 
 ${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${freq_g 1} GHz
 ${cpugraph cpu1 20}
@@ -67,7 +64,3 @@ HOME: $alignr ${fs_free /home} / ${fs_size /home}
 ${fs_bar 3 /home}
 STORAGE: $alignr ${fs_free /mnt/storage} / ${fs_size /mnt/storage}
 ${fs_bar 3 /mnt/storage}
-
-$alignc ${time %H:%M:%S}
-$alignc ${time %d %b. %Y}
-$alignc ${time %A}
