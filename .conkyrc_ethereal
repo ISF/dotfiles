@@ -19,7 +19,7 @@
 #Fenêtre conky
   alignment top_middle                   #Alignement
  #---
-  minimum_size 350 10                   #Taille minimum (px) ; largeur / hauteur
+  minimum_size 350 200                   #Taille minimum (px) ; largeur / hauteur
   maximum_width 350                     #Largeur maximum (px)
  #---
   gap_x 5                               #Écart avec le bord gauche / droit
