@@ -31,6 +31,7 @@ mailboxes =INBOX \
 =Haskell \
 =LFS \
 =Librix-LAS \
+=lisp \
 =Misc \
 =Newsletter \
 =Programação \
@@ -116,6 +117,7 @@ dojo-unicamp \
 ec010unicamp \
 ec011unicamp \
 ec09unicamp \
+ecl-list \
 epiclulz \
 gdb \
 gdb-patches \
