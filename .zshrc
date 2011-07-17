@@ -9,7 +9,6 @@ setopt always_to_end
 setopt append_history
 setopt auto_cd
 setopt auto_list
-setopt auto_menu
 setopt auto_name_dirs
 setopt auto_pushd
 setopt cdablevars
@@ -24,6 +23,9 @@ setopt inc_append_history
 setopt interactive_comments
 setopt list_ambiguous
 setopt list_types
+setopt list_packed
+setopt list_rows_first
+setopt menu_complete
 setopt nohup
 setopt notify
 setopt prompt_subst
@@ -100,18 +102,47 @@ zstyle ':vcs_info:hg:*' actionformats '[%s@%b|%a]'
 ################################################################################
 # completion's configuration
 ################################################################################
-zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+
+# function to run rehash before every completion
+# useful when something new must completed
+function _force_rehash {
+    (( CURRENT == 1 )) && rehash
+    return 1 # Because we didn't really complete anything
+}
+
+zstyle ':completion:*' completer _force_rehash _expand _complete _prefix _match _ignored _correct _approximate _files
+
+# complete manual by their section
+zstyle ':completion:*:manuals'    separate-sections true
+zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:man:*'      menu yes select=3
+
+# never user old style completion
+zstyle ':completion:*' use-compctl false
+
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
-zstyle ':completion:*' menu select
+zstyle ':completion:*:correct:*' insert-unambiguous true
+zstyle ':completion:*' menu select=20 # only show menu with 20+ itens to complete
 zstyle ':completion:*' original true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh_cache
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 only
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+# complete parent directory
+zstyle ':completion:*' special-dirs ..
+
+# better kill completion
+zstyle ':completion:*:*:kill:*' menu yes select
+zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+
 zstyle :compinstall filename '/home/ivan/.zshrc'
 
 # Don't complete uninteresting users
