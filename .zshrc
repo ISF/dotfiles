@@ -242,6 +242,9 @@ bindkey -M vicmd '^r' history-incremental-search-backward
 bindkey -M viins '^e' history-incremental-pattern-search-backward
 bindkey -M vicmd '^e' history-incremental-pattern-search-backward
 
+# go back in menu completion
+bindkey -M viins '^[[Z' reverse-menu-complete
+
 # control+u erase entire line on vicmd
 bindkey -M vicmd '^u' kill-whole-line # dd can be used also
 
