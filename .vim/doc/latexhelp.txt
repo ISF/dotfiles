@@ -437,7 +437,7 @@ o. |quotation| 		Indented environment with paragraph indentation
 p. |quote-l| 		Indented environment with no paragraph indentation
 q. |tabbing| 		Align text arbitrarily
 r. |table| 		Floating tables
-s. |tabular| 		Align text in columns
+s. |tabulr| 		Align text in columns
 t. |thebibliography| 	Bibliography or reference list
 u. |theorem| 		Theorems, lemmas, etc
 v. |titlepage| 		For hand crafted title pages
@@ -922,7 +922,7 @@ typewriter.
 It is best suited for cases where the width of each column is constant and
 known in advance.
 
-This environment can be broken across pages, unlike the |tabular| environment.
+This environment can be broken across pages, unlike the |tabulr| environment.
 The following commands can be used inside a tabbing environment:
 
 				*tab=*
@@ -1021,29 +1021,29 @@ wish.
 The \caption command allows you to title your table.
 
 ==============================================================================
-s. tabular					*tabular*
+s. tabulr					*tabulr*
 >
-	\begin{tabular}[pos]{cols}
+	\begin{tabulr}[pos]{cols}
 		column 1 entry & column 2 entry ... & column n entry \\
 		.
 		.
 		.
-	\end{tabular}
+	\end{tabulr}
 
 or
 >
-	\begin{tabular*}{width}[pos]{cols}
+	\begin{tabulr*}{width}[pos]{cols}
 		column 1 entry & column 2 entry ... & column n entry \\
 		.
 		.
 		.
-	\end{tabular*}
+	\end{tabulr*}
 
 These environments produce a box consisting of a sequence of rows of items,
 aligned vertically in columns. The mandatory and optional arguments consist
 of:
 
-{width}	Specifies the width of the tabular* environment. There must be
+{width}	Specifies the width of the tabulr* environment. There must be
 	rubber space between columns that can stretch to fill out the
 	specified width.
 
@@ -1082,7 +1082,7 @@ of:
 		\parbox[t]{wd} command. However, a |\\| may not appear
 		in the item, except in the following situations:
 		1. inside an environment like |minipage|, |array|, or
-		|tabular|.
+		|tabulr|.
 		2. inside an explicit |\parbox|.
 		3. in the scope of a |\centering|, |\raggedright|, or
 		|\raggedleft| declaration. The latter declarations must
@@ -1093,7 +1093,7 @@ of:
 		integer and cols is any list of column-specifiers,
 		which may contain another -expression.
 
-These commands can be used inside a tabular environment:
+These commands can be used inside a tabulr environment:
 
 |\cline|		Draw a horizontal line spanning some columns.
 |\hline|		Draw a * horizontal line spanning all columns.
@@ -1285,7 +1285,7 @@ information on why you would use one over the other.
 		the default footnote number.  This command can only be used in
 		outer paragraph mode; i.e., you cannot use it in sectioning
 		commands like |\chapter|, in |\figure|, |\table| or in a
-		|\tabular| environment.
+		|\tabulr| environment.
 
 \footnotemark					*\footnotemark*
 		Command puts the footnote number in the text. This command can
