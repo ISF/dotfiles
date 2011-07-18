@@ -252,6 +252,9 @@ if has("autocmd")
     " Gettext file compiler (msgfmt)
     autocmd FileType po compiler po
 
+    " Mail
+    autocmd FileType mail :autocmd InsertLeave * match none
+
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
     autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
