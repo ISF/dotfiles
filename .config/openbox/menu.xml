@@ -283,20 +283,6 @@
                     </command>
                 </action>
             </item>
-            <item label="Orage Calendar">
-                <action name="Execute">
-                    <command>
-                        orage
-                    </command>
-                </action>
-            </item>
-            <item label="Orage Globaltime">
-                <action name="Execute">
-                    <command>
-                        globaltime
-                    </command>
-                </action>
-            </item>
             <item label="Texmaker">
                 <action name="Execute">
                     <command>
@@ -317,13 +303,6 @@
                 <action name="Execute">
                     <command>
                         logisim
-                    </command>
-                </action>
-            </item>
-            <item label="OpenTTD">
-                <action name="Execute">
-                    <command>
-                        openttd
                     </command>
                 </action>
             </item>
