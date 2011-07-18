@@ -153,6 +153,12 @@ let g:pyindent_continue     = '&sw *2'
 let g:python_highlight_all   = 1
 let python_print_as_function = 1
 
+" syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_quiet_warnings=0
+
 " vhdl syntax configuration
 let g:vhdl_indent_genportmap = 0
 let g:vhdl_indent_rhsassign = 1
