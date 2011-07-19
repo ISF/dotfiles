@@ -168,49 +168,49 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="C-A-Left">
+    <keybind key="W-Left">
       <action name="DesktopLeft">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Right">
+    <keybind key="W-Right">
       <action name="DesktopRight">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Up">
+    <keybind key="W-Up">
       <action name="DesktopUp">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="C-A-Down">
+    <keybind key="W-Down">
       <action name="DesktopDown">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Left">
+    <keybind key="W-A-Left">
       <action name="SendToDesktopLeft">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Right">
+    <keybind key="W-A-Right">
       <action name="SendToDesktopRight">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Up">
+    <keybind key="W-A-Up">
       <action name="SendToDesktopUp">
         <dialog>no</dialog>
         <wrap>no</wrap>
       </action>
     </keybind>
-    <keybind key="S-A-Down">
+    <keybind key="W-A-Down">
       <action name="SendToDesktopDown">
         <dialog>no</dialog>
         <wrap>no</wrap>
@@ -241,8 +241,23 @@
         <monitor>next</monitor>
       </action>
     </keybind>
-    <keybind key="W-d">
+    <keybind key="W-C">
+      <action name="MoveToCenter"/>
+    </keybind>
+    <keybind key="W-D">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="W-M">
+      <action name="ToggleMaximizeFull"/>
+    </keybind>
+    <keybind key="W-N">
+      <action name="Iconify"/>
+    </keybind>
+    <keybind key="W-O">
+      <action name="ToggleOmnipresent"/>
+    </keybind>
+    <keybind key="W-F12">
+      <action name="Reconfigure"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -260,15 +275,24 @@
     </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
-      <action name="NextWindow"/>
+      <action name="NextWindow">
+        <bar>no</bar>
+        <display>no</display>
+        <linear>yes</linear>
+      </action>
     </keybind>
     <keybind key="A-S-Tab">
-      <action name="PreviousWindow"/>
+      <action name="PreviousWindow">
+        <bar>no</bar>
+        <display>no</display>
+        <linear>yes</linear>
+      </action>
     </keybind>
     <keybind key="C-A-Tab">
       <action name="NextWindow">
         <panels>yes</panels>
         <desktop>yes</desktop>
+        <linear>yes</linear>
       </action>
     </keybind>
     <!-- Keybindings for running applications -->

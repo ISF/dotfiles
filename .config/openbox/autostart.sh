@@ -61,9 +61,8 @@ if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -c /home/ivan/.conkyrc_ethereal -d
 fi
 
-# wallpaper with feh
-WALLPAPER_PATH=/home/ivan/images/wallpaper
-feh --bg-scale $WALLPAPER_PATH
+# wallpaper with nitrogen
+nitrogen --restore &
 
 wicd-gtk &
 
