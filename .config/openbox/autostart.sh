@@ -72,4 +72,4 @@ volumeicon &
 
 neap &
 
-sleep 4 && tint2 &
+sleep 5 && tint2 &
