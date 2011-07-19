@@ -704,6 +704,19 @@
     <application name="chromium">
       <maximized>true</maximized>
     </application>
+    <application name="deadbeef">
+      <maximized>no</maximized>
+      <position>
+        <x>center</x>
+        <y>center</y>
+      </position>
+      <desktop>4</desktop>
+    </application>
+    <application name="transmission-gtk">
+      <maximized>no</maximized>
+      <iconic>yes</iconic>
+      <desktop>4</desktop>
+    </application>
     <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
