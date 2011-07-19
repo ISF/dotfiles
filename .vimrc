@@ -102,6 +102,23 @@ function! RunSplint()
     compiler gcc
 endfunction
 
+" Set the currently indentention style for GNU
+function! GnuIndent()
+    setlocal cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1
+    setlocal shiftwidth=2
+    setlocal tabstop=8
+endfunction
+
+command! -nargs=0 GnuIndent call GnuIndent()
+
+" Specific for hacking coreutils
+function! CoreutilsIndent()
+    if match(getcwd(), "coreutils") > 0
+        call GnuIndent()
+        setlocal expandtab
+    endif
+endfunction
+
 " C syntax options (see :help c.vim)
 let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
 let c_space_errors    = 0 " trailing whitespave or spaces before tabs
@@ -236,6 +253,8 @@ if has("autocmd")
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
+
+    autocmd BufEnter *.c,*.h call CoreutilsIndent()
 
     " conkyrc syntax
     autocmd BufEnter *conkyrc* setl ft=conkyrc
