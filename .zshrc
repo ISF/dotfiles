@@ -320,6 +320,15 @@ if [[ -z $(tty | grep /dev/tty) && $EMACS != 't' ]]; then
         tmux -2 new-session -d -s system
         # create windows
         tmux -2 new-window -t system:1 -n 'weechat' 'weechat-curses' # starting weechat
+        tmux -2 new-window -t system:2
+        tmux -2 new-window -t system:3
+        tmux -2 new-window -t system:4
+        tmux -2 new-window -t system:5
+        tmux -2 new-window -t system:6
+        tmux -2 new-window -t system:7
+        tmux -2 new-window -t system:8
+        tmux -2 new-window -t system:9
+        tmux -2 new-window -t system:10
         # attach
         tmux -2 attach -t system
     fi
