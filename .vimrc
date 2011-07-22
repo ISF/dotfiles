@@ -244,6 +244,9 @@ if has("syntax")
   syntax on
 endif
 
+" Pathogen
+call pathogen#runtime_append_all_bundles()
+
 " Setting highlight to extra whitespaces at end of the line
 highlight ExtraWhitespace ctermbg=red guibg=red
 

@@ -141,5 +141,5 @@ endfunction
 "" ----------------------------------------------------------------------------
 
 call Mail_Erase_Sig()
-call Mail_Del_Empty_Quoted()
+"call Mail_Del_Empty_Quoted()
 call Mail_Begining()
