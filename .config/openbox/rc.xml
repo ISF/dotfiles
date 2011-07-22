@@ -278,7 +278,7 @@
       <action name="NextWindow">
         <bar>no</bar>
         <display>no</display>
-        <linear>yes</linear>
+        <linear>no</linear>
       </action>
     </keybind>
     <keybind key="A-S-Tab">
@@ -701,6 +701,9 @@
     <application name="zathura">
       <maximized>true</maximized>
     </application>
+    <application name="emacs*">
+      <maximized>true</maximized>
+    </application>
     <application name="chromium">
       <maximized>true</maximized>
     </application>
@@ -710,12 +713,10 @@
         <x>center</x>
         <y>center</y>
       </position>
-      <desktop>4</desktop>
     </application>
     <application name="transmission-gtk">
       <maximized>no</maximized>
       <iconic>yes</iconic>
-      <desktop>4</desktop>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
