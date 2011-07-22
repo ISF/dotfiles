@@ -296,11 +296,18 @@ alias -s jpg='display'
 alias -s txt=$EDITOR
 alias -s pdf='zathura'
 
+# fix escape sequences when zsh is loaded with emacs' M-x shell
+if [[ $EMACS == 't' ]]; then
+    unsetopt zle
+fi
+
 ################################################################################
 # automatically entering tmux (this must be the last section)
 ################################################################################
 
-if [[ -z $(tty | grep /dev/tty) ]]; then # check if is not running on a terminal
+# don't attach to a already started tmux session if running on a console or
+# when used with emacs' M-x shell
+if [[ -z $(tty | grep /dev/tty) && $EMACS != 't' ]]; then
     if tmux has-session -t system > /dev/null 2>&1; then
         if [[ -z $TMUX ]]; then
             tmux -2 attach -t system
