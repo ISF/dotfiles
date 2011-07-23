@@ -1,0 +1,7 @@
+include "~/.newsbeuter/config.googlereader"
+include "~/.newsbeuter/colorschemes/solarized-dark"
+
+browser "chromium %u"
+
+bind-key j down feedlist
+bind-key k up feedlist
