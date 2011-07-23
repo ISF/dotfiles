@@ -63,7 +63,7 @@
 (line-number-mode 1)
 (column-number-mode 1)
 (global-linum-mode 1)
-(setq linum-format "%d ")
+(setq linum-format "%3d ")
 
 ; Set size used when formatting paragraphs
 (setq-default fill-column 72)
@@ -89,6 +89,7 @@
 (color-theme-initialize)
 (setq color-theme-is-global t)
 (color-theme-wombat)
+;(color-theme-solarized-dark)
 
 ; Whitespace
 (setq-default show-trailing-whitespace t)
