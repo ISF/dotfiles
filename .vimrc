@@ -347,6 +347,9 @@ nmap <Leader>ev :edit $MYVIMRC<CR>
 " Calling :Dox (needs DoxygenToolkit)
 nmap <Leader>do :Dox<CR>
 
+" Make gf edite the file even if ti doesn't exist
+nmap gf :e <cfile><CR>
+
 " jumping between items in quickfix list
 nmap <Leader>n :cnext<CR>
 nmap <Leader>p :cprevious<CR>
@@ -373,16 +376,23 @@ inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
 " Better window movement
-nnoremap <M-Right> <C-W><Right>
-nnoremap <M-Left> <C-W><Left>
-nnoremap <M-Up> <C-W><Up><C-W>_
-nnoremap <M-Down> <C-W><Down><C-W>_
+if has('gui_running')
+    nnoremap <A-Right> <C-W><Right>
+    nnoremap <A-Left> <C-W><Left>
+    nnoremap <A-Up> <C-W><Up><C-W>_
+    nnoremap <A-Down> <C-W><Down><C-W>_
+else
+    nnoremap <Esc><Right> <C-W><Right>
+    nnoremap <Esc><Left> <C-W><Left>
+    nnoremap <Esc><Up> <C-W><Up><C-W>_
+    nnoremap <Esc><Down> <C-W><Down><C-W>_
+endif
 
 " EnhancedCommentify
-vmap <Leader>c <Plug>VisualComment
-nmap <Leader>c <Plug>Comment
-vmap <Leader>d <Plug>VisualDeComment
-nmap <Leader>d <Plug>DeComment
+vmap <Leader>cm <Plug>VisualComment
+nmap <Leader>cm <Plug>Comment
+vmap <Leader>dm <Plug>VisualDeComment
+nmap <Leader>dm <Plug>DeComment
 
 "" FN mappings
 " Taglist's hotkeys
