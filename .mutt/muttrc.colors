@@ -13,11 +13,11 @@ color message       color37         default
 color markers       color160        color234
 color attachment    color254        default
 color search        color61         default
-color status        color241        color234
+color status        color253        color239
 color indicator     color234        color234
 color tree          color136        default
 color index         color160        default        "~A"                        # all messages
-color index         color166        default        "~E"                        # expired messages
+color index         color117        default        "~E"                        # expired messages
 color index         color33         default        "~N"                        # new messages
 color index         color33         default        "~O"                        # old messages
 color index         color61         default        "~Q"                        # messages that have been replied to
