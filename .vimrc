@@ -33,12 +33,22 @@ set showmode
 set number
 set hidden
 set nowrap   " don't visually breaks long lines
-set t_Co=8        " setting the number of colors
+set t_Co=256      " setting the number of colors
+
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
-    set t_Co=256        " setting the number of colors
+    set t_Co=256        " setting the number of colors (don't erase it here)
     " installed colorschemes: darkspectrum,liquidcarbon,molokai,wombat,sonofobsidias
-    colorscheme wombat
+    colorscheme solarized
+else
+    let g:solarized_menu = 0
+    let g:solarized_termcolors = 256
+    let g:solarized_termtrans = 1
+    let g:solarized_bold = 0
+    let g:solarized_underline = 0
+    let g:solarized_italic = 0
+    "colorscheme solarized
+    colorscheme wombat256mod
 endif
 
 " Indentation
