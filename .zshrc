@@ -223,11 +223,17 @@ eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
 eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
 
 # use backspace over everythin on vi mode
-bindkey -M viins '' backward-delete-char
-bindkey -M viins '' backward-delete-char
+bindkey -M viins '^_' backward-delete-char
+bindkey -M viins '^h' backward-delete-char
 
-bindkey "" vi-up-line-or-history
-bindkey "" vi-down-line-or-history
+# emacs style movements on viins
+bindkey -M viins "^a" vi-beginning-of-line
+bindkey -M viins "^e" vi-end-of-line
+bindkey -M viins "\ef" forward-word
+bindkey -M viins "\eb" backward-word
+
+bindkey "^p" vi-up-line-or-history
+bindkey "^n" vi-down-line-or-history
 
 bindkey "^[[1~" vi-beginning-of-line   # Home
 bindkey "^[[4~" vi-end-of-line         # End
@@ -239,8 +245,8 @@ bindkey '^[[6~' vi-forward-blank-word  # Page Down
 # normal C-R for history search
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
-bindkey -M viins '^e' history-incremental-pattern-search-backward
-bindkey -M vicmd '^e' history-incremental-pattern-search-backward
+bindkey -M viins '^f' history-incremental-pattern-search-backward
+bindkey -M vicmd '^f' history-incremental-pattern-search-backward
 
 # go back in menu completion
 bindkey -M viins '^[[Z' reverse-menu-complete
