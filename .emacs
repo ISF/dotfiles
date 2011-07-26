@@ -30,27 +30,13 @@
    'forward-sexp))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Indentation settings
+;;; Auto complete
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq standard-indent 4) ; Setting indent size to 4
-(setq-default indent-tabs-mode nil) ; Tabs expand to spaces
-
-; Lisp
-(add-hook 'lisp-mode-hook
-          (lambda ()
-            (set (make-local-variable 'lisp-indent-function)
-                 'common-lisp-indent-function)))
-(add-hook 'lisp-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
-; C
-(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1)))
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
-(setq c-default-style "k&r"
-      c-basic-offset 4)
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories "/home/ivan/.emacs.d/ac-dict")
+(ac-config-default)
+(setq ac-auto-start t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Misc
@@ -114,3 +100,28 @@
       kept-new-versions 6
       kept-old-versions 2
       version-control t)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; File type settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq standard-indent 4) ; Setting indent size to 4
+(setq-default indent-tabs-mode nil) ; Tabs expand to spaces
+
+; Lisp
+(add-hook 'lisp-mode-hook
+          '(lambda ()
+            (set (make-local-variable 'lisp-indent-function)
+                 'common-lisp-indent-function)))
+(add-hook 'lisp-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "RET") 'newline-and-indent)))
+; C
+(add-hook 'c-mode-common-hook
+          '(lambda () (c-toggle-auto-state 1)))
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (local-set-key (kbd "RET") 'newline-and-indent)))
+
+(setq c-default-style "k&r"
+      c-basic-offset 4)
