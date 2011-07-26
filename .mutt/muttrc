@@ -156,7 +156,7 @@ set include # include original message
 
 source ~/.mutt/muttrc.gpg
 set sig_dashes
-set signature = "~/.mutt/signature"
+set signature = "~/.signature"
 set pgp_autosign = yes
 set pgp_sign_as=FEBE1140
 set pgp_replyencrypt = yes
