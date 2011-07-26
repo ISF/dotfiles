@@ -123,7 +123,7 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*:correct:*' insert-unambiguous true
-zstyle ':completion:*' menu select=20 # only show menu with 20+ itens to complete
+zstyle ':completion:*' menu select=30 # minimum number of possible matches to switch to menu completion
 zstyle ':completion:*' original true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
@@ -134,8 +134,8 @@ zstyle ':completion:*:match:*' original only
 zstyle ':completion:*:approximate:*' max-errors 1 only
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
-# complete parent directory
-zstyle ':completion:*' special-dirs ..
+# directory completion
+zstyle ':completion:*' special-dirs .. # complete parent directory
 
 # better kill completion
 zstyle ':completion:*:*:kill:*' menu yes select
