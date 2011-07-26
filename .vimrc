@@ -170,6 +170,11 @@ let g:lua_complete_dynamic  = 1
 
 " Lisp
 let g:lisp_rainbow = 1
+let g:slimv_impl = 'sbcl'
+let g:slimv_lisp = '/usr/bin/sbcl'
+let g:slimv_ctags = 'ctags -R --fields=+iaS --extra=+q -I '
+let g:slimv_keybindings = 2
+let g:slimv_leader = '\'
 
 " Doxygen syntax
 let g:load_doxygen_syntax=1
@@ -286,6 +291,9 @@ if has("autocmd")
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
+
+    " Lisp
+    autocmd FileType lisp setl lisp autoindent showmatch cpoptions-=m
 
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
