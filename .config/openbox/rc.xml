@@ -701,7 +701,13 @@
     <application name="zathura">
       <maximized>true</maximized>
     </application>
-    <application name="emacs*">
+    <application name="emacs">
+      <maximized>true</maximized>
+    </application>
+    <application name="emacs-23.3">
+      <maximized>true</maximized>
+    </application>
+    <application name="emacsclient">
       <maximized>true</maximized>
     </application>
     <application name="chromium">
