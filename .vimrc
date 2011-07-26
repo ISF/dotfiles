@@ -79,7 +79,7 @@ set undoreload=1000
 
 " Status line options
 set laststatus=2 " always show statusline
-set statusline=%t\ %m\ buffer:%n\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
+set statusline=%t\ %m\ buffer:%n\ %LL\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
 
 set showcmd
 
