@@ -70,6 +70,4 @@ kupfer --no-splash &
 
 volumeicon &
 
-neap &
-
 sleep 5 && tint2 &
