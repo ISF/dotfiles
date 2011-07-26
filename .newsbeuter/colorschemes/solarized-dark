@@ -2,7 +2,7 @@
 # more on solarized: http://ethanschoonover.com/solarized
 
 color listnormal color244 default
-color listfocus  color166 color235
-color info       color136 color235
+color listfocus  color159 color235
+color info       color153 color235
 color background color244 default
 color article    color244 default
