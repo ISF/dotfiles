@@ -3,6 +3,9 @@
 set nocompatible  " VIM POWER!!!!
 set encoding=utf8
 
+" Pathogen
+call pathogen#runtime_append_all_bundles()
+
 set synmaxcol=200
 set showmatch     " Show matching brackets (briefly jump to it)
 set splitright
@@ -243,9 +246,6 @@ hi link cUserFunctionPointer DefinedByUser
 if has("syntax")
   syntax on
 endif
-
-" Pathogen
-call pathogen#runtime_append_all_bundles()
 
 " Setting highlight to extra whitespaces at end of the line
 highlight ExtraWhitespace ctermbg=red guibg=red
