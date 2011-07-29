@@ -12,9 +12,11 @@
 
 (require 'vimpulse)
 (setq vimpulse-want-C-i-like-Vim nil)
-(setq vimpulse-want-C-u-like-Vim t)
+(setq vimpulse-want-C-u-like-Vim nil)
 (setq vimpulse-want-change-state nil)
 (setq vimpulse-want-change-undo nil)
+(setq vimpulse-want-vi-keys-in-dired t)
+(setq vimpulse-want-quit-like-Vim t)
 
 (setq viper-auto-indent t)
 (setq viper-case-fold-search t)
