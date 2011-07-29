@@ -1,1 +1,7 @@
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
+
+term xterm-256color
+termcapinfo rxvt-256color ti@:te@
+termcapinfo xterm-256color ti@:te@
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
