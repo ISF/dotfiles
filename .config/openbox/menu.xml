@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openbox_menu>
     <menu id="root-menu" label="OpenBox 3">
-        <item label="File Manager">
+        <item label="Thunar">
             <action name="Execute">
                 <command>
-                    pcmanfm
+                    thunar
                 </command>
             </action>
         </item>
@@ -65,34 +65,64 @@
                     </action>
                 </item>
             </menu>
-            <item label="DeSmuME (Gtk)">
-                <action name="Execute">
-                    <command>
-                        desmume
-                    </command>
-                </action>
-            </item>
-            <item label="Nexuiz">
-                <action name="Execute">
-                    <command>
-                        nexuiz-sdl
-                    </command>
-                </action>
-            </item>
-            <item label="DeSmuME (Gtk-Glade)">
-                <action name="Execute">
-                    <command>
-                        desmume-glade
-                    </command>
-                </action>
-            </item>
-            <item label="Fceux">
-                <action name="Execute">
-                    <command>
-                        fceux
-                    </command>
-                </action>
-            </item>
+            <menu id="65" label="Emulators">
+                <item label="ScummVM">
+                    <action name="Execute">
+                        <command>
+                            scummvm
+                        </command>
+                    </action>
+                </item>
+                <item label="wxMupen64Plus">
+                    <action name="Execute">
+                        <command>
+                            wxmupen64plus
+                        </command>
+                    </action>
+                </item>
+                <item label="QMC2 (SDLMAME)">
+                    <action name="Execute">
+                        <command>
+                            qmc2-sdlmame
+                        </command>
+                    </action>
+                </item>
+                <item label="DeSmuME (Gtk)">
+                    <action name="Execute">
+                        <command>
+                            desmume
+                        </command>
+                    </action>
+                </item>
+                <item label="VBA Express">
+                    <action name="Execute">
+                        <command>
+                            vbaexpress
+                        </command>
+                    </action>
+                </item>
+                <item label="DeSmuME (Gtk-Glade)">
+                    <action name="Execute">
+                        <command>
+                            desmume-glade
+                        </command>
+                    </action>
+                </item>
+                <item label="Fceux">
+                    <action name="Execute">
+                        <command>
+                            fceux
+                        </command>
+                    </action>
+                </item>
+                <item label="Snes9x">
+                    <action name="Execute">
+                        <command>
+                            snes9x-gtk
+                        </command>
+                    </action>
+                </item>
+            </menu>
             <item label="Dwarf Fortress">
                 <action name="Execute">
                     <command>
@@ -104,13 +134,6 @@
                 <action name="Execute">
                     <command>
                         openttd
-                    </command>
-                </action>
-            </item>
-            <item label="Snes9x">
-                <action name="Execute">
-                    <command>
-                        snes9x-gtk
                     </command>
                 </action>
             </item>
@@ -144,10 +167,17 @@
                     </command>
                 </action>
             </item>
-            <item label="The GIMP">
+            <item label="Hugin Batch Processor">
                 <action name="Execute">
                     <command>
-                        gimp
+                        PTBatcherGUI
+                    </command>
+                </action>
+            </item>
+            <item label="Hugin Panorama Creator">
+                <action name="Execute">
+                    <command>
+                        hugin
                     </command>
                 </action>
             </item>
@@ -164,6 +194,13 @@
                 <action name="Execute">
                     <command>
                         clementine
+                    </command>
+                </action>
+            </item>
+            <item label="DeaDBeeF">
+                <action name="Execute">
+                    <command>
+                        deadbeef
                     </command>
                 </action>
             </item>
@@ -204,17 +241,10 @@
                     </command>
                 </action>
             </item>
-            <item label="Ettercap GTK">
+            <item label="Midori">
                 <action name="Execute">
                     <command>
-                        ettercap-gtk --gtk
-                    </command>
-                </action>
-            </item>
-            <item label="Wireshark">
-                <action name="Execute">
-                    <command>
-                        wireshark
+                        midori
                     </command>
                 </action>
             </item>
@@ -225,10 +255,24 @@
                     </command>
                 </action>
             </item>
-            <item label="Pidgin Internet Messenger">
+            <item label="Ettercap GTK">
                 <action name="Execute">
                     <command>
-                        pidgin
+                        ettercap-gtk --gtk
+                    </command>
+                </action>
+            </item>
+            <item label="Transmission">
+                <action name="Execute">
+                    <command>
+                        transmission-gtk
+                    </command>
+                </action>
+            </item>
+            <item label="Wireshark">
+                <action name="Execute">
+                    <command>
+                        wireshark
                     </command>
                 </action>
             </item>
@@ -248,6 +292,20 @@
             </item>
         </menu>
         <menu id="3" label="Office">
+            <item label="Zathura">
+                <action name="Execute">
+                    <command>
+                        zathura
+                    </command>
+                </action>
+            </item>
+            <item label="Dexter">
+                <action name="Execute">
+                    <command>
+                        dexter
+                    </command>
+                </action>
+            </item>
             <item label="LibreOffice">
                 <action name="Execute">
                     <command>
@@ -283,6 +341,13 @@
                     </command>
                 </action>
             </item>
+            <item label="Gummi">
+                <action name="Execute">
+                    <command>
+                        gummi
+                    </command>
+                </action>
+            </item>
             <item label="Texmaker">
                 <action name="Execute">
                     <command>
@@ -292,20 +357,6 @@
             </item>
         </menu>
         <menu id="39" label="Other">
-            <item label="Fritzing">
-                <action name="Execute">
-                    <command>
-                        fritzing
-                    </command>
-                </action>
-            </item>
-            <item label="Logisim">
-                <action name="Execute">
-                    <command>
-                        logisim
-                    </command>
-                </action>
-            </item>
             <item label="Virtual Machine Manager">
                 <action name="Execute">
                     <command>
@@ -334,15 +385,15 @@
                     </command>
                 </action>
             </item>
-            <item label="Zathura">
+        </menu>
+        <menu id="4" label="Science">
+            <item label="fityk">
                 <action name="Execute">
                     <command>
-                        zathura
+                        fityk
                     </command>
                 </action>
             </item>
-        </menu>
-        <menu id="4" label="Science">
             <item label="gEDA Attribute Editor">
                 <action name="Execute">
                     <command>
@@ -385,8 +436,43 @@
                     </command>
                 </action>
             </item>
+            <item label="wxMaxima">
+                <action name="Execute">
+                    <command>
+                        wxmaxima
+                    </command>
+                </action>
+            </item>
+            <item label="Fritzing">
+                <action name="Execute">
+                    <command>
+                        fritzing
+                    </command>
+                </action>
+            </item>
+            <item label="KiCad">
+                <action name="Execute">
+                    <command>
+                        kicad
+                    </command>
+                </action>
+            </item>
+            <item label="Logisim">
+                <action name="Execute">
+                    <command>
+                        logisim
+                    </command>
+                </action>
+            </item>
         </menu>
         <menu id="37" label="System">
+            <item label="ARandR">
+                <action name="Execute">
+                    <command>
+                        arandr
+                    </command>
+                </action>
+            </item>
             <item label="Notifications">
                 <action name="Execute">
                     <command>
@@ -419,20 +505,6 @@
                 <action name="Execute">
                     <command>
                         obconf
-                    </command>
-                </action>
-            </item>
-            <item label="Panel tint2">
-                <action name="Execute">
-                    <command>
-                        tint2conf
-                    </command>
-                </action>
-            </item>
-            <item label="Preferred Applications">
-                <action name="Execute">
-                    <command>
-                        libfm-pref-apps
                     </command>
                 </action>
             </item>
