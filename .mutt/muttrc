@@ -71,6 +71,7 @@ set print = yes
 set print_command="muttprint"
 set query_command="goobook query '%s'"
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set rfc2047_parameters=yes
 set sendmail_wait = -1
 set smart_wrap # Don't wrap mid-word
 set sort=threads
