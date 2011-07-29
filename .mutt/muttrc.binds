@@ -5,6 +5,9 @@ bind index,pager M next-unread-mailbox
 bind editor <space> noop
 
 bind pager q exit
+bind index gg first-entry
+bind pager gg top
 bind pager / search
 bind pager G bottom
 bind index G last-entry
+bind index,pager R group-reply
