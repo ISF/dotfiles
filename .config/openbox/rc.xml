@@ -704,12 +704,6 @@
     <application name="emacs">
       <maximized>true</maximized>
     </application>
-    <application name="emacs-23.3">
-      <maximized>true</maximized>
-    </application>
-    <application name="emacsclient">
-      <maximized>true</maximized>
-    </application>
     <application name="chromium">
       <maximized>true</maximized>
     </application>
@@ -722,7 +716,7 @@
     </application>
     <application name="transmission-gtk">
       <maximized>no</maximized>
-      <iconic>yes</iconic>
+      <iconic>no</iconic>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
