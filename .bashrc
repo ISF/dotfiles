@@ -96,3 +96,4 @@ if [[ -z $(tty | grep /dev/tty) ]]; then # check if is not running on a terminal
         tmux -2 attach -t system
     fi
 fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

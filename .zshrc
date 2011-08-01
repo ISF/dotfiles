@@ -302,6 +302,9 @@ alias -s jpg='display'
 alias -s txt=$EDITOR
 alias -s pdf='zathura'
 
+# RVM setup
+[[ -s "/home/ivan/.rvm/scripts/rvm" ]] && source "/home/ivan/.rvm/scripts/rvm"
+
 # fix escape sequences when zsh is loaded with emacs' M-x shell
 if [[ $EMACS == 't' ]]; then
     unsetopt zle
