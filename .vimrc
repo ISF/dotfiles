@@ -48,7 +48,8 @@ else
     let g:solarized_underline = 0
     let g:solarized_italic = 0
     "colorscheme solarized
-    colorscheme wombat256mod
+    "colorscheme wombat256mod
+    colorscheme molokai
 endif
 
 " Indentation
