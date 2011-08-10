@@ -14,7 +14,7 @@ background yes
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
 
-minimum_size 140 200
+minimum_size 180 260
 maximum_width 300
 draw_shades no
 draw_outline no
@@ -29,7 +29,7 @@ own_window_colour black
 color1 black
 alignment top_right
 gap_x 35
-gap_y 35
+gap_y 65
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -50,7 +50,7 @@ ${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${freq_g 1} GHz
 ${cpugraph cpu1 20}
 ${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${freq_g 2} GHz
 ${cpugraph cpu2 20}
-${font StyleBats:size=16}g${font}   RAM: $memperc% $mem/$memmax ${alignr}${membar 8,60}
+${font StyleBats:size=16}g${font}   RAM: $memperc% $mem ${alignr}${membar 8,60}
 ${font StyleBats:size=16}j${font}   SWAP: $swapperc% $swap/$swapmax ${alignr}${swapbar 8,60}
 
 ROOT: $alignr ${fs_free /} / ${fs_size /}
