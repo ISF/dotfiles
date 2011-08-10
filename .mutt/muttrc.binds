@@ -11,3 +11,5 @@ bind pager / search
 bind pager G bottom
 bind index G last-entry
 bind index,pager R group-reply
+
+bind editor <Tab> complete-query

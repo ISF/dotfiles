@@ -13,7 +13,6 @@ macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro generic,pager <F1> "<shell-escape> less /usr/share/doc/mutt/manual.txt<Enter>" "show Mutt documentation"
 macro index \Cv "<enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter><enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature and open the message'
-
 macro pager \Cv "<exit><enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> <enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature'
-
 macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro index,pager .b "<pipe-message>goobook add<return>" "add the sender address to Google contacts"
