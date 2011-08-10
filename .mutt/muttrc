@@ -19,6 +19,7 @@ mailboxes =INBOX \
 =CC011 \
 =CC_Unicamp \
 =Cerva-LAS \
+=clang \
 =coreutils \
 =Disciplinas \
 =EC010 \
@@ -32,6 +33,7 @@ mailboxes =INBOX \
 =LFS \
 =Librix-LAS \
 =lisp \
+=llvm \
 =Misc \
 =Newsletter \
 =openbox \
@@ -132,6 +134,9 @@ haskell-cafe \
 haskell@haskell.org \
 lfs-support \
 libgit2 \
+llvm-dev \
+llvm-bugs \
+cfe-dev \
 mutt-users \
 nslcampinas \
 pacman-dev \
