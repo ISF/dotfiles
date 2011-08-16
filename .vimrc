@@ -39,7 +39,8 @@ if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set t_Co=256        " setting the number of colors (don't erase it here)
     " installed colorschemes: darkspectrum,liquidcarbon,molokai,wombat,sonofobsidias
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme molokai
 else
     let g:solarized_menu = 0
     let g:solarized_termcolors = 256
