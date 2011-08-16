@@ -321,7 +321,7 @@ if has("autocmd")
 
     " C and CPP options
     autocmd FileType c,cpp let g:compiler_gcc_ignore_unmatched_lines = 1
-    autocmd FileType c,cpp setl nosmartindent noautoindent cindent cinoptions=(0
+    autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
     autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
