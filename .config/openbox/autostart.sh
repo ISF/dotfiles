@@ -54,7 +54,7 @@ cairo-compmgr &
 
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
-    terminal --hide-menubar &
+    terminal --hide-menubar --hide-borders &
 fi
 
 # starting conky, use ~/.conkyrc as a link to the correct conky configuration
