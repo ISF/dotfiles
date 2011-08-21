@@ -90,14 +90,17 @@
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="OnScreenDisplay">
+    <font place="ActiveOnScreenDisplay">
       <name>Droid Sans</name>
-      <size>11</size>
-      <!-- font size in points -->
-      <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
+      <size>10</size>
+      <weight></weight>
+      <slant></slant>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Droid Sans</name>
+      <size>10</size>
+      <weight></weight>
+      <slant></slant>
     </font>
   </theme>
   <desktops>
@@ -148,12 +151,12 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>Floating</position>
+    <position>Top</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
-    <stacking>Normal</stacking>
+    <stacking>Above</stacking>
     <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Horizontal</direction>
     <!-- 'Vertical' or 'Horizontal' -->
