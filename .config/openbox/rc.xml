@@ -93,14 +93,14 @@
     <font place="ActiveOnScreenDisplay">
       <name>Droid Sans</name>
       <size>10</size>
-      <weight></weight>
-      <slant></slant>
+      <weight/>
+      <slant/>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Droid Sans</name>
       <size>10</size>
-      <weight></weight>
-      <slant></slant>
+      <weight/>
+      <slant/>
     </font>
   </theme>
   <desktops>
@@ -145,7 +145,7 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>0</top>
+    <top>20</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
