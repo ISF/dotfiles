@@ -270,6 +270,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
+    autocmd BufEnter *.rl setl ft=ragel
+
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
