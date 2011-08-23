@@ -35,7 +35,9 @@ unsetopt banghist
 unsetopt beep
 unsetopt checkjobs
 
-fpath=($HOME/.zsh/functions/ $fpath)
+fpath=($HOME/.zsh/functions/
+       /usr/share/doc/task/scripts/zsh
+       $fpath)
 
 # my functions
 
@@ -292,6 +294,7 @@ alias mv='nocorrect mv'
 alias rm='nocorrect rm'
 alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
+alias task='nocorrect task'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
 

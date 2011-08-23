@@ -39,7 +39,8 @@ if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set t_Co=256        " setting the number of colors (don't erase it here)
     " installed colorschemes: darkspectrum,liquidcarbon,molokai,wombat,sonofobsidias
-    colorscheme solarized
+    "colorscheme solarized
+    colorscheme molokai
 else
     let g:solarized_menu = 0
     let g:solarized_termcolors = 256
@@ -269,6 +270,8 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 if has("autocmd")
     autocmd InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
+    autocmd BufEnter *.rl setl ft=ragel
+
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
@@ -320,7 +323,7 @@ if has("autocmd")
 
     " C and CPP options
     autocmd FileType c,cpp let g:compiler_gcc_ignore_unmatched_lines = 1
-    autocmd FileType c,cpp setl nosmartindent noautoindent cindent cinoptions=(0
+    autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
     autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
     autocmd FileType c nmap <F12> :call RunSplint()<CR>

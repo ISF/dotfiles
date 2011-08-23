@@ -51,7 +51,7 @@ ${cpugraph cpu1 20}
 ${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${freq_g 2} GHz
 ${cpugraph cpu2 20}
 ${font StyleBats:size=16}g${font}   RAM: $memperc% $mem ${alignr}${membar 8,60}
-${font StyleBats:size=16}j${font}   SWAP: $swapperc% $swap/$swapmax ${alignr}${swapbar 8,60}
+${font StyleBats:size=16}j${font}   SWAP: $swapperc% $swap ${alignr}${swapbar 8,60}
 
 ROOT: $alignr ${fs_free /} / ${fs_size /}
 ${fs_bar 3 /}
