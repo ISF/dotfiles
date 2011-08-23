@@ -66,8 +66,6 @@ fi
 # wallpaper with nitrogen
 nitrogen --restore &
 
-wicd-gtk &
-
 kupfer --no-splash &
 
 volumeicon &
