@@ -14,8 +14,8 @@ background yes
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
 
-minimum_size 180 260
-maximum_width 300
+minimum_size 250 360
+maximum_width 400
 draw_shades no
 draw_outline no
 draw_borders no
@@ -28,7 +28,7 @@ default_outline_color black
 own_window_colour black
 color1 black
 alignment top_right
-gap_x 35
+gap_x 20
 gap_y 65
 no_buffers yes
 uppercase no
@@ -43,15 +43,15 @@ TEXT
 
 ${alignc}${offset -35}${font OpenLogos:size=56}A${font} # archlinux
 
-${font StyleBats:size=16}i${font}   Kernel:  ${alignr}${kernel}
-${font StyleBats:size=16}q${font}   Uptime: ${alignr}${uptime}
+${font StyleBats:size=16}i${font} Kernel:  ${alignr}${kernel}
+${font StyleBats:size=16}q${font} Uptime: ${alignr}${uptime}
 
-${font StyleBats:size=16}A${font}   CPU1: ${cpu cpu1}% ${freq_g 1} GHz
+${font StyleBats:size=16}A${font} CPU1: ${cpu cpu1}% ${freq_g 1} GHz
 ${cpugraph cpu1 20}
-${font StyleBats:size=16}A${font}   CPU2: ${cpu cpu2}% ${freq_g 2} GHz
+${font StyleBats:size=16}A${font} CPU2: ${cpu cpu2}% ${freq_g 2} GHz
 ${cpugraph cpu2 20}
-${font StyleBats:size=16}g${font}   RAM: $memperc% $mem ${alignr}${membar 8,60}
-${font StyleBats:size=16}j${font}   SWAP: $swapperc% $swap ${alignr}${swapbar 8,60}
+${font StyleBats:size=16}g${font} RAM: $memperc% $mem ${alignr}${membar 8,60}
+${font StyleBats:size=16}j${font} SWAP: $swapperc% $swap ${alignr}${swapbar 8,60}
 
 ROOT: $alignr ${fs_free /} / ${fs_size /}
 ${fs_bar 3 /}
