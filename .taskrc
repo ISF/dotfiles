@@ -22,7 +22,7 @@ report.X.dateformat=Y/M/D
 displayweeknumber=yes
 
 # Files
-data.location=/home/ivan/SparkleShare/tasks
+data.location=/home/ivan/.task
 
 # Color theme (uncomment one to use)
 #include /usr/share/doc/task/rc/light-16.theme
