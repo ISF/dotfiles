@@ -31,9 +31,10 @@ mailboxes =INBOX \
 =git \
 =Haskell \
 =LFS \
-=Librix-LAS \
+=LAS \
 =lisp \
 =llvm \
+=LSC \
 =Misc \
 =Newsletter \
 =openbox \
@@ -141,6 +142,7 @@ mutt-users \
 nslcampinas \
 pacman-dev \
 parallel-haskell \
+people-lsc \
 pyclewn-general \
 systemd-devel \
 tmux-users \
