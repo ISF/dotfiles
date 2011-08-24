@@ -272,6 +272,8 @@ if has("autocmd")
 
     autocmd BufEnter *.rl setl ft=ragel
 
+    autocmd BufEnter *.mips setl ft=mips
+
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
