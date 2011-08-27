@@ -24,11 +24,8 @@ fi
 setxkbmap br &
 
 # activating numlock key
-numlockx on &
-
-# fixing fn keys
-if [[ $(hostname) == "hadouken" ]]; then
-    xmodmap /home/ivan/.config/openbox/keys
+if [[ $(hostname) != "hadouken" ]]; then
+    numlockx on &
 fi
 
 # starting ssh-agent
