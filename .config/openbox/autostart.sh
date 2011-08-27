@@ -20,9 +20,6 @@ fi
 
 ############ Start of custom settings ############
 
-# starting ssh-agent
-eval $(ssh-agent)
-
 # setting correct keymap
 setxkbmap br &
 
