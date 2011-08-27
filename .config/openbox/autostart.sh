@@ -57,11 +57,17 @@ if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -c /home/ivan/.conkyrc_ethereal -d
 fi
 
+if [[ $(hostname) == "hadouken" ]]; then
+    xfce4-power-manager &
+fi
+
 # wallpaper with nitrogen
 nitrogen --restore &
 
 kupfer --no-splash &
 
 volumeicon &
+
+notipy.py -t 3000 -m 20,5,0,0 &
 
 sleep 5 && tint2 &
