@@ -17,6 +17,20 @@
         </item>
         <menu id="devices" label="Devices" command="/usr/bin/obdevicemenu"/>
         <menu id="2" label="Editors">
+            <item label="Emacs">
+                <action name="Execute">
+                    <command>
+                        scite
+                    </command>
+                </action>
+            </item>
+            <item label="Emacs">
+                <action name="Execute">
+                    <command>
+                        emacs
+                    </command>
+                </action>
+            </item>
             <item label="GVim">
                 <action name="Execute">
                     <command>
@@ -139,6 +153,11 @@
             </item>
         </menu>
         <menu id="6" label="Graphics">
+            <item label="Viewnior">
+                <action name="Execute">
+                    <command>viewnior</command>
+                </action>
+            </item>
             <item label="Blender">
                 <action name="Execute">
                     <command>
@@ -187,13 +206,6 @@
                 <action name="Execute">
                     <command>
                         audacious
-                    </command>
-                </action>
-            </item>
-            <item label="Clementine">
-                <action name="Execute">
-                    <command>
-                        clementine
                     </command>
                 </action>
             </item>
@@ -299,13 +311,6 @@
                     </command>
                 </action>
             </item>
-            <item label="Dexter">
-                <action name="Execute">
-                    <command>
-                        dexter
-                    </command>
-                </action>
-            </item>
             <item label="LibreOffice">
                 <action name="Execute">
                     <command>
@@ -341,13 +346,6 @@
                     </command>
                 </action>
             </item>
-            <item label="Gummi">
-                <action name="Execute">
-                    <command>
-                        gummi
-                    </command>
-                </action>
-            </item>
             <item label="Texmaker">
                 <action name="Execute">
                     <command>
@@ -357,6 +355,13 @@
             </item>
         </menu>
         <menu id="39" label="Other">
+            <item label="Highlight">
+                <action name="Execute">
+                    <command>
+                        highlight-gui
+                    </command>
+                </action>
+            </item>
             <item label="Virtual Machine Manager">
                 <action name="Execute">
                     <command>
@@ -383,6 +388,11 @@
                     <command>
                         dosbox
                     </command>
+                </action>
+            </item>
+            <item label="SparkleShare">
+                <action name="Execute">
+                    <command>sparkleshare start</command>
                 </action>
             </item>
         </menu>
@@ -443,6 +453,11 @@
                     </command>
                 </action>
             </item>
+            <item label="SAGE">
+                <action name="Execute">
+                    <command>xterm -e sage -notebook</command>
+                </action>
+            </item>
             <item label="Fritzing">
                 <action name="Execute">
                     <command>
@@ -462,6 +477,11 @@
                     <command>
                         logisim
                     </command>
+                </action>
+            </item>
+            <item label="Qfsm">
+                <action name="Execute">
+                    <command>qfsm</command>
                 </action>
             </item>
         </menu>
