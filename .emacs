@@ -76,8 +76,8 @@
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
-(color-theme-wombat)
-;(color-theme-solarized-dark)
+;(color-theme-wombat)
+(color-theme-solarized-dark)
 
 ; Whitespace
 (setq-default show-trailing-whitespace t)
