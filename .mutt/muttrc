@@ -25,6 +25,7 @@ mailboxes =INBOX \
 =EC010 \
 =EC011 \
 =EC09 \
+=gcc \
 =gdb \
 =GPSL \
 =GSoC \
@@ -115,6 +116,7 @@ beginners@haskell.org \
 caco@ic.unicamp.br \
 cc010_unicamp \
 cc011_unicamp \
+cfe-dev \
 comp.lang.c++ \
 comp.lang.c@groups.google.com \
 comp.lang.python \
@@ -125,6 +127,10 @@ ec011unicamp \
 ec09unicamp \
 ecl-list \
 epiclulz \
+gcc \
+gcc-bugs \
+gcc-help \
+gcc-patches \
 gdb \
 gdb-patches \
 gestao@caco.ic.unicamp.br \
@@ -137,7 +143,6 @@ lfs-support \
 libgit2 \
 llvm-dev \
 llvm-bugs \
-cfe-dev \
 mutt-users \
 nslcampinas \
 pacman-dev \
