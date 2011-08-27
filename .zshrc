@@ -78,6 +78,8 @@ export TERM=xterm-256color
 export PAGER='less -iR'
 export MANPAGER='less -iR'
 export PYTHONSTARTUP="$HOME/.pystartup"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+export JAVA_FONTS='/usr/share/fonts/TTF'
 
 # setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
