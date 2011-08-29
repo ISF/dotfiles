@@ -70,4 +70,6 @@ volumeicon &
 
 notipy.py -t 3000 -m 20,5,0,0 &
 
-sleep 5 && tint2 &
+xscreensaver -no-splash &
+
+sleep 3 && tint2 &
