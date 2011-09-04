@@ -1,4 +1,8 @@
 set adjust_open width
+set show_inputbar false
+set uri_command "chromium %s"
+set labels true
+set scrollbars false
 
 map + zoom in
 map - zoom out
