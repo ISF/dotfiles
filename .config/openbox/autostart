@@ -32,8 +32,4 @@ kupfer --no-splash &
 
 volumeicon &
 
-notipy.py -t 3000 -m 20,5,0,0 &
-
-xscreensaver -no-splash &
-
 sleep 3 && tint2 &
