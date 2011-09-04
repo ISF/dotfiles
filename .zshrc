@@ -284,6 +284,7 @@ alias ls="ls --color=auto"
 alias l="ls -Bh --color=auto"
 alias la="ls -Ah --color=auto"
 alias ll="ls -lh --color=auto"
+alias lla="ls -Alh --color=auto"
 alias lt="ls -alih --color=auto"
 alias less='less -iR'
 alias callgrind='valgrind --tool=callgrind'
