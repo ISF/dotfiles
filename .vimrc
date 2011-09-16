@@ -272,6 +272,8 @@ if has("autocmd")
 
     autocmd BufEnter *.mips setl ft=mips
 
+    autocmd Filetype asm,mips setl autoindent
+
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
