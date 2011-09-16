@@ -1,5 +1,13 @@
 Emacs.FontBackend: xft
 
+!! urxvt configuration
+
+!URxvt.depth: 32
+!URxvt.background: rgba:ffff/ffff/ffff/cccc
+URxvt.scrollBar: off
+URxvt.font: xft:terminus:size=12:antialias=true
+URxvt.boldFont: xft:terminus:size=12:antialias=true
+
 !! drop in Solarized colorscheme for Xresources/Xdefaults
 
 !!SOLARIZED HEX     16/8 TERMCOL  XTERM/HEX   L*A*B      RGB         HSB
