@@ -7,11 +7,14 @@ set encoding=utf8
 call pathogen#runtime_append_all_bundles()
 
 set synmaxcol=200
+set scrolloff=5
+set lazyredraw
 set showmatch     " Show matching brackets (briefly jump to it)
 set splitright
 set nosplitbelow
 set magic
 set backspace=indent,eol,start
+set nojoinspaces
 
 " Backup and history options
 set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another directory
@@ -19,7 +22,8 @@ set history=1000             " Increase history size
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
 set textwidth=80             " don't break long lines
-set formatoptions=cqrn1
+set formatoptions+=tcqrn1
+set formatoptions-=o
 
 " list chars
 set list
@@ -64,18 +68,20 @@ set incsearch  " incremental search
 set ignorecase
 set infercase
 set smartcase
-set gdefault " use global as default in substitutions
 
-" Better completion menu
+" Better completion
 set wildmenu
 set wildmode=longest,full
 set wildignore+=*.o,*.pyc,*.swp
+set complete+=.,w,b,u,t,i,d
 
 " persistent undo
-set undodir=~/.vim/undodir
-set undofile
+if has("persistent_undo")
+    set undodir=~/.vim/undodir
+    set undofile
+    set undoreload=1000
+endif
 set undolevels=1000
-set undoreload=1000
 
 " Status line options
 set laststatus=2 " always show statusline
@@ -84,6 +90,10 @@ set statusline=%t\ %m\ buffer:%n\ %LL\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:
 set showcmd
 
 set showfulltag
+
+if has('mouse')
+    set mouse=a
+endif
 
 command! -nargs=0 UpdateHelp helptags ~/.vim/doc
 
@@ -141,7 +151,7 @@ let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
 
 " AutoComplPop
-let g:acp_completeoptPreview    = 1
+let g:acp_completeoptPreview    = 0
 let g:acp_behaviorKeywordLength = 4
 let g:acp_mappingDriven         = 1
 
@@ -371,16 +381,11 @@ nmap gb :badd <cfile><CR>
 nnoremap / /\v
 vnoremap / /\v
 
+" quick shortcut to search for tags (don't remove the trailing space)
+nnoremap <Leader>t :ta 
+
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
-
-" Proper behavior for arrow keys
-vnoremap <S-Up> <Up>
-inoremap <S-Up> <Up>
-nnoremap <S-Up> <Up>
-vnoremap <S-Down> <Down>
-inoremap <S-Down> <Down>
-nnoremap <S-Down> <Down>
 
 " Better window movement
 if has('gui_running')
