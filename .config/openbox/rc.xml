@@ -266,7 +266,8 @@
     <keybind key="W-Z">
       <action name="Close"/>
     </keybind>
-    <keybind key="W-L"> <action name="Execute">
+    <keybind key="W-L">
+      <action name="Execute">
         <startupnotify>
           <enabled>false</enabled>
           <name>Lock Screen</name>
@@ -687,24 +688,39 @@
       </mousebind>
     </context>
   </mouse>
-  <menu><!-- You can specify more than one menu file in here and they are all loaded,
-    just don't make menu ids clash or, well, it'll be kind of pointless --><!-- default menu file (or custom one in $HOME/.config/openbox/) --><file>menu.xml</file><hideDelay>200</hideDelay><!-- if a press-release lasts longer than this setting (in milliseconds), the
-    menu is hidden again --><middle>no</middle><!-- center submenus vertically about the parent entry --><submenuShowDelay>100</submenuShowDelay><!-- time to delay before showing a submenu after hovering over the parent
-       entry.
-       if this is a negative value, then the delay is infinite and the
-       submenu will not be shown until it is clicked on --><submenuHideDelay>400</submenuHideDelay><!-- time to delay before hiding a submenu when selecting another
-       entry in parent menu -->
-       if this is a negative value, then the delay is infinite and the
-       submenu will not be hidden until a different submenu is opened --&gt;
-       <applicationIcons>yes</applicationIcons>
-       <!-- controls if icons appear in the client-list-(combined-)menu -->
-       <manageDesktops>yes</manageDesktops>
-       <!-- show the manage desktops section in the client-list-(combined-)menu -->
+  <menu>
+    <!-- You can specify more than one menu file in here and they are all loaded,
+        just don't make menu ids clash or, well, it'll be kind of pointless -->
+    <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
+    <file>menu.xml</file><hideDelay>200</hideDelay>
+    <!-- if a press-release lasts longer than this setting (in milliseconds), the
+        menu is hidden again -->
+    <middle>no</middle>
+    <!-- center submenus vertically about the parent entry -->
+    <submenuShowDelay>100</submenuShowDelay>
+    <!-- time to delay before showing a submenu after hovering over the parent
+        entry.
+        if this is a negative value, then the delay is infinite and the
+        submenu will not be shown until it is clicked on -->
+    <submenuHideDelay>400</submenuHideDelay>
+    <applicationIcons>yes</applicationIcons>
+    <!-- controls if icons appear in the client-list-(combined-)menu -->
+    <manageDesktops>yes</manageDesktops>
+    <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
     <application name="terminal">
       <desktop>all</desktop>
       <maximized>true</maximized>
+    </application>
+    <application name="gvim">
+      <maximized>true</maximized>
+    </application>
+    <application name="qtspim">
+      <maximized>true</maximized>
+    </application>
+    <application title="Console">
+      <maximized>false</maximized>
     </application>
     <application name="zathura">
       <maximized>true</maximized>
