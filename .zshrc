@@ -83,7 +83,11 @@ export JAVA_FONTS='/usr/share/fonts/TTF'
 
 # setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
-    export CFLAGS="-march=amdfam10 -O2 -pipe"
+    if [[ $(hostname) == "shungokusatsu" ]]; then
+        export CFLAGS="-march=amdfam10 -O2 -pipe"
+    elif [[ $(hostname) == "hadouken" ]]; then
+        export CFLAGS="-march=core2 -O2 -pipe"
+    fi
 fi
 
 if [[ -z $CXXFLAGS ]]; then
