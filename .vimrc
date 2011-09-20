@@ -272,6 +272,8 @@ if has("autocmd")
 
     autocmd BufEnter *.mips setl ft=mips
 
+    autocmd Filetype asm,mips setl autoindent
+
     " markdown syntax
     autocmd BufEnter *.mkd setl ft=markdown
     autocmd BufEnter *.md setl ft=markdown
@@ -326,6 +328,7 @@ if has("autocmd")
     autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
     autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
+    autocmd FileType c,cpp set errorformat="%*[^\"]\"%f\"%*\\D%l: %m,\"%f\"%*\\D%l: %m,%-G%f:%l: (Each undeclared identifier is reported only once,%-G%f:%l: for each function it appears in.),%-GIn file included from %f:%l:%c:,%-GIn file included from %f:%l:%c,%-GIn file included from %f:%l,%-Gfrom %f:%l:%c,%-Gfrom %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\, line %l%*\\D%c%*[^ ] %m,%D%*\\a[%*\\d]: Entering directory `%f',%X%*\\a[%*\\d]: Leaving directory `%f',%D%*\\a: Entering directory `%f',%X%*\\a: Leaving directory `%f',%DMaking %*\\a in %f,%f|%l| %m"
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
 
     " Tex, LaTeX
