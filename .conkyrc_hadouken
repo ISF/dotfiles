@@ -57,5 +57,5 @@ ROOT: $alignr ${fs_free /} / ${fs_size /}
 ${fs_bar 3 /}
 HOME: $alignr ${fs_free /home} / ${fs_size /home}
 ${fs_bar 3 /home}
-bugigangas: $alignr ${fs_free /mnt/bugigangas} / ${fs_size /mnt/bugigangas}
-${fs_bar 3 /mnt/bugigangas}
+storage: $alignr ${fs_free /mnt/storage} / ${fs_size /mnt/storage}
+${fs_bar 3 /mnt/storage}
