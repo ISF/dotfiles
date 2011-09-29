@@ -77,9 +77,26 @@ set undofile
 set undolevels=1000
 set undoreload=1000
 
+function! IsPasting ()
+    if &paste == "1"
+        return " [paste]"
+    else
+        return ""
+    endif
+endfunction
+
+function! SetPastetoggle()
+    if &paste == "1"
+        set nopaste
+    else
+        set paste
+    endif
+    redraw
+endfunction
+
 " Status line options
 set laststatus=2 " always show statusline
-set statusline=%t\ %m\ buffer:%n\ %LL\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
+set statusline=%t%{IsPasting()}%m\ buffer:%n\ %LL\ format:%{&ff}\ \ %y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
 
 set guitablabel=%n\ %f
 
