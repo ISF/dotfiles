@@ -151,6 +151,11 @@ function! CoreutilsIndent()
     endif
 endfunction
 
+" Conque
+let g:ConqueTerm_ExecFileKey = ''
+let g:ConqueTerm_SendFileKey = ''
+let g:ConqueTerm_SendVisKey = ''
+
 " C syntax options (see :help c.vim)
 let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
 let c_space_errors    = 0 " trailing whitespave or spaces before tabs
@@ -434,7 +439,8 @@ nnoremap <F6> :cwindow<CR>
 " SingleCompile
 nnoremap <F9> :Silent SCCompile<CR>
 nnoremap <F10> :Silent SCCompileRun<CR>
-set pastetoggle=<F11>
+"set pastetoggle=<F11>
+nnoremap <F11> :Silent call SetPastetoggle()<CR>
 " F12 is reserved for per-filetype static analisys (splint, pylint and such)
 
 " Automatically sourcing local configurations
