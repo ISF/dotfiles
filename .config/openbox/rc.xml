@@ -729,6 +729,9 @@
     <application name="emacs">
       <maximized>true</maximized>
     </application>
+    <application type="dialog">
+      <decor>no</decor>
+    </application>
     <application name="chromium">
       <maximized>true</maximized>
     </application>
