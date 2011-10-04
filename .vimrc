@@ -2,6 +2,7 @@
 
 set nocompatible  " VIM POWER!!!!
 set encoding=utf8
+set mouse=a
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
@@ -318,6 +319,9 @@ if has("autocmd")
 
     " Gettext file compiler (msgfmt)
     autocmd FileType po compiler po
+
+    autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
