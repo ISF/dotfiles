@@ -8,7 +8,8 @@ fi
 
 sleep 2 # ensure that the next applications start after openbox
 
-cairo-compmgr &
+#cairo-compmgr &
+xcompmgr &
 
 # starting terminal
 if [[ -z $(pidof terminal) ]]; then
