@@ -330,6 +330,7 @@ if [[ -z $(tty | grep /dev/tty) && $EMACS != 't' ]]; then
     if tmux has-session -t system > /dev/null 2>&1; then
         if [[ -z $TMUX ]]; then
             tmux -2 attach -t system
+            tmux kill-session -t system
         else
             # exporting correct terminal, fixes some mutt glitches
             export TERM=screen-256color
