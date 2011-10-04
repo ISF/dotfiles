@@ -732,8 +732,16 @@
     <application type="dialog">
       <decor>no</decor>
     </application>
-    <application name="chromium">
+    <application name="chromium" type="normal">
       <maximized>true</maximized>
+    </application>
+    <application name="chromium" type="dialog">
+      <maximized>false</maximized>
+      <decor>yes</decor>
+    </application>
+    <application title="Mozilla Firefox">
+      <maximized>true</maximized>
+      <decor>no</decor>
     </application>
     <application name="deadbeef">
       <maximized>no</maximized>
