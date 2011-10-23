@@ -58,7 +58,8 @@
 
 ; Turn syntax-highlight on
 (global-font-lock-mode 1)
-(setq font-lock-maximum-decoration t)
+(setq font-lock-maximum-decoration
+      '((c-mode . 3) (c++-mode . 3) (lisp-mode . 3)))
 
 ; Interface
 (tool-bar-mode -1)
@@ -118,6 +119,7 @@
 (add-hook 'lisp-mode-hook
           '(lambda ()
              (local-set-key (kbd "RET") 'newline-and-indent)))
+
 ; C
 (add-hook 'c-mode-common-hook
           '(lambda () (c-toggle-auto-state 1)))

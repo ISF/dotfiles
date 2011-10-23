@@ -47,9 +47,9 @@ else
     let g:solarized_bold = 0
     let g:solarized_underline = 0
     let g:solarized_italic = 0
-    "colorscheme solarized
+    colorscheme solarized
     "colorscheme wombat256mod
-    colorscheme molokai
+    "colorscheme molokai
 endif
 
 " Indentation
@@ -327,7 +327,8 @@ if has("autocmd")
     autocmd FileType mail :autocmd InsertLeave * match none
 
     " Lisp
-    autocmd FileType lisp setl lisp autoindent showmatch cpoptions-=m
+    autocmd FileType lisp setl lisp showmatch cpoptions-=m
+    autocmd FileType lisp :AutoCloseOff
 
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -356,7 +357,7 @@ if has("autocmd")
     autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
     autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
-    autocmd FileType c,cpp set errorformat="%*[^\"]\"%f\"%*\\D%l: %m,\"%f\"%*\\D%l: %m,%-G%f:%l: (Each undeclared identifier is reported only once,%-G%f:%l: for each function it appears in.),%-GIn file included from %f:%l:%c:,%-GIn file included from %f:%l:%c,%-GIn file included from %f:%l,%-Gfrom %f:%l:%c,%-Gfrom %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\, line %l%*\\D%c%*[^ ] %m,%D%*\\a[%*\\d]: Entering directory `%f',%X%*\\a[%*\\d]: Leaving directory `%f',%D%*\\a: Entering directory `%f',%X%*\\a: Leaving directory `%f',%DMaking %*\\a in %f,%f|%l| %m"
+    "autocmd FileType c,cpp set errorformat="%*[^\"]\"%f\"%*\\D%l: %m,\"%f\"%*\\D%l: %m,%-G%f:%l: (Each undeclared identifier is reported only once,%-G%f:%l: for each function it appears in.),%-GIn file included from %f:%l:%c:,%-GIn file included from %f:%l:%c,%-GIn file included from %f:%l,%-Gfrom %f:%l:%c,%-Gfrom %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\, line %l%*\\D%c%*[^ ] %m,%D%*\\a[%*\\d]: Entering directory '%f',%X%*\\a[%*\\d]: Leaving directory '%f',%D%*\\a: Entering directory '%f',%X%*\\a: Leaving directory '%f',%DMaking %*\\a in %f,%f|%l| %m"
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
 
     " Tex, LaTeX
@@ -401,6 +402,26 @@ vnoremap / /\v
 
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
+
+" Fix arrow keys
+nnoremap <Esc>OA <Up>
+vnoremap <Esc>OA <Up>
+inoremap <Esc>OA <Up>
+nnoremap <Esc>OB <Down>
+vnoremap <Esc>OB <Down>
+inoremap <Esc>OB <Down>
+nnoremap <Esc>OC <Right>
+vnoremap <Esc>OC <Right>
+inoremap <Esc>OC <Right>
+nnoremap <Esc>OD <Left>
+vnoremap <Esc>OD <Left>
+inoremap <Esc>OD <Left>
+
+" Fix wrong slash (some notebooks with Fn key)
+nnoremap <Esc>Oo /
+inoremap <Esc>Oo /
+vnoremap <Esc>Oo /
+cnoremap <Esc>Oo /
 
 " Proper behavior for arrow keys
 vnoremap <S-Up> <Up>
