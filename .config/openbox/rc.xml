@@ -32,7 +32,7 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is -->
-    <primaryMonitor>1</primaryMonitor>
+    <primaryMonitor>Mouse</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
@@ -145,7 +145,7 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>20</top>
+    <top>0</top>
     <bottom>0</bottom>
     <left>0</left>
     <right>0</right>
@@ -171,18 +171,6 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="W-Left">
-      <action name="DesktopLeft">
-        <dialog>no</dialog>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="DesktopRight">
-        <dialog>no</dialog>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
     <keybind key="W-Up">
       <action name="DesktopUp">
         <dialog>no</dialog>
@@ -252,6 +240,32 @@
     </keybind>
     <keybind key="W-M">
       <action name="ToggleMaximizeFull"/>
+    </keybind>
+    <keybind key="W-V">
+      <action name="Maximize">
+        <direction>vertical</direction>
+      </action>
+    </keybind>
+    <keybind key="W-H">
+      <action name="Maximize">
+        <direction>horizontal</direction>
+      </action>
+    </keybind>
+    <keybind key="W-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>640</width>
+      </action>
+      <action name="MoveToEdgeWest"/>
+    </keybind>
+    <keybind key="W-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>640</width>
+      </action>
+      <action name="MoveToEdgeEast"/>
     </keybind>
     <keybind key="W-I">
       <action name="Iconify"/>
@@ -729,7 +743,10 @@
     <application name="emacs">
       <maximized>true</maximized>
     </application>
-    <application type="dialog">
+    <application type="dialog" title="Executar">
+      <decor>no</decor>
+    </application>
+    <application type="dialog" title="Sair do Openbox">
       <decor>no</decor>
     </application>
     <application name="chromium" type="normal">
