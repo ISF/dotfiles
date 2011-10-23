@@ -6,7 +6,7 @@ update_interval 1
 total_run_times 0
 own_window yes
 own_window_transparent yes
-own_window_type desktop
+own_window_type override
 own_window_class conky
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 background yes
@@ -22,7 +22,7 @@ draw_borders no
 stippled_borders 0
 border_inner_margin 0
 border_outer_margin 0
-default_color black
+default_color cccccc
 default_shade_color black
 default_outline_color black
 own_window_colour black

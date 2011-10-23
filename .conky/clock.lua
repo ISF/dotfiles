@@ -53,7 +53,7 @@ settings_table = {
     max=60,
     bg_colour=0x000000,
     bg_alpha=0.1,
-    fg_colour=0x000000,
+    fg_colour=0xffffff,
     fg_alpha=0.6,
     x=60, y=80,
     radius=53,
@@ -71,7 +71,7 @@ settings_table = {
   clock_y=80
 
 --Colour & alpha of the clock hands
-  clock_colour=0x000000
+  clock_colour=0xdddddd
   clock_alpha=0.8
 
 --Show the seconds hand ?

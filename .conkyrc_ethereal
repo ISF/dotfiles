@@ -32,7 +32,7 @@
   border_inner_margin 1                 #Largeur des marges
  #---
   own_window yes                        #Utiliser sa propre fenêtre
-  own_window_type desktop              #Type de fenêtre ; normal / override / desktop
+  own_window_type override              #Type de fenêtre ; normal / override / desktop
   own_window_transparent yes            #Pseudo transparence
 
 #Mise en forme
@@ -48,13 +48,13 @@
   stippled_borders 3                    #Taille des pointillés
 
 #Couleurs
-  default_color 000000                  #Couleur par défaut
+  default_color white                  #Couleur par défaut
   default_shade_color 333333            #Couleur des ombres
   default_outline_color black           #Couleur des contours
  #---
-  color1 000000                         #Argenté
-  color2 000000                         #Bleu clair
-  color3 000000                         #Gris
+  color1 ffffff                         #Argenté
+  color2 ffffff                         #Bleu clair
+  color3 ffffff                         #Gris
 
  #---
   short_units yes                       #Unités courtes
