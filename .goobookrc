@@ -1,0 +1,5 @@
+[DEFAULT]
+email: ivansichfreitas@gmail.com
+cache_filename: ~/.goobook_cache
+cache_expiry_hours: 24
+filter_groupless_contacts: no

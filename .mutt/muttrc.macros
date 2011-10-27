@@ -3,16 +3,13 @@
 macro index .d <delete-pattern>~A<enter>
 macro index .r <collapse-all><tag-pattern>~N<enter><clear-flag>N<clear-flag>O<untag-pattern>~A<enter><collapse-all>
 macro index .m '<enter-command>source ~/.mutt/muttrc<enter>' "Source muttrc"
-macro index,pager .t '<save-message>imaps://imap.gmail.com/[Gmail]/Trash<enter><enter>' "move in Gmail trash"
-macro index,pager .a "<save-message>=[Gmail]/All Mail<enter><enter>" "Archive"
-macro index,pager .s "<save-message>=[Gmail]/Spam<enter><enter><collapse-all>" "Flag as spam"
+macro index,pager .t '<save-message>=trash<enter><enter>' "move in Gmail trash"
+macro index,pager .s "<save-message>=spam<enter><enter><collapse-all>" "Flag as spam"
 macro index gm "<change-folder>?" "Go to the next unread mailbox"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
-macro index gs "<change-folder>=[Gmail]/Sent Mail<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
-macro generic,pager <F1> "<shell-escape> less /usr/share/doc/mutt/manual.txt<Enter>" "show Mutt documentation"
+macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
 macro index \Cv "<enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter><enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature and open the message'
 macro pager \Cv "<exit><enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> <enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature'
-macro pager \cu <pipe-entry>'urlview'<enter> 'Follow links with urlview'
+macro pager \cu <pipe-entry>'url_handler.sh'<enter> 'Follow links with urlview'
 macro index,pager .b "<pipe-message>goobook add<return>" "add the sender address to Google contacts"

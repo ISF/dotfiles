@@ -1,0 +1,57 @@
+[general]
+
+metadata = ~/.offlineimap
+accounts = gmail
+maxsyncaccounts = 1
+ui = TTYUI
+ignore-readonly = no
+pythonfile = ~/.mail/utf7.py
+
+[mbnames]
+
+enabled = yes
+filename = ~/.mutt/muttrc.mailboxes
+header = "mailboxes "
+peritem = "+%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account gmail]
+
+localrepository = gmail-local
+remoterepository = gmail-remote
+
+autorefresh = 10
+quick = 3
+maxage = 3
+
+[Repository gmail-local]
+
+type = Maildir
+localfolders = ~/.mail/gmail
+sep = .
+restoreatime = no
+
+[Repository gmail-remote]
+
+type = Gmail
+realdelete = no
+remotehost = imap.gmail.com
+ssl = yes
+remoteport = 993
+remoteuser = ivansichfreitas@gmail.com
+
+nametrans = lambda folder: re.sub('.*Spam$', 'spam',
+    re.sub('.*Drafts$', 'drafts',
+    re.sub('.*Sent Mail$', 'sent',
+    re.sub('.*Starred$', 'flagged',
+    re.sub('.*Important', 'important',
+    re.sub('.*Trash$', 'trash',
+    re.sub('.*All Mail$', 'archive', folder.decode('imap4-utf-7').encode('utf-8'))))))))
+
+maxconnections = 3
+holdconnectionopen = no
+keepalive = 60
+subscribedonly = no
+folderfilter = lambda foldername: foldername not in ['archive', '[Gmail]/All Mail']
+readonly = False
