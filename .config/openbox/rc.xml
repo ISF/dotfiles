@@ -267,6 +267,11 @@
       </action>
       <action name="MoveToEdgeEast"/>
     </keybind>
+    <keybind key="W-S">
+      <action name="MoveResizeTo">
+        <monitor>next</monitor>
+      </action>
+    </keybind>
     <keybind key="W-I">
       <action name="Iconify"/>
     </keybind>
@@ -318,14 +323,16 @@
       <action name="PreviousWindow">
         <bar>no</bar>
         <display>no</display>
-        <linear>yes</linear>
+        <linear>no</linear>
       </action>
     </keybind>
-    <keybind key="C-A-Tab">
+    <keybind key="W-Tab">
       <action name="NextWindow">
-        <panels>yes</panels>
-        <desktop>yes</desktop>
-        <linear>yes</linear>
+        <dialog>none</dialog>
+        <raise>yes</raise>
+        <bar>no</bar>
+        <display>no</display>
+        <linear>no</linear>
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
@@ -348,11 +355,6 @@
     <keybind key="XF86AudioMute">
       <action name="Execute">
         <execute>amixer set PCM 5+</execute>
-      </action>
-    </keybind>
-    <keybind key="XF86KbdBrightnessUp">
-      <action name="Execute">
-        <execute/>
       </action>
     </keybind>
   </keyboard>
