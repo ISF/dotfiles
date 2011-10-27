@@ -100,6 +100,15 @@ if [[ -z $CXXFLAGS ]]; then
     export CXXFLAGS="$CFLAGS"
 fi
 
+# locale
+if [[ -z $LC_CTYPE ]]; then
+    export LC_CTYPE=pt_BR.UTF-8
+fi
+
+if [[ -z $LC_ALL ]]; then
+    export LC_ALL=pt_BR.UTF-8
+fi
+
 ################################################################################
 # vcs_info configuration
 ################################################################################
