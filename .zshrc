@@ -333,6 +333,8 @@ alias task='nocorrect task'
 alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
+alias Mutt="(terminal -T Mutt -e 'zsh -c mutt' &)"
+alias weechat="(terminal -T WeeChat -e 'zsh -c weechat-curses' &)"
 
 # suffix
 alias -s html=$BROWSER
