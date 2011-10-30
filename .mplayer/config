@@ -1,0 +1,26 @@
+vo=xv
+fs=no
+vm=no
+monitoraspect=16:10
+double=yes
+ontop=no
+ao=alsa
+cache = 8192
+cache-min = 20.0
+cache-seek-min = 50
+slang = en
+alang = en
+lavdopts=threads=2
+
+############
+# Profiles #
+############
+
+[vo.vaapi]
+vo=vaapi
+
+[vo.vdpau]
+vo=vdpau
+lavdopts=threads=4
+vc=ffmpeg12vdpau,ffwmv3vdpau,ffvc1vdpau,ffh264vdpau,ffodivxvdpau,
+vf-clr=yes
