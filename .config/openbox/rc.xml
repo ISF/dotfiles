@@ -28,11 +28,11 @@
     <center>yes</center>
     <!-- whether to place windows in the center of the free area found or
        the top left corner -->
-    <monitor>Mouse</monitor>
+    <monitor>Any</monitor>
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is -->
-    <primaryMonitor>Mouse</primaryMonitor>
+    <primaryMonitor>Active</primaryMonitor>
     <!-- The monitor where Openbox should place popup dialogs such as the
        focus cycling popup, or the desktop switch popup.  It can be an index
        from 1, specifying a particular monitor.  Or it can be one of the
@@ -160,10 +160,10 @@
     <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Horizontal</direction>
     <!-- 'Vertical' or 'Horizontal' -->
-    <autoHide>no</autoHide>
+    <autoHide>yes</autoHide>
     <hideDelay>300</hideDelay>
     <!-- in milliseconds (1000 = 1 second) -->
-    <showDelay>300</showDelay>
+    <showDelay>100</showDelay>
     <!-- in milliseconds (1000 = 1 second) -->
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
@@ -171,18 +171,6 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="W-Up">
-      <action name="DesktopUp">
-        <dialog>no</dialog>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-Down">
-      <action name="DesktopDown">
-        <dialog>no</dialog>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
     <keybind key="W-A-Left">
       <action name="SendToDesktopLeft">
         <dialog>no</dialog>
@@ -227,10 +215,8 @@
         <desktop>4</desktop>
       </action>
     </keybind>
-    <keybind key="W-Menu">
-      <action name="MoveResizeTo">
-        <monitor>next</monitor>
-      </action>
+    <keybind key="W-B">
+      <action name="ToggleDecorations"/>
     </keybind>
     <keybind key="W-C">
       <action name="MoveToCenter"/>
@@ -251,11 +237,33 @@
         <direction>horizontal</direction>
       </action>
     </keybind>
+    <keybind key="W-Up">
+      <action name="UnmaximizeFull"/>
+      <action name="Maximize">
+        <direction>horizontal</direction>
+      </action>
+      <action name="MoveResizeTo">
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdgeWest"/>
+      <action name="MoveToEdgeNorth"/>
+    </keybind>
+    <keybind key="W-Down">
+      <action name="UnmaximizeFull"/>
+      <action name="Maximize">
+        <direction>horizontal</direction>
+      </action>
+      <action name="MoveResizeTo">
+        <height>50%</height>
+      </action>
+      <action name="MoveToEdgeWest"/>
+      <action name="MoveToEdgeSouth"/>
+    </keybind>
     <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>640</width>
+        <width>50%</width>
       </action>
       <action name="MoveToEdgeWest"/>
     </keybind>
@@ -263,7 +271,7 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>640</width>
+        <width>50%</width>
       </action>
       <action name="MoveToEdgeEast"/>
     </keybind>
@@ -708,7 +716,8 @@
     <!-- You can specify more than one menu file in here and they are all loaded,
         just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
-    <file>menu.xml</file><hideDelay>200</hideDelay>
+    <file>menu.xml</file>
+    <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
         menu is hidden again -->
     <middle>no</middle>
@@ -739,6 +748,9 @@
       <maximized>false</maximized>
     </application>
     <application name="zathura">
+      <position force="yes">
+        <monitor>1</monitor>
+      </position>
       <maximized>true</maximized>
       <decor>no</decor>
     </application>
@@ -752,6 +764,7 @@
       <decor>no</decor>
     </application>
     <application name="chromium" type="normal">
+      <decor>no</decor>
       <maximized>true</maximized>
     </application>
     <application name="chromium" type="dialog">
