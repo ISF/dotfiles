@@ -299,10 +299,6 @@ if has("autocmd")
 
     autocmd Filetype asm,mips setl autoindent
 
-    " markdown syntax
-    autocmd BufEnter *.mkd setl ft=markdown
-    autocmd BufEnter *.md setl ft=markdown
-
     autocmd BufEnter *.c,*.h call CoreutilsIndent()
 
     " conkyrc syntax
@@ -467,6 +463,9 @@ nnoremap <F10> :Silent SCCompileRun<CR>
 "set pastetoggle=<F11>
 nnoremap <F11> :Silent call SetPastetoggle()<CR>
 " F12 is reserved for per-filetype static analisys (splint, pylint and such)
+
+hi! link NonText Normal
+hi! link SpecialKey Normal
 
 " Automatically sourcing local configurations
 if filereadable("./.vim_local_config")
