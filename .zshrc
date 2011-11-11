@@ -54,6 +54,7 @@ autoload -Uz zsh-mime-setup && zsh-mime-setup
 
 # color settings for ls
 eval $(dircolors -b)
+eval $(dircolors /home/ivan/.zsh/dircolors.256dark)
 
 ################################################################################
 # variables
@@ -74,6 +75,7 @@ else
     RPROMPT='${vcs_info_msg_0_}'
 fi
 
+export PATH=$HOME/.scripts:$PATH
 export EDITOR=$(which vim)
 export BROWSER=chromium
 if [[ $TERM == "screen-256color" ]]; then
@@ -101,13 +103,20 @@ if [[ -z $CXXFLAGS ]]; then
 fi
 
 # locale
-if [[ -z $LC_CTYPE ]]; then
-    export LC_CTYPE=pt_BR.UTF-8
-fi
-
-if [[ -z $LC_ALL ]]; then
-    export LC_ALL=pt_BR.UTF-8
-fi
+[[ -z $LANG ]] && export LANG=pt_BR.UTF-8
+[[ -z $LC_CTYPE ]] && export LC_CTYPE=pt_BR.UTF-8
+[[ -z $LC_NUMERIC ]] && export LC_NUMERIC=pt_BR.UTF-8
+[[ -z $LC_COLLATE ]] && export LC_COLLATE=pt_BR.UTF-8
+[[ -z $LC_TIME ]] && export LC_TIME=pt_BR.UTF-8
+[[ -z $LC_MONETARY ]] && export LC_MONETARY=pt_BR.UTF-8
+[[ -z $LC_MESSAGES ]] && export LC_MESSAGES=pt_BR.UTF-8
+[[ -z $LC_PAPER ]] && export LC_PAPER=pt_BR.UTF-8
+[[ -z $LC_NAME ]] && export LC_NAME=pt_BR.UTF-8
+[[ -z $LC_ADDRESS ]] && export LC_ADDRESS=pt_BR.UTF-8
+[[ -z $LC_TELEPHONE ]] && export LC_TELEPHONE=pt_BR.UTF-8
+[[ -z $LC_MEASUREMENT ]] && export LC_MEASUREMENT=pt_BR.UTF-8
+[[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
+[[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
 ################################################################################
 # vcs_info configuration
@@ -333,8 +342,6 @@ alias task='nocorrect task'
 alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
-alias Mutt="(terminal -T Mutt -e 'zsh -c mutt' &)"
-alias weechat="(terminal -T WeeChat -e 'zsh -c weechat-curses' &)"
 
 # suffix
 alias -s html=$BROWSER
