@@ -1,10 +1,9 @@
 # Macros
 
-macro index .d <delete-pattern>~A<enter>
 macro index .r <collapse-all><tag-pattern>~N<enter><clear-flag>N<clear-flag>O<untag-pattern>~A<enter><collapse-all>
 macro index .m '<enter-command>source ~/.mutt/muttrc<enter>' "Source muttrc"
-macro index,pager .t '<save-message>=trash<enter><enter>' "move in Gmail trash"
-macro index,pager .s "<save-message>=spam<enter><enter><collapse-all>" "Flag as spam"
+macro index,pager .t '<save-message>=trash<enter>' "move in Gmail trash"
+macro index,pager .s "<save-message>=spam<enter>" "Flag as spam"
 macro index gm "<change-folder>?" "Go to the next unread mailbox"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
 macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
