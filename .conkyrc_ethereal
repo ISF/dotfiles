@@ -48,13 +48,11 @@
   stippled_borders 3                    #Taille des pointillés
 
 #Couleurs
-  default_color white                  #Couleur par défaut
+  default_color 787878                  #Couleur par défaut
   default_shade_color 333333            #Couleur des ombres
   default_outline_color black           #Couleur des contours
  #---
-  color1 ffffff                         #Argenté
-  color2 ffffff                         #Bleu clair
-  color3 ffffff                         #Gris
+  color1 787878                         #Argenté
 
  #---
   short_units yes                       #Unités courtes
@@ -64,11 +62,8 @@
   lua_load $HOME/.conky/clock.lua
   lua_draw_hook_pre clock_rings
 
-#${font Nimbus Mono L:size=8}${execp cal | sed '1!d ; s/  //g ; s/^/\${goto 120} /g'}
-#${execp cal | sed '1d ; s/^/ /g ; s/$/ /g ; s/'" $(date +%e)"'/\${color2}'" $(date +%e)"'\${color1}/1 ; s/^/\${goto 120}/g'} ${voffset -84} #
-
 TEXT
-${color3}${offset 56}${voffset 5}${cpugraph cpu6 17,1}${voffset -1}${cpugraph cpu6 0,50}
+${color1}${offset 56}${voffset 5}${cpugraph cpu6 17,1}${voffset -1}${cpugraph cpu6 0,50}
 ${voffset -27}${offset 110}${font Digital\-7:size=20}${time %H:%M:%S %d %B}${font}
 ${voffset -5}${offset 110}${hr}${voffset 2}${color1}
 ${font Nimbus Mono L:bold:size=10}${execpi 60 cal | sed s/^/'${goto 120}'/} ${voffset -84} #
