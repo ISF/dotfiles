@@ -25,7 +25,6 @@ BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 AccelFullscreen=
 ColorCursor=#9393a1a1a1a1
 ColorForeground=#FDFDF6F6E3E3
-ColorBackground=#242924292429
 ColorPalette1=#070736364242
 ColorPalette2=#dcdc32322f2f
 ColorPalette3=#858599990000

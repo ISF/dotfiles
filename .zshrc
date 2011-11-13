@@ -89,6 +89,14 @@ export PYTHONSTARTUP="$HOME/.pystartup"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export JAVA_FONTS='/usr/share/fonts/TTF'
 
+export LESS_TERMCAP_mb=$(printf "\e[1;31m")
+export LESS_TERMCAP_md=$(printf "\e[1;38;5;74m")
+export LESS_TERMCAP_me=$(printf "\e[0m")
+export LESS_TERMCAP_se=$(printf "\e[0m")
+export LESS_TERMCAP_so=$(printf "\e[38;5;246m")
+export LESS_TERMCAP_ue=$(printf "\e[0m")
+export LESS_TERMCAP_us=$(printf "\e[04;38;5;146m")
+
 # setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
     if [[ $(hostname) == "shungokusatsu" ]]; then
