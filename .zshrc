@@ -25,7 +25,6 @@ setopt list_ambiguous
 setopt list_types
 setopt list_packed
 setopt list_rows_first
-setopt menu_complete
 setopt nohup
 setopt notify
 setopt prompt_subst
@@ -34,13 +33,16 @@ setopt share_history
 unsetopt banghist
 unsetopt beep
 unsetopt checkjobs
+unsetopt menu_complete
 
 fpath=($HOME/.zsh/functions/
+       $HOME/.zsh/systemctl/
        /usr/share/doc/task/scripts/zsh
        $fpath)
 
 # my functions
 
+autoload tmux_init
 autoload kernel_symbol
 
 # global functions
@@ -52,6 +54,7 @@ autoload -Uz zsh-mime-setup && zsh-mime-setup
 
 # color settings for ls
 eval $(dircolors -b)
+eval $(dircolors /home/ivan/.zsh/dircolors.256dark)
 
 ################################################################################
 # variables
@@ -72,9 +75,14 @@ else
     RPROMPT='${vcs_info_msg_0_}'
 fi
 
+export PATH=$HOME/.scripts:$PATH
 export EDITOR=$(which vim)
 export BROWSER=chromium
-export TERM=xterm-256color
+if [[ $TERM == "screen-256color" ]]; then
+    export TERM="screen-256color"
+else
+    export TERM=xterm-256color
+fi
 export PAGER='less -iR'
 export MANPAGER='less -iR'
 export PYTHONSTARTUP="$HOME/.pystartup"
@@ -83,12 +91,32 @@ export JAVA_FONTS='/usr/share/fonts/TTF'
 
 # setting CFLAGS and CXXFLAGS if none of them are already defined
 if [[ -z $CFLAGS ]]; then
-    export CFLAGS="-march=amdfam10 -O2 -pipe"
+    if [[ $(hostname) == "shungokusatsu" ]]; then
+        export CFLAGS="-march=amdfam10 -O2 -pipe"
+    elif [[ $(hostname) == "hadouken" ]]; then
+        export CFLAGS="-march=core2 -O2 -pipe"
+    fi
 fi
 
 if [[ -z $CXXFLAGS ]]; then
     export CXXFLAGS="$CFLAGS"
 fi
+
+# locale
+[[ -z $LANG ]] && export LANG=pt_BR.UTF-8
+[[ -z $LC_CTYPE ]] && export LC_CTYPE=pt_BR.UTF-8
+[[ -z $LC_NUMERIC ]] && export LC_NUMERIC=pt_BR.UTF-8
+[[ -z $LC_COLLATE ]] && export LC_COLLATE=pt_BR.UTF-8
+[[ -z $LC_TIME ]] && export LC_TIME=pt_BR.UTF-8
+[[ -z $LC_MONETARY ]] && export LC_MONETARY=pt_BR.UTF-8
+[[ -z $LC_MESSAGES ]] && export LC_MESSAGES=pt_BR.UTF-8
+[[ -z $LC_PAPER ]] && export LC_PAPER=pt_BR.UTF-8
+[[ -z $LC_NAME ]] && export LC_NAME=pt_BR.UTF-8
+[[ -z $LC_ADDRESS ]] && export LC_ADDRESS=pt_BR.UTF-8
+[[ -z $LC_TELEPHONE ]] && export LC_TELEPHONE=pt_BR.UTF-8
+[[ -z $LC_MEASUREMENT ]] && export LC_MEASUREMENT=pt_BR.UTF-8
+[[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
+[[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
 ################################################################################
 # vcs_info configuration
@@ -114,11 +142,11 @@ function _force_rehash {
     return 1 # Because we didn't really complete anything
 }
 
-zstyle ':completion:*' completer _force_rehash _expand _complete _prefix _match _ignored _correct _approximate _files
+zstyle ':completion:*' completer _force_rehash _complete _prefix _match _ignored _correct _files
 
 # complete manual by their section
 zstyle ':completion:*:manuals'    separate-sections true
-zstyle ':completion:*:manuals.*'  insert-sections   true
+zstyle ':completion:*:manuals.*'  insert-sections   false
 zstyle ':completion:*:man:*'      menu yes select=3
 
 # never user old style completion
@@ -231,32 +259,45 @@ bindkey -M viins '^_' backward-delete-char
 bindkey -M viins '^h' backward-delete-char
 
 # emacs style movements on viins
-bindkey -M viins "^a" vi-beginning-of-line
-bindkey -M viins "^e" vi-end-of-line
+bindkey -M viins "^a"  vi-beginning-of-line
+bindkey -M viins "^e"  vi-end-of-line
 bindkey -M viins "\ef" forward-word
 bindkey -M viins "\eb" backward-word
+bindkey -M viins "^f"  forward-char
+bindkey -M viins "^b"  backward-char
+bindkey -M viins "^y"  yank
+bindkey -M viins "\ey" yank-pop
+bindkey -M viins "^t"  transpose-chars
+bindkey -M vicmd "^t"  transpose-chars
+bindkey -M viins "\et" transpose-words
+bindkey -M vicmd "\et" transpose-words
+bindkey -M viins "^x*" expand-word
 
 bindkey "^p" vi-up-line-or-history
 bindkey "^n" vi-down-line-or-history
 
-bindkey "^[[1~" vi-beginning-of-line   # Home
-bindkey "^[[4~" vi-end-of-line         # End
-bindkey '^[[2~' beep                   # Insert
-bindkey '^[[3~' delete-char            # Del
-bindkey '^[[5~' vi-backward-blank-word # Page Up
-bindkey '^[[6~' vi-forward-blank-word  # Page Down
+bindkey '\e[1~' vi-beginning-of-line   # Home
+bindkey '\e[4~' vi-end-of-line         # End
+bindkey '\e[2~' beep                   # Insert
+bindkey '\e[3~' delete-char            # Del
+bindkey '\e[5~' vi-backward-blank-word # Page Up
+bindkey '\e[6~' vi-forward-blank-word  # Page Down
 
-# normal C-R for history search
+bindkey '\ed' delete-char
+
+# normal C-R, C-F and C-S or history search
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
+bindkey -M viins '^s' history-incremental-search-forward
+bindkey -M vicmd '^s' history-incremental-search-forward
 bindkey -M viins '^f' history-incremental-pattern-search-backward
 bindkey -M vicmd '^f' history-incremental-pattern-search-backward
 
 # go back in menu completion
-bindkey -M viins '^[[Z' reverse-menu-complete
+bindkey -M viins '\e[Z' reverse-menu-complete
 
 # control+u erase entire line on vicmd
-bindkey -M vicmd '^u' kill-whole-line # dd can be used also
+bindkey -M viins '^u' kill-whole-line # dd can be used also
 
 # alt+. to complete previous args
 bindkey -M viins '\e.' insert-last-word
@@ -298,13 +339,15 @@ alias rm='nocorrect rm'
 alias man='nocorrect man'
 alias mkdir='nocorrect mkdir'
 alias task='nocorrect task'
+alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
 
 # suffix
 alias -s html=$BROWSER
-alias -s png='display'
-alias -s jpg='display'
+alias -s png='viewnior'
+alias -s jpg='viewnior'
+alias -s gif='viewnior'
 alias -s txt=$EDITOR
 alias -s pdf='zathura'
 
@@ -314,37 +357,4 @@ alias -s pdf='zathura'
 # fix escape sequences when zsh is loaded with emacs' M-x shell
 if [[ $EMACS == 't' ]]; then
     unsetopt zle
-fi
-
-################################################################################
-# automatically entering tmux (this must be the last section)
-################################################################################
-
-# don't attach to a already started tmux session if running on a console or
-# when used with emacs' M-x shell
-if [[ -z $(tty | grep /dev/tty) && $EMACS != 't' ]]; then
-    if tmux has-session -t system > /dev/null 2>&1; then
-        if [[ -z $TMUX ]]; then
-            tmux -2 attach -t system
-        else
-            # exporting correct terminal, fixes some mutt glitches
-            export TERM=screen-256color
-        fi
-    else
-        # create new session (and detach)
-        tmux -2 new-session -d -s system
-        # create windows
-        tmux -2 new-window -t system:1 -n 'weechat' 'weechat-curses' # starting weechat
-        tmux -2 new-window -t system:2
-        tmux -2 new-window -t system:3
-        tmux -2 new-window -t system:4
-        tmux -2 new-window -t system:5
-        tmux -2 new-window -t system:6
-        tmux -2 new-window -t system:7
-        tmux -2 new-window -t system:8
-        tmux -2 new-window -t system:9
-        tmux -2 new-window -t system:10
-        # attach
-        tmux -2 attach -t system
-    fi
 fi

@@ -2,19 +2,17 @@
 
 set nocompatible  " VIM POWER!!!!
 set encoding=utf8
+set mouse=a
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
 
 set synmaxcol=200
-set scrolloff=5
-set lazyredraw
 set showmatch     " Show matching brackets (briefly jump to it)
 set splitright
 set nosplitbelow
 set magic
 set backspace=indent,eol,start
-set nojoinspaces
 
 " Backup and history options
 set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another directory
@@ -22,8 +20,7 @@ set history=1000             " Increase history size
 set background=dark          " Set best color scheme to dark consoles
 set autoread                 " automagically reloads a file if it was externally modified
 set textwidth=80             " don't break long lines
-set formatoptions+=tcqrn1
-set formatoptions-=o
+set formatoptions=cqrn1
 
 " list chars
 set list
@@ -50,9 +47,9 @@ else
     let g:solarized_bold = 0
     let g:solarized_underline = 0
     let g:solarized_italic = 0
-    "colorscheme solarized
+    colorscheme solarized
     "colorscheme wombat256mod
-    colorscheme molokai
+    "colorscheme molokai
 endif
 
 " Indentation
@@ -68,32 +65,45 @@ set incsearch  " incremental search
 set ignorecase
 set infercase
 set smartcase
+set gdefault " use global as default in substitutions
 
-" Better completion
+" Better completion menu
 set wildmenu
 set wildmode=longest,full
 set wildignore+=*.o,*.pyc,*.swp
-set complete+=.,w,b,u,t,i,d
 
 " persistent undo
-if has("persistent_undo")
-    set undodir=~/.vim/undodir
-    set undofile
-    set undoreload=1000
-endif
+set undodir=~/.vim/undodir
+set undofile
 set undolevels=1000
+set undoreload=1000
+
+function! IsPasting ()
+    if &paste == "1"
+        return " [paste]"
+    else
+        return ""
+    endif
+endfunction
+
+function! SetPastetoggle()
+    if &paste == "1"
+        set nopaste
+    else
+        set paste
+    endif
+    redraw
+endfunction
 
 " Status line options
 set laststatus=2 " always show statusline
-set statusline=%t\ %m\ buffer:%n\ %LL\ format:%{&ff}\ \ %Y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
+set statusline=%t%{IsPasting()}%m\ buffer:%n\ %LL\ format:%{&ff}\ \ %y\ \ ascii:%03.3b\ hex:%02.2B\ \ %l,%v
+
+set guitablabel=%n\ %f
 
 set showcmd
 
 set showfulltag
-
-if has('mouse')
-    set mouse=a
-endif
 
 command! -nargs=0 UpdateHelp helptags ~/.vim/doc
 
@@ -142,6 +152,11 @@ function! CoreutilsIndent()
     endif
 endfunction
 
+" Conque
+let g:ConqueTerm_ExecFileKey = ''
+let g:ConqueTerm_SendFileKey = ''
+let g:ConqueTerm_SendVisKey = ''
+
 " C syntax options (see :help c.vim)
 let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
 let c_space_errors    = 0 " trailing whitespave or spaces before tabs
@@ -151,7 +166,7 @@ let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
 
 " AutoComplPop
-let g:acp_completeoptPreview    = 0
+let g:acp_completeoptPreview    = 1
 let g:acp_behaviorKeywordLength = 4
 let g:acp_mappingDriven         = 1
 
@@ -284,10 +299,6 @@ if has("autocmd")
 
     autocmd Filetype asm,mips setl autoindent
 
-    " markdown syntax
-    autocmd BufEnter *.mkd setl ft=markdown
-    autocmd BufEnter *.md setl ft=markdown
-
     autocmd BufEnter *.c,*.h call CoreutilsIndent()
 
     " conkyrc syntax
@@ -305,11 +316,15 @@ if has("autocmd")
     " Gettext file compiler (msgfmt)
     autocmd FileType po compiler po
 
+    autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
 
     " Lisp
-    autocmd FileType lisp setl lisp autoindent showmatch cpoptions-=m
+    autocmd FileType lisp setl lisp showmatch cpoptions-=m
+    autocmd FileType lisp :AutoCloseOff
 
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -338,7 +353,7 @@ if has("autocmd")
     autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
     autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
-    autocmd FileType c,cpp set errorformat="%*[^\"]\"%f\"%*\\D%l: %m,\"%f\"%*\\D%l: %m,%-G%f:%l: (Each undeclared identifier is reported only once,%-G%f:%l: for each function it appears in.),%-GIn file included from %f:%l:%c:,%-GIn file included from %f:%l:%c,%-GIn file included from %f:%l,%-Gfrom %f:%l:%c,%-Gfrom %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\, line %l%*\\D%c%*[^ ] %m,%D%*\\a[%*\\d]: Entering directory `%f',%X%*\\a[%*\\d]: Leaving directory `%f',%D%*\\a: Entering directory `%f',%X%*\\a: Leaving directory `%f',%DMaking %*\\a in %f,%f|%l| %m"
+    "autocmd FileType c,cpp set errorformat="%*[^\"]\"%f\"%*\\D%l: %m,\"%f\"%*\\D%l: %m,%-G%f:%l: (Each undeclared identifier is reported only once,%-G%f:%l: for each function it appears in.),%-GIn file included from %f:%l:%c:,%-GIn file included from %f:%l:%c,%-GIn file included from %f:%l,%-Gfrom %f:%l:%c,%-Gfrom %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\, line %l%*\\D%c%*[^ ] %m,%D%*\\a[%*\\d]: Entering directory '%f',%X%*\\a[%*\\d]: Leaving directory '%f',%D%*\\a: Entering directory '%f',%X%*\\a: Leaving directory '%f',%DMaking %*\\a in %f,%f|%l| %m"
     autocmd FileType c nmap <F12> :call RunSplint()<CR>
 
     " Tex, LaTeX
@@ -381,11 +396,36 @@ nmap gb :badd <cfile><CR>
 nnoremap / /\v
 vnoremap / /\v
 
-" quick shortcut to search for tags (don't remove the trailing space)
-nnoremap <Leader>t :ta 
-
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
+
+" Fix arrow keys
+nnoremap <Esc>OA <Up>
+vnoremap <Esc>OA <Up>
+inoremap <Esc>OA <Up>
+nnoremap <Esc>OB <Down>
+vnoremap <Esc>OB <Down>
+inoremap <Esc>OB <Down>
+nnoremap <Esc>OC <Right>
+vnoremap <Esc>OC <Right>
+inoremap <Esc>OC <Right>
+nnoremap <Esc>OD <Left>
+vnoremap <Esc>OD <Left>
+inoremap <Esc>OD <Left>
+
+" Fix wrong slash (some notebooks with Fn key)
+nnoremap <Esc>Oo /
+inoremap <Esc>Oo /
+vnoremap <Esc>Oo /
+cnoremap <Esc>Oo /
+
+" Proper behavior for arrow keys
+vnoremap <S-Up> <Up>
+inoremap <S-Up> <Up>
+nnoremap <S-Up> <Up>
+vnoremap <S-Down> <Down>
+inoremap <S-Down> <Down>
+nnoremap <S-Down> <Down>
 
 " Better window movement
 if has('gui_running')
@@ -420,8 +460,12 @@ nnoremap <F6> :cwindow<CR>
 " SingleCompile
 nnoremap <F9> :Silent SCCompile<CR>
 nnoremap <F10> :Silent SCCompileRun<CR>
-set pastetoggle=<F11>
+"set pastetoggle=<F11>
+nnoremap <F11> :Silent call SetPastetoggle()<CR>
 " F12 is reserved for per-filetype static analisys (splint, pylint and such)
+
+hi! link NonText Normal
+hi! link SpecialKey Normal
 
 " Automatically sourcing local configurations
 if filereadable("./.vim_local_config")
