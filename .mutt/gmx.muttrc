@@ -1,0 +1,15 @@
+# GMX settings
+
+set from = "ivansichfreitas@gmx.com"
+set sendmail = "/usr/bin/msmtp -a gmx"
+set record = "=gmx/Sent"
+set spoolfile = "=gmx/INBOX"
+set mbox = "=gmx/Archive"
+set postponed = "=gmx/Drafts"
+
+macro index,pager .t '<save-message>=gmx/Trash<enter>' "move in Gmail trash"
+macro index,pager .s "<save-message>=gmx/Spam<enter>" "Flag as spam"
+macro index gm "<change-folder>?"
+macro index gi "<change-folder>=gmx/INBOX<enter>" "Go to inbox"
+macro index gs "<change-folder>=gmx/Sent<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=gmx/Drafts<enter>" "Go to drafts"
