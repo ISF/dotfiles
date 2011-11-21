@@ -39,6 +39,7 @@ set t_Co=256      " setting the number of colors
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set t_Co=256        " setting the number of colors (don't erase it here)
+    set guifont=Droid\ Sans\ Mono\ Slashed\ 11
     colorscheme solarized
 else
     let g:solarized_menu = 0
@@ -457,6 +458,8 @@ nnoremap <F4> <Plug>TaskList
 noremap <F5> :Silent !ctags -R --c-kinds=+pm --fields=+iaS --extra=+q -I *<CR>
 " opening quickfix window
 nnoremap <F6> :cwindow<CR>
+" gundo
+nnoremap <F7> :GundoToggle<CR>
 " SingleCompile
 nnoremap <F9> :Silent SCCompile<CR>
 nnoremap <F10> :Silent SCCompileRun<CR>
