@@ -350,6 +350,8 @@ alias task='nocorrect task'
 alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
+alias latex="latex -interaction nonstop"
+alias pdflatex="latex -interactiona nonstop"
 
 # suffix
 alias -s html=$BROWSER
