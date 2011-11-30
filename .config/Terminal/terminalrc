@@ -21,7 +21,6 @@ BackgroundDarkness=0,940000
 AccelNextTab=
 AccelPrevTab=
 FontAllowBold=FALSE
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
 AccelFullscreen=
 ColorCursor=#9393a1a1a1a1
 ColorForeground=#FDFDF6F6E3E3
@@ -43,4 +42,5 @@ ColorPalette15=#9393a1a1a1a1
 ColorPalette16=#fdfdf6f6e3e3
 Term=xterm-color
 TitleMode=TERMINAL_TITLE_REPLACE
+ColorBackground=#121212121212
 
