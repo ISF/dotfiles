@@ -727,8 +727,11 @@
   </menu>
   <applications>
     <application name="terminal">
-      <desktop>all</desktop>
       <maximized>true</maximized>
+    </application>
+    <application name="urxvt">
+      <maximized>true</maximized>
+      <decor>no</decor>
     </application>
     <application name="gvim">
       <maximized>true</maximized>
