@@ -227,16 +227,6 @@
     <keybind key="W-M">
       <action name="ToggleMaximizeFull"/>
     </keybind>
-    <keybind key="W-V">
-      <action name="Maximize">
-        <direction>vertical</direction>
-      </action>
-    </keybind>
-    <keybind key="W-H">
-      <action name="Maximize">
-        <direction>horizontal</direction>
-      </action>
-    </keybind>
     <keybind key="W-Up">
       <action name="UnmaximizeFull"/>
       <action name="Maximize">
@@ -263,6 +253,7 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
+        <x>0</x>
         <width>50%</width>
       </action>
       <action name="MoveToEdgeWest"/>
@@ -271,6 +262,7 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
+        <x>50%</x>
         <width>50%</width>
       </action>
       <action name="MoveToEdgeEast"/>
