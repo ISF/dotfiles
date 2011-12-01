@@ -393,10 +393,6 @@ inoremap {<CR> {<CR>}<Esc><S-O>
 " Open file name under cursor in another buffer
 nmap gb :badd <cfile><CR>
 
-" disabling the vim regexp extensions
-nnoremap / /\v
-vnoremap / /\v
-
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
 
