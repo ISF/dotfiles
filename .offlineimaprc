@@ -1,7 +1,7 @@
 [general]
 
 metadata = ~/.offlineimap
-accounts = gmail
+accounts = gmail,gmx
 maxsyncaccounts = 1
 ui = TTYUI
 ignore-readonly = no
@@ -23,7 +23,11 @@ remoterepository = gmail-remote
 
 autorefresh = 10
 quick = 3
-maxage = 3
+maxage = 10
+
+[Account gmx]
+localrepository = gmx-local
+remoterepository = gmx-remote
 
 [Repository gmail-local]
 
@@ -55,3 +59,14 @@ keepalive = 60
 subscribedonly = no
 folderfilter = lambda foldername: foldername not in ['archive', '[Gmail]/All Mail']
 readonly = False
+
+[Repository gmx-local]
+type = Maildir
+localfolders = ~/.mail/gmx
+restoreatime = no
+
+[Repository gmx-remote]
+type = IMAP
+remotehost = imap.gmx.com
+remoteport = 143
+remoteuser = ivansichfreitas@gmx.com
