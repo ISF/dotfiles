@@ -21,6 +21,8 @@ if [[ $(hostname) == "hadouken" ]]; then
     xfce4-power-manager &
 fi
 
+sleep 3 && tint2 &
+
 # wallpaper with nitrogen
 nitrogen --restore &
 
@@ -28,7 +30,7 @@ kupfer --no-splash &
 
 volumeicon &
 
-sleep 3 && tint2 &
+unclutter &
 
 # starting terminal
 if [[ -z $(pidof Terminal) ]]; then
