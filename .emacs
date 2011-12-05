@@ -87,8 +87,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
 (setq inferior-lisp-program "/usr/bin/sbcl")
-(require 'slime)
-(slime-setup)
+(require 'slime-autoloads)
+(slime-setup '(slime-fancy))
+
+(add-hook 'slime-mode-hook
+          (lambda ()
+            (unless (slime-connected-p)
+              (save-excursion (slime)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Backup file configuration
