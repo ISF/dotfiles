@@ -57,16 +57,14 @@
 (setq-default fill-column 72)
 
 ; Turn syntax-highlight on
-(global-font-lock-mode 1)
-(setq font-lock-maximum-decoration
-      '((c-mode . 3) (c++-mode . 3) (lisp-mode . 3)))
+(global-font-lock-mode t)
+(setq font-lock-maximum-decoration t)
 
 ; Interface
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
-(setq ihibit-startup-screen 1)
-(setq initial-buffer-choice "~/")
+(setq inhibit-startup-screen 1)
 ; don't add newlines when cursor goes past the end of file
 (setq next-line-add-newlines nil)
 
@@ -116,16 +114,36 @@
           '(lambda ()
             (set (make-local-variable 'lisp-indent-function)
                  'common-lisp-indent-function)))
+
 (add-hook 'lisp-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "RET") 'newline-and-indent)))
+
+(font-lock-add-keywords 'emacs-lisp-mode
+                        '(("\\<\\(add-hook\\)" 1 font-lock-builtin-face t)
+                          ("\\<\\(set-hook\\)" 1 font-lock-builtin-face t)
+                          ("\\<\\(add-to-list\\)" 1 font-lock-builtin-face t)))
+(add-hook 'emacs-lisp-mode-hook
           '(lambda ()
              (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ; C
 (add-hook 'c-mode-common-hook
           '(lambda () (c-toggle-auto-state 1)))
+
 (add-hook 'c-mode-common-hook
           '(lambda ()
              (local-set-key (kbd "RET") 'newline-and-indent)))
 
 (setq c-default-style "k&r"
       c-basic-offset 4)
+
+; Haskell
+(load "~/.emacs.d/haskellmode-emacs/haskell-site-file.el")
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(setq haskell-font-lock-symbols t)
+(add-hook 'haskell-mode-hook 'turn-on-font-lock)
+(add-hook 'haskell-mode-hook
+          '(lambda ()
+             (local-set-key (kbd "RET") 'newline-and-indent)))
