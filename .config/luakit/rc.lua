@@ -41,10 +41,6 @@ require "window"
 -- ("$XDG_CONFIG_HOME/luakit/webview.lua" or "/etc/xdg/luakit/webview.lua")
 require "webview"
 
-webview.init_funcs.set_win_trans = function (view, w)
-    view.transparent = true
-end
-
 -- Load users mode configuration
 -- ("$XDG_CONFIG_HOME/luakit/modes.lua" or "/etc/xdg/luakit/modes.lua")
 require "modes"
@@ -52,6 +48,10 @@ require "modes"
 -- Load users keybindings
 -- ("$XDG_CONFIG_HOME/luakit/binds.lua" or "/etc/xdg/luakit/binds.lua")
 require "binds"
+-- TODO: make C-L behave exactly like in other browsers
+-- add_binds({"normal", "command"}, {
+--     key({"Control"}, "l", function (w) w:enter_cmd(":open ") end)
+-- })
 
 ----------------------------------
 -- Optional user script loading --
@@ -98,26 +98,12 @@ require "bookmarks"
 require "downloads"
 require "downloads_chrome"
 
-downloads.default_dir = os.getenv("HOME") .. "/downloads"
-downloads.add_signal("download-location", function (uri, file)
-    if not file or file == "" then
-        file = (string.match(uri, "/([^/]+)$")
-        or string.match(uri, "^%w+://(.+)")
-        or string.gsub(uri, "/", "_")
-        or "untitled")
-    end
-    return downloads.default_dir .. "/" .. file
-end)
-
-
 -- Add vimperator-like link hinting & following
 -- (depends on downloads)
 require "follow"
 
 -- To use a custom character set for the follow hint labels un-comment and
 -- modify the following:
-local s = follow.styles
-follow.style = s.sort(s.reverse(s.charset("asdfqwerzxcv"))) -- I'm a lefty
 
 -- Add command history
 require "cmdhist"
@@ -177,5 +163,40 @@ if unique then
         w.win:set_screen(screen)
     end)
 end
+
+-------------------------------------------
+-- Specific configurations
+-------------------------------------------
+
+-- blank page
+globals.homepage = ""
+
+-- Avoid blinking when creating/switching tabs
+webview.init_funcs.set_win_trans = function (view, w)
+    view.transparent = true
+end
+
+-- always save in ~/downloads and don't ask about saving
+downloads.default_dir = os.getenv("HOME") .. "/downloads"
+downloads.add_signal("download-location", function (uri, file)
+    if not file or file == "" then
+        file = (string.match(uri, "/([^/]+)$")
+        or string.match(uri, "^%w+://(.+)")
+        or string.gsub(uri, "/", "_")
+        or "untitled")
+    end
+    return downloads.default_dir .. "/" .. file
+end)
+
+-- Custom character set for the follow hint labels
+local s = follow.styles
+follow.style = s.sort(s.reverse(s.charset("asdfqwerzxcv"))) -- I'm a lefty
+
+-- Bindings
+local key = lousy.bind.key
+
+add_binds({"normal"}, {
+    key({}, "y", function (w) w:set_mode("downloadlist") end)
+})
 
 -- vim: et:sw=4:ts=8:sts=4:tw=80
