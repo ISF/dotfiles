@@ -22,11 +22,10 @@ draw_borders no
 stippled_borders 0
 border_inner_margin 0
 border_outer_margin 0
-default_color black
+default_color 787878
 default_shade_color black
 default_outline_color black
 own_window_colour black
-color1 black
 alignment top_right
 gap_x 35
 gap_y 35
