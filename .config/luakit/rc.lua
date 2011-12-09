@@ -168,6 +168,14 @@ end
 -- Specific configurations
 -------------------------------------------
 
+-- avoid opening new windows everytime
+webview.init_funcs.window_decision = function (view, w)
+    view:add_signal("new-window-decision", function (v, uri, reason)
+        w:new_tab(uri)
+        return true
+    end)
+end
+
 -- blank page
 globals.homepage = ""
 
