@@ -23,7 +23,7 @@ Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
-Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.theme: Ecliz
 Xcursor.size: 16
 
 !! drop in Solarized colorscheme for Xresources/Xdefaults
