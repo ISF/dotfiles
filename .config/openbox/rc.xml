@@ -733,6 +733,13 @@
       <maximized>true</maximized>
       <decor>no</decor>
     </application>
+    <application name="luakit">
+      <maximized>true</maximized>
+      <decor>no</decor>
+    </application>
+    <application title="MPlayer*">
+      <decor>no</decor>
+    </application>
     <application name="gvim">
       <maximized>true</maximized>
     </application>
