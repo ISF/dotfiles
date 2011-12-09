@@ -65,6 +65,7 @@
 (toggle-scroll-bar -1)
 (menu-bar-mode -1)
 (setq inhibit-startup-screen 1)
+(setq initial-scratch-message nil)
 ; don't add newlines when cursor goes past the end of file
 (setq next-line-add-newlines nil)
 
