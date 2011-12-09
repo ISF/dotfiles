@@ -8,9 +8,6 @@ fi
 
 sleep 2 # ensure that the next applications start after openbox
 
-#cairo-compmgr &
-xcompmgr &
-
 # starting conky, use ~/.conkyrc as a link to the correct conky configuration
 if [[ -n $DISPLAY && -z $(pidof conky) ]]; then
     conky -d
