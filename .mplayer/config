@@ -11,6 +11,13 @@ cache-seek-min = 50
 slang = en
 alang = en
 lavdopts=threads=2
+font=/usr/share/fonts/TTF/DroidSans.ttf
+spuaa=4
+spualign=-1
+ffactor=1
+subfont-autoscale=2
+subfont-osd-scale=6
+geometry=50%:50%
 
 ############
 # Profiles #
