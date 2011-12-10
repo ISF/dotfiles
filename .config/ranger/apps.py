@@ -142,7 +142,7 @@ class CustomApplications(Applications):
 	def app_mimeopen(self, c):
 		if c.mode is 0:
 			return "mimeopen", c
-		if c.mode is 1: 
+		if c.mode is 1:
 			# Will ask user to select program
 			# aka "Open with..."
 			return "mimeopen", "--ask", c
@@ -150,7 +150,7 @@ class CustomApplications(Applications):
 
 CustomApplications.generic('wine', 'zsnes', deps=['X'])
 
-CustomApplications.generic('firefox', 'apvlv', 'zathura', 'gimp', 'viewnior', 'luakit'
+CustomApplications.generic('firefox', 'apvlv', 'zathura', 'gimp', 'viewnior', 'luakit',
 			flags='d', deps=['X'])
 
 INTERPRETED_LANGUAGES = re.compile(r'''
