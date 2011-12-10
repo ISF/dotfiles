@@ -18,6 +18,9 @@ ffactor=1
 subfont-autoscale=2
 subfont-osd-scale=6
 geometry=50%:50%
+softvol=yes
+softvol-max=200
+af=volume=20:1
 
 ############
 # Profiles #
