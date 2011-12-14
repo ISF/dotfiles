@@ -21,7 +21,7 @@ sub-fuzziness=2
 geometry=50%:50%
 softvol=yes
 softvol-max=200
-af=volume=20:1
+af=volume=12:0
 
 ############
 # Profiles #
