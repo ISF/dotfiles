@@ -17,6 +17,7 @@ spualign=-1
 ffactor=1
 subfont-autoscale=2
 subfont-osd-scale=6
+sub-fuzziness=2
 geometry=50%:50%
 softvol=yes
 softvol-max=200
