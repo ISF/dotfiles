@@ -257,6 +257,9 @@ call SingleCompile#ChooseCompiler('c', 'gcc')
 call SingleCompile#ChooseCompiler('c++', 'g++')
 call SingleCompile#ChooseCompiler('python', 'python')
 
+" Haskell
+let g:haddock_browser = "/usr/bin/luakit"
+
 " Defines line limit for yaifa scanning
 let yaifa_max_lines = 1024
 
