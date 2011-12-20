@@ -17,8 +17,10 @@
   "Color theme by Ethan Schoonover, created 2011-03-24.
 Ported to Emacs by Greg Pfeil, http://ethanschoonover.com/solarized."
   (interactive "Slight or dark? ")
-  (let ((base03  "#002b36")
-        (base02  "#073642")
+  ;(let ((base03  "#002b36")
+  (let ((base03  "#121212")
+        ;(base02  "#073642")
+        (base02  "#222222")
         (base01  "#586e75")
         (base00  "#657b83")
         (base0   "#839496")

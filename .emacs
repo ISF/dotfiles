@@ -70,13 +70,12 @@
 (setq next-line-add-newlines nil)
 
 ; Font
-(set-face-attribute 'default nil :family "Droid Sans Mono Slashed" :height 120)
+(set-face-attribute 'default nil :family "Terminus" :height 100)
 
 ; Colors
 (require 'color-theme)
 (color-theme-initialize)
 (setq color-theme-is-global t)
-;(color-theme-wombat)
 (color-theme-solarized-dark)
 
 ; Whitespace
