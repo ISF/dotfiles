@@ -1,0 +1,26 @@
+background        no
+out_to_console    yes
+out_to_x          no
+update_interval   1
+total_run_times   0
+uppercase         no
+use_spacer        none
+short_units       no
+double_buffer     yes
+
+template0         /home/ivan/.dzen/
+
+template1         aaaaaa
+
+TEXT
+${if_match ${exec grep -c eth0 /proc/net/route} > 0}\
+^fg(\#${template1})^i(${template0}wired_connected.xbm)^fg() ${addr eth0}\
+${else}\
+^fg(\#${template1})^i(${template0}wired_disconnected.xbm)^fg()\
+${endif}\
+ \
+^fg(\#${template1})^i(${template0}cpu.xbm)^fg() ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}% ${cpu cpu4}%\
+ \
+^fg(\#${template1})^i(${template0}mem.xbm)^fg() ${mem}\
+ \
+^fg(\#${template1})^i(${template0}clock.xbm)^fg() ${time %A %B %d, %H:%M:%S}\
