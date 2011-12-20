@@ -20,14 +20,9 @@ fi
 
 sleep 3 && tint2 &
 
-# wallpaper with nitrogen
-nitrogen --restore &
-
 kupfer --no-splash &
 
 volumeicon &
-
-unclutter &
 
 # starting terminal
 if [[ -z $(pidof Terminal) ]]; then

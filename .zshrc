@@ -52,10 +52,6 @@ autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info
 autoload -Uz zsh-mime-setup && zsh-mime-setup
 
-# color settings for ls
-eval $(dircolors -b)
-eval $(dircolors /home/ivan/.zsh/dircolors.256dark)
-
 ################################################################################
 # variables
 ################################################################################
@@ -68,6 +64,8 @@ VIMCFG="./configure --prefix=/usr --localstatedir=/var/lib/vim \
 --enable-netbeans --disable-perlinterp --enable-pythoninterp \
 --disable-rubyinterp --enable-luainterp"
 
+export PATH=$HOME/.scripts:$PATH
+
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
 else
@@ -75,7 +73,6 @@ else
     RPROMPT='${vcs_info_msg_0_}'
 fi
 
-export PATH=$HOME/.scripts:$PATH
 export EDITOR=$(which vim)
 export BROWSER=chromium
 if [[ $TERM == "screen-256color" ]]; then
@@ -83,48 +80,27 @@ if [[ $TERM == "screen-256color" ]]; then
 else
     export TERM=xterm-256color
 fi
+
 export PAGER='less -iR'
 export MANPAGER='less -iR'
 export PYTHONSTARTUP="$HOME/.pystartup"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export JAVA_FONTS='/usr/share/fonts/TTF'
 
-export LESS_TERMCAP_mb=$(printf "\e[1;31m")
-export LESS_TERMCAP_md=$(printf "\e[1;38;5;74m")
-export LESS_TERMCAP_me=$(printf "\e[0m")
-export LESS_TERMCAP_se=$(printf "\e[0m")
-export LESS_TERMCAP_so=$(printf "\e[38;5;246m")
-export LESS_TERMCAP_ue=$(printf "\e[0m")
-export LESS_TERMCAP_us=$(printf "\e[04;38;5;146m")
-
-# setting CFLAGS and CXXFLAGS if none of them are already defined
-if [[ -z $CFLAGS ]]; then
-    if [[ $(hostname) == "shungokusatsu" ]]; then
-        export CFLAGS="-march=amdfam10 -O2 -pipe"
-    elif [[ $(hostname) == "hadouken" ]]; then
-        export CFLAGS="-march=core2 -O2 -pipe"
-    fi
+if [[ -z "$(tty | grep tty)" ]]; then
+    eval $(dircolors -b)
+    eval $(dircolors /home/ivan/.zsh/dircolors.256dark)
+    export LESS_TERMCAP_mb=$(printf "\e[1;31m")
+    export LESS_TERMCAP_md=$(printf "\e[1;38;5;74m")
+    export LESS_TERMCAP_me=$(printf "\e[0m")
+    export LESS_TERMCAP_se=$(printf "\e[0m")
+    export LESS_TERMCAP_so=$(printf "\e[38;5;246m")
+    export LESS_TERMCAP_ue=$(printf "\e[0m")
+    export LESS_TERMCAP_us=$(printf "\e[04;38;5;146m")
+else
+    # use basic colors in true terminals
+    eval $(dircolors -b)
 fi
-
-if [[ -z $CXXFLAGS ]]; then
-    export CXXFLAGS="$CFLAGS"
-fi
-
-# locale
-[[ -z $LANG ]] && export LANG=pt_BR.UTF-8
-[[ -z $LC_CTYPE ]] && export LC_CTYPE=pt_BR.UTF-8
-[[ -z $LC_NUMERIC ]] && export LC_NUMERIC=pt_BR.UTF-8
-[[ -z $LC_COLLATE ]] && export LC_COLLATE=pt_BR.UTF-8
-[[ -z $LC_TIME ]] && export LC_TIME=pt_BR.UTF-8
-[[ -z $LC_MONETARY ]] && export LC_MONETARY=pt_BR.UTF-8
-[[ -z $LC_MESSAGES ]] && export LC_MESSAGES=pt_BR.UTF-8
-[[ -z $LC_PAPER ]] && export LC_PAPER=pt_BR.UTF-8
-[[ -z $LC_NAME ]] && export LC_NAME=pt_BR.UTF-8
-[[ -z $LC_ADDRESS ]] && export LC_ADDRESS=pt_BR.UTF-8
-[[ -z $LC_TELEPHONE ]] && export LC_TELEPHONE=pt_BR.UTF-8
-[[ -z $LC_MEASUREMENT ]] && export LC_MEASUREMENT=pt_BR.UTF-8
-[[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
-[[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
 ################################################################################
 # vcs_info configuration
@@ -360,9 +336,6 @@ alias -s jpg='viewnior'
 alias -s gif='viewnior'
 alias -s txt=$EDITOR
 alias -s pdf='zathura'
-
-# RVM setup
-[[ -s "/home/ivan/.rvm/scripts/rvm" ]] && source "/home/ivan/.rvm/scripts/rvm"
 
 # fix escape sequences when zsh is loaded with emacs' M-x shell
 if [[ $EMACS == 't' ]]; then
