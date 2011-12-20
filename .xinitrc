@@ -8,6 +8,7 @@ unclutter &
 urxvtd -q -f -o
 dropboxd &
 numlockx on &
+xmodmap .Xmodmap
 /home/ivan/.scripts/dzenconky.sh
 
 case $1 in
