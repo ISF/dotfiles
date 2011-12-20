@@ -39,7 +39,7 @@ set t_Co=256      " setting the number of colors
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set t_Co=256        " setting the number of colors (don't erase it here)
-    set guifont=Droid\ Sans\ Mono\ Slashed\ 11
+    set guifont=Terminus\ 10
     colorscheme solarized
 else
     let g:solarized_menu = 0
