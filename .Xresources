@@ -5,8 +5,8 @@ Emacs.FontBackend: xft
 !urxvt.depth: 32
 !urxvt.background: rgba:ffff/ffff/ffff/cccc
 urxvt.scrollBar: off
-urxvt.font: xft:terminus:antialias=true:pixelsize=13
-urxvt.boldFont: xft:terminus:antialias=true:pixelsize=13
+urxvt.font: xft:terminus:antialias=true:pixelsize=14
+urxvt.boldFont: xft:terminus:antialias=true:pixelsize=14
 urxvt*borderless: true
 urxvt*perl-lib: /usr/lib/urxvt/perl
 urxvt*perl-ext-common: default,matcher
