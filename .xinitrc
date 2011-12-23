@@ -7,6 +7,7 @@ nitrogen --restore
 unclutter &
 urxvtd -q -f -o
 dropboxd &
+mpd
 numlockx on &
 xmodmap .Xmodmap
 /home/ivan/.scripts/dzenconky.sh
