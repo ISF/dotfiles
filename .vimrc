@@ -393,6 +393,9 @@ inoremap {<CR> {<CR>}<Esc><S-O>
 " Open file name under cursor in another buffer
 nmap gb :badd <cfile><CR>
 
+noremap <C-k> <C-y>
+noremap <C-j> <C-e>
+
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
 
