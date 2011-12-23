@@ -11,12 +11,14 @@ import XMonad.Hooks.UrgencyHook
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
+import XMonad.Layout.Spacing
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
 
 import XMonad.Prompt
 import XMonad.Prompt.XMonad
+import XMonad.Prompt.Workspace
 
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
@@ -27,26 +29,30 @@ import qualified Data.Map        as M
 
 myTerminal      = "urxvtc"
 
-myWorkspaces    = ["1:main", "2:code", "3:web", "4:chat", "5:mail" ] ++ map show [6..9]
+myWorkspaces    = ["main", "code", "web", "chat", "media" ] ++ map show [6..9]
 
 myBorderWidth   = 1
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#00ff00"
+myNormalBorderColor  = "#121212"
+myFocusedBorderColor = "#dddddd"
 
 myModMask       = mod4Mask
+
+myXPConfig = defaultXPConfig { font = "Terminus:10"
+                             , bgColor = "#121212"
+                             , borderColor = "#222222"
+                             }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
  
     , ((modm,                     xK_p), spawn "exe=`dmenu_run` && eval \"exec $exe\"")
-    , ((controlMask .|. mod1Mask, xK_l),     spawn "exe=`slock` && eval \"exec $exe\"")  
+    , ((controlMask .|. mod1Mask, xK_l), spawn "exe=`slock` && eval \"exec $exe\"")
 
     , ((modm .|. shiftMask, xK_c     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
     , ((modm,               xK_n     ), refresh)
-    , ((modm,               xK_Tab   ), windows W.focusDown)
     , ((modm,               xK_j     ), windows W.focusDown)
     , ((modm,               xK_k     ), windows W.focusUp)
     , ((modm,               xK_m     ), windows W.focusMaster)
@@ -56,22 +62,22 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_h     ), sendMessage Shrink)
     , ((modm,               xK_l     ), sendMessage Expand)
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-    , ((modm .|. shiftMask, xK_comma ), sendMessage (IncMasterN 1))
-    , ((modm .|. shiftMask, xK_period), sendMessage (IncMasterN (-1)))
+    , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
+    , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     , ((0,    xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
 
     -- bindings for CycleWS
-    , ((mod1Mask,               xK_j  ), nextWS)
-    , ((mod1Mask,               xK_k  ), prevWS)
-    , ((mod1Mask .|. shiftMask, xK_j  ), shiftToNext >> nextWS)
-    , ((mod1Mask .|. shiftMask, xK_k  ), shiftToPrev >> prevWS)
-    , ((mod1Mask,               xK_u  ), nextScreen)
-    , ((mod1Mask,               xK_n  ), prevScreen)
-    , ((mod1Mask .|. shiftMask, xK_u  ), shiftNextScreen >> nextScreen)
-    , ((mod1Mask .|. shiftMask, xK_n  ), shiftPrevScreen >> prevScreen)
-    , ((mod1Mask,               xK_Tab), toggleWS)
+    , ((modm,               xK_Tab), nextWS)
+    , ((modm .|. shiftMask, xK_Tab), prevWS)
+    , ((modm,               xK_a  ), toggleWS)
+    , ((modm,               xK_u  ), nextScreen)
+    , ((modm,               xK_n  ), prevScreen)
+
+    -- move current window using a prompt
+    , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
+    , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
  
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -117,7 +123,7 @@ myManageHook = composeAll
  
 myEventHook = mempty
 
-statusBarCmd= "dzen2 -e '' -w 840 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg black -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
+statusBarCmd= "dzen2 -e '' -w 840 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
                  {  ppCurrent = wrap "^fg(#000000)^bg(#a0a0a0) " " ^fg()^bg()"
                   , ppHidden  = wrap "^i(/home/ivan/.dzen/has_win_nv.xbm)" " "
