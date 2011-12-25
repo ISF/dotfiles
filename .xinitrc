@@ -10,6 +10,7 @@ dropboxd &
 mpd
 numlockx on &
 xmodmap .Xmodmap
+xbindkeys
 /home/ivan/.scripts/dzenconky.sh
 
 case $1 in
