@@ -1,4 +1,4 @@
-mpd_host      = "localhost"
+mpd_host      = "127.0.0.1"
 mpd_port      = 6600
 mpd_music_dir = "~/music"
 
@@ -98,3 +98,8 @@ active_column_color            = "red"
 visualizer_color               = "yellow"
 window_border_color            = "green"
 active_window_border           = "red"
+
+visualizer_fifo_path     = "/tmp/mpd.fifo"
+visualizer_output_name   = "viz"
+visualizer_sync_interval = "1"
+visualizer_type          = "spectrum"
