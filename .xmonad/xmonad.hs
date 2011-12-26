@@ -12,6 +12,7 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
+import XMonad.Layout.PerWorkspace
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -37,7 +38,7 @@ myFocusedBorderColor = "#dddddd"
 
 myModMask       = mod4Mask
 
-myXPConfig = defaultXPConfig { font = "Terminus:10"
+myXPConfig = defaultXPConfig { font = "xft:terminus:10"
                              , bgColor = "#121212"
                              , borderColor = "#222222"
                              }
@@ -66,7 +67,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
-    , ((0,    xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
+    , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
 
     -- bindings for CycleWS
     , ((modm,               xK_Tab), nextWS)
@@ -108,11 +109,17 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
 
-myLayout = tiled ||| Mirror tiled ||| full ||| myTabbed
-  where
-    full   = noBorders Full
-    tiled  = smartBorders $ Tall 1 (3/100) (1/2)
-    myTabbed = noBorders $ simpleTabbed
+-- Tabbed layout
+myTabbed = noBorders $ simpleTabbed
+myFull = noBorders Full
+myTiled = spacing 2 $ Tall 1 (3/100) (1/2)
+
+mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed
+
+webLayout = myFull ||| myTiled ||| myTabbed
+
+myLayout = onWorkspace "web" webLayout $
+           mainLayout
  
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -132,9 +139,10 @@ myPP h = defaultPP
                   , ppWsSep   = ""
                   , ppLayout  = dzenColor "#878787" "" .
                                 (\x -> case x of
-                                         "Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
-                                         "Mirror Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
+                                         "Spacing 2 Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
+                                         "Mirror Spacing 2 Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
                                          "Full" -> "^i(/home/ivan/.dzen/full.xbm)"
+                                         _ -> "^i(/home/ivan/.dzen/other.xbm)"
                                 )
                   , ppTitle   = dzenColor "white" "" . wrap "< " " >"
                   , ppOutput  = hPutStrLn h
