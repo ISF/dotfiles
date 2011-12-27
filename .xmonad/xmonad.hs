@@ -13,6 +13,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.Fullscreen
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -118,7 +119,10 @@ mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed
 
 webLayout = myFull ||| myTiled ||| myTabbed
 
+mediaLayout = Mirror myTiled ||| myTiled ||| myFull
+
 myLayout = onWorkspace "web" webLayout $
+           onWorkspace "media" mediaLayout $
            mainLayout
  
 myManageHook = composeAll
