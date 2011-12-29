@@ -114,7 +114,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Tabbed layout
 myTabbed = noBorders $ simpleTabbed
 myFull = noBorders Full
-myTiled = spacing 2 $ Tall 1 (3/100) (1/2)
+myTiled = smartBorders . spacing 2 $ Tall 1 (3/100) (1/2)
 
 mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed
 
