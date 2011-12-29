@@ -2,7 +2,7 @@ import Data.Monoid
 import Data.Bits
 import System.Exit
 
-import XMonad
+import XMonad hiding ( (|||) )
 import XMonad.ManageHook
 
 import XMonad.Hooks.ManageDocks
@@ -13,7 +13,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
-import XMonad.Layout.Fullscreen
+import XMonad.Layout.LayoutCombinators
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -53,6 +53,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     , ((modm .|. shiftMask, xK_c     ), kill)
     , ((modm,               xK_space ), sendMessage NextLayout)
+    , ((modm,               xK_f     ), sendMessage $ JumpToLayout "Full")
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
     , ((modm,               xK_n     ), refresh)
     , ((modm,               xK_j     ), windows W.focusDown)
