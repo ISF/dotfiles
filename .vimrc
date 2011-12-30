@@ -457,7 +457,10 @@ nnoremap <F3> :NERDTree<CR>
 " todo list
 nnoremap <F4> <Plug>TaskList
 " Set hotkey for regenerating tags
-noremap <F5> :Silent !ctags -R --c-kinds=+pm --fields=+iaS --extra=+q -I *<CR>
+command! -nargs=0 UpdateTags
+            \ | execute ':Silent !ctags -R --c-kinds=+pm --fields=+iaS --extra=+q -I *'
+            \ | execute ':UpdateTypesFileOnly'
+noremap <F5> :UpdateTags<CR>
 " opening quickfix window
 nnoremap <F6> :cwindow<CR>
 " gundo
