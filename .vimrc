@@ -2,7 +2,7 @@
 
 set nocompatible  " VIM POWER!!!!
 set encoding=utf8
-set mouse=a
+set conceallevel=2
 
 " Pathogen
 call pathogen#runtime_append_all_bundles()
@@ -274,6 +274,9 @@ let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup 
 
 " tex support
 let g:tex_flavor="pdflatex"
+let g:tex_comment_nospell=1
+let g:tex_stylish=1
+let g:tex_conceal="admgs"
 
 " ManPageView
 let g:manpageview_winopen = "hsplit="
