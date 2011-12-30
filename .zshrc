@@ -64,7 +64,7 @@ VIMCFG="./configure --prefix=/usr --localstatedir=/var/lib/vim \
 --enable-netbeans --disable-perlinterp --enable-pythoninterp \
 --disable-rubyinterp --enable-luainterp"
 
-export PATH=$HOME/.scripts:$PATH
+export PATH=$HOME/.scripts:$HOME/.cabal/bin:$PATH
 
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
