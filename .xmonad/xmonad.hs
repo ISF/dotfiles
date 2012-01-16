@@ -33,11 +33,11 @@ import qualified Data.Map        as M
 
 myTerminal      = "urxvtc"
 
-myWorkspaces    = ["main", "code", "web", "chat", "media" ] ++ map show [6..9]
+myWorkspaces    = ["main", "code", "web", "chat", "media", "misc" ] ++ map show [7..9]
 
 myBorderWidth   = 1
 myNormalBorderColor  = "#121212"
-myFocusedBorderColor = "#dddddd"
+myFocusedBorderColor = "#268bd2"
 
 myModMask       = mod4Mask
 
@@ -135,6 +135,7 @@ myLayout = onWorkspace "web" webLayout $
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
+    , className =? "Vlc"           --> doFloat
     , className =? "Xfce4-notifyd"  --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
@@ -166,6 +167,7 @@ main = do
         $ defaultConfig {
             terminal           = myTerminal,
             focusFollowsMouse  = False,
+            clickJustFocuses   = False,
             borderWidth        = myBorderWidth,
             modMask            = myModMask,
             workspaces         = myWorkspaces,
