@@ -27,6 +27,9 @@
 	smtpencrytion = tls
 	smtpuser = ivansichfreitas@gmail.com
 
+[format]
+	pretty = oneline
+
 [color]
 	ui = true
 
