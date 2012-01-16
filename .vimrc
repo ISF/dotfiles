@@ -183,7 +183,7 @@ let g:EnhCommentifyBindInVisual    = 'no'
 let g:EnhCommentifyBindInInsert    = 'no'
 
 " Lua
-let g:lua_complete_omni     = 0
+let g:lua_complete_omni     = 1
 let g:lua_compiler_name     = '/usr/bin/luac'
 let g:lua_check_syntax      = 1
 let g:lua_complete_keywords = 1
