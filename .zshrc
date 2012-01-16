@@ -227,6 +227,21 @@ function zathura {
     command zathura $@ &
 }
 
+function _self_insert_git() {
+    if [[ $BUFFER = (git(-| )|gitk |qgit )* ]]; then
+        if [[ ! $LBUFFER[-1] = '\' ]]; then
+            LBUFFER+='\'
+        fi
+    fi
+    zle self-insert
+}
+
+zle -N self-insert-git _self_insert_git
+bindkey '~' self-insert-git
+bindkey '^' self-insert-git
+bindkey -M isearch '~' self-insert
+bindkey -M isearch '^' self-insert
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
