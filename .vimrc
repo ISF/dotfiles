@@ -63,7 +63,7 @@ set incsearch  " incremental search
 set ignorecase
 set infercase
 set smartcase
-set gdefault " use global as default in substitutions
+set nogdefault " don't use global as default in substitutions
 
 " Better completion menu
 set wildmenu
