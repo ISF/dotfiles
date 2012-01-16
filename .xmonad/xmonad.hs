@@ -8,12 +8,14 @@ import XMonad.ManageHook
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
+import XMonad.Hooks.Minimize
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
+import XMonad.Layout.Minimize
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -78,6 +80,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_u  ), nextScreen)
     , ((modm,               xK_n  ), prevScreen)
 
+    -- bindings to minimize
+    , ((modm,               xK_x), withFocused minimizeWindow)
+    , ((modm .|. shiftMask, xK_x), sendMessage RestoreNextMinimizedWin)
+
     -- move current window using a prompt
     , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
     , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
@@ -116,7 +122,7 @@ myTabbed = noBorders $ simpleTabbed
 myFull = noBorders Full
 myTiled = smartBorders . spacing 2 $ Tall 1 (3/100) (1/2)
 
-mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed
+mainLayout = minimize (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed)
 
 webLayout = myFull ||| myTiled ||| myTabbed
 
@@ -133,7 +139,7 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
  
-myEventHook = mempty
+myEventHook = minimizeEventHook
 
 statusBarCmd= "dzen2 -e '' -w 840 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
