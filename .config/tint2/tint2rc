@@ -17,7 +17,7 @@ background_color = #CCCCCC 3
 border_color = #000000 0
 
 # Panel
-panel_monitor = all
+panel_monitor = 1
 panel_position = top center horizontal
 panel_size = 100% 20
 panel_margin = 0 0

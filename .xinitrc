@@ -12,12 +12,5 @@ numlockx on &
 xmodmap .Xmodmap
 xbindkeys
 /home/ivan/.scripts/dzenconky.sh
-
-case $1 in
-    openbox)
-        exec ck-launch-session dbus-launch openbox-session;;
-    xmonad)
-        exec ck-launch-session dbus-launch xmonad;;
-    *)
-        exec ck-launch-session dbus-launch xmonad;;
-esac
+xfce4-power-manager &
+exec ck-launch-session dbus-launch xmonad
