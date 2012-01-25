@@ -23,4 +23,4 @@ ${endif}\
  \
 ^fg(\#${template1})^i(${template0}mem.xbm)^fg() ${mem}\
  \
-^fg(\#${template1})^i(${template0}clock.xbm)^fg() ${time %A %B %d, %H:%M:%S}\
+^fg(\#${template1})^i(${template0}clock.xbm)^fg() ${time %A %B %d, %H:%M}\
