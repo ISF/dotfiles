@@ -12,7 +12,6 @@ import XMonad.Hooks.Minimize
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
-import XMonad.Layout.Spacing
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Minimize
@@ -36,7 +35,7 @@ myTerminal      = "urxvtc"
 myWorkspaces    = ["main", "code", "web", "chat", "media", "misc" ] ++ map show [7..9]
 
 myBorderWidth   = 1
-myNormalBorderColor  = "#121212"
+myNormalBorderColor  = "#222222"
 myFocusedBorderColor = "#268bd2"
 
 myModMask       = mod4Mask
@@ -120,7 +119,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- Tabbed layout
 myTabbed = noBorders $ simpleTabbed
 myFull = noBorders Full
-myTiled = smartBorders . spacing 2 $ Tall 1 (3/100) (1/2)
+myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 
 mainLayout = minimize (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed)
 
@@ -151,9 +150,12 @@ myPP h = defaultPP
                   , ppWsSep   = ""
                   , ppLayout  = dzenColor "#878787" "" .
                                 (\x -> case x of
-                                         "Spacing 2 Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
-                                         "Mirror Spacing 2 Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
+                                         "Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
+                                         "Minimize Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
+                                         "Mirror Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
+                                         "Minimize Mirror Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
                                          "Full" -> "^i(/home/ivan/.dzen/full.xbm)"
+                                         "Minimize Full" -> "^i(/home/ivan/.dzen/full.xbm)"
                                          _ -> "^i(/home/ivan/.dzen/other.xbm)"
                                 )
                   , ppTitle   = dzenColor "white" "" . wrap "< " " >"
