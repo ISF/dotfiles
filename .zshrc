@@ -242,6 +242,11 @@ bindkey '^' self-insert-git
 bindkey -M isearch '~' self-insert
 bindkey -M isearch '^' self-insert
 
+function reload_mod {
+    sudo modprobe -r $@
+    sudo modprobe $@
+}
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
