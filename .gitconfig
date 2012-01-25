@@ -1,6 +1,7 @@
 [user]
 	name = Ivan Sichmann Freitas
 	email = ivansichfreitas@gmail.com
+	signingkey = FEBE1140
 
 [alias]
 	ci = commit
