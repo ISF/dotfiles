@@ -12,5 +12,4 @@ numlockx on &
 xmodmap .Xmodmap
 xbindkeys
 /home/ivan/.scripts/dzenconky.sh
-xfce4-power-manager &
 exec ck-launch-session dbus-launch xmonad

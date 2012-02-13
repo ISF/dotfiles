@@ -97,7 +97,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
     ++
  
     --
@@ -130,6 +130,10 @@ mediaLayout = Mirror myTiled ||| myTiled ||| myFull
 myLayout = onWorkspace "web" webLayout $
            onWorkspace "media" mediaLayout $
            mainLayout
+
+myStartup :: X ()
+myStartup = do
+            spawn "xfce4-power-manager"
  
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
@@ -169,7 +173,6 @@ main = do
         $ defaultConfig {
             terminal           = myTerminal,
             focusFollowsMouse  = False,
-            clickJustFocuses   = False,
             borderWidth        = myBorderWidth,
             modMask            = myModMask,
             workspaces         = myWorkspaces,
@@ -180,5 +183,6 @@ main = do
             layoutHook         = avoidStruts $ myLayout,
             manageHook         = myManageHook,
             handleEventHook    = myEventHook,
+            startupHook        = myStartup,
             logHook            = dynamicLogWithPP $ myPP dzen
         }
