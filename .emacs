@@ -82,6 +82,9 @@
 (setq-default show-trailing-whitespace t)
 (setq-default indicate-empty-lines t)
 
+; Line wrapping (truncate)
+(setq default-truncate-lines t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Slime
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -94,6 +97,8 @@
           (lambda ()
             (unless (slime-connected-p)
               (save-excursion (slime)))))
+
+(global-set-key "\C-z" 'slime-selector)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Backup file configuration
@@ -111,8 +116,10 @@
 ;;; File type settings
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq standard-indent 4) ; Setting indent size to 4
-(setq-default indent-tabs-mode nil) ; Tabs expand to spaces
+(which-function-mode)
+(global-set-key (kbd "RET") 'newline-and-indent)
+(setq standard-indent 4)
+(setq-default indent-tabs-mode nil)
 
 ; Lisp
 (add-hook 'lisp-mode-hook
@@ -120,28 +127,21 @@
             (set (make-local-variable 'lisp-indent-function)
                  'common-lisp-indent-function)))
 
-(add-hook 'lisp-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
-
 (font-lock-add-keywords 'emacs-lisp-mode
                         '(("\\<\\(add-hook\\)" 1 font-lock-builtin-face t)
                           ("\\<\\(set-hook\\)" 1 font-lock-builtin-face t)
                           ("\\<\\(add-to-list\\)" 1 font-lock-builtin-face t)))
-(add-hook 'emacs-lisp-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ; C
 (add-hook 'c-mode-common-hook
           '(lambda () (c-toggle-auto-state 1)))
 
-(add-hook 'c-mode-common-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
-
-(setq c-default-style "k&r"
+(setq c-default-style "linux"
       c-basic-offset 4)
+(setq c-hanging-braces-alist '((class-open after)
+                               (substatement-open after)
+                               (topmost-intro after)))
+(setq c-cleanup-list 'defun-close-semi)
 
 ; Haskell
 (load "~/.emacs.d/haskellmode-emacs/haskell-site-file.el")
@@ -149,6 +149,3 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (setq haskell-font-lock-symbols t)
 (add-hook 'haskell-mode-hook 'turn-on-font-lock)
-(add-hook 'haskell-mode-hook
-          '(lambda ()
-             (local-set-key (kbd "RET") 'newline-and-indent)))
