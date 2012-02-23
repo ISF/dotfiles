@@ -195,6 +195,9 @@ let g:syntastic_mode_map            = { 'mode'              : 'passive',
 let g:vhdl_indent_genportmap = 0
 let g:vhdl_indent_rhsassign = 1
 
+" TagHighlight
+let g:TagHighlightSettings = { 'IncludeLocals': 'False' }
+
 " haskell syntax highlighting configuration
 let hs_highlight_types      = 1
 let hs_highlight_more_types = 1
@@ -310,10 +313,6 @@ if has("autocmd")
 
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent
-
-    " Save folds automatically on close, and load them on opening the file
-    au BufWinLeave *.* mkview
-    au BufWinEnter *.* silent loadview
 
 endif
 
