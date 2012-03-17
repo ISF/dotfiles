@@ -2,9 +2,9 @@ mpd_host      = "127.0.0.1"
 mpd_port      = 6600
 mpd_music_dir = "~/music"
 
-song_list_format        = "{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
-song_status_format      = "{{%a{ \"%b\"{ (%y)}} - }{%t}}|{%f}"
-song_library_format     = "{%n - }{%t}|{%f}"
+song_list_format        = "$1$9%l$1$9 $1Â¦$9 $2%a$9 $1Â¦$9 $5%b$9 $R$1$9%t$1$9 $1Â¦$9 $1%n$9"
+song_status_format      = "{%a - }{%t - }{%b}"
+song_library_format     = "{%n > }{%t}|{%f}"
 tag_editor_album_format = "{(%y) }%b"
 
 now_playing_prefix      = "$b"
@@ -14,7 +14,7 @@ selected_item_prefix    = "$6"
 selected_item_suffix    = "$9"
 
 song_window_title_format = "{%a - }{%t}|{%f}"
-song_columns_list_format = "(7f)[green]{l} (25)[cyan]{a} (40)[]{t|f} (30)[red]{b}"
+song_columns_list_format = "(3f)[black]{n} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b} (4f)[black]{l}"
 
 playlist_show_remaining_time       = "no"
 playlist_shorten_total_times       = "no"
@@ -25,8 +25,8 @@ search_engine_display_mode         = "classic"
 discard_colors_if_item_is_selected = "yes"
 incremental_seeking                = "yes"
 seek_time                          = "1"
-autocenter_mode                    = "no"
-centered_cursor                    = "no"
+autocenter_mode                    = "yes"
+centered_cursor                    = "yes"
 
 progressbar_look            = "|>."
 default_place_to_search_in  = "database"
