@@ -5,6 +5,7 @@
 (let ((default-directory "~/.emacs.d/"))
       (normal-top-level-add-to-load-path '("."))
       (normal-top-level-add-subdirs-to-load-path))
+(add-to-list 'load-path "/usr/share/emacs/site-lisp")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; USE THE POWERFUL VIM KEYBINDS
@@ -86,6 +87,7 @@
 ;;; Slime
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/slime")
 (setq inferior-lisp-program "/usr/bin/sbcl")
 (require 'slime-autoloads)
 (slime-setup '(slime-fancy))
@@ -146,3 +148,21 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (setq haskell-font-lock-symbols t)
 (add-hook 'haskell-mode-hook 'turn-on-font-lock)
+
+; Lua
+(setq auto-mode-alist (cons '("\.lua$" . lua-mode) auto-mode-alist))
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+
+; Python
+(autoload 'python-mode "python-mode.el" "Python mode." t)
+(setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) auto-mode-alist))
+
+; Latex
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq TeX-save-query nil)
+(setq TeX-PDF-mode t)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-buffer)
