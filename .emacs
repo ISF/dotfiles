@@ -10,26 +10,23 @@
 ;;; USE THE POWERFUL VIM KEYBINDS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'vimpulse)
-(setq vimpulse-want-C-i-like-Vim nil)
-(setq vimpulse-want-C-u-like-Vim nil)
-(setq vimpulse-want-change-state nil)
-(setq vimpulse-want-change-undo nil)
-(setq vimpulse-want-vi-keys-in-dired t)
-(setq vimpulse-want-quit-like-Vim t)
+(require 'evil)
+(evil-mode 1)
+(setq evil-auto-indent t)
+(setq evil-shift-width 4)
+(setq evil-regexp-search t)
+(setq evil-want-C-i-jump t)
+(setq evil-want-C-u-scroll t)
 
-(setq viper-auto-indent t)
-(setq viper-case-fold-search t)
-(setq viper-want-emacs-keys-in-insert t)
+(require 'surround)
+(global-surround-mode 1)
 
-; S-expressions
-(vimpulse-define-text-object vimpulse-sexp (arg)
-  "Select a S-expression."
-  :keys '("ae" "ie")
-  (vimpulse-inner-object-range
-   arg
-   'backward-sexp
-   'forward-sexp))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Flymake
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'flymake)
+(setq ispell-program-name "hunspell")
+(setq ispell-dictionary "brasileiro")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Auto complete
