@@ -14,11 +14,11 @@ selected_item_prefix    = "$6"
 selected_item_suffix    = "$9"
 
 song_window_title_format = "{%a - }{%t}|{%f}"
-song_columns_list_format = "(3f)[black]{n} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b} (4f)[black]{l}"
+song_columns_list_format = "(3f)[cyan]{n} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b} (4f)[cyan]{l}"
 
 playlist_show_remaining_time       = "no"
 playlist_shorten_total_times       = "no"
-playlist_separate_albums           = "yes"
+playlist_separate_albums           = "no"
 playlist_display_mode              = "columns"
 browser_display_mode               = "columns"
 search_engine_display_mode         = "classic"
