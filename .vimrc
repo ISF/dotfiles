@@ -140,10 +140,9 @@ let c_no_comment_fold = 1 " disable syntax based folding for comments
 let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
 
-" AutoComplPop
-let g:acp_completeoptPreview    = 1
-let g:acp_behaviorKeywordLength = 4
-let g:acp_mappingDriven         = 1
+" Supertab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextCompletionType = "<c-p>"
 
 " EnhancedCommentify
 let g:EnhCommentifyMultiPartBlocks = 'yes'
