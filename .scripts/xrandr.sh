@@ -6,3 +6,5 @@ else
     /home/ivan/.scripts/xrandr_disconnect.sh
 fi
 nitrogen --restore
+pkill conky # ugly, but works
+dzenconky.sh

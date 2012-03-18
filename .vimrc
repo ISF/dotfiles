@@ -280,6 +280,7 @@ if has("autocmd")
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
+    autocmd FileType mail set spell spelllang=br,en_us
 
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
@@ -313,6 +314,7 @@ if has("autocmd")
 
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent
+    autocmd FileType tex,latex setl spell spelllang=br,en_us
 
 endif
 
