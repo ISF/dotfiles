@@ -231,6 +231,8 @@ let g:tex_flavor="pdflatex"
 let g:tex_comment_nospell=1
 let g:tex_stylish=1
 let g:tex_conceal="admgs"
+let g:LatexBox_viewer = 'zathura'
+let g:LatexBox_latexmk_options = "-pvc"
 
 " ManPageView
 let g:manpageview_winopen = "hsplit="
