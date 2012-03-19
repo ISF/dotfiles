@@ -65,5 +65,16 @@ theme.loading_bg        = "#000"
 theme.trust_fg          = "#0F0"
 theme.notrust_fg        = "#F00"
 
+-- Follow hints
+theme.follow = {}
+theme.follow.opacity = 0.3
+theme.follow.tick_font = "10px terminus"
+theme.follow.tick_opacity = 0.9
+theme.follow.vert_offset = 10
+theme.follow.horiz_offset = -15
+theme.follow.tick_fg = "#ffffff"
+theme.follow.tick_bg = "#1793d0"
+theme.follow.tick_border = "2px solid #1793d0"
+
 return theme
 -- vim: et:sw=4:ts=8:sts=4:tw=80
