@@ -22,6 +22,7 @@ import XMonad.Actions.DwmPromote
 import XMonad.Prompt
 import XMonad.Prompt.XMonad
 import XMonad.Prompt.Workspace
+import XMonad.Prompt.Shell
 
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
@@ -86,6 +87,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- move current window using a prompt
     , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
     , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
+
+    -- execute shell commands
+    , ((modm,               xK_s), shellPrompt myXPConfig)
  
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
