@@ -198,7 +198,7 @@ end)
 
 -- Custom character set for the follow hint labels
 local s = follow.styles
-follow.style = s.sort(s.reverse(s.charset("hynjkuioplkngtrecvbqwera")))
+follow.style = s.sort(s.reverse(s.charset("asqwertgfhjkloiup")))
 
 -- Bindings
 local key = lousy.bind.key
