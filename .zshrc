@@ -323,7 +323,7 @@ bindkey '\eOD' backward-delete-charward-char
 
 # push current line to a buffer, type a new command, pop the pushed line and
 # resume editing it
-bindkey -M viins '^i' push-line
+bindkey -M viins '^j' push-line
 
 ################################################################################
 # alias
