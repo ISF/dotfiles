@@ -302,6 +302,7 @@ bindkey -M viins '\e[Z' reverse-menu-complete
 
 # control+u erase entire line on vicmd
 bindkey -M viins '^u' kill-whole-line # dd can be used also
+bindkey -M viins '^k' kill-line
 
 # alt+. to complete previous args
 bindkey -M viins '\e.' insert-last-word
@@ -319,6 +320,10 @@ bindkey '\e[D' backward-char
 
 bindkey '\eOC' forward-char
 bindkey '\eOD' backward-delete-charward-char
+
+# push current line to a buffer, type a new command, pop the pushed line and
+# resume editing it
+bindkey -M viins '^i' push-line
 
 ################################################################################
 # alias
