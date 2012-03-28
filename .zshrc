@@ -351,6 +351,7 @@ alias task='nocorrect task'
 alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
+alias onlyx='nohup startx &; disown; exit'
 
 # suffix
 alias -s html=$BROWSER
