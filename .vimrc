@@ -196,6 +196,7 @@ let g:vhdl_indent_rhsassign = 1
 
 " TagHighlight
 let g:TagHighlightSettings = { 'IncludeLocals': 'False' }
+hi! link CTagsGlobalVariable None
 
 " haskell syntax highlighting configuration
 let hs_highlight_types      = 1
