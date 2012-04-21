@@ -43,3 +43,5 @@
 	added = green
 	changed = blue
 	untracked = red
+[github]
+	user = ISF
