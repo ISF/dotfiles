@@ -207,7 +207,7 @@ let hs_highlight_boolean    = 1
 let g:tagbar_left = 1
 
 " TaskList configuration
-let g:tlTokenList = ['TODO', 'FIXME', 'NOTE', 'HACK', 'XXX']
+let g:tlTokenList = ['TODO', 'FIXME', 'NOTE', 'HACK', 'XXX', '\todo']
 
 " Haskell
 let g:haddock_browser = "/usr/bin/luakit"
