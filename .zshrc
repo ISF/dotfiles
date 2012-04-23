@@ -43,7 +43,6 @@ fpath=($HOME/.zsh/functions/
 # my functions
 
 autoload tmux_init
-autoload kernel_symbol
 
 # global functions
 autoload -Uz colors && colors
@@ -245,6 +244,16 @@ bindkey -M isearch '^' self-insert
 function reload_mod {
     sudo modprobe -r $@
     sudo modprobe $@
+}
+
+function kernel_symbol {
+    if [[ -f /proc/config.gz ]]; then
+        if [[ -n $1 ]]; then
+            zgrep $1 /proc/config.gz
+        fi
+    else
+        echo "/proc/config.gz not found"
+    fi
 }
 
 ################################################################################
