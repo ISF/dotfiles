@@ -43,7 +43,6 @@ fpath=($HOME/.zsh/functions/
 # my functions
 
 autoload tmux_init
-autoload kernel_symbol
 
 # global functions
 autoload -Uz colors && colors
