@@ -318,8 +318,17 @@ if has("autocmd")
     autocmd FileType c,cpp syn keyword cType off64_t
 
     " Tex, LaTeX
-    autocmd FileType tex,latex setl smartindent
+    autocmd FileType tex,latex setl smartindent textwidth=80
     autocmd FileType tex,latex setl spell spelllang=br,en_us
+    autocmd FileType tex,latex nmap <C-C>m :Latexmk<CR>
+    autocmd FileType tex,latex nmap <C-C>c :LatexmkClean<CR>
+    autocmd FileType tex,latex nmap <C-C>e :LatexErrors<CR>
+    autocmd FileType tex,latex nmap <C-C>v :LatexView<CR>
+    autocmd FileType tex,latex nmap <C-C>t :LatexTOC<CR>
+    autocmd FileType tex,latex nmap <C-C>x <Plug>LatexChangeEnv
+    autocmd FileType tex,latex nmap <C-C>w <Plug>LatexWrapSelection
+    autocmd FileType tex,latex nmap <C-C>we <Plug>LatexEnvWrapSelection
+    autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
 
 endif
 
