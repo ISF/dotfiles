@@ -340,8 +340,15 @@ nnoremap k gk
 map Y y$
 
 " Hotkeys for easily editing/sourcing vimrc
-nmap <Leader>sv :source $MYVIMRC<CR>
-nmap <Leader>ev :edit $MYVIMRC<CR>
+nmap <C-S><C-V> :source $MYVIMRC<CR>
+nmap <C-E><C-V> :edit $MYVIMRC<CR>
+
+nmap <C-X><C-F> :CtrlP<CR>
+nmap <C-X><C-B> :CtrlPBuffer<CR>
+nmap <C-X><C-M> :CtrlPMRU<CR>
+nmap <C-B>b :BufExplorer<CR>
+nmap <C-B>v :BufExplorerVerticalSplit<CR>
+nmap <C-B>s :BufExplorerHorizontalSplit<CR>
 
 " Calling :Dox (needs DoxygenToolkit)
 nmap <Leader>do :Dox<CR>
@@ -394,10 +401,10 @@ inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
 " EnhancedCommentify
-vmap <Leader>cm <Plug>VisualComment
-nmap <Leader>cm <Plug>Comment
-vmap <Leader>dm <Plug>VisualDeComment
-nmap <Leader>dm <Plug>DeComment
+vmap <C-C>c <Plug>VisualComment
+nmap <C-C>c <Plug>Comment
+vmap <C-C>d <Plug>VisualDeComment
+nmap <C-C>d <Plug>DeComment
 
 "" FN mappings
 " Taglist's hotkeys
