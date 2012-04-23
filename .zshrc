@@ -223,7 +223,7 @@ function precmd {
 }
 
 function zathura {
-    command zathura $@ --fork 2>&1 > /dev/null
+    command zathura $@ --fork > /dev/null 2>&1
 }
 
 function _self_insert_git() {
