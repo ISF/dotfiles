@@ -121,7 +121,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
     ]
 
 -- Tabbed layout
-myTabbed = noBorders $ simpleTabbed
+myTabbed = noBorders $ tabbed shrinkText defaultTheme { fontName =  "xft:terminus:pixelsize=12"}
 myFull = noBorders Full
 myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 
