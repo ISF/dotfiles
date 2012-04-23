@@ -20,17 +20,7 @@ ${if_match ${exec grep -c wlan0 /proc/net/route} > 0}\
 ^fg(\#${template1})^i(${template0}wifi.xbm)^fg() ${addr wlan0}\
 ${endif}\
  \
-${if_match ${battery_percent BAT0} >= 75}\
 ^fg(\#${template1})^i(${template0}battery_full.xbm)^fg() ${battery_percent}%\
-${endif}\
-${if_match ${battery_percent BAT0} < 75}\
-    ${if_match ${battery_percent BAT0} >= 25}\
-    ^fg(\#${template1})^i(${template0}battery_low.xbm)^fg() ${battery_percent}%\
-    ${endif}\
-    ${if_match ${battery_percent BAT0} < 25}\
-    ^fg(\#${template1})^i(${template0}battery_empty.xbm)^fg() ${battery_percent}%\
-    ${endif}\
-${endif}\
  \
 ^fg(\#${template1})^i(${template0}cpu.xbm)^fg() ${cpu cpu1}% ${cpu cpu2}%\
  \
