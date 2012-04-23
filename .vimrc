@@ -238,6 +238,9 @@ let g:LatexBox_latexmk_options = "-pvc"
 " ManPageView
 let g:manpageview_winopen = "hsplit="
 
+" ctrlp config
+let g:ctrlp_working_path_mode = 2
+
 " C highlighting
 hi DefinedByUser ctermfg=lightgrey guifg=blue
 hi cBraces ctermfg=lightgreen guifg=lightgreen
