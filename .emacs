@@ -163,11 +163,15 @@
 (setq auto-mode-alist (append '(("/*.\.py$" . python-mode)) auto-mode-alist))
 
 ; Latex
+(require 'reftex)
 (load "auctex.el" nil t t)
 (load "preview-latex.el" nil t t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
 (setq TeX-PDF-mode t)
+(setq reftex-plug-into-AUCTeX t)
+(setq reftex-extra-bindings t)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
