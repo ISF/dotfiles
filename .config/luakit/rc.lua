@@ -2,12 +2,15 @@
 -- luakit configuration file, more information at http://luakit.org/ --
 -----------------------------------------------------------------------
 
+require "lfs"
+
 if unique then
     unique.new("org.luakit")
     -- Check for a running luakit instance
     if unique.is_running() then
         if uris[1] then
             for _, uri in ipairs(uris) do
+                if lfs.attributes(uri) then uri = os.abspath(uri) end
                 unique.send_message("tabopen " .. uri)
             end
         else
@@ -22,7 +25,7 @@ require "lousy"
 
 -- Small util functions to print output (info prints only when luakit.verbose is true)
 function warn(...) io.stderr:write(string.format(...) .. "\n") end
-function info(...) if luakit.verbose then io.stderr:write(string.format(...) .. "\n") end end
+function info(...) if luakit.verbose then io.stdout:write(string.format(...) .. "\n") end end
 
 -- Load users global config
 -- ("$XDG_CONFIG_HOME/luakit/globals.lua" or "/etc/xdg/luakit/globals.lua")
@@ -48,14 +51,12 @@ require "modes"
 -- Load users keybindings
 -- ("$XDG_CONFIG_HOME/luakit/binds.lua" or "/etc/xdg/luakit/binds.lua")
 require "binds"
--- TODO: make C-L behave exactly like in other browsers
--- add_binds({"normal", "command"}, {
---     key({"Control"}, "l", function (w) w:enter_cmd(":open ") end)
--- })
 
 ----------------------------------
 -- Optional user script loading --
 ----------------------------------
+
+require "webinspector"
 
 -- Add sqlite3 cookiejar
 require "cookies"
@@ -104,6 +105,8 @@ require "follow"
 
 -- To use a custom character set for the follow hint labels un-comment and
 -- modify the following:
+--local s = follow.styles
+--follow.style = s.sort(s.reverse(s.charset("asdfqwerzxcv"))) -- I'm a lefty
 
 -- Add command history
 require "cmdhist"
@@ -123,7 +126,7 @@ require "completion"
 
 -- NoScript plugin, toggle scripts and or plugins on a per-domain basis.
 -- `,ts` to toggle scripts, `,tp` to toggle plugins, `,tr` to reset.
--- Remove all "enable-scripts" & "enable-plugins" lines from your
+-- Remove all "enable_scripts" & "enable_plugins" lines from your
 -- domain_props table (in config/globals.lua) as this module will conflict.
 --require "noscript"
 
@@ -160,19 +163,8 @@ if unique then
         elseif cmd == "winopen" then
             w = window.new((arg ~= "") and { arg } or {})
         end
-        w.win:set_screen(screen)
-    end)
-end
-
--------------------------------------------
--- Specific configurations
--------------------------------------------
-
--- avoid opening new windows everytime
-webview.init_funcs.window_decision = function (view, w)
-    view:add_signal("new-window-decision", function (v, uri, reason)
-        w:new_tab(uri)
-        return true
+        w.win.screen = screen
+        w.win.urgency_hint = true
     end)
 end
 
@@ -206,5 +198,15 @@ local key = lousy.bind.key
 add_binds({"normal"}, {
     key({}, "y", function (w) w:set_mode("downloadlist") end)
 })
+
+-- open magnet links with transmission
+webview.init_funcs.magnet_hook = function (view, w)
+    view:add_signal("navigation-request", function (v, uri)
+        if string.match(string.lower(uri), "^magnet:") then
+            luakit.spawn(string.format("%s %q", "transmission-gtk", uri))
+            return false
+        end
+    end)
+end
 
 -- vim: et:sw=4:ts=8:sts=4:tw=80
