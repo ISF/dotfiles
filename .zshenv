@@ -3,8 +3,12 @@ LANG=pt_BR.UTF8
 #### Daemons
 
 # ssh-agent
+SSH_ENV="$HOME/.ssh/ssh.env"
 if [[ -z $(pidof ssh-agent) ]]; then
-    eval $(ssh-agent)
+    ssh-agent > $SSH_ENV
+    eval $(cat $SSH_ENV)
+else
+    [ -f $SSH_ENV ] && eval $(cat $SSH_ENV)
 fi
 
 # starting gpg-agent
