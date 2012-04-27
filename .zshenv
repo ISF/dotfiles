@@ -5,8 +5,8 @@ LANG=pt_BR.UTF8
 # ssh-agent
 SSH_ENV="$HOME/.ssh/ssh.env"
 if [[ -z $(pidof ssh-agent) ]]; then
-    ssh-agent > $SSH_ENV
-    eval $(cat $SSH_ENV)
+    ssh-agent | head -n 2 > $SSH_ENV
+    eval "$(cat $SSH_ENV)"
 else
     [ -f $SSH_ENV ] && eval $(cat $SSH_ENV)
 fi
