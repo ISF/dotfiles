@@ -18,7 +18,7 @@ set print union on
 
 ## configuring scripts
 # don't print python stack trace
-maint set python print-stack
+set python print-stack
 
 # enabling script type detection
 set script-extension strict
