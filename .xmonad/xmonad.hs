@@ -9,6 +9,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.Minimize
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
@@ -26,6 +28,8 @@ import XMonad.Prompt.Shell
 
 import XMonad.Util.Run
 import XMonad.Util.EZConfig
+import XMonad.Util.Scratchpad
+import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -49,6 +53,7 @@ myXPConfig = defaultXPConfig { font = "xft:terminus:10"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    , ((modm,               xK_equal ), scratchpadSpawnActionCustom "urxvt -name scratchpad +sb -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*'")
  
     , ((modm,                     xK_p), spawn "exe=`dmenu_run` && eval \"exec $exe\"")
     , ((controlMask .|. mod1Mask, xK_l), spawn "exe=`slock` && eval \"exec $exe\"")
@@ -135,21 +140,27 @@ myLayout = onWorkspace "web" webLayout $
            onWorkspace "media" mediaLayout $
            mainLayout
 
-myStartup :: X ()
-myStartup = do
-            spawn "xfce4-power-manager"
- 
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
-    , className =? "Vlc"           --> doFloat
+    , className =? "Vlc"            --> doFloat
+    , className =? "net-minecraft-LauncherFrame"      --> doFloat
     , className =? "Xfce4-notifyd"  --> doIgnore
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
+    <+> manageScratchPad
+
+manageScratchPad :: ManageHook
+manageScratchPad = scratchpadManageHook (W.RationalRect left top width height)
+    where
+        height = 0.3
+        width = 1
+        top = 1 - height
+        left = 1 - width
  
 myEventHook = minimizeEventHook
 
-statusBarCmd= "dzen2 -e '' -w 840 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
+statusBarCmd= "dzen2 -e '' -w 600 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
                  {  ppCurrent = wrap "^fg(#000000)^bg(#a0a0a0) " " ^fg()^bg()"
                   , ppHidden  = wrap "^i(/home/ivan/.dzen/has_win_nv.xbm)" " "
@@ -169,6 +180,7 @@ myPP h = defaultPP
                   , ppTitle   = dzenColor "white" "" . wrap "< " " >"
                   , ppOutput  = hPutStrLn h
                   , ppUrgent = dzenColor "green" "#878787" . dzenStrip
+                  , ppSort = fmap (namedScratchpadFilterOutWorkspace.) (ppSort defaultPP)
                   }
 
 main = do
@@ -188,6 +200,6 @@ main = do
             layoutHook         = avoidStruts $ myLayout,
             manageHook         = myManageHook,
             handleEventHook    = myEventHook,
-            startupHook        = myStartup,
+            startupHook        = setWMName "LG3D",
             logHook            = dynamicLogWithPP $ myPP dzen
         }
