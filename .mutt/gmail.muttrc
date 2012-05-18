@@ -5,13 +5,13 @@ set sendmail = "/usr/bin/msmtp -a gmail"
 set folder = /home/ivan/.mail/gmail
 set spoolfile = "=INBOX"
 set mbox = "=INBOX"
-set postponed = "=drafts"
+set postponed = "=[Gmail].Drafts"
 set ssl_force_tls = yes
 unset record # prevent duplicates in Sent
 
-macro index,pager .t '<save-message>=trash<enter>' "move in Gmail trash"
-macro index,pager .s "<save-message>=spam<enter>" "Flag as spam"
+macro index,pager .t '<save-message>=[Gmail].Trash<enter>' "move in Gmail trash"
+macro index,pager .s "<save-message>=[Gmail].spam<enter>" "Flag as spam"
 macro index gm "<change-folder>?"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
-macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
-macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
+macro index gs "<change-folder>=[Gmail].Sent Mail<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=[Gmail].Drafts<enter>" "Go to drafts"

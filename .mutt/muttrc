@@ -51,9 +51,11 @@ unset confirmappend
 unset mark_old
 unset move
 unset uncollapse_jump
-alternative_order text/plain text/enriched text
+alternative_order text/plain text/enriched text/html text
 auto_view text/html
 mime_lookup application/octet-stream
+
+# Folders
 
 folder-hook gmail/* source ~/.mutt/gmail.muttrc
 folder-hook gmx/* source ~/.mutt/gmx.muttrc
@@ -135,11 +137,11 @@ set include # include original message
 source ~/.mutt/gpg.muttrc
 set sig_dashes
 set signature = "~/.signature"
-set pgp_autosign = no
+folder-hook . set pgp_autosign = no
+folder-hook Dragonfly set pgp_autosign = yes
 set pgp_sign_as=FEBE1140
 set pgp_replyencrypt = yes
 set pgp_timeout = 1800 # half hour
-set my_header="X-PGP-Key: http://www.students.ic.unicamp.br/~ra093887/files/pubkey.asc"
 #set pgp_mime_signature_filename="signature.asc"
 #set pgp_mime_signature_description="Digital signature"
 

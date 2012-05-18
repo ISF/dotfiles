@@ -5,7 +5,6 @@ accounts = gmail,gmx
 maxsyncaccounts = 1
 ui = TTYUI
 ignore-readonly = no
-pythonfile = ~/.mail/utf7.py
 
 [mbnames]
 
@@ -35,7 +34,6 @@ type = Maildir
 localfolders = ~/.mail/gmail
 sep = .
 restoreatime = no
-
 [Repository gmail-remote]
 
 type = Gmail
@@ -44,14 +42,6 @@ remotehost = imap.gmail.com
 ssl = yes
 remoteport = 993
 remoteuser = ivansichfreitas@gmail.com
-
-nametrans = lambda folder: re.sub('.*Spam$', 'spam',
-    re.sub('.*Drafts$', 'drafts',
-    re.sub('.*Sent Mail$', 'sent',
-    re.sub('.*Starred$', 'flagged',
-    re.sub('.*Important', 'important',
-    re.sub('.*Trash$', 'trash',
-    re.sub('.*All Mail$', 'archive', folder.decode('imap4-utf-7').encode('utf-8'))))))))
 
 maxconnections = 3
 holdconnectionopen = no
