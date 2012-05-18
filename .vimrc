@@ -13,6 +13,7 @@ set splitright
 set nosplitbelow
 set magic
 set backspace=indent,eol,start
+set sessionoptions=buffers,folds
 
 " Backup and history options
 set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another directory
@@ -133,9 +134,9 @@ function! CoreutilsIndent()
 endfunction
 
 " C syntax options (see :help c.vim)
-let c_syntax_for_h    = 0 " use c syntax to .h files instead of c++ syntax
-let c_space_errors    = 0 " trailing whitespave or spaces before tabs
-let c_comment_strings = 0 " highligh numbers and strings insede comments
+" unlet c_syntax_for_h      " use c syntax to .h files instead of c++ syntax
+" unlet c_space_errors      " trailing whitespave or spaces before tabs
+" unlet c_comment_strings   " highligh numbers and strings insede comments
 let c_no_comment_fold = 1 " disable syntax based folding for comments
 let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
@@ -197,6 +198,10 @@ let g:vhdl_indent_rhsassign = 1
 " TagHighlight
 let g:TagHighlightSettings = { 'IncludeLocals': 'False' }
 hi! link CTagsGlobalVariable None
+hi! link CTagsFunction Function
+hi! link CTagsClass Type
+hi! link CTagsDefinedName Constant
+hi! link CTagsMember None
 
 " haskell syntax highlighting configuration
 let hs_highlight_types      = 1
@@ -216,16 +221,24 @@ let g:haddock_browser = "/usr/bin/luakit"
 let yaifa_max_lines = 1024
 
 " omnicppcomplete options
-let OmniCpp_GlobalScopeSearch   = 1 " searches in the global scope
-let OmniCpp_NamespaceSearch     = 2 " search in included files also
-let OmniCpp_DisplayMode         = 1 " always show all class members
-let OmniCpp_ShowScopeInAbbr     = 0 " don't show scope in abbreviations
-let OmniCpp_ShowPrototypeInAbbr = 1 " display prototype in abbreviations
-let OmniCpp_ShowAccess          = 1 " show access
-let OmniCpp_MayCompleteDot      = 1 " automatically completes after a '.'
-let OmniCpp_MayCompleteArrow    = 1 " automatically completes after a '->'
-let OmniCpp_MayCompleteScope    = 1 " automatically completes afer a '::'
-let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup menu
+" let OmniCpp_GlobalScopeSearch   = 1 " searches in the global scope
+" let OmniCpp_NamespaceSearch     = 2 " search in included files also
+" let OmniCpp_DisplayMode         = 1 " always show all class members
+" let OmniCpp_ShowScopeInAbbr     = 0 " don't show scope in abbreviations
+" let OmniCpp_ShowPrototypeInAbbr = 1 " display prototype in abbreviations
+" let OmniCpp_ShowAccess          = 1 " show access
+" let OmniCpp_MayCompleteDot      = 1 " automatically completes after a '.'
+" let OmniCpp_MayCompleteArrow    = 1 " automatically completes after a '->'
+" let OmniCpp_MayCompleteScope    = 1 " automatically completes afer a '::'
+" let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup menu
+
+let g:clang_auto_select = 1
+let g:clang_complete_auto = 1
+let g:clang_hl_errors = 1
+let g:clang_close_preview = 1
+let g:clang_user_options = "2>/dev/null || exit 0"
+let g:clang_use_library = 0
+let g:clang_complete_macros = 0
 
 " tex support
 let g:tex_flavor="pdflatex"
@@ -415,7 +428,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 nnoremap <F4> :TaskList<CR>
 " Set hotkey for regenerating tags
 command! -nargs=0 UpdateTags
-            \ | execute ':Silent !ctags -R --c-kinds=+pm --fields=+iaS --extra=+q -I *'
+            \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+iaS --extra=+q -I *'
             \ | execute ':UpdateTypesFileOnly'
 noremap <F5> :UpdateTags<CR>
 " opening quickfix window
