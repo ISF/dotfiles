@@ -27,6 +27,7 @@
 	smtpserverport = 587
 	smtpencrytion = tls
 	smtpuser = ivansichfreitas@gmail.com
+	chainreply = false
 
 [format]
 	pretty = oneline
