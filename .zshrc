@@ -6,13 +6,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 setopt always_to_end
-setopt append_history
 setopt auto_cd
 setopt auto_list
 setopt auto_name_dirs
 setopt auto_pushd
-setopt cdablevars
-setopt completeinword
+setopt bang_hist
+setopt cdable_vars
+setopt complete_in_word
 setopt correct
 setopt extended_glob
 setopt extended_history
@@ -30,9 +30,9 @@ setopt notify
 setopt prompt_subst
 setopt pushd_ignore_dups
 setopt share_history
-unsetopt banghist
 unsetopt beep
 unsetopt checkjobs
+unsetopt glob_complete
 unsetopt menu_complete
 
 fpath=($HOME/.zsh/functions/
@@ -159,16 +159,6 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 
 zstyle :compinstall filename '/home/ivan/.zshrc'
-
-# Don't complete uninteresting users
-zstyle ':completion:*:*:*:users' ignored-patterns \
-        adm amanda apache avahi beaglidx bin cacti canna clamav daemon \
-        dbus distcache dovecot fax ftp games gdm gkrellmd gopher \
-        hacluster haldaemon halt hsqldb ident junkbust ldap lp mail \
-        mailman mailnull mldonkey mysql nagios \
-        named netdump news nfsnobody nobody nscd ntp nut nx openvpn \
-        operator pcap postfix postgres privoxy pulse pvm quagga radvd \
-        rpc rpcuser rpm shutdown squid sshd sync uucp vcsa xfs
 
 # use /etc/hosts and known_hosts for hostname completion
 [ -r ~/.ssh/known_hosts ] && _ssh_hosts=(${${${${(f)"$(<$HOME/.ssh/known_hosts)"}:#[\|]*}%%\ *}%%,*}) || _ssh_hosts=()
