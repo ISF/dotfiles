@@ -1,2 +1,5 @@
 # vim's backup files
 .*.swp
+
+# taghighlight's types file
+*.taghl
