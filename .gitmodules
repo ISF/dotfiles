@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/xterm-color-table"]
 	path = .vim/bundle/xterm-color-table
 	url = git://github.com/guns/xterm-color-table.vim.git
+[submodule ".vim/bundle/TagHighlight"]
+	path = .vim/bundle/TagHighlight
+	url = git://github.com/abudden/TagHighlight.git
