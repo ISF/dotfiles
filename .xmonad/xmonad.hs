@@ -17,6 +17,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.Minimize
+import XMonad.Layout.TwoPane
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -130,7 +131,7 @@ myTabbed = noBorders $ tabbed shrinkText defaultTheme { fontName =  "xft:terminu
 myFull = noBorders Full
 myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 
-mainLayout = minimize (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed)
+mainLayout = minimize (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| TwoPane (3/100) (1/2))
 
 webLayout = myFull ||| myTiled ||| myTabbed
 
