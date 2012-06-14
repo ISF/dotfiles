@@ -6,7 +6,7 @@ PID=$(pgrep offlineimap)
 [[ -n "$PID" ]] && kill $PID
 
 offlineimap -o -u quiet &>/dev/null &
-sed -i 's/"+[Gmail].Spam"\|"+[Gmail].Trash"\|"+[Gmail].Sent Mail"//' /home/ivan/.mutt/muttrc.mailboxes
+sed -i 's/"+[Gmail]\.Spam"\|"+[Gmail]\.Trash"\|"+[Gmail]\.Sent Mail"//' /home/ivan/.mutt/muttrc.mailboxes
 goobook reload
 
 exit 0
