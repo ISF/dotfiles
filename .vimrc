@@ -300,6 +300,9 @@ if has("autocmd")
     autocmd FileType mail :autocmd InsertLeave * match none
     autocmd FileType mail set spell spelllang=br,en_us
 
+    " gitcommit
+    autocmd FileType gitcommit set spell spelllang=br,en_us
+
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
     autocmd FileType lisp :AutoCloseOff
