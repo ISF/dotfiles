@@ -16,7 +16,6 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
-import XMonad.Layout.Minimize
 import XMonad.Layout.TwoPane
 
 import XMonad.Actions.CycleWS
@@ -86,10 +85,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_u  ), nextScreen)
     , ((modm,               xK_n  ), prevScreen)
 
-    -- bindings to minimize
-    , ((modm,               xK_x), withFocused minimizeWindow)
-    , ((modm .|. shiftMask, xK_x), sendMessage RestoreNextMinimizedWin)
-
     -- move current window using a prompt
     , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
     , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
@@ -131,7 +126,7 @@ myTabbed = noBorders $ tabbed shrinkText defaultTheme { fontName =  "xft:terminu
 myFull = noBorders Full
 myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 
-mainLayout = minimize (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| TwoPane (3/100) (1/2))
+mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| TwoPane (3/100) (1/2)
 
 webLayout = myFull ||| myTiled ||| myTabbed
 
