@@ -369,10 +369,6 @@ nmap <Leader>do :Dox<CR>
 " Make gf edite the file even if ti doesn't exist
 nmap gf :e <cfile><CR>
 
-" jumping between items in quickfix list
-nmap <Leader>n :cnext<CR>
-nmap <Leader>p :cprevious<CR>
-
 " indent inside brackets
 inoremap {<CR> {<CR>}<Esc><S-O>
 
