@@ -236,7 +236,7 @@ let g:clang_auto_select = 1
 let g:clang_complete_auto = 1
 let g:clang_hl_errors = 1
 let g:clang_close_preview = 1
-let g:clang_user_options = "2>/dev/null || exit 0"
+let g:clang_user_options = "2>&1 > /dev/null || exit 0"
 let g:clang_use_library = 1
 let g:clang_complete_macros = 0
 
