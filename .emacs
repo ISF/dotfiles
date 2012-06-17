@@ -3,15 +3,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq vc-handled-backends nil)
-(let ((default-directory "~/.emacs.d/"))
-      (normal-top-level-add-to-load-path '("."))
-      (normal-top-level-add-subdirs-to-load-path))
 (add-to-list 'load-path "/usr/share/emacs/site-lisp")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; USE THE POWERFUL VIM KEYBINDS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
 (setq evil-auto-indent t)
@@ -20,6 +18,7 @@
 (setq evil-want-C-i-jump t)
 (setq evil-want-C-u-scroll t)
 
+(add-to-list 'load-path "~/.emacs.d/evil-surround")
 (require 'surround)
 (global-surround-mode 1)
 
@@ -31,17 +30,11 @@
 (setq ispell-dictionary "brasileiro")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Auto complete
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "/home/ivan/.emacs.d/ac-dict")
-(ac-config-default)
-(setq ac-auto-start t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Misc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+; Change yes/no para y/n
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ; Scroll 1 line per step
 (setq scroll-step 1)
@@ -68,14 +61,14 @@
 ; don't add newlines when cursor goes past the end of file
 (setq next-line-add-newlines nil)
 
+; Colors
+(add-to-list 'load-path "~/.emacs.d/solarized-emacs")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(load-theme 'solarized-dark t)
+
 ; Font
 (set-face-attribute 'default nil :family "Terminus" :height 100)
-
-; Colors
-(require 'color-theme)
-(color-theme-initialize)
-(setq color-theme-is-global t)
-(color-theme-solarized-dark)
+(set-face-bold-p 'bold nil)
 
 ; Whitespace
 (setq-default show-trailing-whitespace t)
@@ -83,10 +76,6 @@
 
 ; Line wrapping (truncate)
 (setq default-truncate-lines t)
-
-; Undo tree
-(require 'undo-tree)
-(global-undo-tree-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Slime
@@ -145,7 +134,6 @@
 (setq c-hanging-braces-alist '((class-open after)
                                (substatement-open after)
                                (topmost-intro after)))
-(setq c-cleanup-list 'defun-close-semi)
 
 ; Haskell
 (load "~/.emacs.d/haskellmode-emacs/haskell-site-file.el")

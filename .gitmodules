@@ -1,42 +1,72 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips
+	ignore = dirty
 [submodule ".vim/bundle/fugitive"]
 	path = .vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/LaTeX-Box"]
-	path = .vim/bundle/LaTeX-Box
-	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+	ignore = dirty
 [submodule "/home/ivan/.vim/bundle/surround"]
 	path = /home/ivan/.vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
+	ignore = dirty
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+	ignore = dirty
 [submodule ".vim/bundle/clang_complete"]
 	path = .vim/bundle/clang_complete
 	url = git://github.com/Rip-Rip/clang_complete.git
+	ignore = dirty
 [submodule ".vim/bundle/VimClojure"]
 	path = .vim/bundle/VimClojure
 	url = git://github.com/vim-scripts/VimClojure.git
+	ignore = dirty
 [submodule ".vim/bundle/vim-autoclose"]
 	path = .vim/bundle/vim-autoclose
 	url = git://github.com/Townk/vim-autoclose.git
+	ignore = dirty
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+	ignore = dirty
 [submodule ".vim/bundle/gprof"]
 	path = .vim/bundle/gprof
 	url = git://github.com/vim-scripts/gprof.vim.git
+	ignore = dirty
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
+	ignore = dirty
 [submodule ".vim/bundle/xterm-color-table"]
 	path = .vim/bundle/xterm-color-table
 	url = git://github.com/guns/xterm-color-table.vim.git
+	ignore = dirty
 [submodule ".vim/bundle/TagHighlight"]
 	path = .vim/bundle/TagHighlight
 	url = git://github.com/abudden/TagHighlight.git
+	ignore = dirty
 [submodule ".vim/bundle/pathogen"]
 	path = .vim/bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
+	ignore = dirty
+[submodule ".emacs.d/evil"]
+	path = .emacs.d/evil
+	url = git://gitorious.org/evil/evil.git
+	ignore = dirty
+[submodule ".vim/bundle/latex-box"]
+	path = .vim/bundle/latex-box
+	url = https://github.com/LaTeX-Box-Team/LaTeX-Box.git
+	ignore = dirty
+[submodule ".emacs.d/evil-surround"]
+	path = .emacs.d/evil-surround
+	url = git://github.com/timcharper/evil-surround.git
+	ignore = dirty
+[submodule ".emacs.d/undo-tree"]
+	path = .emacs.d/undo-tree
+	url = http://www.dr-qubit.org/git/undo-tree.git
+	ignore = dirty
+[submodule ".emacs.d/solarized-emacs"]
+	path = .emacs.d/solarized-emacs
+	url = git://github.com/bbatsov/solarized-emacs.git
+	ignore = dirty
