@@ -5,7 +5,8 @@ set encoding=utf8
 set conceallevel=2
 
 " Pathogen
-call pathogen#runtime_append_all_bundles()
+runtime bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect()
 
 set synmaxcol=200
 set showmatch     " Show matching brackets (briefly jump to it)
@@ -13,7 +14,7 @@ set splitright
 set nosplitbelow
 set magic
 set backspace=indent,eol,start
-set sessionoptions=buffers,folds
+set sessionoptions=buffers,folds,tabpages,winpos,winsize,options,localoptions
 
 " Backup and history options
 set backupdir+=~/.vim/backup " Put backup files (annoying ~ files) in another directory
