@@ -1,0 +1,5 @@
+#command
+
+# shortcuts to jump to git commits with git log --pretty=raw --patch
+\en forw-search \^commit \n
+\ep back-search \^commit \n
