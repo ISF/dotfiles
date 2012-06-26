@@ -55,15 +55,7 @@ autoload -Uz zsh-mime-setup && zsh-mime-setup
 # variables
 ################################################################################
 
-# for reference while compiling vim
-VIMCFG="./configure --prefix=/usr --localstatedir=/var/lib/vim \
---mandir=/usr/share/man --with-compiledby=ArchLinux \
---with-features=huge --enable-gpm --enable-acl --with-x=yes \
---disable-gui --enable-multibyte --enable-cscope \
---enable-netbeans --disable-perlinterp --enable-pythoninterp \
---disable-rubyinterp --enable-luainterp"
-
-export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$PATH
+export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
 
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
@@ -81,6 +73,7 @@ else
 fi
 
 export PAGER='less -iR'
+export LESS='less -iR'
 export MANPAGER='less -iR'
 export PYTHONSTARTUP="$HOME/.pystartup"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
@@ -335,12 +328,9 @@ alias la="ls -Ah --color=auto"
 alias ll="ls -lh --color=auto"
 alias lla="ls -Alh --color=auto"
 alias lt="ls -alih --color=auto"
-alias less='less -iR'
 alias callgrind='valgrind --tool=callgrind'
-alias tmux='tmux -2'
 alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
 alias oka='echo valeu'
-alias beye='TERM=xterm biew'
 alias cp='nocorrect cp'
 alias mv='nocorrect mv'
 alias rm='nocorrect rm'

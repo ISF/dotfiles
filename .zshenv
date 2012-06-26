@@ -1,3 +1,5 @@
+export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
+
 LANG=pt_BR.UTF8
 
 #### Daemons
