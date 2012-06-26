@@ -7,10 +7,15 @@
 	ci = commit
 	br = branch
 	ck = checkout
-	st = status
+	st = status -sb
 	unstage = reset HEAD
 	adp = add --patch
 	amend = commit --amend
+	logd = log --format=medium
+	logpatch = log --format=medium  --patch
+	logp = log --format=medium --patch
+	loggraph = log --format=oneline --graph
+	logg = log --format=oneline --graph
 
 [merge]
 	tool = vimdiff
@@ -45,5 +50,6 @@
 	added = green
 	changed = blue
 	untracked = red
+
 [github]
 	user = ISF
