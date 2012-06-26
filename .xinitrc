@@ -8,8 +8,8 @@ unclutter &
 urxvtd -q -f -o
 dropboxd &
 mpd
-numlockx on &
 xmodmap .Xmodmap
 xbindkeys
+if [[ -z $(pgrep -l synergy) ]]; then (synergyc shungokusatsu &); fi
 /home/ivan/.scripts/dzenconky.sh
 exec ck-launch-session dbus-launch xmonad
