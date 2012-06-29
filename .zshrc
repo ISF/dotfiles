@@ -336,9 +336,9 @@ alias onlyx='nohup startx &; disown; exit'
 
 # suffix
 alias -s html=$BROWSER
-alias -s png='viewnior'
-alias -s jpg='viewnior'
-alias -s gif='viewnior'
+alias -s png='sxiv'
+alias -s jpg='sxiv'
+alias -s gif='sxiv'
 alias -s txt=$EDITOR
 alias -s pdf='zathura'
 
