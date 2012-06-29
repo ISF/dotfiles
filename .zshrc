@@ -99,10 +99,10 @@ fi
 # in home (there exists a git repo with dotfiles)
 zstyle ':vcs_info:*' enable hg svn git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git:*' formats '[%s@%b]'
-zstyle ':vcs_info:git:*' actionformats '[%s@%b|%a]'
-zstyle ':vcs_info:hg:*' formats '[%s@%b]'
-zstyle ':vcs_info:hg:*' actionformats '[%s@%b|%a]'
+zstyle ':vcs_info:git:*' formats '%s@%b'
+zstyle ':vcs_info:git:*' actionformats '%s@%b|%a'
+zstyle ':vcs_info:hg:*' formats '%s@%b'
+zstyle ':vcs_info:hg:*' actionformats '%s@%b|%a'
 
 ################################################################################
 # completion's configuration
