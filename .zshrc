@@ -221,11 +221,6 @@ bindkey '^' self-insert-git
 bindkey -M isearch '~' self-insert
 bindkey -M isearch '^' self-insert
 
-function reload_mod {
-    sudo modprobe -r $@
-    sudo modprobe $@
-}
-
 function kernel_symbol {
     if [[ -f /proc/config.gz ]]; then
         if [[ -n $1 ]]; then
