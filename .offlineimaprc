@@ -1,7 +1,7 @@
 [general]
 
 metadata = ~/.offlineimap
-accounts = gmail,gmx
+accounts = gmail,gmx,sdf
 maxsyncaccounts = 1
 ui = TTYUI
 ignore-readonly = no
@@ -23,10 +23,21 @@ remoterepository = gmail-remote
 autorefresh = 10
 quick = 3
 maxage = 10
+status_backend = sqlite
 
 [Account gmx]
+
 localrepository = gmx-local
 remoterepository = gmx-remote
+
+status_backend = sqlite
+
+[Account sdf]
+
+localrepository = sdf-local
+remoterepository = sdf-remote
+
+status_backend = sqlite
 
 [Repository gmail-local]
 
@@ -34,6 +45,7 @@ type = Maildir
 localfolders = ~/.mail/gmail
 sep = .
 restoreatime = no
+
 [Repository gmail-remote]
 
 type = Gmail
@@ -52,12 +64,30 @@ folderfilter = lambda foldername: foldername not in ['archive', '[Gmail]/All Mai
 readonly = False
 
 [Repository gmx-local]
+
 type = Maildir
 localfolders = ~/.mail/gmx
 restoreatime = no
 
 [Repository gmx-remote]
+
 type = IMAP
 remotehost = imap.gmx.com
 remoteport = 143
 remoteuser = ivansichfreitas@gmx.com
+
+[Repository sdf-local]
+
+type = Maildir
+localfolders = ~/.mail/sdf
+restoreatime = no
+
+[Repository sdf-remote]
+
+type = IMAP
+ssl = yes
+cert_fingerprint = 204b2c6188ce0d38fa1eb3e5db6e88af4e05f868
+folderfilter = lambda foldername: foldername in ['INBOX']
+remotehost = mx.sdf.org
+remoteport = 993
+remoteuser = isf
