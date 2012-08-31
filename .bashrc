@@ -50,18 +50,21 @@ eval $(dircolors -b) # LS_COLORS
 ################################################################################
 # Alias
 ################################################################################
-alias ls="ls --color=auto"
-alias ls="ls --color=auto"
-alias l="ls -Bh --color=auto"
-alias la="ls -Ah --color=auto"
-alias ll="ls -lh --color=auto"
-alias lla="ls -Alh --color=auto"
-alias lt="ls -alih --color=auto"
+if ls --color=auto > /dev/null 2>&1; then
+    alias ls="ls --color=auto"
+    alias l="ls -Bh --color=auto"
+    alias la="ls -Ah --color=auto"
+    alias ll="ls -lh --color=auto"
+    alias lla="ls -Alh --color=auto"
+    alias lt="ls -alih --color=auto"
+else
+    alias l="ls -Bh"
+    alias la="ls -Ah"
+    alias ll="ls -lh"
+    alias lla="ls -Alh"
+    alias lt="ls -alih"
+fi
 alias oka='echo valeu'
 alias beye='TERM=xterm biew'
 alias less='less -iR'
 alias callgrind='valgrind --tool=callgrind'
-alias tmux='tmux -2'
-alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
