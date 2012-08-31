@@ -31,7 +31,7 @@
 [sendemail]
 	smtpserver = smtp.gmail.com
 	smtpserverport = 587
-	smtpencrytion = tls
+	smtpencryption = tls
 	smtpuser = ivansichfreitas@gmail.com
 	chainreply = false
 
