@@ -172,9 +172,9 @@ end
 globals.homepage = ""
 
 -- Avoid blinking when creating/switching tabs
-webview.init_funcs.set_win_trans = function (view, w)
-    view.transparent = true
-end
+-- webview.init_funcs.set_win_trans = function (view, w)
+--     view.transparent = true
+-- end
 
 -- always save in ~/downloads and don't ask about saving
 downloads.default_dir = os.getenv("HOME") .. "/downloads"
