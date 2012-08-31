@@ -7,6 +7,7 @@ source ~/.mutt/muttrc.mailboxes
 set header_cache = ~/.mutt/cache/headers
 set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/cert
+alternates "(ivansichfreitas@gmail\.com)|(ivansichfreitas@gmx\.com)|(isf@sdf\.org)"
 
 set abort_nosubject = ask-yes
 set abort_unmodified = ask-yes
@@ -59,6 +60,7 @@ mime_lookup application/octet-stream
 
 folder-hook gmail/* source ~/.mutt/gmail.muttrc
 folder-hook gmx/* source ~/.mutt/gmx.muttrc
+folder-hook sdf/* source ~/.mutt/sdf.muttrc
 
 # Macros & Bindings
 

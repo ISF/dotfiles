@@ -1,0 +1,16 @@
+# SDF settings
+
+set from = "isf@sdf.org"
+#set sendmail = "/usr/bin/msmtp -a sdf"
+set folder = $HOME/.mail/sdf
+set record = "=sent"
+set spoolfile = "=INBOX"
+set mbox = "=archive"
+set postponed = "=drafts"
+
+macro index,pager .t '<save-message>=trash<enter>' "move in Gmail trash"
+macro index,pager .s "<save-message>=spam<enter>" "Flag as spam"
+macro index gm "<change-folder>?"
+macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gs "<change-folder>=sent<enter>" "Go to Sent Mail"
+macro index gd "<change-folder>=drafts<enter>" "Go to drafts"
