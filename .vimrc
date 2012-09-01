@@ -262,6 +262,8 @@ let g:manpageview_winopen = "hsplit="
 
 " ctrlp config
 let g:ctrlp_working_path_mode = 2
+let g:ctrlp_extensions = ['tag', 'quickfix']
+
 
 " C highlighting
 hi DefinedByUser ctermfg=lightgrey guifg=blue
