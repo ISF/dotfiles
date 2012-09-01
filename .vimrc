@@ -376,9 +376,20 @@ nmap <C-E><C-V> :edit $MYVIMRC<CR>
 nmap <C-X><C-F> :CtrlP<CR>
 nmap <C-X><C-B> :CtrlPBuffer<CR>
 nmap <C-X><C-M> :CtrlPMRU<CR>
+nmap <C-X><C-T> :CtrlPTag<CR>
+nmap <C-X><C-P> :CtrlPQuickfix<CR>
 nmap <C-B>b :BufExplorer<CR>
 nmap <C-B>v :BufExplorerVerticalSplit<CR>
 nmap <C-B>s :BufExplorerHorizontalSplit<CR>
+
+nmap <C-C>s :lcs find s <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>g :lcs find g <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>c :lcs find c <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>t :lcs find t <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>e :lcs find e <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>f :lcs find f <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>i :lcs find i <C-R>=expand("<cword>")<CR><CR>
+nmap <C-C>d :lcs find d <C-R>=expand("<cword>")<CR><CR>
 
 " Calling :Dox (needs DoxygenToolkit)
 nmap <Leader>do :Dox<CR>
@@ -427,10 +438,10 @@ inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
 " EnhancedCommentify
-vmap <C-C>c <Plug>VisualComment
-nmap <C-C>c <Plug>Comment
-vmap <C-C>d <Plug>VisualDeComment
-nmap <C-C>d <Plug>DeComment
+vmap <Leader><Leader>c <Plug>VisualComment
+nmap <Leader><Leader>c <Plug>Comment
+vmap <Leader><Leader>d <Plug>VisualDeComment
+nmap <Leader><Leader>d <Plug>DeComment
 
 "" FN mappings
 " Taglist's hotkeys
