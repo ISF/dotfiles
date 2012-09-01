@@ -311,6 +311,9 @@ if has("autocmd")
     autocmd FileType mail :autocmd InsertLeave * match none
     autocmd FileType mail set spell spelllang=br,en_us
 
+    " Markdown
+    autocmd FileType mkd set spell spelllang=br,en_us
+
     " gitcommit
     autocmd FileType gitcommit set spell spelllang=br,en_us
 
