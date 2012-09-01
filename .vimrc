@@ -126,6 +126,14 @@ endfunction
 
 command! -nargs=0 GnuIndent call GnuIndent()
 
+function! BSDKernIndent()
+    setlocal shiftwidth=8
+    setlocal tabstop=8
+    setlocal noet
+endfunction
+
+command! -nargs=0 BSDKernIndent call BSDKernIndent()
+
 " Specific for hacking coreutils
 function! CoreutilsIndent()
     if match(getcwd(), "coreutils") > 0
