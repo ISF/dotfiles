@@ -42,7 +42,7 @@ fpath=($HOME/.zsh/functions/
 
 # my functions
 
-autoload tmux_init
+autoload -Uz tmux_init
 
 # global functions
 autoload -Uz colors && colors
@@ -60,8 +60,12 @@ export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
 else
-    PROMPT='%{$fg[blue]%}%1~%{$reset_color%} %# '
-    RPROMPT='[${VIMODE}] ${vcs_info_msg_0_}'
+    if [[ -z $SSH_CLIENT  ]]; then
+        PROMPT='%{$fg[blue]%}%1~%{$reset_color%} %# '
+        RPROMPT='[${VIMODE}] ${vcs_info_msg_0_}'
+    else
+        PROMPT='%{$fg[cyan]%}%n@%m [${VIMODE}] %~ %# %{$reset_color%}'
+    fi
 fi
 
 export EDITOR=$(which vim)
@@ -76,7 +80,7 @@ export PYTHONSTARTUP="$HOME/.pystartup"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export JAVA_FONTS='/usr/share/fonts/TTF'
 
-if [[ -z "$(tty | grep tty)" ]]; then
+if [[ -z "$(tty | grep tty)" && -z $SSH_CLIENT ]]; then
     eval $(dircolors -b)
     eval $(dircolors /home/ivan/.zsh/dircolors.256dark)
     export LESS_TERMCAP_mb=$(printf "\e[1;31m")
@@ -115,7 +119,11 @@ function _force_rehash {
     return 1 # Because we didn't really complete anything
 }
 
-zstyle ':completion:*' completer _force_rehash _complete _prefix _match _ignored _correct _files
+if [[ -z $SSH_CLIENT  ]]; then
+    zstyle ':completion:*' completer _force_rehash _complete _prefix _match _ignored _correct _files
+else
+    zstyle ':completion:*' completer  _complete _prefix _match _ignored _correct _files
+fi
 
 # complete manual by their section
 zstyle ':completion:*:manuals'    separate-sections true
@@ -128,10 +136,14 @@ zstyle ':completion:*' use-compctl false
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' insert-unambiguous true
 zstyle ':completion:*:correct:*' insert-unambiguous true
-zstyle ':completion:*' menu select=30 # minimum number of possible matches to switch to menu completion
+
+if [[ -z $SSH_CLIENT  ]]; then
+    zstyle ':completion:*' menu select=30 # minimum number of possible matches to switch to menu completion
+    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+    zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+fi
+
 zstyle ':completion:*' original true
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh_cache
@@ -335,12 +347,14 @@ alias ez="$EDITOR ~/.zshrc"
 alias onlyx='nohup startx &; disown; exit'
 
 # suffix
-alias -s html=$BROWSER
-alias -s png='sxiv'
-alias -s jpg='sxiv'
-alias -s gif='sxiv'
-alias -s txt=$EDITOR
-alias -s pdf='zathura'
+if [[ -z $SSH_CLIENT  ]]; then
+    alias -s html=$BROWSER
+    alias -s png='sxiv'
+    alias -s jpg='sxiv'
+    alias -s gif='sxiv'
+    alias -s txt=$EDITOR
+    alias -s pdf='zathura'
+fi
 
 # fix escape sequences when zsh is loaded with emacs' M-x shell
 if [[ $EMACS == 't' ]]; then
