@@ -248,8 +248,12 @@ bindkey -M isearch '^' self-insert
 bindkey -v
 
 # converting inputrc configuration for zsh
-eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
-eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
+if [[ -f /etc/inputrc ]]; then
+    eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
+fi
+if [[ -f ~/.inputrc ]]; then
+    eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
+fi
 
 # use backspace over everythin on vi mode
 bindkey -M viins '^_' backward-delete-char
@@ -323,12 +327,20 @@ bindkey -M viins '^j' push-line
 ################################################################################
 
 # common
-alias ls="ls --color=auto"
-alias l="ls -Bh --color=auto"
-alias la="ls -Ah --color=auto"
-alias ll="ls -lh --color=auto"
-alias lla="ls -Alh --color=auto"
-alias lt="ls -alih --color=auto"
+if ls --color=auto > /dev/null 2>&1; then
+    alias ls="ls --color=auto"
+    alias l="ls -Bh --color=auto"
+    alias la="ls -Ah --color=auto"
+    alias ll="ls -lh --color=auto"
+    alias lla="ls -Alh --color=auto"
+    alias lt="ls -alih --color=auto"
+else
+    alias l="ls -Bh"
+    alias la="ls -Ah"
+    alias ll="ls -lh"
+    alias lla="ls -Alh"
+    alias lt="ls -alih"
+fi
 alias callgrind='valgrind --tool=callgrind'
 alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
 alias oka='echo valeu'
