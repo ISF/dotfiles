@@ -240,16 +240,6 @@ bindkey '^' self-insert-git
 bindkey -M isearch '~' self-insert
 bindkey -M isearch '^' self-insert
 
-function kernel_symbol {
-    if [[ -f /proc/config.gz ]]; then
-        if [[ -n $1 ]]; then
-            zgrep $1 /proc/config.gz
-        fi
-    else
-        echo "/proc/config.gz not found"
-    fi
-}
-
 ################################################################################
 # bindings and zle configuration
 ################################################################################
