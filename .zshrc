@@ -56,14 +56,6 @@ autoload -Uz zsh-mime-setup && zsh-mime-setup
 # variables
 ################################################################################
 
-export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
-
-# configuration for user prefix
-if [[ -d $HOME/.prefix ]]; then
-    export PATH=$HOME/.prefix/bin:$PATH
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.prefix/lib:$HOME/.prefix/lib-linux64
-fi
-
 if [[ ${EUID} == 0 ]] ; then
     PROMPT='%{$fg[red]%}%n@%m %{$fg[blue]%}[${VIMODE}] %~ %# %{$reset_color%}'
 else
@@ -86,6 +78,7 @@ fi
 export PYTHONSTARTUP="$HOME/.pystartup"
 export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export JAVA_FONTS='/usr/share/fonts/TTF'
+export BC_ENV_ARGS=~/.bcrc
 
 if [[ -z "$(tty | grep tty)" && -z $SSH_CLIENT ]]; then
     eval $(dircolors -b)

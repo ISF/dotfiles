@@ -1,6 +1,19 @@
+#### PATH
+
 export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin:$PATH
 
-LANG=pt_BR.UTF8
+# configuration for user prefix
+if [[ -d $HOME/.prefix ]]; then
+    export PATH=$HOME/.prefix/bin:$PATH
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.prefix/lib:$HOME/.prefix/lib-linux64
+fi
+
+if [[ -d $HOME/.prefix/gurobi ]]; then
+    export GUROBI_HOME=$HOME/.prefix/gurobi
+    export GRB_LICENSE_FILE=$HOME/.prefix/gurobi/gurobi.lic
+    export PATH=$PATH:$HOME/.prefix/gurobi/bin
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.prefix/gurobi/lib
+fi
 
 #### Daemons
 
