@@ -165,7 +165,7 @@ myEventHook = minimizeEventHook
 
 statusBarCmd= "dzen2 -e '' -w 600 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
-                 {  ppCurrent = wrap "^fg(#000000)^bg(#a0a0a0) " " ^fg()^bg()"
+                 {  ppCurrent = wrap "^fg(#ffffff)^bg(#268bd2) " " ^fg()^bg()"
                   , ppHidden  = wrap "^i(/home/ivan/.dzen/has_win_nv.xbm)" " "
                   , ppHiddenNoWindows  = wrap " " " "
                   , ppSep     = " ^fg(grey60)^r(3x3)^fg() "
