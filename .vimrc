@@ -30,7 +30,7 @@ set listchars=tab:▸\ ,
 
 " Appearance
 set title      " Change the terminal title
-set modelines=0
+set modelines=1
 set ttyfast    " Smooth editing
 set showmode
 set number
