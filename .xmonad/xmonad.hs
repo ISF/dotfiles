@@ -48,6 +48,10 @@ myModMask       = mod4Mask
 myXPConfig = defaultXPConfig { font = "xft:terminus:10"
                              , bgColor = "#121212"
                              , borderColor = "#222222"
+                             , fgHLight = "#ffffff"
+                             , bgHLight = "#268bd2"
+                             , position = Bottom
+                             , completionKey = xK_Tab
                              }
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
