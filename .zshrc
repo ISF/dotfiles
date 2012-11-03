@@ -322,8 +322,8 @@ bindkey -M viins '^j' push-line
 # common
 if ls --color=auto > /dev/null 2>&1; then
     alias ls="ls --color=auto"
-    alias l="ls -Bh --color=auto"
-    alias la="ls -Ah --color=auto"
+    alias l="ls -BCF --color=auto"
+    alias la="ls -A --color=auto"
     alias ll="ls -lh --color=auto"
     alias lla="ls -Alh --color=auto"
     alias lt="ls -alih --color=auto"
@@ -347,6 +347,7 @@ alias find='noglob find'
 alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
 alias onlyx='nohup startx &; disown; exit'
+alias bc='bc -l'
 
 # suffix
 if [[ -z $SSH_CLIENT  ]]; then
