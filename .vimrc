@@ -313,13 +313,13 @@ if has("autocmd")
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
-    autocmd FileType mail set spell spelllang=br,en_us
+    autocmd FileType mail set spell spelllang=pt,en_us
 
     " Markdown
-    autocmd FileType mkd set spell spelllang=br,en_us
+    autocmd FileType mkd set spell spelllang=pt,en_us
 
     " gitcommit
-    autocmd FileType gitcommit set spell spelllang=br,en_us
+    autocmd FileType gitcommit set spell spelllang=pt,en_us
 
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
@@ -353,7 +353,7 @@ if has("autocmd")
 
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent textwidth=80
-    autocmd FileType tex,latex setl spell spelllang=br,en_us
+    autocmd FileType tex,latex setl spell spelllang=pt,en_us
     autocmd FileType tex,latex nmap <C-C>m :Latexmk<CR>
     autocmd FileType tex,latex nmap <C-C>c :LatexmkClean<CR>
     autocmd FileType tex,latex nmap <C-C>e :LatexErrors<CR>
