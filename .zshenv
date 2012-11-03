@@ -19,7 +19,7 @@ fi
 
 # ssh-agent
 SSH_ENV="$HOME/.ssh/ssh.env"
-if [[ -z $(pidof ssh-agent) ]]; then
+if [[ -z $(pgrep ssh-agent) ]]; then
     ssh-agent | head -n 2 > $SSH_ENV
     eval "$(cat $SSH_ENV)"
 else
