@@ -271,6 +271,10 @@ hi cBraces ctermfg=lightgreen guifg=lightgreen
 hi link cUserFunction DefinedByUser
 hi link cUserFunctionPointer DefinedByUser
 
+" Global abbreviations
+iab teh the
+iab archc ArchC
+
 if has("syntax")
   syntax on
 endif
