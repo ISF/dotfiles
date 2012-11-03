@@ -66,7 +66,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_space ), sendMessage NextLayout)
     , ((modm,               xK_f     ), sendMessage $ JumpToLayout "Full")
     , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
-    , ((modm,               xK_n     ), refresh)
+    , ((modm .|. shiftMask, xK_r     ), refresh)
     , ((modm,               xK_j     ), windows W.focusDown)
     , ((modm,               xK_k     ), windows W.focusUp)
     , ((modm,               xK_m     ), windows W.focusMaster)
@@ -95,6 +95,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- execute shell commands
     , ((modm,               xK_s), shellPrompt myXPConfig)
+    , ((modm .|. shiftMask, xK_s), xmonadPrompt myXPConfig)
  
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
