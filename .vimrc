@@ -283,6 +283,13 @@ endif
 highlight ExtraWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
+
+    if exists("+omnifunc")
+        autocmd FileType *
+        \ if &omnifunc == "" |
+        \ setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
+    endif
     autocmd BufEnter,InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
     autocmd BufEnter *.rl setl ft=ragel
