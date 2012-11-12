@@ -1,4 +1,80 @@
 # -*- coding: utf-8 -*-
+# Copyright (C) 2009, 2010, 2011  Roman Zimbelmann <romanz@lavabit.com>
+# This configuration file is licensed under the same terms as ranger.
+# ===================================================================
+# This file contains ranger's commands.
+# It's all in python; lines beginning with # are comments.
+#
+# Note that additional commands are automatically generated from the methods
+# of the class ranger.core.actions.Actions.
+#
+# You can customize commands in the file ~/.config/ranger/commands.py.
+# It has the same syntax as this file.  In fact, you can just copy this
+# file there with `ranger --copy-config=commands' and make your modifications.
+# But make sure you update your configs when you update ranger.
+#
+# ===================================================================
+# Every class defined here which is a subclass of `Command' will be used as a
+# command in ranger.  Several methods are defined to interface with ranger:
+#   execute(): called when the command is executed.
+#   cancel():  called when closing the console.
+#   tab():     called when <TAB> is pressed.
+#   quick():   called after each keypress.
+#
+# The return values for tab() can be either:
+#   None: There is no tab completion
+#   A string: Change the console to this string
+#   A list/tuple/generator: cycle through every item in it
+#
+# The return value for quick() can be:
+#   False: Nothing happens
+#   True: Execute the command afterwards
+#
+# The return value for execute() and cancel() doesn't matter.
+#
+# ===================================================================
+# Commands have certain attributes and methods that facilitate parsing of
+# the arguments:
+#
+# self.line: The whole line that was written in the console.
+# self.args: A list of all (space-separated) arguments to the command.
+# self.quantifier: If this command was mapped to the key "X" and
+#      the user pressed 6X, self.quantifier will be 6.
+# self.arg(n): The n-th argument, or an empty string if it doesn't exist.
+# self.rest(n): The n-th argument plus everything that followed.  For example,
+#      If the command was "search foo bar a b c", rest(2) will be "bar a b c"
+# self.start(n): The n-th argument and anything before it.  For example,
+#      If the command was "search foo bar a b c", rest(2) will be "bar a b c"
+#
+# ===================================================================
+# And this is a little reference for common ranger functions and objects:
+#
+# self.fm: A reference to the "fm" object which contains most information
+#      about ranger.
+# self.fm.notify(string): Print the given string on the screen.
+# self.fm.notify(string, bad=True): Print the given string in RED.
+# self.fm.reload_cwd(): Reload the current working directory.
+# self.fm.env.cwd: The current working directory. (A File object.)
+# self.fm.env.cf: The current file. (A File object too.)
+# self.fm.env.cwd.get_selection(): A list of all selected files.
+# self.fm.execute_console(string): Execute the string as a ranger command.
+# self.fm.open_console(string): Open the console with the given string
+#      already typed in for you.
+# self.fm.move(direction): Moves the cursor in the given direction, which
+#      can be something like down=3, up=5, right=1, left=1, to=6, ...
+#
+# File objects (for example self.fm.env.cf) have these useful attributes and
+# methods:
+#
+# cf.path: The path to the file.
+# cf.basename: The base name only.
+# cf.load_content(): Force a loading of the directories content (which
+#      obviously works with directories only)
+# cf.is_directory: True/False depending on whether it's a directory.
+#
+# For advanced commands it is unavoidable to dive a bit into the source code
+# of ranger.
+# ===================================================================
 
 from ranger.api.commands import *
 from ranger.ext.get_executables import get_executables
@@ -142,7 +218,11 @@ class shell(Command):
 			return (start + program + ' ' for program \
 					in get_executables() if program.startswith(command))
 		if position_of_last_space == len(command) - 1:
-			return self.line + '%s '
+			selection = self.fm.env.get_selection()
+			if len(selection) == 1:
+				return self.line + selection[0].shell_escaped_basename + ' '
+			else:
+				return self.line + '%s '
 		else:
 			before_word, start_of_word = self.line.rsplit(' ', 1)
 			return (before_word + ' ' + file.shell_escaped_basename \
@@ -231,12 +311,12 @@ class open_with(Command):
 
 		return app, flags, int(mode)
 
-	def _get_tab(self):
+	def tab(self):
 		data = self.rest(1)
 		if ' ' not in data:
 			all_apps = self.fm.apps.all()
 			if all_apps:
-				return (app for app in all_apps if app.startswith(data))
+				return (self.firstpart + app for app in all_apps if app.startswith(data))
 
 		return None
 
@@ -379,7 +459,12 @@ class terminal(Command):
 	Spawns an "x-terminal-emulator" starting in the current directory.
 	"""
 	def execute(self):
-		self.fm.run('x-terminal-emulator', flags='d')
+		command = os.environ.get('TERMCMD', os.environ.get('TERM'))
+		if command not in get_executables():
+			command = 'x-terminal-emulator'
+		if command not in get_executables():
+			command = 'xterm'
+		self.fm.run(command, flags='d')
 
 
 class delete(Command):
@@ -721,16 +806,55 @@ class bulkrename(Command):
 		cmdfile.write(b"# This file will be executed when you close the editor.\n")
 		cmdfile.write(b"# Please double-check everything, clear the file to abort.\n")
 		if py3:
-			cmdfile.write("\n".join("mv -vi " + esc(old) + " " + esc(new) \
+			cmdfile.write("\n".join("mv -vi -- " + esc(old) + " " + esc(new) \
 				for old, new in zip(filenames, new_filenames) \
 				if old != new).encode("utf-8"))
 		else:
-			cmdfile.write("\n".join("mv -vi " + esc(old) + " " + esc(new) \
+			cmdfile.write("\n".join("mv -vi -- " + esc(old) + " " + esc(new) \
 				for old, new in zip(filenames, new_filenames) if old != new))
 		cmdfile.flush()
 		self.fm.execute_file([File(cmdfile.name)], app='editor')
 		self.fm.run(['/bin/sh', cmdfile.name], flags='w')
 		cmdfile.close()
+
+
+class relink(Command):
+	"""
+	:relink <newpath>
+
+	Changes the linked path of the currently highlighted symlink to <newpath>
+	"""
+
+	def execute(self):
+		from ranger.fsobject import File
+
+		new_path = self.rest(1)
+		cf = self.fm.env.cf
+
+		if not new_path:
+			return self.fm.notify('Syntax: relink <newpath>', bad=True)
+
+		if not cf.is_link:
+			return self.fm.notify('%s is not a symlink!' % cf.basename, bad=True)
+
+		if new_path == os.readlink(cf.path):
+			return
+
+		try:
+			os.remove(cf.path)
+			os.symlink(new_path, cf.path)
+		except OSError as err:
+			self.fm.notify(err)
+
+		self.fm.reset()
+		self.fm.env.cwd.pointed_obj = cf
+		self.fm.env.cf = cf
+
+	def tab(self):
+		if not self.rest(1):
+			return self.line+os.readlink(self.fm.env.cf.path)
+		else:
+			return self._tab_directory_content()
 
 
 class help_(Command):

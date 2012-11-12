@@ -1,4 +1,96 @@
 # -*- coding: utf-8 -*-
+# Copyright (C) 2009, 2010, 2011  Roman Zimbelmann <romanz@lavabit.com>
+# This configuration file is licensed under the same terms as ranger.
+# ===================================================================
+# This is the configuration file for file type detection and application
+# handling.  It's all in python; lines beginning with # are comments.
+#
+# You can customize this in the file ~/.config/ranger/apps.py.
+# It has the same syntax as this file.  In fact, you can just copy this
+# file there with `ranger --copy-config=apps' and make your modifications.
+# But make sure you update your configs when you update ranger.
+#
+# In order to add application definitions "on top of" the default ones
+# in your ~/.config/ranger/apps.py, you should subclass the class defined
+# here like this:
+#
+#   from ranger.defaults.apps import CustomApplications as DefaultApps
+#   class CustomApplications(DeafultApps):
+#       <your definitions here>
+#
+# To override app_defaults, you can write something like:
+#
+#       def app_defaults(self, c):
+#           f = c.file
+#           if f.extension == 'lol':
+#               return "lolopener", c
+#           return DefaultApps.app_default(self, c)
+#
+# ===================================================================
+# This system is based on things called MODES and FLAGS.  You can read
+# in the man page about them.  To remind you, here's a list of all flags.
+# An uppercase flag inverts previous flags of the same name.
+#     s   Silent mode.  Output will be discarded.
+#     d   Detach the process.  (Run in background)
+#     p   Redirect output to the pager
+#     w   Wait for an Enter-press when the process is done
+#     c   Run the current file only, instead of the selection
+#     r   Run application with root privilege 
+#     t   Run application in a new terminal window
+#
+# To implement flags in this file, you could do this:
+#     context.flags += "d"
+# Another example:
+#     context.flags += "Dw"
+#
+# To implement modes in this file, you can do something like:
+#     if context.mode == 1:
+#         <run in one way>
+#     elif context.mode == 2:
+#         <run in another way>
+#
+# ===================================================================
+# The methods are called with a "context" object which provides some
+# attributes that transfer information.  Relevant attributes are:
+#
+# mode -- a number, mainly used in determining the action in app_xyz()
+# flags -- a string with flags which change the way programs are run
+# files -- a list containing files, mainly used in app_xyz
+# filepaths -- a list of the paths of each file
+# file -- an arbitrary file from that list (or None)
+# fm -- the filemanager instance
+# popen_kws -- keyword arguments which are directly passed to Popen
+#
+# ===================================================================
+# The return value of the functions should be either:
+# 1. A reference to another app, like:
+#     return self.app_editor(context)
+#
+# 2. A call to the "either" method, which uses the first program that
+# is installed on your system.  If none are installed, None is returned.
+#     return self.either(context, "libreoffice", "soffice", "ooffice")
+#
+# 3. A tuple of arguments that should be run.
+#     return "mplayer", "-fs", context.file.path
+# If you use lists instead of strings, they will be flattened:
+#     args = ["-fs", "-shuf"]
+#     return "mplayer", args, context.filepaths
+# "context.filepaths" can, and will often be abbreviated with just "context":
+#     return "mplayer", context
+#
+# 4. "None" to indicate that no action was found.
+#     return None
+#
+# ===================================================================
+# When using the "either" method, ranger determines which program to
+# pick by looking at its dependencies.  You can set dependencies by
+# adding the decorator "depends_on":
+#     @depends_on("vim")
+#     def app_vim(self, context):
+#         ....
+# There is a special keyword which you can use as a dependence: "X"
+# This ensures that the program will only run when X is running.
+# ===================================================================
 
 import ranger
 from ranger.api.apps import *
@@ -15,38 +107,60 @@ class CustomApplications(Applications):
 
 		if f.extension is not None:
 			if f.extension in ('pdf', ):
-				return self.either(c, 'zathura', 'apvlv')
+				return self.either(c, 'zathura', 'llpp', 'mupdf', 'apvlv',
+						'evince', 'okular', 'epdfview')
 			if f.extension == 'djvu':
-				return self.either(c, 'evince')
-			if f.extension in ('xml', ):
+				return self.either(c, 'zathura', 'evince')
+			if f.extension in ('xml', 'csv'):
 				return self.either(c, 'editor')
+			if f.extension == 'mid':
+				return self.either(c, 'wildmidi')
+			if f.extension in ('html', 'htm', 'xhtml') or f.extension == 'swf':
+				c.flags += 'd'
+				handler = self.either(c,
+						'luakit', 'uzbl', 'vimprobable', 'vimprobable2', 'jumanji',
+						'firefox', 'seamonkey', 'iceweasel', 'opera',
+						'surf', 'midori', 'epiphany', 'konqueror')
+				# Only return if some program was found:
+				if handler:
+					return handler
 			if f.extension in ('html', 'htm', 'xhtml'):
-				return self.either(c, 'luakit', 'chromium')
-			if f.extension == 'swf':
-				return self.either(c, 'luakit', 'chromium')
+				# These browsers can't handle flash, so they're not called above.
+				c.flags += 'D'
+				return self.either(c, 'elinks', 'links', 'links2', 'lynx', 'w3m')
+			if f.extension == 'nes':
+				return self.either(c, 'fceux')
 			if f.extension in ('swc', 'smc', 'sfc'):
 				return self.either(c, 'zsnes')
-			if f.extension in ('odt', 'ods', 'odp', 'odf', 'odg',
-					'doc', 'xls'):
-				return self.either(c, 'libreoffice', 'soffice', 'ooffice')
+			if f.extension == 'doc':
+				return self.either(c, 'abiword', 'libreoffice',
+						'soffice', 'ooffice')
+			if f.extension in ('odt', 'ods', 'odp', 'odf', 'odg', 'odb', 'sxc',
+					'stc', 'xls', 'xlsx', 'xlt', 'xlw', 'gnm', 'gnumeric'):
+				return self.either(c, 'gnumeric', 'kspread',
+						'libreoffice', 'soffice', 'ooffice')
 
 		if f.mimetype is not None:
 			if INTERPRETED_LANGUAGES.match(f.mimetype):
 				return self.either(c, 'edit_or_run')
 
 		if f.container:
-			return self.either(c, 'xarchiver')
+			return self.either(c, 'aunpack', 'file_roller')
 
-		if f.video or f.audio:
-			if f.video:
-				c.flags += 'd'
-			return self.either(c, 'mplayer2', 'mplayer', 'vlc')
+		if f.video:
+			c.flags += 'd'
+			return self.either(c, 'mplayer', 'gmplayer', 'mplayer2',
+					'smplayer', 'vlc', 'totem')
+
+		if f.audio:
+			c.flags += 'd'
+			return self.either(c, 'audacious')
 
 		if f.image:
 			if c.mode in (11, 12, 13, 14):
 				return self.either(c, 'set_bg_with_feh')
 			else:
-				return self.either(c, 'viewnior', 'feh')
+				return self.either(c, 'sxiv', 'feh', 'eog', 'mirage')
 
 		if f.document or f.filetype.startswith('text') or f.size == 0:
 			return self.either(c, 'editor')
@@ -115,10 +229,35 @@ class CustomApplications(Applications):
 	@depends_on('feh', 'X')
 	def app_feh(self, c):
 		c.flags += 'd'
-		if c.mode is 0 and len(c.files) is 1: # view all files in the cwd
+		if c.mode is 0 and len(c.files) is 1 and self.fm.env.cwd:
+			# view all files in the cwd
 			images = [f.basename for f in self.fm.env.cwd.files if f.image]
 			return 'feh', '--start-at', c.file.basename, images
 		return 'feh', c
+
+	@depends_on('sxiv', 'X')
+	def app_sxiv(self, c):
+		c.flags = 'd' + c.flags
+		if len(c.files) is 1 and self.fm.env.cwd:
+			images = [f.basename for f in self.fm.env.cwd.files if f.image]
+			try:
+				position = images.index(c.file.basename) + 1
+			except:
+				return None
+			return 'sxiv', '-n', str(position), images
+		return 'sxiv', c
+
+	@depends_on('aunpack')
+	def app_aunpack(self, c):
+		if c.mode is 0:
+			c.flags += 'p'
+			return 'aunpack', '-l', c.file.path
+		return 'aunpack', c.file.path
+
+	@depends_on('file-roller', 'X')
+	def app_file_roller(self, c):
+		c.flags += 'd'
+		return 'file-roller', c.file.path
 
 	@depends_on('make')
 	def app_make(self, c):
@@ -138,22 +277,52 @@ class CustomApplications(Applications):
 		files_without_extensions = map(strip_extensions, c.files)
 		return "java", files_without_extensions
 
+	@depends_on('totem', 'X')
+	def app_totem(self, c):
+		if c.mode is 0:
+			return "totem", c
+		if c.mode is 1:
+			return "totem", "--fullscreen", c
+
 	@depends_on('mimeopen')
 	def app_mimeopen(self, c):
 		if c.mode is 0:
 			return "mimeopen", c
-		if c.mode is 1:
+		if c.mode is 1: 
 			# Will ask user to select program
 			# aka "Open with..."
 			return "mimeopen", "--ask", c
 
 
-CustomApplications.generic('wine', 'zsnes', deps=['X'])
+# Often a programs invocation is trivial.  For example:
+#    vim test.py readme.txt [...]
+#
+# This could be implemented like:
+#    @depends_on("vim")
+#    def app_vim(self, context):
+#        return "vim", context
+#
+# But this is redundant and ranger does this automatically.  However, sometimes
+# you want to change some properties like flags or dependencies.
+# The method "generic" defines a generic method for the given programs which
+# looks like the one above, but you can add dependencies and flags here.
+# Add programs (that are not defined yet) here if they should only run in X:
+CustomApplications.generic('fceux', 'wine', 'zsnes', deps=['X'])
 
-CustomApplications.generic('firefox', 'apvlv', 'zathura', 'gimp', 'viewnior', 'luakit',
+# Add those which should only run in X AND should be detached/forked here:
+CustomApplications.generic(
+	'luakit', 'uzbl', 'vimprobable', 'vimprobable2', 'jumanji',
+	'firefox', 'seamonkey', 'iceweasel', 'opera',
+	'surf', 'midori', 'epiphany', 'konqueror',
+	'evince', 'zathura', 'apvlv', 'okular', 'epdfview', 'mupdf', 'llpp',
+	'eog', 'mirage', 'gimp',
+	'libreoffice', 'soffice', 'ooffice', 'gnumeric', 'kspread', 'abiword',
+	'gmplayer', 'smplayer', 'vlc', 'audacious',
 			flags='d', deps=['X'])
 
+# What filetypes are recognized as scripts for interpreted languages?
+# This regular expression is used in app_default()
 INTERPRETED_LANGUAGES = re.compile(r'''
 	^(text|application)/x-(
-		haskell|perl|python|ruby|sh|lua
+		haskell|perl|python|ruby|sh
 	)$''', re.VERBOSE)
