@@ -31,10 +31,24 @@ function info(...) if luakit.verbose then io.stdout:write(string.format(...) .. 
 -- ("$XDG_CONFIG_HOME/luakit/globals.lua" or "/etc/xdg/luakit/globals.lua")
 require "globals"
 
+globals.homepage = ""
+search_engines.default = search_engines.duckduckgo
+
 -- Load users theme
 -- ("$XDG_CONFIG_HOME/luakit/theme.lua" or "/etc/xdg/luakit/theme.lua")
 lousy.theme.init(lousy.util.find_config("theme.lua"))
 theme = assert(lousy.theme.get(), "failed to load theme")
+
+-- Follow hints
+theme.follow = {}
+theme.follow.opacity = 0.3
+--theme.follow.tick_font = "10px terminus"
+theme.follow.tick_opacity = 0.9
+theme.follow.vert_offset = 10
+theme.follow.horiz_offset = -15
+theme.follow.tick_fg = "#ffffff"
+theme.follow.tick_bg = "#1793d0"
+theme.follow.tick_border = "2px solid #1793d0"
 
 -- Load users window class
 -- ("$XDG_CONFIG_HOME/luakit/window.lua" or "/etc/xdg/luakit/window.lua")
@@ -51,6 +65,12 @@ require "modes"
 -- Load users keybindings
 -- ("$XDG_CONFIG_HOME/luakit/binds.lua" or "/etc/xdg/luakit/binds.lua")
 require "binds"
+
+local key = lousy.bind.key
+
+add_binds({"normal"}, {
+    key({}, "y", function (w) w:set_mode("downloadlist") end)
+})
 
 ----------------------------------
 -- Optional user script loading --
@@ -94,19 +114,39 @@ require "userscripts"
 
 -- Add bookmarks support
 require "bookmarks"
+require "bookmarks_chrome"
 
 -- Add download support
 require "downloads"
 require "downloads_chrome"
 
+-- Example using xdg-open for opening downloads / showing download folders
+downloads.add_signal("open-file", function (file, mime)
+   luakit.spawn(string.format("xdg-open %q", file))
+   return true
+end)
+
+-- always save in ~/downloads and don't ask about saving
+downloads.default_dir = os.getenv("HOME") .. "/downloads"
+downloads.add_signal("download-location", function (uri, file)
+    if not file or file == "" then
+        file = (string.match(uri, "/([^/]+)$")
+        or string.match(uri, "^%w+://(.+)")
+        or string.gsub(uri, "/", "_")
+        or "untitled")
+    end
+    return downloads.default_dir .. "/" .. file
+end)
+
 -- Add vimperator-like link hinting & following
--- (depends on downloads)
 require "follow"
 
--- To use a custom character set for the follow hint labels un-comment and
--- modify the following:
---local s = follow.styles
---follow.style = s.sort(s.reverse(s.charset("asdfqwerzxcv"))) -- I'm a lefty
+-- Use a custom charater set for hint labels
+local s = follow.label_styles
+follow.label_maker = s.sort(s.reverse(s.charset("asdfqwerzxcv")))
+
+-- Match only hint labels
+follow.pattern_maker = follow.pattern_styles.match_label
 
 -- Add command history
 require "cmdhist"
@@ -120,6 +160,8 @@ require "taborder"
 -- Save web history
 require "history"
 require "history_chrome"
+
+require "introspector"
 
 -- Add command completion
 require "completion"
@@ -167,37 +209,6 @@ if unique then
         w.win.urgency_hint = true
     end)
 end
-
--- blank page
-globals.homepage = ""
-
--- Avoid blinking when creating/switching tabs
--- webview.init_funcs.set_win_trans = function (view, w)
---     view.transparent = true
--- end
-
--- always save in ~/downloads and don't ask about saving
-downloads.default_dir = os.getenv("HOME") .. "/downloads"
-downloads.add_signal("download-location", function (uri, file)
-    if not file or file == "" then
-        file = (string.match(uri, "/([^/]+)$")
-        or string.match(uri, "^%w+://(.+)")
-        or string.gsub(uri, "/", "_")
-        or "untitled")
-    end
-    return downloads.default_dir .. "/" .. file
-end)
-
--- Custom character set for the follow hint labels
-local s = follow.styles
-follow.style = s.sort(s.reverse(s.charset("asqwertgfhjkloiup")))
-
--- Bindings
-local key = lousy.bind.key
-
-add_binds({"normal"}, {
-    key({}, "y", function (w) w:set_mode("downloadlist") end)
-})
 
 -- open magnet links with transmission
 webview.init_funcs.magnet_hook = function (view, w)
