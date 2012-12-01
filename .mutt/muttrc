@@ -46,6 +46,7 @@ set sort_re
 set ssl_starttls = yes
 set status_on_top # Status bar on top.
 set strict_threads = no
+set text_flowed=yes
 set tilde
 set thorough_search   # strip headers and eval mimes before searching
 set use_from
@@ -131,7 +132,7 @@ folder-hook . "exec collapse-all" # collapses all threads
 
 # Editing
 
-set editor="vim -c 'set tw=79 et ft=mail' -c '+/^$'"
+set editor="vim"
 set edit_headers=yes # See the headers when editing
 set include # include original message
 
@@ -141,7 +142,7 @@ source ~/.mutt/gpg.muttrc
 set sig_dashes
 set signature = "~/.signature"
 folder-hook . set pgp_autosign = no
-folder-hook Dragonfly set pgp_autosign = yes
+folder-hook dragonfly set pgp_autosign = yes
 set pgp_sign_as=FEBE1140
 set pgp_replyencrypt = yes
 set pgp_timeout = 1800 # half hour
