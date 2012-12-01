@@ -323,18 +323,18 @@ if has("autocmd")
     " Gettext file compiler (msgfmt)
     autocmd FileType po compiler po
 
-    autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
-    autocmd FileType mail set spell spelllang=pt,en_us
+    autocmd FileType mail setl spell spelllang=pt,en_us
 
     " Markdown
-    autocmd FileType mkd set spell spelllang=pt,en_us
+    autocmd FileType mkd setl spell spelllang=pt,en_us
 
     " gitcommit
-    autocmd FileType gitcommit set spell spelllang=pt,en_us
+    autocmd FileType gitcommit setl spell spelllang=pt,en_us
 
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
