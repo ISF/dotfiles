@@ -13,6 +13,7 @@ set abort_nosubject = ask-yes
 set abort_unmodified = ask-yes
 set alias_file = "~/.mutt/alias"
 set attach_split
+set attribution = "On %d, %n did gyre and gimble:\n"
 set auto_tag = yes
 set charset = utf-8
 set check_new
