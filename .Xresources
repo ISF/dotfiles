@@ -8,13 +8,13 @@ urxvt.scrollBar: off
 urxvt.font: xft:terminus:antialias=true:pixelsize=10
 urxvt.boldFont: xft:terminus:antialias=true:pixelsize=10
 urxvt*borderless: true
-urxvt*perl-lib: /usr/lib/urxvt/perl
-urxvt*perl-ext-common: default,matcher
-urxvt*urlLauncher: chromium
-urxvt.underlineURLs: false
-urxvt*matcher.button: 3
-urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-urxvt*matcher.rend.0: fg6
+!urxvt*perl-lib:
+!urxvt*perl-ext-common:
+! urxvt*urlLauncher: chromium
+! urxvt.underlineURLs: false
+! urxvt*matcher.button: 3
+! urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+! urxvt*matcher.rend.0: fg6
 urxvt*fading: 0
 urxvt*termName: xterm-256color
 
