@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 xrdb -merge .Xresources
 xset +fp /usr/share/fonts/local
@@ -12,6 +12,8 @@ dropboxd &
 mpd
 xmodmap .Xmodmap
 xbindkeys
-if [[ -z $(pgrep -l synergy) ]]; then (synergyc shungokusatsu &); fi
+if [[ -z $(pgrep -l synergy) && $(hostname) == "hadouken" ]]; then
+    (synergyc shungokusatsu &);
+fi
 /home/ivan/.scripts/dzenconky.sh
 exec dbus-launch xmonad
