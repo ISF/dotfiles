@@ -302,6 +302,8 @@ if has("autocmd")
 
     autocmd BufEnter *.mips setl ft=mips
 
+    autocmd BufEnter *.muttrc setl ft=muttrc
+
     autocmd Filetype asm,mips setl autoindent
 
     autocmd BufEnter *.c,*.h call CoreutilsIndent()
