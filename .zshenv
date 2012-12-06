@@ -65,7 +65,4 @@ fi
 [[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
 [[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
-# RVM setup
-[[ -s "/home/ivan/.rvm/scripts/rvm" ]] && source "/home/ivan/.rvm/scripts/rvm"
-
 source ~/.zshrc
