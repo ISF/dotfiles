@@ -16,6 +16,7 @@ TEXT
 ${if_match ${exec grep -c eth0 /proc/net/route} > 0}\
 ^fg(\#${template1})^i(${template0}wired_connected.xbm)^fg() ${addr eth0}\
 ${endif}\
+ \
 ${if_match ${exec grep -c wlan0 /proc/net/route} > 0}\
 ^fg(\#${template1})^i(${template0}wifi.xbm)^fg() ${addr wlan0}\
 ${endif}\
