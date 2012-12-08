@@ -65,4 +65,8 @@ fi
 [[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
 [[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
+# NNTP servers
+
+export NNTPSERVER="localhost"
+
 source ~/.zshrc
