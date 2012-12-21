@@ -36,7 +36,6 @@ unsetopt glob_complete
 unsetopt menu_complete
 
 fpath=($HOME/.zsh/functions/
-       $HOME/.zsh/systemctl/
        $HOME/.zsh/acsim/
        /usr/share/doc/task/scripts/zsh
        $fpath)
