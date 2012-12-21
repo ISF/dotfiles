@@ -163,7 +163,7 @@ manageScratchPad = scratchpadManageHook (W.RationalRect left top width height)
  
 myEventHook = minimizeEventHook
 
-statusBarCmd= "dzen2 -e '' -w 600 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
+statusBarCmd= "dzen2 -e '' -w 500 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
                  {  ppCurrent = wrap "^fg(#ffffff)^bg(#268bd2) " " ^fg()^bg()"
                   , ppHidden  = wrap "^i(/home/ivan/.dzen/has_win_nv.xbm)" " "
