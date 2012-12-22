@@ -1,15 +1,18 @@
 % -*- slang -*-
 
+% User configuration
 set username "ivansichfreitas"
 set hostname "gmail.com"
 set realname "Ivan Sichmann Freitas"
 set replyto  "Ivan Sichmann Freitas <ivansichfreitas@gmail.com>"
 set signature ".signature"
 
+% Server
 server "localhost" ".jnewsrc-localhost"
 set server_object "nntp"
 set post_object "nntp"
 
+% Environment
 set editor_command "vim -c %d '%s'"
 set abort_unmodified_edits 1
 set metamail_command "metamail"
@@ -31,6 +34,7 @@ charset display utf8
 charset outgoing "utf8"
 set use_metamail 1
 
+% Behavior
 set sorting_method 9
 set new_subject_breaks_threads 0
 visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:"
@@ -45,6 +49,7 @@ set scroll_by_page 0
 set highlight_unread_subjects 1
 set highlight_urls 1
 
+% Color
 color unread_subject	"white"		"black"	"bold"
 mono  unread_subject	"bold"
 color article		"lightgray"	"black"
@@ -287,6 +292,7 @@ setkey article repeat_last_key         "."	% Repeat last key sequence
 setkey article grouplens_rate_article  "0"	% Rate article with grouplens
 setkey article evaluate_cmd            "^X<Esc>"   % Interpret line as S-Lang
 
+% Command line
 setkey readline bol		 "^A"		% Beginning of line
 setkey readline eol		 "^E"		% End of line
 setkey readline right		 "<Right>"	% Move right
