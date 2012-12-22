@@ -48,6 +48,8 @@ set display_cursor_bar	1
 set scroll_by_page 0
 set highlight_unread_subjects 1
 set highlight_urls 1
+set wrap_flags 7
+set wrap_method 2
 
 % Color
 color unread_subject	"white"		"black"	"bold"
