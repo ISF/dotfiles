@@ -13,43 +13,43 @@ set server_object "nntp"
 set post_object "nntp"
 
 % Environment
-set editor_command "vim -c %d '%s'"
-set abort_unmodified_edits 1
-set metamail_command "metamail"
-set non_Xbrowser "lynx '%s'"
 set Xbrowser "luakit '%s' &"
+set non_Xbrowser "lynx '%s'"
+set abort_unmodified_edits 1
+set decode_directory ".news"
+set editor_command "vim -c %d '%s'"
+set failed_posts_file ""
+set followup_string "On %D, %r <%f> wrote:"
+set metamail_command "metamail"
+set postpone_directory ".news/postponed"
 set printer_name "lpr -Plp"
-set sendmail_command "/usr/bin/msmtp -t"
+set reply_string "In %n, you wrote:"
+set save_directory ".news"
 set save_posts ".news/my_posts"
 set save_replies ".news/my_replies"
-set failed_posts_file ""
 set scorefile ".news/score"
-set decode_directory ".news"
-set save_directory ".news"
-set postpone_directory ".news/postponed"
+set sendmail_command "/usr/bin/msmtp -t"
+set use_metamail 1
 set use_tmpdir 0
-set followup_string "On %D, %r <%f> wrote:"
-set reply_string "In %n, you wrote:"
 charset display utf8
 charset outgoing "utf8"
-set use_metamail 1
 
 % Behavior
-set sorting_method 9
-set new_subject_breaks_threads 0
-visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:"
-set process_verbatim_marks 1
-set hide_verbatim_marks 0
-set hide_signature 0
-set hide_pgpsignature 0
-set simulate_graphic_chars 0
-set mouse 0
 set display_cursor_bar	1
-set scroll_by_page 0
+set hide_pgpsignature 0
+set hide_signature 0
+set hide_verbatim_marks 0
 set highlight_unread_subjects 1
 set highlight_urls 1
-set wrap_flags 7
+set mouse 0
+set new_subject_breaks_threads 0
+set process_verbatim_marks 1
+set scroll_by_page 0
+set simulate_graphic_chars 0
+set sorting_method 9
+set wrap_flags 6
 set wrap_method 2
+visible_headers "From:,Subject:,Newsgroups:,Followup-To:,Reply-To:"
 
 % Color
 color unread_subject	"white"		"black"	"bold"
