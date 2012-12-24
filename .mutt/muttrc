@@ -46,6 +46,7 @@ set sort_re
 set ssl_starttls = yes
 set status_on_top # Status bar on top.
 set strict_threads = no
+set text_flowed = yes
 set tilde
 set thorough_search   # strip headers and eval mimes before searching
 set use_from
