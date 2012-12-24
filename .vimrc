@@ -11,8 +11,10 @@ endif
 
 
 " Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect()
+if filereadable(expand("$HOME/.vim/bundle/pathogen/autoload/pathogen.vim"))
+    runtime bundle/pathogen/autoload/pathogen.vim
+    call pathogen#infect()
+endif
 
 set synmaxcol=200
 set showmatch     " Show matching brackets (briefly jump to it)
@@ -50,7 +52,7 @@ set showfulltag
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set guifont=Terminus\ 10
-    colorscheme solarized
+    silent! colorscheme solarized
 else
     let g:solarized_menu = 0
     let g:solarized_termcolors = 256
@@ -58,7 +60,7 @@ else
     let g:solarized_bold = 0
     let g:solarized_underline = 0
     let g:solarized_italic = 0
-    colorscheme solarized
+    silent! colorscheme solarized
 endif
 
 " Indentation
@@ -290,12 +292,16 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 
 if has("autocmd")
 
+    " Useful general options
+    filetype plugin indent on
+
     if exists("+omnifunc")
         autocmd FileType *
         \ if &omnifunc == "" |
         \ setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
     endif
+
     autocmd BufEnter,InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
     autocmd BufEnter *.rl setl ft=ragel
@@ -310,9 +316,6 @@ if has("autocmd")
 
     " conkyrc syntax
     autocmd BufEnter *conkyrc* setl ft=conkyrc
-
-    " Useful general options
-    filetype plugin indent on
 
     " Disables any existing highlight
     autocmd VimEnter * nohl
@@ -338,7 +341,9 @@ if has("autocmd")
 
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
-    autocmd FileType lisp :AutoCloseOff
+    if exists(":AutoCloseOff")
+        autocmd FileType lisp :AutoCloseOff
+    endif
 
     " Python options
     autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
@@ -369,15 +374,17 @@ if has("autocmd")
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent textwidth=80
     autocmd FileType tex,latex setl spell spelllang=pt,en_us
-    autocmd FileType tex,latex nmap <C-C>m :Latexmk<CR>
-    autocmd FileType tex,latex nmap <C-C>c :LatexmkClean<CR>
-    autocmd FileType tex,latex nmap <C-C>e :LatexErrors<CR>
-    autocmd FileType tex,latex nmap <C-C>v :LatexView<CR>
-    autocmd FileType tex,latex nmap <C-C>t :LatexTOC<CR>
-    autocmd FileType tex,latex nmap <C-C>x <Plug>LatexChangeEnv
-    autocmd FileType tex,latex nmap <C-C>w <Plug>LatexWrapSelection
-    autocmd FileType tex,latex nmap <C-C>we <Plug>LatexEnvWrapSelection
-    autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
+    if exists("b:LatexBox_loaded")
+        autocmd FileType tex,latex nmap <C-C>m :Latexmk<CR>
+        autocmd FileType tex,latex nmap <C-C>c :LatexmkClean<CR>
+        autocmd FileType tex,latex nmap <C-C>e :LatexErrors<CR>
+        autocmd FileType tex,latex nmap <C-C>v :LatexView<CR>
+        autocmd FileType tex,latex nmap <C-C>t :LatexTOC<CR>
+        autocmd FileType tex,latex nmap <C-C>x <Plug>LatexChangeEnv
+        autocmd FileType tex,latex nmap <C-C>w <Plug>LatexWrapSelection
+        autocmd FileType tex,latex nmap <C-C>we <Plug>LatexEnvWrapSelection
+        autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
+    endif
 
 endif
 
