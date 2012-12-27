@@ -136,7 +136,7 @@
                                (topmost-intro after)))
 
 ; Haskell
-(load "~/.emacs.d/haskellmode-emacs/haskell-site-file.el")
+(load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file.el")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (setq haskell-font-lock-symbols t)
