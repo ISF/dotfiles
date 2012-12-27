@@ -163,3 +163,8 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-buffer)
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+
+; newLISP
+(add-to-list 'load-path (expand-file-name "/usr/share/emacs/site-list/newlisp-mode"))
+(add-to-list 'auto-mode-alist '("\\.lsp\\'" . newlisp-mode))
+(autoload 'newlisp-mode "newlisp" "Turn on NewLisp mode" t)
