@@ -2,21 +2,23 @@ Emacs.FontBackend: xft
 
 !! urxvt configuration
 
+! Uncomment the two lines below
 !urxvt.depth: 32
 !urxvt.background: rgba:ffff/ffff/ffff/cccc
 urxvt.scrollBar: off
 urxvt.font: xft:terminus:antialias=true:pixelsize=10
 urxvt.boldFont: xft:terminus:antialias=true:pixelsize=10
-urxvt*borderless: true
-!urxvt*perl-lib:
-!urxvt*perl-ext-common:
-! urxvt*urlLauncher: chromium
-! urxvt.underlineURLs: false
-! urxvt*matcher.button: 3
-! urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-! urxvt*matcher.rend.0: fg6
-urxvt*fading: 0
-urxvt*termName: xterm-256color
+urxvt.borderless: true
+urxvt.perl-lib:
+urxvt.perl-ext-common:
+! Uncomment the below lines to configure url-selection
+!urxvt*urlLauncher: chromium
+!urxvt.underlineURLs: false
+!urxvt*matcher.button: 3
+!urxvt*matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+!urxvt*matcher.rend.0: fg6
+urxvt.fading: 0
+urxvt.termName: xterm-256color
 
 Xft.dpi: 96
 Xft.antialias: true
