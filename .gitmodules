@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/vim-surround"]
 	path = .vim/bundle/vim-surround
 	url = https://github.com/tpope/vim-surround.git
+[submodule ".vim/bundle/paredit"]
+	path = .vim/bundle/paredit
+	url = git://github.com/vim-scripts/paredit.vim.git
