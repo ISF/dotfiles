@@ -283,8 +283,8 @@ bindkey '\ed' delete-char
 # normal C-R, C-F and C-S or history search
 bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
-bindkey -M viins '^s' history-incremental-search-forward
-bindkey -M vicmd '^s' history-incremental-search-forward
+bindkey -M viins '^xs' history-incremental-search-forward
+bindkey -M vicmd '^xs' history-incremental-search-forward
 bindkey -M viins '^g' history-incremental-pattern-search-backward
 bindkey -M vicmd '^g' history-incremental-pattern-search-backward
 
