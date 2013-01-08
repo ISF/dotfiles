@@ -283,8 +283,8 @@ bindkey -M viins '^r' history-incremental-search-backward
 bindkey -M vicmd '^r' history-incremental-search-backward
 bindkey -M viins '^s' history-incremental-search-forward
 bindkey -M vicmd '^s' history-incremental-search-forward
-bindkey -M viins '^f' history-incremental-pattern-search-backward
-bindkey -M vicmd '^f' history-incremental-pattern-search-backward
+bindkey -M viins '^g' history-incremental-pattern-search-backward
+bindkey -M vicmd '^g' history-incremental-pattern-search-backward
 
 # go back in menu completion
 bindkey -M viins '\e[Z' reverse-menu-complete
