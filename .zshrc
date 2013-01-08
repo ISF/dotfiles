@@ -264,6 +264,9 @@ bindkey -M viins "^t"  transpose-chars
 bindkey -M vicmd "^t"  transpose-chars
 bindkey -M viins "\et" transpose-words
 bindkey -M vicmd "\et" transpose-words
+bindkey -M viins "^xn" infer-next-history
+bindkey -M vicmd "^xn" infer-next-history
+bindkey -M viins "^w"  backward-kill-word
 
 bindkey "^p" vi-up-line-or-history
 bindkey "^n" vi-down-line-or-history
