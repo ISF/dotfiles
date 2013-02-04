@@ -233,6 +233,23 @@ bindkey '^' self-insert-git
 bindkey -M isearch '~' self-insert
 bindkey -M isearch '^' self-insert
 
+function set_privacy_shell() {
+    if [[ "$_private" != "yes" ]]; then
+        _private="yes"
+        unset HISTFILE
+        old_PS1="$PS1"
+        PS1="$PS1 (private) "
+    fi
+}
+
+function unset_privacy_shell() {
+    if [[ "$_private" == "yes" ]]; then
+        _private="no"
+        HISTFILE=~/.zsh_history
+        PS1=${old_PS1}
+    fi
+}
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
