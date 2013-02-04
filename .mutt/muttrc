@@ -141,8 +141,8 @@ set include # include original message
 source ~/.mutt/gpg.muttrc
 set sig_dashes
 set signature = "~/.signature"
-folder-hook . set pgp_autosign = no
-folder-hook dragonfly set pgp_autosign = yes
+set pgp_autosign = yes
+folder-hook valgrind set pgp_autosign = no
 set pgp_sign_as=FEBE1140
 set pgp_replyencrypt = yes
 set pgp_timeout = 1800 # half hour
