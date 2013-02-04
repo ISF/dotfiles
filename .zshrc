@@ -27,6 +27,7 @@ setopt list_packed
 setopt list_rows_first
 setopt nohup
 setopt notify
+setopt numeric_glob_sort
 setopt prompt_subst
 setopt pushd_ignore_dups
 setopt share_history
