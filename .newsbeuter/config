@@ -11,7 +11,7 @@ reload-threads 4
 goto-first-unread yes
 goto-next-feed yes
 
-notify-program "/usr/bin/notify-send"
+#notify-program "/usr/bin/notify-send"
 
 # Google Reader flagging keys
 googlereader-flag-share "S"
