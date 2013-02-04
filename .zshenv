@@ -66,7 +66,9 @@ fi
 [[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
 
 # NNTP servers
-
 export NNTPSERVER="localhost"
+
+# virsh default connection (local)
+export VIRSH_DEFAULT_CONNECT_URI="qemu:///system"
 
 source ~/.zshrc
