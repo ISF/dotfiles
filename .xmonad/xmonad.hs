@@ -36,13 +36,10 @@ import qualified Data.Map        as M
 
 
 myTerminal      = "urxvtc"
-
 myWorkspaces    = ["main", "code", "web", "chat", "media", "misc" ] ++ map show [7..9]
-
 myBorderWidth   = 1
 myNormalBorderColor  = "#222222"
 myFocusedBorderColor = "#268bd2"
-
 myModMask       = mod4Mask
 
 myXPConfig = defaultXPConfig { font = "xft:terminus:10"
@@ -130,13 +127,10 @@ myTabbed = noBorders $ tabbed shrinkText defaultTheme { fontName =  "xft:terminu
 myFull = noBorders Full
 myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 myTwoPane = TwoPane (3/100) (1/2)
-myProgramming = smartBorders $ Tall 1 (3/100) (3/4)
 fourPanes = smartBorders $ Tall 2 (3/100) (1/2)
 
 mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane
-
 webLayout = myFull ||| myTiled ||| myTabbed
-
 mediaLayout = Mirror myTiled ||| myTiled ||| myFull
 
 myLayout = onWorkspace "web" webLayout $
