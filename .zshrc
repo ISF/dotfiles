@@ -261,9 +261,9 @@ bindkey -v
 if [[ -f /etc/inputrc ]]; then
     eval "$(sed -n 's/^/bindkey /; s/: / /p' /etc/inputrc)"
 fi
-if [[ -f ~/.inputrc ]]; then
-    eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
-fi
+#  if [[ -f ~/.inputrc ]]; then
+#      eval "$(sed -n 's/^/bindkey /; s/: / /p' ~/.inputrc)"
+#  fi
 
 # use backspace over everythin on vi mode
 bindkey -M viins '^_' backward-delete-char
