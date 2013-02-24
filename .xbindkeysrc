@@ -13,3 +13,19 @@
 "mpc stop"
     m:0x10 + c:174
     XF86AudioStop
+
+"mpc volume 0"
+    m:0x10 + c:121
+    XF86AudioMute
+
+"mpc volume -5"
+    m:0x10 + c:122
+    XF86AudioLowerVolume
+
+"mpc volume +5"
+    m:0x10 + c:123
+    XF86AudioRaiseVolume
+
+"synclient TouchpadOff=1"
+    m:0x10 + c:199
+    XF86TouchpadToggle
