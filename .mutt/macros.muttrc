@@ -8,9 +8,9 @@ macro pager \cu <pipe-entry>'url_handler.sh'<enter> 'Follow links with urlview'
 macro index,pager .b "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
 
 # movementation between account folders
-macro index Gg "<change-folder>.mail/gmail/INBOX<enter>"
-macro index Gm "<change-folder>.mail/gmx/INBOX<enter>"
-macro index Gs "<change-folder>.mail/sdf/INBOX<enter>"
+macro index *g "<change-folder>.mail/gmail/INBOX<enter>"
+macro index *m "<change-folder>.mail/gmx/INBOX<enter>"
+macro index *s "<change-folder>.mail/sdf/INBOX<enter>"
 
 # mark as unread
 macro index,pager .u "<set-flag>N" "Mark as unread"
