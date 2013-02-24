@@ -182,7 +182,7 @@ let g:lua_complete_globals  = 1
 let g:lua_complete_library  = 1
 let g:lua_complete_dynamic  = 1
 
-" Lisp
+" Lisp and scheme
 let g:lisp_rainbow = 1
 
 " Doxygen syntax
@@ -342,7 +342,11 @@ if has("autocmd")
     " Lisp
     autocmd FileType lisp setl lisp showmatch cpoptions-=m
     if exists(":AutoCloseOff")
-        autocmd FileType lisp :AutoCloseOff
+        autocmd FileType lisp,scheme :AutoCloseOff
+    endif
+
+    if exists("PareditInitBuffer()")
+        autocmd FileType lisp,scheme call PareditInitBuffer()
     endif
 
     " Python options
@@ -385,6 +389,10 @@ if has("autocmd")
         autocmd FileType tex,latex nmap <C-C>we <Plug>LatexEnvWrapSelection
         autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
     endif
+
+    " Scheme
+    autocmd FileType scheme syn keyword schemeFunc string-concatenate read-line last-pair string-contains when unless
+    autocmd FileType scheme setl lispwords-=if
 
 endif
 
