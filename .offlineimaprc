@@ -20,8 +20,6 @@ footer = "\n"
 localrepository = gmail-local
 remoterepository = gmail-remote
 
-autorefresh = 10
-quick = 3
 maxage = 60
 status_backend = sqlite
 
