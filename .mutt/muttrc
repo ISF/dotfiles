@@ -72,10 +72,6 @@ folder-hook sdf/* source ~/.mutt/sdf.muttrc
 source ~/.mutt/binds.muttrc
 source ~/.mutt/macros.muttrc
 
-# Sourcing alias
-
-#source $alias_file
-
 # Lists
 source ~/.mutt/lists.muttrc
 
