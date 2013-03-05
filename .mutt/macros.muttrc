@@ -6,6 +6,7 @@ macro index \Cv "<enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<ente
 macro pager \Cv "<exit><enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> <enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature'
 macro pager \Cu <pipe-entry>'urlscan -c'<enter> 'Follow links with ulrscan'
 macro index,pager .b "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
+macro index,pager \Ca "<pipe-message>~/.scripts/get_ml.sh<return>" "Add the mailing list to the subscribe file"
 
 # movementation between account folders
 macro index *g "<change-folder>.mail/gmail/INBOX<enter>"
