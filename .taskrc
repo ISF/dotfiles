@@ -9,6 +9,9 @@ dateformat.holiday=Y/M/D
 dateformat.annotation=Y/M/D
 report.X.dateformat=Y/M/D
 displayweeknumber=yes
+push.default.uri=ssh://isf@sdf.org/~/tasks/
+pull.default.uri=ssh://isf@sdf.org/~/tasks/
+merge.default.uri=ssh://isf@sdf.org/~/tasks/
 
 # Files
 data.location=/home/ivan/.task
