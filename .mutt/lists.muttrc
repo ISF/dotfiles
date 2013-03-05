@@ -1,4 +1,5 @@
 # Lists
+subscribe \
 arch-dev-public \
 arch-general \
 arch-haskell \
@@ -45,7 +46,6 @@ pacman-dev \
 parallel-haskell \
 people-lsc \
 pyclewn-general \
-subscribe \
 systemd-devel \
 tmux-users \
 vim_dev \
