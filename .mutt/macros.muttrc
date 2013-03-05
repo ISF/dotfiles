@@ -4,7 +4,7 @@ macro index .r <collapse-all><tag-pattern>~N<enter><clear-flag>N<clear-flag>O<un
 macro index .m '<enter-command>source ~/.mutt/muttrc<enter>' "Source muttrc"
 macro index \Cv "<enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter><enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature and open the message'
 macro pager \Cv "<exit><enter-command> set my_crypt_verify_sig=\$crypt_verify_sig<enter> <enter-command> set crypt_verify_sig=yes<enter> <display-message><enter-command> set crypt_verify_sig=\$my_crypt_verify_sig<enter>" 'Verify PGP signature'
-macro pager \cu <pipe-entry>'url_handler.sh'<enter> 'Follow links with urlview'
+macro pager \Cu <pipe-entry>'urlscan -c'<enter> 'Follow links with ulrscan'
 macro index,pager .b "<pipe-message>goobook add<return>" "Add the sender address to Google contacts"
 
 # movementation between account folders
