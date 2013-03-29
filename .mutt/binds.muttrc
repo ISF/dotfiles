@@ -13,3 +13,6 @@ bind index G last-entry
 bind index,pager R group-reply
 
 bind editor <Tab> complete-query
+
+bind compose p postpone-message
+bind index p recall-message
