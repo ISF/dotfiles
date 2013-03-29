@@ -34,7 +34,7 @@ set formatoptions=cqrn1
 
 " list chars
 set list
-set listchars=tab:▸\ ,
+set listchars=tab:▸\ ,trail:·
 
 " Appearance
 set title      " Change the terminal title
@@ -287,9 +287,6 @@ if has("syntax")
   syntax on
 endif
 
-" Setting highlight to extra whitespaces at end of the line
-highlight ExtraWhitespace ctermbg=red guibg=red
-
 if has("autocmd")
 
     " Useful general options
@@ -301,8 +298,6 @@ if has("autocmd")
         \ setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
     endif
-
-    autocmd BufEnter,InsertLeave * match ExtraWhitespace /\S\+\zs\s\+$/
 
     autocmd BufEnter *.rl setl ft=ragel
 
@@ -350,7 +345,6 @@ if has("autocmd")
     endif
 
     " Python options
-    autocmd FileType python :autocmd InsertLeave * match ExtraWhitespace /\s\+\%#\@<!$/
     autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
     autocmd FileType python setl nosmartindent noautoindent keywordprg=pydoc2 textwidth=79
     autocmd FileType python setl omnifunc=pythoncomplete#Complete                                  " setting the omnifuncion for python
