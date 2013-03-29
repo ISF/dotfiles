@@ -1,4 +1,4 @@
-include "~/.newsbeuter/config.googlereader"
+include "~/.newsbeuter/config.ttrss"
 include "~/.newsbeuter/colorschemes/solarized-dark"
 
 browser "chromium %u"
@@ -10,12 +10,6 @@ reload-threads 4
 
 goto-first-unread yes
 goto-next-feed yes
-
-#notify-program "/usr/bin/notify-send"
-
-# Google Reader flagging keys
-googlereader-flag-share "S"
-googlereader-flag-star "b"
 
 bind-key j down all
 bind-key k up all
