@@ -279,6 +279,9 @@ hi cBraces ctermfg=lightgreen guifg=lightgreen
 hi link cUserFunction DefinedByUser
 hi link cUserFunctionPointer DefinedByUser
 
+" SQL
+let g:sql_type_default = 'mysql'
+
 " Global abbreviations
 iab teh the
 iab archc ArchC
@@ -323,6 +326,9 @@ if has("autocmd")
 
     autocmd FileType xml setl omnifunc=xmlcomplete#CompleteTags
     autocmd FileType html setl omnifunc=htmlcomplete#CompleteTags
+
+    " SQL
+    autocmd FileType sql set ts=2 sw=2 sts=2
 
     " Mail
     autocmd FileType mail :autocmd InsertLeave * match none
