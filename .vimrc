@@ -501,13 +501,3 @@ nnoremap <F12> :SyntasticCheck<CR>
 
 hi! link NonText Normal
 hi! link SpecialKey Normal
-
-" Automatically sourcing local configurations
-if filereadable("./.vim_local_config")
-    silent source ./.vim_local_config
-endif
-
-" Automatically sourcing a existing session if no files were passed as arguments
-if filereadable("Session.vim") && (argc() == 0)
-    silent source Session.vim
-endif
