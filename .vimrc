@@ -392,6 +392,8 @@ if has("autocmd")
     autocmd FileType scheme syn keyword schemeFunc string-concatenate read-line last-pair string-contains when unless
     autocmd FileType scheme setl lispwords-=if
 
+    " Graphviz
+    autocmd FileType dot set cindent
 endif
 
 " Better behavior when browsing with h,j,k,l
