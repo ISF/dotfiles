@@ -90,9 +90,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
     , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
 
-    -- execute shell commands
-    , ((modm,               xK_s), shellPrompt myXPConfig)
-    , ((modm .|. shiftMask, xK_s), xmonadPrompt myXPConfig)
+    -- toggle struts
+    , ((modm,               xK_b), sendMessage ToggleStruts)
  
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
@@ -146,6 +145,7 @@ myManageHook = composeAll
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
     <+> manageScratchPad
+    <+> manageDocks
 
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect left top width height)
@@ -182,7 +182,10 @@ myPP h = defaultPP
 
 main = do
     dzen <- spawnPipe statusBarCmd
-    xmonad $ withUrgencyHook dzenUrgencyHook { args = ["-fn", "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*","-bg", "green", "-fg", "#878787"] }
+    xmonad $
+        ewmh $
+        withUrgencyHook
+        dzenUrgencyHook { args = ["-fn", "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*","-bg", "green", "-fg", "#878787"] }
         $ defaultConfig {
             terminal           = myTerminal,
             focusFollowsMouse  = False,
