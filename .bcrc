@@ -1,1 +1,4 @@
 scale=6
+history=10
+
+/* vim: set filetype=bc : */
