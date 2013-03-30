@@ -353,24 +353,24 @@ else
     alias lla="ls -Alh"
     alias lt="ls -alih"
 fi
+alias bc='bc -l'
 alias callgrind='valgrind --tool=callgrind'
 alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
-alias oka='echo valeu'
 alias cp='nocorrect cp'
-alias mv='nocorrect mv'
-alias rm='nocorrect rm'
-alias man='nocorrect man'
-alias mkdir='nocorrect mkdir'
-alias task='nocorrect task'
-alias find='noglob find'
-alias sz='source ~/.zshrc'
 alias ez="$EDITOR ~/.zshrc"
-alias onlyx='nohup startx &; disown; exit'
-alias bc='bc -l'
+alias find='noglob find'
+alias gdb='gdb -q'
 alias htopcpu='htop --sort-key PERCENT_CPU'
 alias htopmem='htop --sort-key PERCENT_MEM'
+alias man='nocorrect man'
+alias mkdir='nocorrect mkdir'
+alias mv='nocorrect mv'
+alias oka='echo valeu'
+alias onlyx='nohup startx &; disown; exit'
+alias rm='nocorrect rm'
+alias sz='source ~/.zshrc'
+alias task='nocorrect task'
 alias tv='terminal_velocity'
-alias gdb='gdb -q'
 
 # suffix
 if [[ -z $SSH_CLIENT  ]]; then
