@@ -370,6 +370,7 @@ alias bc='bc -l'
 alias htopcpu='htop --sort-key PERCENT_CPU'
 alias htopmem='htop --sort-key PERCENT_MEM'
 alias tv='terminal_velocity'
+alias gdb='gdb -q'
 
 # suffix
 if [[ -z $SSH_CLIENT  ]]; then
