@@ -42,10 +42,6 @@
 	path = .vim/bundle/xterm-color-table
 	url = git://github.com/guns/xterm-color-table.vim.git
 	ignore = dirty
-[submodule ".vim/bundle/TagHighlight"]
-	path = .vim/bundle/TagHighlight
-	url = git://github.com/abudden/TagHighlight.git
-	ignore = dirty
 [submodule ".vim/bundle/pathogen"]
 	path = .vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
