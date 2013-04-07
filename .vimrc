@@ -22,7 +22,7 @@ set splitright
 set nosplitbelow
 set magic
 set backspace=indent,eol,start
-set sessionoptions=buffers,folds,tabpages,winpos,winsize,options,localoptions
+set sessionoptions=buffers,folds,tabpages,winpos,winsize
 
 " Backup and history options
 set backupdir=~/.vim/backup " Put backup files (annoying ~ files) in another directory
