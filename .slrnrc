@@ -44,6 +44,7 @@ set highlight_urls 1
 set mouse 0
 set new_subject_breaks_threads 0
 set process_verbatim_marks 1
+set query_read_group_cutoff 0
 set scroll_by_page 0
 set simulate_graphic_chars 0
 set sorting_method 9
