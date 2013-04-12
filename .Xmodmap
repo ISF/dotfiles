@@ -1,6 +1,5 @@
-remove Lock = Caps_Lock
-remove Control = Control_L
-remove Control = Escape
+clear Lock
+clear Control
 keysym Escape = Caps_Lock
 keysym Caps_Lock = Control_L
 keysym Control_L = Escape
