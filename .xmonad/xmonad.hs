@@ -17,6 +17,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.TwoPane
+import XMonad.Layout.WorkspaceDir
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
@@ -77,6 +78,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
+    -- Change worskpace directory
+    , ((modm,               xK_x     ), changeDir myXPConfig)
+
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
 
     -- bindings for CycleWS
@@ -128,9 +132,9 @@ myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 myTwoPane = TwoPane (3/100) (1/2)
 fourPanes = smartBorders $ Tall 2 (3/100) (1/2)
 
-mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane
-webLayout = myFull ||| myTiled ||| myTabbed
-mediaLayout = Mirror myTiled ||| myTiled ||| myFull
+mainLayout = workspaceDir "~" (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane)
+webLayout = workspaceDir "~" (myFull ||| myTiled ||| myTabbed)
+mediaLayout = workspaceDir "~" (Mirror myTiled ||| myTiled ||| myFull)
 
 myLayout = onWorkspace "web" webLayout $
            onWorkspace "media" mediaLayout $
