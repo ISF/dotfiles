@@ -54,13 +54,18 @@ if has("gui_running")
     set guifont=Terminus\ 10
     silent! colorscheme solarized
 else
-    let g:solarized_menu = 0
-    let g:solarized_termcolors = 256
-    let g:solarized_termtrans = 1
-    let g:solarized_bold = 0
-    let g:solarized_underline = 0
-    let g:solarized_italic = 0
-    silent! colorscheme solarized
+    if $SSH_CONNECTION == ''
+        let g:solarized_menu = 0
+        let g:solarized_termcolors = 256
+        let g:solarized_termtrans = 1
+        let g:solarized_bold = 0
+        let g:solarized_underline = 0
+        let g:solarized_italic = 0
+        silent! colorscheme solarized
+    else
+        silent! colorscheme default
+        set bg=dark
+    endif
 endif
 
 " Indentation
