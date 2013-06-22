@@ -8,6 +8,10 @@ if $VIMRUNTIME != "/usr/share/vim/vimfiles"
     set runtimepath+=/usr/share/vim/vimfiles
     runtime! archlinux.vim
 endif
+" Add Go distribution plugins
+if $GOROOT != ""
+    set runtimepath+=$GOROOT/misc/vim
+endif
 
 
 " Pathogen
