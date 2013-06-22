@@ -1,15 +1,23 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; Load path
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; ELPA repositories and default path
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(setq vc-handled-backends nil)
 (add-to-list 'load-path "/usr/share/emacs/site-lisp")
+
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" .
+               "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("gnu" .
+               "http://elpa.gnu.org/packages/"))
+(package-initialize)
+; To refresh the package list, use M-x package-refresh-contents
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; USE THE POWERFUL VIM KEYBINDS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
 (setq evil-auto-indent t)
@@ -18,13 +26,10 @@
 (setq evil-want-C-i-jump t)
 (setq evil-want-C-u-scroll t)
 
-(add-to-list 'load-path "~/.emacs.d/evil-surround")
-(require 'surround)
-(global-surround-mode 1)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Flymake
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'flymake)
 (setq ispell-program-name "hunspell")
 (setq ispell-dictionary "brasileiro")
@@ -32,6 +37,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Misc
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq vc-handled-backends nil)
 
 ; Change yes/no para y/n
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -46,7 +53,7 @@
 (setq linum-format "%3d ")
 
 ; Set size used when formatting paragraphs
-(setq-default fill-column 72)
+(setq-default fill-column 80)
 
 ; Turn syntax-highlight on
 (global-font-lock-mode t)
@@ -62,8 +69,6 @@
 (setq next-line-add-newlines nil)
 
 ; Colors
-(add-to-list 'load-path "~/.emacs.d/solarized-emacs")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'solarized-dark t)
 
 ; Font
@@ -102,8 +107,7 @@
 (setq backup-directory-alist (quote ((".*" . "~/.emacs.d/backup"))))
 (setq delete-old-versions t
       kept-new-versions 6
-      kept-old-versions 2
-      version-control t)
+      kept-old-versions 2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; File type settings
@@ -115,7 +119,6 @@
 (setq-default indent-tabs-mode nil)
 
 ; Paredit for lisp-like languages
-(add-to-list 'load-path "~/.emacs.d/paredit")
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
