@@ -6,6 +6,7 @@ export PATH=/usr/lib/ccache/bin:$HOME/.scripts:$HOME/.cabal/bin:$HOME/.local/bin
 if [[ -d $HOME/.prefix ]]; then
     export PATH=$HOME/.prefix/bin:$PATH
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.prefix/lib:$HOME/.prefix/lib-linux64
+    export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.prefix/lib/pkgconfig
 fi
 
 if [[ -d $HOME/.prefix/gurobi ]]; then
