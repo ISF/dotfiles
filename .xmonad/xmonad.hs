@@ -84,9 +84,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
 
     -- bindings for CycleWS
-    , ((modm,               xK_Tab), nextWS)
-    , ((modm .|. shiftMask, xK_Tab), prevWS)
-    , ((modm,               xK_a  ), toggleWS)
+    , ((modm,               xK_Tab), toggleWS)
     , ((modm,               xK_u  ), nextScreen)
     , ((modm,               xK_n  ), prevScreen)
 
