@@ -13,6 +13,13 @@
                "http://elpa.gnu.org/packages/"))
 (package-initialize)
 ; To refresh the package list, use M-x package-refresh-contents
+; List of installed packages:
+;  - evil
+;  - evil-leader
+;  - evil-paredit
+;  - flymake
+;  - geiser
+;  - paredit
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; USE THE POWERFUL VIM KEYBINDS
