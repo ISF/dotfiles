@@ -11,11 +11,11 @@
 	unstage = reset HEAD
 	adp = add --patch
 	amend = commit --amend
-	logd = log --format=medium
-	logpatch = log --format=medium  --patch
-	logp = log --format=medium --patch
-	loggraph = log --format=oneline --graph
-	logg = log --format=oneline --graph
+	logd = log --format=medium --no-abbrev-commit
+	logpatch = log --patch
+	logp = log --patch
+	loggraph = log --graph
+	logg = log --graph
 
 [merge]
 	tool = vimdiff
@@ -50,6 +50,9 @@
 	added = green
 	changed = blue
 	untracked = red
+
+[log]
+	abbrevCommit = true
 
 [github]
 	user = ISF
