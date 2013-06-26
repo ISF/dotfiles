@@ -4,6 +4,8 @@ arch-dev-public \
 arch-general \
 arch-haskell \
 arch-mirrors \
+archc \
+archc-dev \
 archlinux-br \
 aur-general \
 beginners@haskell.org \
