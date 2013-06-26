@@ -29,17 +29,18 @@
 (setq evil-want-C-i-jump t)
 (setq evil-want-C-u-scroll t)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; Flymake
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (require 'flymake)
 (setq ispell-program-name "hunspell")
 (setq ispell-dictionary "brasileiro")
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Geiser
+(setq geiser-repl-history-filename "~/.emacs.d/geiser-history")
+(setq geiser-repl-query-on-kill-p nil)
+(setq geiser-repl-query-on-exit-p t)
+
 ;;; Misc
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (setq vc-handled-backends nil)
 
