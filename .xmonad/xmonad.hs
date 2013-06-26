@@ -8,8 +8,6 @@ import XMonad.ManageHook
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
-import XMonad.Hooks.Minimize
-import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
 import XMonad.Layout.NoBorders
@@ -17,18 +15,14 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.TwoPane
-import XMonad.Layout.WorkspaceDir
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
 
 import XMonad.Prompt
 import XMonad.Prompt.XMonad
-import XMonad.Prompt.Workspace
-import XMonad.Prompt.Shell
 
 import XMonad.Util.Run
-import XMonad.Util.EZConfig
 import XMonad.Util.Scratchpad
 import XMonad.Util.NamedScratchpad
 
@@ -78,19 +72,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
-    -- Change worskpace directory
-    , ((modm,               xK_x     ), changeDir myXPConfig)
-
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
 
     -- bindings for CycleWS
     , ((modm,               xK_Tab), toggleWS)
     , ((modm,               xK_u  ), nextScreen)
     , ((modm,               xK_n  ), prevScreen)
-
-    -- move current window using a prompt
-    , ((modm .|. shiftMask, xK_m), workspacePrompt myXPConfig (windows . W.shift))
-    , ((modm,               xK_g), workspacePrompt myXPConfig (windows . W.greedyView))
 
     -- toggle struts
     , ((modm,               xK_b), sendMessage ToggleStruts)
@@ -130,9 +117,9 @@ myTiled = smartBorders $ Tall 1 (3/100) (1/2)
 myTwoPane = TwoPane (3/100) (1/2)
 fourPanes = smartBorders $ Tall 2 (3/100) (1/2)
 
-mainLayout = workspaceDir "~" (myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane)
-webLayout = workspaceDir "~" (myFull ||| myTiled ||| myTabbed)
-mediaLayout = workspaceDir "~" (Mirror myTiled ||| myTiled ||| myFull)
+mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane
+webLayout = myFull ||| myTiled ||| myTabbed
+mediaLayout = Mirror myTiled ||| myTiled ||| myFull
 
 myLayout = onWorkspace "web" webLayout $
            onWorkspace "media" mediaLayout $
@@ -157,8 +144,6 @@ manageScratchPad = scratchpadManageHook (W.RationalRect left top width height)
         top = 1 - height
         left = 1 - width
  
-myEventHook = minimizeEventHook
-
 statusBarCmd= "dzen2 -e '' -w 500 -ta l -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*' -bg '#121212' -fg #d3d7cf ^i(/home/ivan/.dzen/arch_10x10.xbm)  "
 myPP h = defaultPP
                  {  ppCurrent = wrap "^fg(#ffffff)^bg(#268bd2) " " ^fg()^bg()"
@@ -169,11 +154,8 @@ myPP h = defaultPP
                   , ppLayout  = dzenColor "#878787" "" .
                                 (\x -> case x of
                                          "Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
-                                         "Minimize Tall"  -> "^i(/home/ivan/.dzen/tall.xbm)"
                                          "Mirror Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
-                                         "Minimize Mirror Tall" -> "^i(/home/ivan/.dzen/mtall.xbm)"
                                          "Full" -> "^i(/home/ivan/.dzen/full.xbm)"
-                                         "Minimize Full" -> "^i(/home/ivan/.dzen/full.xbm)"
                                          _ -> "^i(/home/ivan/.dzen/other.xbm)"
                                 )
                   , ppTitle   = dzenColor "white" "" . wrap "< " " >"
@@ -185,7 +167,6 @@ myPP h = defaultPP
 main = do
     dzen <- spawnPipe statusBarCmd
     xmonad $
-        ewmh $
         withUrgencyHook
         dzenUrgencyHook { args = ["-fn", "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*","-bg", "green", "-fg", "#878787"] }
         $ defaultConfig {
@@ -201,7 +182,6 @@ main = do
             mouseBindings      = myMouseBindings,
             layoutHook         = avoidStruts $ myLayout,
             manageHook         = myManageHook,
-            handleEventHook    = myEventHook,
             startupHook        = setWMName "LG3D",
             logHook            = dynamicLogWithPP $ myPP dzen
         }
