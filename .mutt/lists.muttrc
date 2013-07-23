@@ -29,12 +29,15 @@ gcc-help \
 gcc-patches \
 gdb \
 gdb-patches \
+geiser-users \
 gestao@caco.ic.unicamp.br \
+girara@lists.pwmt.org \
 git \
 gpsl \
 haskell-br \
 haskell-cafe \
 haskell@haskell.org \
+jumaji@lists.pwmt.org \
 kernel@crater.dragonflybsd.org \
 lfs-support \
 libgit2 \
@@ -47,6 +50,7 @@ nslcampinas \
 pacman-dev \
 parallel-haskell \
 people-lsc \
+pkgsrc-users@netbsd.org \
 pyclewn-general \
 systemd-devel \
 tmux-users \
