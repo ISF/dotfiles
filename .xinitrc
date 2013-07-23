@@ -11,6 +11,7 @@ urxvtd -q -f -o
 mpd
 xmodmap .Xmodmap
 xbindkeys
+pulseaudio --start
 if [[ -z $(pgrep -l synergy) && $(hostname) == "hadouken" ]]; then
     (synergyc shungokusatsu &);
 fi
