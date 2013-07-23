@@ -250,6 +250,12 @@ function unset_private_shell() {
     fi
 }
 
+function backward-delete-path () {
+    local WORDCHARS="${WORDCHARS:s#/#}"
+    zle backward-delete-word
+}
+zle -N backward-delete-path
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
@@ -285,6 +291,7 @@ bindkey -M vicmd "\et" transpose-words
 bindkey -M viins "^xn" infer-next-history
 bindkey -M vicmd "^xn" infer-next-history
 bindkey -M viins "^w"  backward-kill-word
+bindkey -M viins "\ep" backward-delete-path
 
 bindkey "^p" vi-up-line-or-history
 bindkey "^n" vi-down-line-or-history
