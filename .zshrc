@@ -233,7 +233,7 @@ bindkey '^' self-insert-git
 bindkey -M isearch '~' self-insert
 bindkey -M isearch '^' self-insert
 
-function set_privacy_shell() {
+function set_private_shell() {
     if [[ "$_private" != "yes" ]]; then
         _private="yes"
         unset HISTFILE
@@ -242,7 +242,7 @@ function set_privacy_shell() {
     fi
 }
 
-function unset_privacy_shell() {
+function unset_private_shell() {
     if [[ "$_private" == "yes" ]]; then
         _private="no"
         HISTFILE=~/.zsh_history
