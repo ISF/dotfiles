@@ -16,9 +16,9 @@ function tmux_init {
             # create new session (and detach)
             tmux new-session -d -s system
             # create windows
-            tmux new-window -n 'mutt' -t system:1 'mutt'
-            tmux new-window -n 'newsbeuter' -t system:2 'newsbeuter'
-            tmux new-window -n 'weechat' -t system:3 'weechat-curses'
+            tmux new-window -n 'mutt' -t system:1 'mutt; bash -i'
+            tmux new-window -n 'newsbeuter' -t system:2 'newsbeuter; bash -i'
+            tmux new-window -n 'weechat' -t system:3 'weechat-curses; bash -i'
             tmux new-window -t system:4
             tmux new-window -t system:5
             tmux new-window -t system:6
