@@ -153,13 +153,6 @@
                                (substatement-open after)
                                (topmost-intro after)))
 
-; Haskell
-(load "/usr/share/emacs/site-lisp/haskell-mode/haskell-site-file.el")
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(setq haskell-font-lock-symbols t)
-(add-hook 'haskell-mode-hook 'turn-on-font-lock)
-
 ; Lua
 (setq auto-mode-alist (cons '("\.lua$" . lua-mode) auto-mode-alist))
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
