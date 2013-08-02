@@ -11,7 +11,7 @@ ignore-readonly = no
 enabled = yes
 filename = ~/.mutt/muttrc.mailboxes
 header = "mailboxes "
-peritem = "+%(foldername)s"
+peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
 footer = "\n"
 
