@@ -13,12 +13,12 @@ template0         /home/ivan/.dzen/
 template1         aaaaaa
 
 TEXT
-${if_match ${exec grep -c eth0 /proc/net/route} > 0}\
-^fg(\#${template1})^i(${template0}wired_connected.xbm)^fg() ${addr eth0}\
+${if_match ${exec grep -c enp3s0 /proc/net/route} > 0}\
+^fg(\#${template1})^i(${template0}wired_connected.xbm)^fg() ${addr enp3s0}\
 ${endif}\
  \
-${if_match ${exec grep -c wlan0 /proc/net/route} > 0}\
-^fg(\#${template1})^i(${template0}wifi.xbm)^fg() ${addr wlan0}\
+${if_match ${exec grep -c wlp2s0 /proc/net/route} > 0}\
+^fg(\#${template1})^i(${template0}wifi.xbm)^fg() ${addr wlp2s0}\
 ${endif}\
  \
 ^fg(\#${template1})^i(${template0}battery_full.xbm)^fg() ${battery_percent}%\
