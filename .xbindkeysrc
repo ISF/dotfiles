@@ -26,6 +26,6 @@
     m:0x10 + c:123
     XF86AudioRaiseVolume
 
-"synclient TouchpadOff=1"
+"/home/ivan/.scripts/touchpad_toggle.sh"
     m:0x10 + c:199
     XF86TouchpadToggle
