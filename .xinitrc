@@ -12,8 +12,5 @@ setxkbmap -layout br,ru
 xmodmap .Xmodmap
 xbindkeys
 pulseaudio --start
-if [[ -z $(pgrep -l synergy) && $(hostname) == "hadouken" ]]; then
-    (synergyc shungokusatsu &);
-fi
 /home/ivan/.scripts/dzenconky.sh
 exec dbus-launch xmonad
