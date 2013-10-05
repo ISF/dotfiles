@@ -20,7 +20,7 @@ footer = "\n"
 localrepository = gmail-local
 remoterepository = gmail-remote
 
-maxage = 60
+maxage = 5
 status_backend = sqlite
 
 [Account gmx]
