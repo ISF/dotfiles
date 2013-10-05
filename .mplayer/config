@@ -1,4 +1,4 @@
-vo=xv
+vo=vaapi
 fs=no
 vm=no
 monitoraspect=16:10
@@ -10,7 +10,7 @@ cache-min = 20.0
 cache-seek-min = 50
 slang = en
 alang = en
-lavdopts=threads=2
+#lavdopts=threads=2
 font=/usr/share/fonts/TTF/DroidSans.ttf
 spuaa=4
 spualign=-1
