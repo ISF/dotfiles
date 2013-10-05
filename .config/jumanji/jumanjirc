@@ -1,7 +1,6 @@
 searchengine duck https://duckduckgo.com/?q=%s
 searchengine ggl http://www.google.com/search?q=%s
 set download-dir ~/downloads
-set download-command "urxvt -e sh -c 'wget --load-cookies ~/.config/jumanji/cookies '%s' -O '%s'';"
 map <C-PageDown> tab_next
 map <C-PageUp> tab_prev
 set show-scrollbars false
