@@ -4,12 +4,13 @@ arch-dev-public \
 arch-general \
 arch-haskell \
 arch-mirrors \
-archc \
-archc-dev \
+archc@googlegroups.com \
+archc-dev@googlegroups.com \
 archlinux-br \
 aur-general \
 beginners@haskell.org \
 caco@ic.unicamp.br \
+cacounicamp@googlegroups.com \
 cc010_unicamp \
 cc011_unicamp \
 cfe-dev \
@@ -41,6 +42,7 @@ jumaji@lists.pwmt.org \
 kernel@crater.dragonflybsd.org \
 lfs-support \
 libgit2 \
+libreplanet-br-sp@libreplanet.org \
 llvm-bugs \
 llvm-dev \
 mc900-mo802-1s13 \
@@ -57,3 +59,4 @@ tmux-users \
 vim_dev \
 vim_use \
 weechat-dev \
+mc910-2s13@googlegroups.com
