@@ -9,6 +9,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
@@ -169,7 +170,7 @@ main = do
     xmonad $
         withUrgencyHook
         dzenUrgencyHook { args = ["-fn", "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*","-bg", "green", "-fg", "#878787"] }
-        $ defaultConfig {
+        $ ewmh defaultConfig {
             terminal           = myTerminal,
             focusFollowsMouse  = False,
             clickJustFocuses   = False,
