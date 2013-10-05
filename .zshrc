@@ -378,6 +378,7 @@ alias rm='nocorrect rm'
 alias sz='source ~/.zshrc'
 alias task='nocorrect task'
 alias tv='terminal_velocity'
+alias clean_clip='echo -n "" | xclip -in -selection primary; echo -n "" | xclip -in -selection secondary'
 
 # suffix
 if [[ -z $SSH_CLIENT  ]]; then
