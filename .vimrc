@@ -4,10 +4,8 @@ set nocompatible  " VIM POWER!!!!
 set encoding=utf8
 set conceallevel=2
 " Add system's vimruntime in case of a locally compiled vim
-if $VIMRUNTIME != "/usr/share/vim/vimfiles"
-    set runtimepath+=/usr/share/vim/vimfiles
-    runtime! archlinux.vim
-endif
+set runtimepath+=/usr/share/vim/vimfiles
+set runtimepath+=/usr/share/vim/vim74
 " Add Go distribution plugins
 if $GOROOT != ""
     set runtimepath+=$GOROOT/misc/vim
