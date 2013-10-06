@@ -83,9 +83,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/vim-haskellConceal"]
-	path = .vim/bundle/vim-haskellConceal
-	url = https://github.com/Twinside/vim-haskellConceal.git
 [submodule ".vim/bundle/vim-lua-ftplugin"]
 	path = .vim/bundle/vim-lua-ftplugin
 	url = https://github.com/xolox/vim-lua-ftplugin.git
@@ -95,3 +92,6 @@
 [submodule ".vim/bundle/paredit"]
 	path = .vim/bundle/paredit
 	url = git://github.com/vim-scripts/paredit.vim.git
+[submodule ".vim/bundle/vim-haskellConceal"]
+	path = .vim/bundle/vim-haskellConceal
+	url = https://github.com/Twinside/vim-haskellConceal.git
