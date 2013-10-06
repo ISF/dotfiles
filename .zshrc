@@ -187,18 +187,25 @@ zle -N take_nth_arg
 
 # taken and modified from http://zshwiki.org/home/examples/zlewidgets
 function zle-line-init zle-keymap-select {
+    # vi mode settings
     VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
     zle reset-prompt
     ARG=1
+    # fix for del key in st
+    echoti smkx
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
 
 # needed for mode changing (viins and vicmd)
 function zle-line-finish {
+    # vi mode settings
     VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
     zle reset-prompt
+    # fix for del key in st
+    echoti rmkx
 }
+zle -N zle-line-finish
 
 zle-isearch-update() {
     zle -M "Line $HISTNO"
@@ -323,19 +330,6 @@ bindkey -M viins '^k' kill-line
 # alt+. to complete previous args
 bindkey -M viins '\e.' insert-last-word
 bindkey -M viins '\e,' take_nth_arg
-
-# ensure that arrow keys work as they should
-bindkey '\e[A' up-line-or-history
-bindkey '\e[B' down-line-or-history
-
-bindkey '\eOA' up-line-or-history
-bindkey '\eOB' down-line-or-history
-
-bindkey '\e[C' forward-char
-bindkey '\e[D' backward-char
-
-bindkey '\eOC' forward-char
-bindkey '\eOD' backward-delete-charward-char
 
 # push current line to a buffer, type a new command, pop the pushed line and
 # resume editing it
