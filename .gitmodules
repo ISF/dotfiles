@@ -22,10 +22,6 @@
 	path = .vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
 	ignore = dirty
-[submodule ".vim/bundle/gprof"]
-	path = .vim/bundle/gprof
-	url = git://github.com/vim-scripts/gprof.vim.git
-	ignore = dirty
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
