@@ -12,6 +12,7 @@ displayweeknumber=yes
 push.default.uri=ssh://isf@sdf.org/~/tasks/
 pull.default.uri=ssh://isf@sdf.org/~/tasks/
 merge.default.uri=ssh://isf@sdf.org/~/tasks/
+merge.autopush=yes
 
 # Files
 data.location=/home/ivan/.task
