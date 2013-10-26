@@ -8,7 +8,7 @@ nitrogen --restore
 unclutter &
 urxvtd -q -f -o
 mpd
-setxkbmap -layout br,ru
+setxkbmap -option grp:alt_space_toggle -layout br,ru
 xmodmap .Xmodmap
 xbindkeys
 pulseaudio --start
