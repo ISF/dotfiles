@@ -72,7 +72,7 @@ export BROWSER=chromium
 if [[ $TERM == "screen-256color" ]]; then
     export TERM="screen-256color"
 else
-    export TERM=xterm-256color
+    export TERM=st-256color
 fi
 
 export PYTHONSTARTUP="$HOME/.pystartup"
