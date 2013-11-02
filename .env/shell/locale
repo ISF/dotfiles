@@ -1,0 +1,16 @@
+[[ -z $LANG ]] && export LANG=pt_BR.UTF-8
+[[ -z $LC_CTYPE ]] && export LC_CTYPE=pt_BR.UTF-8
+[[ -z $LC_NUMERIC ]] && export LC_NUMERIC=pt_BR.UTF-8
+[[ -z $LC_COLLATE ]] && export LC_COLLATE=pt_BR.UTF-8
+[[ -z $LC_TIME ]] && export LC_TIME=pt_BR.UTF-8
+[[ -z $LC_MONETARY ]] && export LC_MONETARY=pt_BR.UTF-8
+[[ -z $LC_MESSAGES ]] && export LC_MESSAGES=pt_BR.UTF-8
+[[ -z $LC_PAPER ]] && export LC_PAPER=pt_BR.UTF-8
+[[ -z $LC_NAME ]] && export LC_NAME=pt_BR.UTF-8
+[[ -z $LC_ADDRESS ]] && export LC_ADDRESS=pt_BR.UTF-8
+[[ -z $LC_TELEPHONE ]] && export LC_TELEPHONE=pt_BR.UTF-8
+[[ -z $LC_MEASUREMENT ]] && export LC_MEASUREMENT=pt_BR.UTF-8
+[[ -z $LC_IDENTIFICATION ]] && export LC_IDENTIFICATION=pt_BR.UTF-8
+[[ -z $LC_ALL ]] && export LC_ALL=pt_BR.UTF-8
+
+# vim: set ft=sh :

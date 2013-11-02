@@ -1,12 +1,20 @@
-# Setting CFLAGS and CXXFLAGS if none of them are already defined
-if [[ -z $CFLAGS ]]; then
-    if [[ $(hostname) == "shungokusatsu" ]]; then
-        export CFLAGS="-march=amdfam10 -O2 -pipe"
-    elif [[ $(hostname) == "hadouken" ]]; then
-        export CFLAGS="-march=core2 -O2 -pipe"
-    fi
-fi
+# Environment settings
 
-if [[ -z $CXXFLAGS ]]; then
-    export CXXFLAGS="$CFLAGS"
-fi
+export SHELL_ENV_PATH=$HOME/.env/shell
+
+# PATH
+
+source $SHELL_ENV_PATH/prefix_path
+source $SHELL_ENV_PATH/local_path
+
+# ssh-agent
+source $SHELL_ENV_PATH/ssh
+
+# gpg-agent
+source $SHELL_ENV_PATH/gpg
+
+# CFLAGS
+source $SHELL_ENV_PATH/cflags
+
+# locale
+$SHELL_ENV_PATH/locale
