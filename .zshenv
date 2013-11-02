@@ -9,13 +9,6 @@ if [[ -d $HOME/.prefix ]]; then
     export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$HOME/.prefix/lib/pkgconfig
 fi
 
-if [[ -d $HOME/.prefix/gurobi ]]; then
-    export GUROBI_HOME=$HOME/.prefix/gurobi
-    export GRB_LICENSE_FILE=$HOME/.prefix/gurobi/gurobi.lic
-    export PATH=$PATH:$HOME/.prefix/gurobi/bin
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/.prefix/gurobi/lib
-fi
-
 #### Daemons
 
 # ssh-agent
