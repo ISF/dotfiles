@@ -1,0 +1,57 @@
+# List of aliases for bourne-like shells
+# This script must be *SOURCED*, not executed
+
+# Here, $0 is used instead of $SHELL because the former will fail when bash is
+# invoked inside a session logged initially with zsh
+if [[ $0 =~ "zsh" ]]; then
+
+    alias cp='nocorrect cp'
+    alias find='noglob find'
+    alias man='nocorrect man'
+    alias mkdir='nocorrect mkdir'
+    alias mv='nocorrect mv'
+    alias rm='nocorrect rm'
+    alias task='nocorrect task'
+
+    if [[ -z $SSH_CLIENT  ]]; then
+        alias -s html=$BROWSER
+        alias -s png='sxiv'
+        alias -s jpg='sxiv'
+        alias -s gif='sxiv'
+        alias -s txt=$EDITOR
+        alias -s pdf='zathura'
+    fi
+
+# Uncomment the following line to add aliases specific to bash
+# elif [[ $0 =~ "bash" ]]; then
+
+fi
+
+# Aliases for ls, checking if is GNU coreutil's ls or a standard POSIX (probably
+# BSD) one
+if ls --color=auto > /dev/null 2>&1; then
+    alias ls="ls --color=auto"
+    alias l="ls -BCF --color=auto"
+    alias la="ls -A --color=auto"
+    alias ll="ls -lh --color=auto"
+    alias lla="ls -Alh --color=auto"
+    alias lt="ls -alih --color=auto"
+else
+    alias l="ls -Bh"
+    alias la="ls -Ah"
+    alias ll="ls -lh"
+    alias lla="ls -Alh"
+    alias lt="ls -alih"
+fi
+
+alias bc='bc -l'
+alias callgrind='valgrind --tool=callgrind'
+alias gdb='gdb -q'
+alias htopcpu='htop --sort-key PERCENT_CPU'
+alias htopmem='htop --sort-key PERCENT_MEM'
+alias oka='echo valeu'
+alias onlyx='nohup startx &; disown; exit'
+alias tv='terminal_velocity'
+alias clean_clip='echo -n "" | xclip -in -selection primary; echo -n "" | xclip -in -selection secondary'
+
+# vim: set ft=sh :

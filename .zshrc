@@ -40,10 +40,6 @@ fpath=($HOME/.zsh/acsim/
        /usr/share/doc/task/scripts/zsh
        $fpath)
 
-# my functions
-
-autoload -Uz tmux_init
-
 # global functions
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
@@ -334,54 +330,9 @@ bindkey -M viins '\e,' take_nth_arg
 # resume editing it
 bindkey -M viins '^j' push-line
 
-################################################################################
-# alias
-################################################################################
+# aliases
 
-# common
-if ls --color=auto > /dev/null 2>&1; then
-    alias ls="ls --color=auto"
-    alias l="ls -BCF --color=auto"
-    alias la="ls -A --color=auto"
-    alias ll="ls -lh --color=auto"
-    alias lla="ls -Alh --color=auto"
-    alias lt="ls -alih --color=auto"
-else
-    alias l="ls -Bh"
-    alias la="ls -Ah"
-    alias ll="ls -lh"
-    alias lla="ls -Alh"
-    alias lt="ls -alih"
-fi
-alias bc='bc -l'
-alias callgrind='valgrind --tool=callgrind'
-alias compc='gcc -Wall -Wextra -pedantic -std=c99 -lm -ggdb3'
-alias cp='nocorrect cp'
-alias ez="$EDITOR ~/.zshrc"
-alias find='noglob find'
-alias gdb='gdb -q'
-alias htopcpu='htop --sort-key PERCENT_CPU'
-alias htopmem='htop --sort-key PERCENT_MEM'
-alias man='nocorrect man'
-alias mkdir='nocorrect mkdir'
-alias mv='nocorrect mv'
-alias oka='echo valeu'
-alias onlyx='nohup startx &; disown; exit'
-alias rm='nocorrect rm'
-alias sz='source ~/.zshrc'
-alias task='nocorrect task'
-alias tv='terminal_velocity'
-alias clean_clip='echo -n "" | xclip -in -selection primary; echo -n "" | xclip -in -selection secondary'
-
-# suffix
-if [[ -z $SSH_CLIENT  ]]; then
-    alias -s html=$BROWSER
-    alias -s png='sxiv'
-    alias -s jpg='sxiv'
-    alias -s gif='sxiv'
-    alias -s txt=$EDITOR
-    alias -s pdf='zathura'
-fi
+source $HOME/.shell_aliases
 
 # fix escape sequences when zsh is loaded with emacs' M-x shell
 if [[ $EMACS == 't' ]]; then

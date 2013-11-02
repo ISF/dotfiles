@@ -38,24 +38,6 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 export JAVA_FONTS='/usr/share/fonts/TTF'
 eval $(dircolors -b) # LS_COLORS
 
-################################################################################
-# Alias
-################################################################################
-if ls --color=auto > /dev/null 2>&1; then
-    alias ls="ls --color=auto"
-    alias l="ls -Bh --color=auto"
-    alias la="ls -Ah --color=auto"
-    alias ll="ls -lh --color=auto"
-    alias lla="ls -Alh --color=auto"
-    alias lt="ls -alih --color=auto"
-else
-    alias l="ls -Bh"
-    alias la="ls -Ah"
-    alias ll="ls -lh"
-    alias lla="ls -Alh"
-    alias lt="ls -alih"
-fi
-alias oka='echo valeu'
-alias beye='TERM=xterm biew'
-alias less='less -iR'
-alias callgrind='valgrind --tool=callgrind'
+# alias
+
+source $HOME/.shell_aliases
