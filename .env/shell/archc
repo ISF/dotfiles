@@ -1,7 +1,9 @@
-for arch in /opt/archc/compilers/*; do
-    if [[ -d  $arch/bin ]]; then
-        PATH=$PATH:$arch/bin
-    fi
-done
+if [[ -d /opt/archc/compilers ]]; then
+    for arch in /opt/archc/compilers/*; do
+        if [[ -d  $arch/bin ]]; then
+            PATH=$PATH:$arch/bin
+        fi
+    done
+fi
 
 # vim: set ft=sh :
