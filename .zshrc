@@ -66,8 +66,10 @@ export EDITOR=$(which vim)
 export BROWSER=chromium
 if [[ $TERM == "screen-256color" ]]; then
     export TERM="screen-256color"
-else
+elif [[ -z $SSH_CLIENT ]]; then
     export TERM=st-256color
+else
+    export TERM=vt100
 fi
 
 export PYTHONSTARTUP="$HOME/.pystartup"
@@ -187,7 +189,9 @@ function zle-line-init zle-keymap-select {
     zle reset-prompt
     ARG=1
     # fix for del key in st
-    echoti smkx
+    if [[ -z $SSH_CLIENT ]]; then
+        echoti smkx
+    fi
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -198,7 +202,9 @@ function zle-line-finish {
     VIMODE="${${KEYMAP/vicmd/n}/(main|viins)/i}"
     zle reset-prompt
     # fix for del key in st
-    echoti rmkx
+    if [[ -z $SSH_CLIENT ]]; then
+        echoti rmkx
+    fi
 }
 zle -N zle-line-finish
 
@@ -330,3 +336,5 @@ source $HOME/.shell_aliases
 if [[ $EMACS == 't' ]]; then
     unsetopt zle
 fi
+
+source ~/.zshenv
