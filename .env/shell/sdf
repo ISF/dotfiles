@@ -1,0 +1,13 @@
+# pkgsrc config
+
+if [[ -d /meta/i/isf/pkg/bin ]]; then
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/meta/i/isf/pkg/lib"
+    export PATH="$PATH:/meta/i/isf/pkg/bin"
+fi
+
+# avoid initialization borkage
+complete () {
+
+}
+
+# vim: set ft=sh :
