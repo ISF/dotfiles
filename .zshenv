@@ -29,10 +29,11 @@ export NNTPSERVER="localhost"
 # virsh default connection (local)
 export VIRSH_DEFAULT_CONNECT_URI="qemu:///system"
 
+# Go programming language
+source $SHELL_ENV_PATH/go
+
 #### SDF
 
 if [[ $(hostname) =~ sdf ]]; then
     source $SHELL_ENV_PATH/sdf
 fi
-
-source ~/.zshrc
