@@ -122,7 +122,6 @@ set statusline+=buffer:%n\  " buffer number
 set statusline+=%{&ff}\ \ %y\ \  " file format (unix, windows) and type
 set statusline+=ascii:%03.3b\ hex:%02.2B\ \  " ascii value of the character under cursor
 set statusline+=%4l,%2.3v\ %LL\  " current line and column and total of lines in file"
-set statusline+=%{SyntasticStatuslineFlag()}
 
 command! -nargs=0 UpdateHelp helptags ~/.vim/doc
 
@@ -419,9 +418,9 @@ nmap <C-X><C-B> :CtrlPBuffer<CR>
 nmap <C-X><C-M> :CtrlPMRU<CR>
 nmap <C-X><C-T> :CtrlPTag<CR>
 nmap <C-X><C-P> :CtrlPQuickfix<CR>
-nmap <C-B>b :BufExplorer<CR>
-nmap <C-B>v :BufExplorerVerticalSplit<CR>
-nmap <C-B>s :BufExplorerHorizontalSplit<CR>
+nmap <C-Y>b :BufExplorer<CR>
+nmap <C-Y>v :BufExplorerVerticalSplit<CR>
+nmap <C-Y>s :BufExplorerHorizontalSplit<CR>
 
 nmap <C-C>s :lcs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-C>g :lcs find g <C-R>=expand("<cword>")<CR><CR>

@@ -29,4 +29,4 @@ export NNTPSERVER="localhost"
 # virsh default connection (local)
 export VIRSH_DEFAULT_CONNECT_URI="qemu:///system"
 
-source ~/.zshrc
+source ~/.zshenv
