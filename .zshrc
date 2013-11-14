@@ -264,6 +264,10 @@ function backward-delete-path () {
 }
 zle -N backward-delete-path
 
+function sprunge() {
+    curl -F 'sprunge=<-' http://sprunge.us
+}
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
