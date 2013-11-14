@@ -69,7 +69,7 @@ if [[ $TERM == "screen-256color" ]]; then
 elif [[ -z $SSH_CLIENT ]]; then
     export TERM=st-256color
 else
-    export TERM=vt100
+    export TERM=xterm-256color
 fi
 
 export PYTHONSTARTUP="$HOME/.pystartup"
