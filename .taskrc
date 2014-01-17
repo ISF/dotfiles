@@ -6,7 +6,7 @@ verbose=yes
 dateformat=Y/M/D
 dateformat.report=Y/M/D
 dateformat.holiday=Y/M/D
-dateformat.annotation=Y/M/D
+dateformat.annotation=Y/m/d H:N
 report.X.dateformat=Y/M/D
 displayweeknumber=yes
 push.default.uri=ssh://isf@sdf.org/~/tasks/
@@ -18,3 +18,4 @@ merge.autopush=yes
 data.location=/home/ivan/.task
 
 include /usr/share/doc/task/rc/dark-blue-256.theme
+journal.time=on
