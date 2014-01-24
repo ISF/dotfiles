@@ -268,6 +268,11 @@ function sprunge() {
     curl -F 'sprunge=<-' http://sprunge.us
 }
 
+function set_pwd_as_gopath() {
+    export GOPATH=$(pwd)
+    export PATH=$PATH:$GOPATH/bin
+}
+
 ################################################################################
 # bindings and zle configuration
 ################################################################################
