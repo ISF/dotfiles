@@ -19,6 +19,7 @@ import XMonad.Layout.TwoPane
 
 import XMonad.Actions.CycleWS
 import XMonad.Actions.DwmPromote
+import XMonad.Actions.SpawnOn
 
 import XMonad.Prompt
 import XMonad.Prompt.XMonad
@@ -49,10 +50,10 @@ myXPConfig = defaultXPConfig { font = "xft:terminus:10"
 
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
-    [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm .|. shiftMask, xK_Return), spawnHere $ XMonad.terminal conf)
     , ((modm,               xK_equal ), scratchpadSpawnActionCustom "urxvt -name scratchpad +sb -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*'")
  
-    , ((modm,                     xK_p), spawn "exe=`dmenu_run` && eval \"exec $exe\"")
+    , ((modm,                     xK_p), shellPromptHere myXPConfig)
     , ((controlMask .|. mod1Mask, xK_l), spawn "exe=`slock` && eval \"exec $exe\"")
 
     , ((modm .|. shiftMask, xK_c     ), kill)
@@ -136,6 +137,7 @@ myManageHook = composeAll
     , resource  =? "kdesktop"       --> doIgnore ]
     <+> manageScratchPad
     <+> manageDocks
+    <+> manageSpawn
 
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect left top width height)
