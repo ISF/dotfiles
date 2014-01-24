@@ -1,2 +1,10 @@
 [web]
 cacerts = /etc/ssl/certs/ca-certificates.crt
+
+[pager]
+pager = LESS='FRX' less
+quiet = True
+
+[extensions]
+progress =
+pager =
