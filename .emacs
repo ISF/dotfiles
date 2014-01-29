@@ -9,6 +9,7 @@
 (add-to-list 'package-archives
              '("gnu" .
                "http://elpa.gnu.org/packages/"))
+
 (package-initialize)
 ; To refresh the package list, use M-x package-refresh-contents
 ; List of installed packages:
@@ -22,6 +23,7 @@
 ;;; USE THE POWERFUL VIM KEYBINDS
 
 (require 'evil)
+(require 'evil-paredit)
 (evil-mode 1)
 (setq evil-auto-indent t)
 (setq evil-shift-width 4)
