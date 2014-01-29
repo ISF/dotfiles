@@ -78,7 +78,7 @@
 (load-theme 'solarized-dark t)
 
 ; Font
-(set-face-attribute 'default nil :family "Terminus" :height 100)
+(set-face-attribute 'default nil :family "Droid Sans Mono" :height 120)
 (set-face-bold-p 'bold nil)
 
 ; Whitespace
