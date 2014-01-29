@@ -137,6 +137,12 @@
 (setq standard-indent 4)
 (setq-default indent-tabs-mode nil)
 
+; Clojure
+(require 'cider)
+(setq nrepl-hide-special-buffers t)
+(setq nrepl-repl-pop-to-buffer-on-connect nil)
+(add-hook 'cider-repl-mode-hook 'paredit-mode)
+
 ; Paredit for lisp-like languages
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
@@ -144,7 +150,9 @@
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'slime-repl-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)
+                                        'cider-mode))
 ;; Stop SLIME's REPL from grabbing DEL,
 ;; which is annoying when backspacing over a '('
 (defun override-slime-repl-bindings-with-paredit ()
