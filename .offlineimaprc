@@ -1,9 +1,9 @@
 [general]
 
 metadata = ~/.offlineimap
-accounts = gmail,gmx,sdf
+accounts = gmail,sdf
 maxsyncaccounts = 1
-ui = TTYUI
+ui = quiet
 ignore-readonly = no
 
 [mbnames]
@@ -73,6 +73,7 @@ type = IMAP
 remotehost = imap.gmx.com
 remoteport = 143
 remoteuser = ivansichfreitas@gmx.com
+maxconnections = 5
 
 [Repository sdf-local]
 
@@ -89,3 +90,4 @@ folderfilter = lambda foldername: foldername in ['INBOX']
 remotehost = mx.sdf.org
 remoteport = 993
 remoteuser = isf
+maxconnections = 5
