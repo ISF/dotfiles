@@ -22,5 +22,5 @@ fi
 nitrogen --restore
 pkill conky # ugly, but works
 dzenconky.sh
-setxkbmap br
+setxkbmap -option grp:alt_space_toggle -layout br,ru
 xmodmap ~/.Xmodmap
