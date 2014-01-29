@@ -19,6 +19,24 @@
 ;  - flymake
 ;  - geiser
 ;  - paredit
+;  - cider
+(setq installed-packages-list
+      '(paredit
+        geiser
+        evil
+        evil-leader
+        evil-paredit
+        flymake
+        cider))
+
+; Given a list of packages, install them if they are not available
+(defun check-installed-packages (packages-list)
+  (when (not (null packages-list))
+    (unless (package-installed-p (car packages-list))
+      (package-install (car packages-list)))
+    (check-installed-packages (cdr packages-list))))
+
+(check-installed-packages installed-packages-list)
 
 ;;; USE THE POWERFUL VIM KEYBINDS
 
