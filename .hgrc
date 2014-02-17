@@ -8,3 +8,4 @@ quiet = True
 [extensions]
 progress =
 pager =
+rebase =
