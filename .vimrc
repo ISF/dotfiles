@@ -156,6 +156,14 @@ function! CoreutilsIndent()
     endif
 endfunction
 
+" Insert current date on unix-like systems
+function! InsertDate()
+    " Insert year/month/day
+    execute ':read ! date +\%Y/\%m/\%d'
+endfunction
+
+command! -nargs=0 InsertDate call InsertDate()
+
 " C syntax options (see :help c.vim)
 " unlet c_syntax_for_h      " use c syntax to .h files instead of c++ syntax
 " unlet c_space_errors      " trailing whitespave or spaces before tabs
@@ -430,6 +438,9 @@ nmap <C-C>e :lcs find e <C-R>=expand("<cword>")<CR><CR>
 nmap <C-C>f :lcs find f <C-R>=expand("<cword>")<CR><CR>
 nmap <C-C>i :lcs find i <C-R>=expand("<cword>")<CR><CR>
 nmap <C-C>d :lcs find d <C-R>=expand("<cword>")<CR><CR>
+
+" Inserting date, delete blank line and start editing at the end of line
+imap <C-I><C-D> <ESC>:InsertDate<CR>kddA
 
 " Calling :Dox (needs DoxygenToolkit)
 nmap <Leader>do :Dox<CR>
