@@ -68,8 +68,8 @@ Xcursor.size: 16
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
-*foreground:            S_base3
+urxvt.background:            S_base03
+urxvt.foreground:            S_base3
 *fading:                40
 *fadeColor:             S_base03
 *cursorColor:           S_base1
