@@ -14,7 +14,9 @@ bind index,pager R group-reply
 
 bind editor <Tab> complete-query
 
-bind compose D postpone-message
+bind compose P postpone-message
+bind compose D detach-file
+bind compose p pgp-menu
 bind index p recall-message
 
 bind pager ] decrypt-copy
