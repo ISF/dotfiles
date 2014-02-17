@@ -51,7 +51,7 @@ myXPConfig = defaultXPConfig { font = "xft:terminus:10"
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
  
     [ ((modm .|. shiftMask, xK_Return), spawnHere $ XMonad.terminal conf)
-    , ((modm,               xK_equal ), scratchpadSpawnActionCustom "urxvt -name scratchpad +sb -fn '-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*'")
+    , ((modm,               xK_equal ), scratchpadSpawnActionCustom "tabbed -n scratchpad st -w")
  
     , ((modm,                     xK_p), shellPromptHere myXPConfig)
     , ((controlMask .|. mod1Mask, xK_l), spawn "exe=`slock` && eval \"exec $exe\"")
