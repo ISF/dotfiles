@@ -122,9 +122,11 @@ fourPanes = smartBorders $ Tall 2 (3/100) (1/2)
 mainLayout = myTiled ||| Mirror myTiled ||| myFull ||| myTabbed ||| myTwoPane
 webLayout = myFull ||| myTiled ||| myTabbed
 mediaLayout = Mirror myTiled ||| myTiled ||| myFull
+docLayout = myTabbed ||| myFull ||| myTiled 
 
 myLayout = onWorkspace "web" webLayout $
            onWorkspace "media" mediaLayout $
+           onWorkspace "misc" docLayout $
            mainLayout
 
 myManageHook = composeAll
