@@ -94,3 +94,6 @@
 [submodule ".vim/bundle/json"]
 	path = .vim/bundle/json
 	url = https://github.com/elzr/vim-json.git
+[submodule ".vim/bundle/vim-ansible-yaml"]
+	path = .vim/bundle/vim-ansible-yaml
+	url = git://github.com/chase/vim-ansible-yaml.git
