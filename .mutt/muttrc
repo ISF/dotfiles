@@ -35,7 +35,7 @@ set pager_index_lines = 10
 set pager_stop
 set print = yes
 set print_command="muttprint"
-set query_command="goobook query '%s'"
+set query_command="goobook query '%s' 2>/dev/null"
 set quit
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 set smart_wrap # Don't wrap mid-word
