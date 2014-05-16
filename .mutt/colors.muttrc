@@ -1,10 +1,10 @@
 # a modified version of solarized theme
 color hdrdefault cyan default
-color header	brightgreen default ^From:
-color header	brightcyan default ^To:
-color header	brightcyan default ^Reply-To:
-color header	brightcyan default ^Cc:
-color header	brightblue default ^Subject:
+#color header	brightgreen default ^From:
+#color header	brightcyan default ^To:
+#color header	brightcyan default ^Reply-To:
+#color header	brightcyan default ^Cc:
+#color header	brightblue default ^Subject:
 
 color normal        color241        default
 color error         color160        default
