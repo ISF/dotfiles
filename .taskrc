@@ -13,6 +13,9 @@ push.default.uri=ssh://isf@sdf.org/~/tasks/
 pull.default.uri=ssh://isf@sdf.org/~/tasks/
 merge.default.uri=ssh://isf@sdf.org/~/tasks/
 merge.autopush=yes
+journal.time=on
+report.next.columns=id,project,priority,due,start.active,tags,urgency,description
+report.next.labels=ID,Proj,Pri,Due,A,Tags,Urg,Description
 
 # Files
 data.location=/home/ivan/.task
