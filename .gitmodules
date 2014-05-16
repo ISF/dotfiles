@@ -97,3 +97,6 @@
 [submodule ".vim/bundle/vim-ansible-yaml"]
 	path = .vim/bundle/vim-ansible-yaml
 	url = git://github.com/chase/vim-ansible-yaml.git
+[submodule ".vim/bundle/linuxsty"]
+	path = .vim/bundle/linuxsty
+	url = https://github.com/vivien/vim-addon-linux-coding-style.git
