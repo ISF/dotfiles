@@ -9,16 +9,17 @@ dateformat.holiday=Y/M/D
 dateformat.annotation=Y/m/d H:N
 report.X.dateformat=Y/M/D
 displayweeknumber=yes
-push.default.uri=ssh://isf@sdf.org/~/tasks/
-pull.default.uri=ssh://isf@sdf.org/~/tasks/
-merge.default.uri=ssh://isf@sdf.org/~/tasks/
-merge.autopush=yes
 journal.time=on
 report.next.columns=id,project,priority,due,start.active,tags,urgency,description
 report.next.labels=ID,Proj,Pri,Due,A,Tags,Urg,Description
+
+taskd.certificate=\/home\/ivan\/.task\/ivan.cert.pem
+taskd.key=\/home\/ivan\/.task\/ivan.key.pem
+taskd.ca=\/home\/ivan\/.task\/ca.cert.pem
+taskd.server=95.85.46.212:10743
+taskd.credentials=main\/ivan\/dcf96359-ad49-478a-bee5-645b27a82b8b
 
 # Files
 data.location=/home/ivan/.task
 
 include /usr/share/doc/task/rc/dark-blue-256.theme
-journal.time=on
