@@ -20,7 +20,7 @@ footer = "\n"
 localrepository = gmail-local
 remoterepository = gmail-remote
 
-maxage = 5
+maxage = 20
 status_backend = sqlite
 
 [Account gmx]
@@ -54,7 +54,7 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 remoteport = 993
 remoteuser = ivansichfreitas@gmail.com
 
-maxconnections = 5
+maxconnections = 1
 holdconnectionopen = no
 keepalive = 60
 subscribedonly = no
@@ -73,7 +73,7 @@ type = IMAP
 remotehost = imap.gmx.com
 remoteport = 143
 remoteuser = ivansichfreitas@gmx.com
-maxconnections = 5
+maxconnections = 1
 
 [Repository sdf-local]
 
@@ -90,4 +90,4 @@ folderfilter = lambda foldername: foldername in ['INBOX']
 remotehost = mx.sdf.org
 remoteport = 993
 remoteuser = isf
-maxconnections = 5
+maxconnections = 1
