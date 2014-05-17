@@ -176,6 +176,7 @@ main = do
         withUrgencyHook
         dzenUrgencyHook { args = ["-fn", "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-*","-bg", "green", "-fg", "#878787"] }
         $ ewmh defaultConfig {
+        -- defaultConfig {
             terminal           = myTerminal,
             focusFollowsMouse  = False,
             clickJustFocuses   = False,
