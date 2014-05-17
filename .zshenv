@@ -32,6 +32,9 @@ export VIRSH_DEFAULT_CONNECT_URI="qemu:///system"
 # Go programming language
 source $SHELL_ENV_PATH/go
 
+# Project manager
+source $SHELL_ENV_PATH/projects
+
 #### SDF
 
 if [[ $(hostname) =~ sdf ]]; then

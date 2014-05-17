@@ -1,0 +1,5 @@
+if [[ -d $HOME/dev/project ]]; then
+    export PATH=$PATH:$HOME/dev/project
+fi
+
+# vim: set ft=sh :
