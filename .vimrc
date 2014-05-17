@@ -389,15 +389,15 @@ if has("autocmd")
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent textwidth=80
     autocmd FileType tex,latex setl spell spelllang=pt,en_us
-    autocmd FileType tex,latex nmap <C-C>m :Latexmk<CR>
-    autocmd FileType tex,latex nmap <C-C>c :LatexmkClean<CR>
-    autocmd FileType tex,latex nmap <C-C>e :LatexErrors<CR>
-    autocmd FileType tex,latex nmap <C-C>v :LatexView<CR>
-    autocmd FileType tex,latex nmap <C-C>t :LatexTOC<CR>
-    autocmd FileType tex,latex nmap <C-C>x <Plug>LatexChangeEnv
-    autocmd FileType tex,latex nmap <C-C>w <Plug>LatexWrapSelection
-    autocmd FileType tex,latex nmap <C-C>we <Plug>LatexEnvWrapSelection
-    autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
+    autocmd FileType tex,latex nnoremap <C-C>m :Latexmk<CR>
+    autocmd FileType tex,latex nnoremap <C-C>c :LatexmkClean<CR>
+    autocmd FileType tex,latex nnoremap <C-C>e :LatexErrors<CR>
+    autocmd FileType tex,latex nnoremap <C-C>v :LatexView<CR>
+    autocmd FileType tex,latex nnoremap <C-C>t :LatexTOC<CR>
+    autocmd FileType tex,latex nnoremap <C-C>x <Plug>LatexChangeEnv
+    autocmd FileType tex,latex nnoremap <C-C>w <Plug>LatexWrapSelection
+    autocmd FileType tex,latex nnoremap <C-C>we <Plug>LatexEnvWrapSelection
+    autocmd FileType tex,latex inoremap ]] <Plug>LatexCloseCurEnv
 
     " Scheme
     autocmd FileType scheme syn keyword schemeFunc string-concatenate read-line last-pair string-contains when unless
@@ -415,35 +415,35 @@ nnoremap k gk
 map Y y$
 
 " Hotkeys for easily editing/sourcing vimrc
-nmap <C-S><C-V> :source $MYVIMRC<CR>
-nmap <C-E><C-V> :edit $MYVIMRC<CR>
+nnoremap <C-S><C-V> :source $MYVIMRC<CR>
+nnoremap <C-E><C-V> :edit $MYVIMRC<CR>
 
-nmap <C-X><C-F> :CtrlP<CR>
-nmap <C-X><C-B> :CtrlPBuffer<CR>
-nmap <C-X><C-M> :CtrlPMRU<CR>
-nmap <C-X><C-T> :CtrlPTag<CR>
-nmap <C-X><C-P> :CtrlPQuickfix<CR>
-nmap <C-Y>b :BufExplorer<CR>
-nmap <C-Y>v :BufExplorerVerticalSplit<CR>
-nmap <C-Y>s :BufExplorerHorizontalSplit<CR>
+nnoremap <C-X><C-F> :CtrlP<CR>
+nnoremap <C-X><C-B> :CtrlPBuffer<CR>
+nnoremap <C-X><C-M> :CtrlPMRU<CR>
+nnoremap <C-X><C-T> :CtrlPTag<CR>
+nnoremap <C-X><C-P> :CtrlPQuickfix<CR>
+nnoremap <C-Y>b :BufExplorer<CR>
+nnoremap <C-Y>v :BufExplorerVerticalSplit<CR>
+nnoremap <C-Y>s :BufExplorerHorizontalSplit<CR>
 
-nmap <C-C>s :lcs find s <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>g :lcs find g <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>c :lcs find c <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>t :lcs find t <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>e :lcs find e <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>f :lcs find f <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>i :lcs find i <C-R>=expand("<cword>")<CR><CR>
-nmap <C-C>d :lcs find d <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>s :lcs find s <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>g :lcs find g <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>c :lcs find c <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>t :lcs find t <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>e :lcs find e <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>f :lcs find f <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>i :lcs find i <C-R>=expand("<cword>")<CR><CR>
+nnoremap <C-C>d :lcs find d <C-R>=expand("<cword>")<CR><CR>
 
 " Inserting date, delete blank line and start editing at the end of line
-imap <C-I><C-D> <ESC>:InsertDate<CR>kddA
+inoremap <C-I><C-D> <ESC>:InsertDate<CR>kddA
 
 " Calling :Dox (needs DoxygenToolkit)
-nmap <Leader>do :Dox<CR>
+nnoremap <Leader>do :Dox<CR>
 
 " Make gf edite the file even if ti doesn't exist
-nmap gf :e <cfile><CR>
+nnoremap gf :e <cfile><CR>
 
 " indent inside brackets
 inoremap {<CR> {<CR>}<Esc><S-O>
@@ -486,18 +486,14 @@ inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
 " EnhancedCommentify
-vmap <Leader><Leader>c <Plug>VisualComment
-nmap <Leader><Leader>c <Plug>Comment
-vmap <Leader><Leader>d <Plug>VisualDeComment
-nmap <Leader><Leader>d <Plug>DeComment
+vnoremap <Leader><Leader>c <Plug>VisualComment
+nnoremap <Leader><Leader>c <Plug>Comment
+vnoremap <Leader><Leader>d <Plug>VisualDeComment
+nnoremap <Leader><Leader>d <Plug>DeComment
 
 "" FN mappings
 " Taglist's hotkeys
 nnoremap <silent> <F2> :TagbarToggle<CR>
-" NERDTree's hotkeys
-nnoremap <F3> :NERDTreeToggle<CR>
-" todo list
-nnoremap <F4> :TaskList<CR>
 " Set hotkey for regenerating tags
 command! -nargs=0 UpdateTags
             \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+iaS --extra=+q -I *'
