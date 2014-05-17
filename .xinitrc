@@ -10,7 +10,8 @@ nitrogen --restore
 unclutter &
 urxvtd -q -f -o
 mpd
-setxkbmap -option grp:alt_space_toggle -layout br,ru
+#setxkbmap -option grp:alt_space_toggle -layout br,ru
+setxkbmap -layout br
 xbindkeys
 pulseaudio  --start
 xmodmap /home/ivan/.Xmodmap
