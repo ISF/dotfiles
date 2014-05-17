@@ -405,6 +405,17 @@ if has("autocmd")
 
     " Graphviz
     autocmd FileType dot set cindent
+
+    " java
+    autocmd FileType java setl completeopt-=preview " disable omnicppcomplete scratch buffer
+    autocmd FileType java setl et nosmartindent noautoindent cindent cinoptions=(0
+    autocmd FileType java nnoremap <C-C><C-I> :JavaImport<CR>
+    autocmd FileType java nnoremap <C-C><C-C> :ProjectCreate<CR>
+    autocmd FileType java nnoremap <C-C><C-P> :PingEclim<CR>
+    autocmd FileType java nnoremap <C-C><C-O> :ProjectOpen 
+    autocmd FileType java nnoremap <C-C><C-T> :ProjectTree<CR>
+    autocmd FileType java nnoremap <C-C><C-B> :ProjectBuild<CR>
+
 endif
 
 " Better behavior when browsing with h,j,k,l
