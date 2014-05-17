@@ -11,7 +11,6 @@ if $GOROOT != ""
     set runtimepath+=$GOROOT/misc/vim
 endif
 
-
 " Pathogen
 if filereadable(expand("$HOME/.vim/bundle/pathogen/autoload/pathogen.vim"))
     runtime bundle/pathogen/autoload/pathogen.vim
@@ -323,8 +322,6 @@ if has("autocmd")
     autocmd BufEnter *.muttrc setl ft=muttrc
 
     autocmd Filetype asm,mips setl autoindent
-
-    autocmd BufEnter *.c,*.h call CoreutilsIndent()
 
     " conkyrc syntax
     autocmd BufEnter *conkyrc* setl ft=conkyrc
