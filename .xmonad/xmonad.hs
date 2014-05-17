@@ -72,6 +72,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
     , ((modm              , xK_comma ), sendMessage (IncMasterN 1))
     , ((modm              , xK_period), sendMessage (IncMasterN (-1)))
+    --, ((modm              , xK_semicolon), sendMessage (IncMasterN (-1)))
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     , ((0, xK_Print), spawn "scrot '%Y-%m-%d_$wx$h.png'")
