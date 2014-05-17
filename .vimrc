@@ -215,7 +215,6 @@ let g:syntastic_echo_current_error  = 0
 let g:syntastic_auto_jump           = 0
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_auto_loc_list       = 2
-let g:syntastic_quiet_warnings      = 0
 let g:syntastic_stl_format          = 'E:%e,W:%w'
 let g:syntastic_mode_map            = { 'mode'              : 'passive',
                                       \ 'active_filetypes'  : [],
