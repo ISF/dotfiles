@@ -1,0 +1,4 @@
+export TASKDDATA=$HOME/.taskddata
+if [[ ! -d $TASKDDATA ]]; then
+    mkdir -p $TASKDDATA
+fi
