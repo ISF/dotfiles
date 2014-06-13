@@ -35,7 +35,12 @@ source $SHELL_ENV_PATH/go
 # Project manager
 source $SHELL_ENV_PATH/projects
 
-#### SDF
+# source env for taskd if taskddata exists
+if [[ -d $HOME/.taskddata ]]; then
+    source $SHELL_ENV_PATH/taskd
+fi
+
+### SDF
 
 if [[ $(hostname) =~ sdf ]]; then
     source $SHELL_ENV_PATH/sdf
