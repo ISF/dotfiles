@@ -58,7 +58,7 @@ else
         PROMPT='%{$fg[blue]%}%1~%{$reset_color%} %# '
         RPROMPT='[${VIMODE}] ${vcs_info_msg_0_}'
     else
-        PROMPT='%{$fg[cyan]%}%n@%m [${VIMODE}] %~ %# %{$reset_color%}'
+        PROMPT='%{$fg[blue]%}%n@%m [${VIMODE}] %~ %# %{$reset_color%}'
     fi
 fi
 
