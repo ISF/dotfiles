@@ -30,6 +30,9 @@ set auto-load python-scripts on
 set auto-load local-gdbinit on
 set auto-load gdb-scripts on
 
+# auto load go helper
+add-auto-load-safe-path /usr/lib/go/src/pkg/runtime/runtime-gdb.py
+
 # follow parents when forking
 set follow-fork-mode parent
 
