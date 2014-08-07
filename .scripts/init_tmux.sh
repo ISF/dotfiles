@@ -19,7 +19,8 @@ if [[ -z $(tty | grep /dev/tty) && $EMACS != 't' ]]; then
         # create windows
         tmux new-window -n 'mutt' -t system:1 'mutt; zsh -i'
         tmux new-window -n 'newsbeuter' -t system:2 'newsbeuter; zsh -i'
-        tmux new-window -n 'weechat' -t system:3 'weechat-curses; zsh -i'
+        #tmux new-window -n 'weechat' -t system:3 'weechat-curses; zsh -i'
+        tmux new-window -t system:3
         tmux new-window -t system:4
         tmux new-window -t system:5
         tmux new-window -t system:6
