@@ -100,3 +100,6 @@
 [submodule ".vim/bundle/linuxsty"]
 	path = .vim/bundle/linuxsty
 	url = https://github.com/vivien/vim-addon-linux-coding-style.git
+[submodule ".vim/bundle/vim-commentary"]
+	path = .vim/bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
