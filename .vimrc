@@ -276,7 +276,10 @@ let g:tex_comment_nospell=1
 let g:tex_stylish=1
 let g:tex_conceal="admgs"
 let g:LatexBox_viewer = 'zathura'
-let g:LatexBox_latexmk_options = "-pvc"
+let g:LatexBox_latexmk_async = 0
+let g:LatexBox_output_type = "pdf"
+let g:LatexBox_viewer = "zathura"
+let g:LatexBox_quickfix = 2
 
 " ManPageView
 let g:manpageview_winopen = "hsplit="
@@ -389,15 +392,10 @@ if has("autocmd")
     " Tex, LaTeX
     autocmd FileType tex,latex setl smartindent textwidth=80
     autocmd FileType tex,latex setl spell spelllang=pt,en_us
-    autocmd FileType tex,latex nnoremap <C-C>m :Latexmk<CR>
-    autocmd FileType tex,latex nnoremap <C-C>c :LatexmkClean<CR>
-    autocmd FileType tex,latex nnoremap <C-C>e :LatexErrors<CR>
-    autocmd FileType tex,latex nnoremap <C-C>v :LatexView<CR>
-    autocmd FileType tex,latex nnoremap <C-C>t :LatexTOC<CR>
-    autocmd FileType tex,latex nnoremap <C-C>x <Plug>LatexChangeEnv
-    autocmd FileType tex,latex nnoremap <C-C>w <Plug>LatexWrapSelection
-    autocmd FileType tex,latex nnoremap <C-C>we <Plug>LatexEnvWrapSelection
-    autocmd FileType tex,latex inoremap ]] <Plug>LatexCloseCurEnv
+    autocmd FileType tex,latex nmap <C-C>x <Plug>LatexChangeEnv
+    autocmd FileType tex,latex nmap <C-C>w <Plug>LatexWrapSelection
+    autocmd FileType tex,latex vmap <C-C>w <Plug>LatexEnvWrapSelection
+    autocmd FileType tex,latex imap ]] <Plug>LatexCloseCurEnv
 
     " Scheme
     autocmd FileType scheme syn keyword schemeFunc string-concatenate read-line last-pair string-contains when unless
