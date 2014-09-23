@@ -415,6 +415,8 @@ if has("autocmd")
     autocmd FileType java nnoremap <C-C><C-T> :ProjectTree<CR>
     autocmd FileType java nnoremap <C-C><C-B> :ProjectBuild<CR>
 
+    " Octave
+    autocmd! BufRead,BufNewFile *.m setl filetype=octave
 endif
 
 " Better behavior when browsing with h,j,k,l
