@@ -111,7 +111,7 @@
 (add-to-list 'load-path "/usr/share/common-lisp/source/slime/")
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/slime")
 (setq inferior-lisp-program "/usr/bin/sbcl")
-(require 'slime-autoloads)
+(require 'slime)
 (slime-setup '(slime-fancy))
 
 (add-hook 'slime-mode-hook
