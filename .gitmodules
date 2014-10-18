@@ -101,3 +101,6 @@
 [submodule ".vim/~/.vim/bundle/bufexplorer"]
 	path = .vim/~/.vim/bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule ".vim/bundle/delimitMate"]
+	path = .vim/bundle/delimitMate
+	url = https://github.com/Raimondi/delimitMate.git
