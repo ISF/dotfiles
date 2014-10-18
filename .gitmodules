@@ -98,3 +98,6 @@
 [submodule ".vim/bundle/YouCompleteMe"]
 	path = .vim/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/~/.vim/bundle/bufexplorer"]
+	path = .vim/~/.vim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
