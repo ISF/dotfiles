@@ -54,4 +54,8 @@ alias onlyx='nohup startx &; disown; exit'
 alias tv='terminal_velocity'
 alias clean_clip='echo -n "" | xclip -in -selection primary; echo -n "" | xclip -in -selection secondary'
 
+# mplayer aliases
+alias playcd='mplayer cdda://'
+alias cam='mplayer tv://'
+
 # vim: set ft=sh :
