@@ -320,6 +320,8 @@ if has("autocmd")
 
     autocmd BufEnter *.rl setl ft=ragel
 
+    autocmd BufEnter *.prolog setl ft=prolog
+
     autocmd BufEnter *.mips setl ft=mips
 
     autocmd BufEnter *.muttrc setl ft=muttrc
