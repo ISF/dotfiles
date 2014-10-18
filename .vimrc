@@ -154,6 +154,8 @@ function! CoreutilsIndent()
     endif
 endfunction
 
+command! -nargs=0 CoreutilsIndent call CoreutilsIndent()
+
 " Insert current date on unix-like systems
 function! InsertDate()
     " Insert year/month/day
@@ -254,6 +256,15 @@ hi link cUserFunctionPointer DefinedByUser
 
 " SQL
 let g:sql_type_default = 'mysql'
+
+" Jedi Vim
+let g:jedi#use_tabs_not_buffers = 0
+
+" YCM
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_min_num_of_chars_for_completion = 99
+let g:ycm_filetype_whitelist = { 'c' : 1, 'cpp' : 1 }
+let g:ycm_global_ycm_extra_conf = '/home/ivan/.vim/ycm.py'
 
 " Global abbreviations
 iab teh the
