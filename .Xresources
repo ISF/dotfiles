@@ -108,3 +108,12 @@ urxvt.foreground:            S_base3
 !! white dark/light
 *color7:                S_base2
 *color15:               S_base3
+
+! see http://statist.wald.intevation.org/utf8.html
+! !!gnuplot*font:
+mbfont:-misc-fixed-medium-r-normal-*-*-*-100-100-*-*-iso10646-*
+! !!gnuplot*font: mbfont:-*-bitstream vera sans-*-*-*-*-*-*-100-100-*-*-*-*
+! !! !! => gnuplot*font: mbfont:-*-times new
+! roman-medium-r-normal-*-*-*-100-100-*-*--*
+! !!gnuplot*font: bitstreamverasans-12
+gnuplot*encoding: utf-8
