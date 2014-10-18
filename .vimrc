@@ -123,8 +123,6 @@ set statusline+=%{&ff}\ \ %y\ \  " file format (unix, windows) and type
 set statusline+=ascii:%03.3b\ hex:%02.2B\ \  " ascii value of the character under cursor
 set statusline+=%4l,%2.3v\ %LL\  " current line and column and total of lines in file"
 
-command! -nargs=0 UpdateHelp helptags ~/.vim/doc
-
 " Defining a command to use :silent with programs that print to the terminal
 " Uses :silent and :redraw! after running the command
 command! -nargs=1 Silent
@@ -175,17 +173,6 @@ let c_minlines        = 100
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabContextCompletionType = "<c-p>"
-
-" EnhancedCommentify
-let g:EnhCommentifyMultiPartBlocks = 'yes'
-let g:EnhCommentifyAlignRight      = 'yes'
-let g:EnhCommentifyPretty          = 'yes'
-let g:EnhCommentifyFirstLineMode   = 'yes'
-let g:EnhCommentifyRespectIndent   = 'yes'
-let g:EnhCommentifyUseBlockIndent  = 'yes'
-let g:EnhCommentifyBindInNormal    = 'no'
-let g:EnhCommentifyBindInVisual    = 'no'
-let g:EnhCommentifyBindInInsert    = 'no'
 
 " Lua
 let g:lua_complete_omni     = 1
@@ -241,34 +228,8 @@ let hs_highlight_boolean    = 1
 " Tagbar configurations
 let g:tagbar_left = 1
 
-" TaskList configuration
-let g:tlTokenList = ['TODO', 'FIXME', 'NOTE', 'HACK', 'XXX', '\todo']
-
 " Haskell
 let g:haddock_browser = "/usr/bin/luakit"
-
-" Defines line limit for yaifa scanning
-let yaifa_max_lines = 1024
-
-" omnicppcomplete options
-" let OmniCpp_GlobalScopeSearch   = 1 " searches in the global scope
-" let OmniCpp_NamespaceSearch     = 2 " search in included files also
-" let OmniCpp_DisplayMode         = 1 " always show all class members
-" let OmniCpp_ShowScopeInAbbr     = 0 " don't show scope in abbreviations
-" let OmniCpp_ShowPrototypeInAbbr = 1 " display prototype in abbreviations
-" let OmniCpp_ShowAccess          = 1 " show access
-" let OmniCpp_MayCompleteDot      = 1 " automatically completes after a '.'
-" let OmniCpp_MayCompleteArrow    = 1 " automatically completes after a '->'
-" let OmniCpp_MayCompleteScope    = 1 " automatically completes afer a '::'
-" let OmniCpp_SelectFirstItem     = 0 " don't select the first match in the popup menu
-
-let g:clang_auto_select = 1
-let g:clang_complete_auto = 1
-let g:clang_hl_errors = 1
-let g:clang_close_preview = 1
-let g:clang_user_options = "2>&1 > /dev/null || exit 0"
-let g:clang_use_library = 1
-let g:clang_complete_macros = 0
 
 " tex support
 let g:tex_flavor="pdflatex"
@@ -281,13 +242,9 @@ let g:LatexBox_output_type = "pdf"
 let g:LatexBox_viewer = "zathura"
 let g:LatexBox_quickfix = 2
 
-" ManPageView
-let g:manpageview_winopen = "hsplit="
-
 " ctrlp config
 let g:ctrlp_working_path_mode = 2
 let g:ctrlp_extensions = ['tag', 'quickfix']
-
 
 " C highlighting
 hi DefinedByUser ctermfg=lightgrey guifg=blue
@@ -300,7 +257,6 @@ let g:sql_type_default = 'mysql'
 
 " Global abbreviations
 iab teh the
-iab archc ArchC
 
 if has("syntax")
   syntax on
@@ -368,8 +324,7 @@ if has("autocmd")
 
     " Python options
     autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
-    autocmd FileType python setl nosmartindent noautoindent keywordprg=pydoc2 textwidth=79
-    autocmd FileType python setl omnifunc=pythoncomplete#Complete                                  " setting the omnifuncion for python
+    autocmd FileType python setl textwidth=79
     autocmd FileType python setl expandtab completeopt-=preview
 
     " Haskell options
@@ -461,12 +416,6 @@ nnoremap gf :e <cfile><CR>
 " indent inside brackets
 inoremap {<CR> {<CR>}<Esc><S-O>
 
-" Open file name under cursor in another buffer
-nmap gb :badd <cfile><CR>
-
-noremap <C-k> <C-y>
-noremap <C-j> <C-e>
-
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
 
@@ -498,18 +447,10 @@ vnoremap <S-Down> <Down>
 inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
-" EnhancedCommentify
-vnoremap <Leader><Leader>c <Plug>VisualComment
-nnoremap <Leader><Leader>c <Plug>Comment
-vnoremap <Leader><Leader>d <Plug>VisualDeComment
-nnoremap <Leader><Leader>d <Plug>DeComment
-
-"" FN mappings
-" Taglist's hotkeys
 nnoremap <silent> <F2> :TagbarToggle<CR>
 " Set hotkey for regenerating tags
 command! -nargs=0 UpdateTags
-            \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+iaS --extra=+q -I *'
+            \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+liaS --extra=+q -I *'
             \ | execute ':UpdateTypesFileOnly'
 noremap <F5> :UpdateTags<CR>
 " opening quickfix window
@@ -518,9 +459,11 @@ nnoremap <F6> :cwindow<CR>
 nnoremap <F7> :GundoToggle<CR>
 " gitv
 nnoremap <F8> :Gitv
-"set pastetoggle=<F11>
 nnoremap <F11> :Silent call SetPastetoggle()<CR>
 nnoremap <F12> :SyntasticCheck<CR>
 
 hi! link NonText Normal
 hi! link SpecialKey Normal
+
+" Avoid loading linux kernel style when not needed
+let g:loaded_linuxsty = 1
