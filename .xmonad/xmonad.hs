@@ -33,7 +33,7 @@ import qualified Data.Map        as M
 
 
 myTerminal      = "st"
-myWorkspaces    = ["main", "code", "web", "chat", "media", "misc" ] ++ map show [7..9]
+myWorkspaces    = [ "work", "code", "web", "chat", "media", "misc" ] ++ map show [7..9]
 myBorderWidth   = 1
 myNormalBorderColor  = "#222222"
 myFocusedBorderColor = "#268bd2"
