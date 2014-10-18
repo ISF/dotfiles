@@ -98,3 +98,6 @@
 [submodule ".vim/bundle/bufexplorer"]
 	path = .vim/bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule ".vim/bundle/jedi"]
+	path = .vim/bundle/jedi
+	url = https://github.com/davidhalter/jedi-vim.git
