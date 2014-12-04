@@ -12,9 +12,6 @@ source $SHELL_ENV_PATH/local_path
 # ssh-agent
 source $SHELL_ENV_PATH/ssh
 
-# gpg-agent
-source $SHELL_ENV_PATH/gpg
-
 #### Variables
 
 # CFLAGS and CXXFLAGS
