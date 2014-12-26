@@ -54,7 +54,7 @@ set showfulltag
 if has("gui_running")
     set guioptions=agit " setting a less cluttered gvim
     set guifont=Terminus\ 10
-    silent! colorscheme solarized
+    silent! colorscheme molokai
 else
     if $SSH_CONNECTION == ''
         let g:solarized_menu = 0
@@ -63,7 +63,7 @@ else
         let g:solarized_bold = 0
         let g:solarized_underline = 0
         let g:solarized_italic = 0
-        silent! colorscheme solarized
+        silent! colorscheme molokai
     else
         silent! colorscheme default
         set bg=dark
@@ -173,7 +173,7 @@ let c_gnu             = 1 " highlight gnu extensions
 let c_minlines        = 100
 
 " Supertab
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabContextCompletionType = "<c-p>"
 
 " Lua
@@ -201,7 +201,7 @@ let python_print_as_function = 1
 " syntastic
 let g:syntastic_enable_signs        = 1
 let g:syntastic_check_on_open       = 0
-let g:syntastic_echo_current_error  = 0
+let g:syntastic_echo_current_error  = 1
 let g:syntastic_auto_jump           = 0
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_auto_loc_list       = 2
@@ -258,12 +258,15 @@ hi link cUserFunctionPointer DefinedByUser
 let g:sql_type_default = 'mysql'
 
 " Jedi Vim
-let g:jedi#use_tabs_not_buffers = 0
+" Jedi is used for code navigation/refactoring, and YCM is used for the
+" actual completion
+let g:jedi#completions_enabled = 0
 
 " YCM
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_min_num_of_chars_for_completion = 99
-let g:ycm_filetype_whitelist = { 'c' : 1, 'cpp' : 1 }
+"let g:ycm_filetype_whitelist = { 'c' : 1, 'cpp' : 1 }
+let g:ycm_filetype_whitelist = { 'c' : 0, 'cpp' : 1 , 'python' : 1}
 let g:ycm_global_ycm_extra_conf = '/home/ivan/.vim/ycm.py'
 
 " Global abbreviations
@@ -333,10 +336,12 @@ if has("autocmd")
         autocmd FileType lisp,scheme call PareditInitBuffer()
     endif
 
+    autocmd FileType go setl noexpandtab sw=8 ts=8 sts=8
+
     " Python options
     autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
     autocmd FileType python setl textwidth=79
-    autocmd FileType python setl expandtab completeopt-=preview
+    "autocmd FileType python setl expandtab completeopt-=preview
 
     " Haskell options
     autocmd FileType haskell setl expandtab nocindent nosmartindent
@@ -354,7 +359,7 @@ if has("autocmd")
     " C and CPP options
     autocmd FileType c,cpp let g:compiler_gcc_ignore_unmatched_lines = 1
     autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
-    autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
+    "autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
 
     " Tex, LaTeX
@@ -462,7 +467,6 @@ nnoremap <silent> <F2> :TagbarToggle<CR>
 " Set hotkey for regenerating tags
 command! -nargs=0 UpdateTags
             \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+liaS --extra=+q -I *'
-            \ | execute ':UpdateTypesFileOnly'
 noremap <F5> :UpdateTags<CR>
 " opening quickfix window
 nnoremap <F6> :cwindow<CR>
