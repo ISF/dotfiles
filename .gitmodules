@@ -38,9 +38,6 @@
 	path = .emacs.d/solarized-emacs
 	url = git://github.com/bbatsov/solarized-emacs.git
 	ignore = dirty
-[submodule ".vim/bundle/csv"]
-	path = .vim/bundle/csv
-	url = git://github.com/chrisbra/csv.vim.git
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
