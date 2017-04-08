@@ -301,6 +301,10 @@ if has("autocmd")
 
     autocmd Filetype asm,mips setl autoindent
 
+    autocmd Filetype ansible setl keywordprg=ansible-doc
+
+    autocmd Filetype arduino setl smartindent
+
     " conkyrc syntax
     autocmd BufEnter *conkyrc* setl ft=conkyrc
 
