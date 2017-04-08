@@ -27,7 +27,11 @@ export NNTPSERVER="localhost"
 export VIRSH_DEFAULT_CONNECT_URI="qemu:///system"
 
 # Go programming language
+# TODO: review if it's still needed
 source $SHELL_ENV_PATH/go
+
+# Custom home installation of packer
+source $SHELL_ENV_PATH/packer
 
 # Project manager
 source $SHELL_ENV_PATH/projects
