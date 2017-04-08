@@ -214,6 +214,9 @@ let g:syntastic_mode_map            = { 'mode'              : 'passive',
 let g:vhdl_indent_genportmap = 0
 let g:vhdl_indent_rhsassign = 1
 
+let g:delimitMate_expand_cr = 2
+let g:delimitMate_expand_space = 1
+
 " TagHighlight
 let g:TagHighlightSettings = { 'IncludeLocals': 'False' }
 hi! link CTagsGlobalVariable None
