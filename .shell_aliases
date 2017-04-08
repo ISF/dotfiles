@@ -44,7 +44,7 @@ else
     alias lt="ls -alih"
 fi
 
-alias bc='bc -l'
+alias bc='bc -l -q'
 alias callgrind='valgrind --tool=callgrind'
 alias gdb='gdb -q'
 alias htopcpu='htop --sort-key PERCENT_CPU'
