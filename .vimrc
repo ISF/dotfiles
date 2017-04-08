@@ -234,7 +234,7 @@ let hs_highlight_boolean    = 1
 let g:tagbar_left = 1
 
 " Haskell
-let g:haddock_browser = "/usr/bin/luakit"
+let g:haddock_browser = "/usr/bin/chromium"
 
 " tex support
 let g:tex_flavor="pdflatex"
