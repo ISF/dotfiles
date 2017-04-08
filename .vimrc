@@ -414,9 +414,6 @@ nnoremap <C-X><C-B> :CtrlPBuffer<CR>
 nnoremap <C-X><C-M> :CtrlPMRU<CR>
 nnoremap <C-X><C-T> :CtrlPTag<CR>
 nnoremap <C-X><C-P> :CtrlPQuickfix<CR>
-nnoremap <C-Y>b :BufExplorer<CR>
-nnoremap <C-Y>v :BufExplorerVerticalSplit<CR>
-nnoremap <C-Y>s :BufExplorerHorizontalSplit<CR>
 
 nnoremap <C-C>s :lcs find s <C-R>=expand("<cword>")<CR><CR>
 nnoremap <C-C>g :lcs find g <C-R>=expand("<cword>")<CR><CR>
@@ -435,9 +432,6 @@ nnoremap <Leader>do :Dox<CR>
 
 " Make gf edite the file even if ti doesn't exist
 nnoremap gf :e <cfile><CR>
-
-" indent inside brackets
-inoremap {<CR> {<CR>}<Esc><S-O>
 
 " Clearing highlight
 nnoremap <Leader><Space> :nohl<CR>
