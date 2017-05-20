@@ -1,7 +1,7 @@
 curses=on
 editor=vim
-xterm.title=no
-verbose=yes
+verbose=no
+nag=""
 
 dateformat=Y/M/D
 dateformat.report=Y/M/D
@@ -12,12 +12,6 @@ displayweeknumber=yes
 journal.time=on
 report.next.columns=id,project,priority,due,start.active,tags,urgency,description
 report.next.labels=ID,Proj,Pri,Due,A,Tags,Urg,Description
-
-taskd.certificate=\/home\/ivan\/.task\/ivan.cert.pem
-taskd.key=\/home\/ivan\/.task\/ivan.key.pem
-taskd.ca=\/home\/ivan\/.task\/ca.cert.pem
-taskd.server=95.85.46.212:10743
-taskd.credentials=main\/ivan\/dcf96359-ad49-478a-bee5-645b27a82b8b
 
 # Files
 data.location=/home/ivan/.task
