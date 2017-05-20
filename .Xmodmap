@@ -1,8 +1,0 @@
-clear Lock
-clear Control
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Control_L
-keysym Control_L = Escape
-add Lock = Caps_Lock
-add Control = Control_L
-add Control = Escape
