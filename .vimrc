@@ -266,11 +266,7 @@ let g:sql_type_default = 'mysql'
 let g:jedi#completions_enabled = 0
 
 " YCM
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_min_num_of_chars_for_completion = 99
-"let g:ycm_filetype_whitelist = { 'c' : 1, 'cpp' : 1 }
-let g:ycm_filetype_whitelist = { 'c' : 0, 'cpp' : 1 , 'python' : 1}
-let g:ycm_global_ycm_extra_conf = '/home/ivan/.vim/ycm.py'
+let g:ycm_add_preview_to_completeopt = 0
 
 " Global abbreviations
 iab teh the
@@ -348,7 +344,7 @@ if has("autocmd")
     " Python options
     autocmd FileType python setl cinwords=if,elif,else,for,while,with,try,except,finally,def,class " better indentation
     autocmd FileType python setl textwidth=79
-    "autocmd FileType python setl expandtab completeopt-=preview
+    autocmd FileType python setl expandtab completeopt-=preview
 
     " Haskell options
     autocmd FileType haskell setl expandtab nocindent nosmartindent
@@ -366,7 +362,7 @@ if has("autocmd")
     " C and CPP options
     autocmd FileType c,cpp let g:compiler_gcc_ignore_unmatched_lines = 1
     autocmd FileType c,cpp setl et nosmartindent noautoindent cindent cinoptions=(0
-    "autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
+    autocmd FileType c,cpp setl completeopt-=preview               " disable omnicppcomplete scratch buffer
     autocmd FileType c,cpp syn keyword cType off64_t
 
     " Tex, LaTeX
