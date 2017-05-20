@@ -1,5 +1,0 @@
-;; Use readline features in the repl
-(use-modules (ice-9 readline))
-(activate-readline)
-
-; vim: ft=scheme
