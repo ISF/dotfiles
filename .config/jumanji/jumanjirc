@@ -1,7 +1,0 @@
-searchengine duck https://duckduckgo.com/?q=%s
-searchengine ggl http://www.google.com/search?q=%s
-set download-dir ~/downloads
-map <C-PageDown> tab_next
-map <C-PageUp> tab_prev
-set show-scrollbars false
-set focus-new-tabs false
