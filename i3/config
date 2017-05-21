@@ -123,7 +123,7 @@ bar {
     output DP1
     position top
     tray_output none
-    font pango:Anonymous Pro 10
+    font pango:Anonymous Pro 14
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3status.conf
 }
