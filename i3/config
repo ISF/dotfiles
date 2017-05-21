@@ -120,19 +120,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    output eDP1
+    output DP1
     position top
     tray_output none
     font pango:Anonymous Pro 10
-    strip_workspace_numbers yes
-    status_command i3status --config ~/.i3status.conf
-}
-
-bar {
-    output HDMI1
-    position top
-    tray_output HDMI1
-    font pango:Anonymous Pro 12
     strip_workspace_numbers yes
     status_command i3status --config ~/.i3status.conf
 }
