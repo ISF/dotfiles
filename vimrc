@@ -290,12 +290,6 @@ vnoremap <S-Down> <Down>
 inoremap <S-Down> <Down>
 nnoremap <S-Down> <Down>
 
-nnoremap <silent> <F2> :TagbarToggle<CR>
-" Set hotkey for regenerating tags
-command! -nargs=0 UpdateTags
-            \ | execute ':Silent !ctags -R --c-kinds=+pm --c++-kinds=+cpmn --fields=+liaS --extra=+q -I *'
-noremap <F5> :UpdateTags<CR>
-" opening quickfix window
 nnoremap <F6> :cwindow<CR>
 nnoremap <F11> :Silent call SetPastetoggle()<CR>
 
